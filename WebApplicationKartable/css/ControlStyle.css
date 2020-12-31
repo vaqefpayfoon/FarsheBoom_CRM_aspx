@@ -1,0 +1,77 @@
+﻿@font-face {    
+    src: url(farsiwebfont.ttf);
+    font-family: FarsiWebFont;
+}
+button {
+   border-top: 1px solid #003366;
+   background: #0066CC;
+   background: -webkit-gradient(linear, left top, left bottom, from(#0066CC), to(#66FFFF));
+   background: -webkit-linear-gradient(top, #0066CC, #66FFFF);
+   background: -moz-linear-gradient(top, #0066CC, #66FFFF);
+   background: -ms-linear-gradient(top, #0066CC, #66FFFF);
+   background: -o-linear-gradient(top, #0066CC, #66FFFF);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #003366;
+    font-family:FarsiWebFont;
+	font-size: 17px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+   text-decoration: none;
+   vertical-align: middle;
+
+   }
+button:hover {
+   border-top-color: #003366;
+   background: #66FFFF;
+  color: #003366;
+   }
+button:active {
+   border-top-color: #003366;
+   background: #0066CC;
+   }
+   
+   
+   
+   .button-2 {
+   border-top: 1px solid #96d1f8;
+   background: #0066CC;
+   background: -webkit-gradient(linear, left top, left bottom, from(#0066CC), to(#66FFFF));
+   background: -webkit-linear-gradient(top, #0066CC, #66FFFF);
+   background: -moz-linear-gradient(top, #0066CC, #66FFFF);
+   background: -ms-linear-gradient(top, #0066CC, #66FFFF);
+   background: -o-linear-gradient(top, #0066CC, #66FFFF);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+color: black;
+    font-family:FarsiWebFont;
+	font-size: 17px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+   text-decoration: none;
+   vertical-align: middle;
+}
+.button-2:hover {
+   border-top-color: #003366;
+   background: #66FFFF;
+  color: #003366;
+   }
+.button-2:active {
+   border-top-color: #003366;
+   background: #0066CC;
+   }
+  

@@ -1,0 +1,15 @@
+﻿brand = گونه = origin
+city = plan = design
+
+            if(!string.IsNullOrWhiteSpace(grdViewOutstanding.SelectedRow.Cells[9].Text) && grdViewOutstanding.SelectedRow.Cells[9].Text != "&nbsp;")
+                ViewState["buy_price"] = grdViewOutstanding.SelectedRow.Cells[9].Text.Trim();
+            if (!string.IsNullOrEmpty(grdViewOutstanding.SelectedRow.Cells[10].Text) && grdViewOutstanding.SelectedRow.Cells[10].Text != "&nbsp;")
+                ViewState["sale_price"] = grdViewOutstanding.SelectedRow.Cells[10].Text.Trim();
+            if (!string.IsNullOrEmpty(grdViewOutstanding.SelectedRow.Cells[11].Text) && grdViewOutstanding.SelectedRow.Cells[11].Text != "&nbsp;")
+                ViewState["u_buy"] = grdViewOutstanding.SelectedRow.Cells[11].Text.Trim();
+            if (!string.IsNullOrEmpty(grdViewOutstanding.SelectedRow.Cells[12].Text) && grdViewOutstanding.SelectedRow.Cells[12].Text != "&nbsp;")
+                ViewState["u_sale"] = grdViewOutstanding.SelectedRow.Cells[12].Text.Trim();
+            if (!string.IsNullOrEmpty(grdViewOutstanding.SelectedRow.Cells[13].Text) && grdViewOutstanding.SelectedRow.Cells[13].Text != "&nbsp;")
+                ViewState["discount_amount"] = grdViewOutstanding.SelectedRow.Cells[13].Text.Trim();
+            if (!string.IsNullOrEmpty(grdViewOutstanding.SelectedRow.Cells[14].Text) && grdViewOutstanding.SelectedRow.Cells[14].Text != "&nbsp;")
+                ViewState["final_sale"] = grdViewOutstanding.SelectedRow.Cells[14].Text.Trim();
