@@ -59,7 +59,6 @@ namespace WebApplicationKartable
                     row["code_igd"] = Woak.code_igd;
                     row["brand_name"] = Woak.brand_name;
                     row["size_title"] = Woak.size_title;
-                    row["carpet_title"] = Woak.carpet_title;
                     row["porz_title"] = Woak.porz_title;
                     row["chele_title"] = Woak.chele_title;
                     row["lenght"] = Woak.lenght;

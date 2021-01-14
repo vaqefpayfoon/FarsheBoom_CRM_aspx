@@ -50,7 +50,7 @@ namespace WebApplicationKartable
                 case "AllProviderGoods":
                     {
                         lbl_header.Text = "لیست تمام فرش ها";
-                        DataTable dt = obj.Get_Data("SELECT srl, code_igd,provider_name, brand_name, size_title, carpet_title, plan_title, porz_title, chele_title, color_name, build_state FROM AllProviderGoods");
+                        DataTable dt = obj.Get_Data("SELECT srl, code_igd,provider_name, brand_name, size_title, provider_code, plan_title, porz_title, chele_title, color_name, build_state FROM AllProviderGoods");
                         literal_report.Text = rpt.AllProviderGoods(dt);
                     }
                     break;

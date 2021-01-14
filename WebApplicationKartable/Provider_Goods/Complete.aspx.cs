@@ -178,10 +178,10 @@ namespace WebApplicationKartable
                         allGoodsClass = allGoodsClass.Where(x => x.size_title.Contains(txtBox.Text.Trim().ToUpper())).ToList();
                         ViewState["Osize_title"] = txtBox.Text.Trim().ToUpper();
                     }
-                    else if (txtBox.ID == "txtcarpet_title")
+                    else if (txtBox.ID == "txtu_buy")
                     {
-                        allGoodsClass = allGoodsClass.Where(x => x.carpet_title.Contains(txtBox.Text.Trim().ToUpper())).ToList();
-                        ViewState["Ocarpet_title"] = txtBox.Text.Trim().ToUpper();
+                        allGoodsClass = allGoodsClass.Where(x => x.u_buy.Contains(txtBox.Text.Trim().ToUpper())).ToList();
+                        ViewState["Ou_buy"] = txtBox.Text.Trim().ToUpper();
                     }
                     else if (txtBox.ID == "txtcolor_name")
                     {

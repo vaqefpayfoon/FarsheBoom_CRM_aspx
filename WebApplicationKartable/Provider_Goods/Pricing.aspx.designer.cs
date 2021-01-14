@@ -474,6 +474,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_discount;
 
         /// <summary>
+        /// txt_price_home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_price_home;
+
+        /// <summary>
         /// btn_save control.
         /// </summary>
         /// <remarks>
@@ -546,6 +555,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.Label lbl_MarginRatio;
 
         /// <summary>
+        /// lblCompaire control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompaire;
+
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -607,5 +625,14 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
+
+        /// <summary>
+        /// MaskedEditExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender4;
     }
 }

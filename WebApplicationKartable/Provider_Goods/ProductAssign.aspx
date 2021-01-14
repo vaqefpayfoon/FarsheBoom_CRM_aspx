@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ProductAssign.aspx.cs" Inherits="WebApplicationKartable.ProductAssign" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>  
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
         <div style="text-align:center"><h2>ورود فرش</h2></div>
       <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" ForeColor="Red"
             ValidationGroup="RegisterUserValidationGroup"/>          
@@ -78,7 +79,7 @@
         <td><asp:DropDownList ID="lst_porz" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_porz" DataTextField="porz_title" DataValueField="srl"></asp:DropDownList></td>
         </tr>
         <tr>
-        <td> وضعیت :</td>
+        <td> موقعیت :</td>
         <td><asp:DropDownList ID="lst_status" runat="server" CssClass="dropdown1"  Width="150px">
                 <asp:ListItem  Value="0" Text="موجود نزد تامین کننده"></asp:ListItem>
                 <asp:ListItem  Value="1" Text="فروش توسط تامین کننده"></asp:ListItem>
@@ -91,10 +92,34 @@
         <td><asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
         </tr>
         <tr>
+            <td>دورنگی :</td>
+            <td><asp:CheckBox ID="chk_dorangi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>رفو :</td>
+            <td><asp:CheckBox ID="chk_rofo" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
+        <tr>
+            <td>کجی :</td>
+            <td><asp:CheckBox ID="chk_kaji" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>بد بافت :</td>
+            <td><asp:CheckBox ID="chk_badbaf" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
+        <tr>
+            <td>پا خوردگی :</td>
+            <td><asp:CheckBox ID="chk_pakhordegi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>پارگی :</td>
+            <td><asp:CheckBox ID="chk_tear" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
+        <tr>
         <td>رج شمار :</td>
         <td><asp:DropDownList ID="lst_raj" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_raj" DataTextField="raj_title" DataValueField="srl"></asp:DropDownList></td>
             <td>بارکد :</td>
             <td><asp:TextBox ID="txt_barcode" runat="server" CssClass="textbox"  Width="150px"></asp:TextBox></td>
+        </tr>
+                <tr>
+        <td>قیمت خانگی :</td>
+        <td><asp:TextBox ID="txt_price_home" runat="server" CssClass="textbox"  Width="150px" MaxLength="30"></asp:TextBox></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>تصویر بارکد :</td>
@@ -137,4 +162,5 @@
         </Columns>
          <AlternatingRowStyle BackColor="Azure" /> <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" />     
     </asp:GridView>
+    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_price_home" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
 </asp:Content>

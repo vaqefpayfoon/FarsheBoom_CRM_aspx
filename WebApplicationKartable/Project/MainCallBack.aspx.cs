@@ -82,7 +82,6 @@ namespace WebApplicationKartable
                     pc.code_igd = Woak["code_igd"].ToString();
                     pc.brand_name = Woak["brand_name"].ToString();
                     pc.size_title = Woak["size_title"].ToString();
-                    pc.carpet_title = Woak["carpet_title"].ToString();
                     pc.color_name = Woak["color_name"].ToString();
                     pc.porz_title = Woak["porz_title"].ToString();
                     pc.chele_title = Woak["chele_title"].ToString();

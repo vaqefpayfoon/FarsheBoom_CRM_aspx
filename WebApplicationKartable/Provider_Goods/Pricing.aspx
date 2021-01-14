@@ -94,7 +94,7 @@
         <td>نوع :</td>
         <td><asp:DropDownList ID="lst_carpet" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_carpet" DataTextField="carpet_title" DataValueField="srl"></asp:DropDownList></td>
         <td>طول :</td>
-        <td><asp:TextBox ID="txt_lenght" runat="server" CssClass="textbox"  Width="150px"   MaxLength="30"></asp:TextBox></td>
+        <td><asp:TextBox ID="txt_lenght" runat="server" CssClass="textbox"  Width="150px" MaxLength="30"></asp:TextBox></td>
         </tr>
         <tr>
         <td>گونه :</td>
@@ -125,7 +125,7 @@
         <td><asp:DropDownList ID="lst_porz" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_porz" DataTextField="porz_title" DataValueField="srl"></asp:DropDownList></td>
         </tr>
         <tr>
-        <td> وضعیت :</td>
+        <td> موقعیت :</td>
         <td><asp:DropDownList ID="lst_status" runat="server" CssClass="dropdown1"  Width="150px">
                 <asp:ListItem  Value="0" Text="موجود نزد تامین کننده"></asp:ListItem>
                 <asp:ListItem  Value="1" Text="فروش توسط تامین کننده"></asp:ListItem>
@@ -182,7 +182,11 @@
                 </tr>
                  <tr>
                     <td>تخفیف واحد :</td>
-                    <td><asp:TextBox ID="txt_discount" runat="server" CssClass="textbox" Width="150px"   MaxLength="3"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txt_discount" runat="server" CssClass="textbox" Width="150px"   MaxLength="3"></asp:TextBox></td>                    
+                </tr>
+                <tr>
+                    <td>قیمت خانگی :</td>
+                    <td><asp:TextBox ID="txt_price_home" runat="server" CssClass="textbox"  Width="150px" MaxLength="30"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:Button ID="btn_save" runat="server" CssClass="btn-facebook" Text="ذخیره قیمت" OnClick="ImageButton2_save_Click" ValidationGroup="RegisterUserValidationGroup" /></td>
@@ -217,6 +221,9 @@
                     <tr>
                         <td><asp:Label ID="lbl_MarginRatio" runat="server" CssClass="text-blue"></asp:Label></td>
                     </tr>
+                    <tr>
+                        <td><asp:Label ID="lblCompaire" runat="server" CssClass="text-blue"></asp:Label></td>
+                    </tr>
                 </table>
             </td>
         </tr>
@@ -240,7 +247,7 @@
                         <%--<asp:Button ID="lbRemoveFilterOutstanding" runat="server" CssClass="btn-facebook" Text="حذف فیلتر" OnClick="lbRemoveFilterOutstanding_Click"/>--%>
                         <asp:GridView ID="grdViewOutstanding" runat="server" AutoGenerateColumns="False"
                             BackColor="#39cccc" BorderColor="#999999" BorderStyle="Solid" CellPadding="3" ForeColor="Black"
-                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق"
+                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق" AllowPaging ="true"  ShowFooter = "true"
                             CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
                             OnRowDataBound="grdViewOutstanding_RowDataBound" OnSorting="grdViewOutstanding_Sorting" OnSelectedIndexChanged="grdViewOutstanding_SelectedIndexChanged">
                             <FooterStyle BackColor="#CCCCCC" />
@@ -447,6 +454,7 @@
  <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_sell" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
  <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="txt_buy" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
  <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" TargetControlID="txt_discount" Mask="99" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" TargetControlID="txt_price_home" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
     <script type="text/javascript">
         function OnClientPopulating(sender, e) {
             sender._element.className = "loading";

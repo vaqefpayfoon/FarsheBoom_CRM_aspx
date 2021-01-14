@@ -137,7 +137,7 @@ namespace Cartable
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
-            sb.Append("<thead><tr><th>ردیف</th><th>کد فرش</th><th>تامین کننده</th><th>گونه</th><th>اندازه</th><th>نوع</th><th>پرز</th><th>چله</th><th>رنگ متن</th><th>نقشه فرش</th><th>وضعیت</th></tr></thead><tfoot><tr><th>ردیف</th><th>کد فرش</th><th>تامین کننده</th><th>گونه</th><th>اندازه</th><th>نوع</th><th>پرز</th><th>چله</th><th>رنگ متن</th><th>نقشه فرش</th><th>وضعیت</th></tr></tfoot>");
+            sb.Append("<thead><tr><th>ردیف</th><th>کد فرش</th><th>تامین کننده</th><th>گونه</th><th>اندازه</th><th>کد تامین کننده</th><th>پرز</th><th>چله</th><th>رنگ متن</th><th>نقشه فرش</th><th>وضعیت</th></tr></thead><tfoot><tr><th>ردیف</th><th>کد فرش</th><th>تامین کننده</th><th>گونه</th><th>اندازه</th><th>کد تامین کننده</th><th>پرز</th><th>چله</th><th>رنگ متن</th><th>نقشه فرش</th><th>وضعیت</th></tr></tfoot>");
             sb.Append("<tbody>");
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
@@ -152,7 +152,7 @@ namespace Cartable
                 sb.Append("</td><td>");
                 sb.Append(dt.Rows[i]["size_title"]);
                 sb.Append("</td><td>");
-                sb.Append(dt.Rows[i]["carpet_title"]);
+                sb.Append(dt.Rows[i]["provider_code"]);
                 sb.Append("</td><td>");
                 sb.Append(dt.Rows[i]["porz_title"]);
                 sb.Append("</td><td>");

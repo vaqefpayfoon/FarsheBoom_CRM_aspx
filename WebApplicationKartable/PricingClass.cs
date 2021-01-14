@@ -27,6 +27,7 @@ namespace WebApplicationKartable
         public string provider_code { get; set; }
         public long margin_profit { get; set; }
         public long percent_profit { get; set; }
+        public string price_home { get; set; }
         public string title_igd { get; set; }
         public List<PricingClass> GetPricingClass(int state , string provider)
         {
@@ -35,19 +36,19 @@ namespace WebApplicationKartable
             Common cur = new Common();
             if (state == 1)
             {
-                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit FROM dbo.Sale_Pricing Where buy_price is null or sale_price is null order by buy_price,sale_price");
+                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where buy_price is null or sale_price is null order by buy_price,sale_price");
             }
             else if (state == 2)
             {
-                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit FROM dbo.Sale_Pricing order by buy_price,sale_price");
+                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing order by buy_price,sale_price");
             }
             else if (state == 3)
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit FROM dbo.Sale_Pricing Where (buy_price is null or sale_price is null) AND (provider_srl={0}) order by buy_price,sale_price", provider));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where (buy_price is null or sale_price is null) AND (provider_srl={0}) order by buy_price,sale_price", provider));
             }
             else if (state == 4)
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit FROM dbo.Sale_Pricing Where (provider_srl={0}) order by buy_price,sale_price", provider));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where (provider_srl={0}) order by buy_price,sale_price", provider));
             }
             if (dt.Rows.Count > 0)
             {
@@ -67,6 +68,8 @@ namespace WebApplicationKartable
                     pc.u_buy = cur.str;
                     cur.str = Woak["u_sale"].ToString();
                     pc.u_sale = cur.str;
+                    cur.str = Woak["price_home"].ToString();
+                    pc.price_home = cur.str;
                     cur.str = Woak["discount_amount"].ToString();
                     pc.discount_amount = cur.str;
                     pc.discount = Woak["discount"].ToString();
@@ -148,7 +151,7 @@ namespace WebApplicationKartable
         public string code_igd { get; set; }
         public string brand_name { get; set; }
         public string size_title { get; set; }
-        public string carpet_title { get; set; }
+        public string u_buy { get; set; }
         public string color_name { get; set; }
         public string porz_title { get; set; }
         public string chele_title { get; set; }
@@ -170,7 +173,7 @@ namespace WebApplicationKartable
             List<GoodsClass> lstGoodsClass = new List<GoodsClass>();
             DataTable dt = new DataTable(); Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
             Common cur = new Common();
-            dt = obj.Get_Data("SELECT srl, code_igd, brand_name, size_title, carpet_title, color_name, porz_title, chele_title, plan_title, widht, lenght, provider_code, provider_name, selection, sold, buy_price, area, color_srl2,title_igd FROM dbo.Provider_Goods order by code_igd");
+            dt = obj.Get_Data("SELECT srl, code_igd, brand_name, size_title, u_buy, color_name, porz_title, chele_title, plan_title, widht, lenght, provider_code, provider_name, selection, sold, buy_price, area, color_srl2,title_igd FROM dbo.Provider_Goods order by code_igd");
             if (dt.Rows.Count > 0)
             {
                 foreach (DataRow Woak in dt.Rows)
@@ -180,7 +183,7 @@ namespace WebApplicationKartable
                     pc.code_igd = Woak["code_igd"].ToString();
                     pc.brand_name = Woak["brand_name"].ToString();
                     pc.size_title = Woak["size_title"].ToString();
-                    pc.carpet_title = Woak["carpet_title"].ToString();
+                    pc.u_buy = Woak["u_buy"].ToString();
                     pc.color_name = Woak["color_name"].ToString();
                     pc.porz_title = Woak["porz_title"].ToString();
                     pc.chele_title = Woak["chele_title"].ToString();
@@ -230,7 +233,6 @@ namespace WebApplicationKartable
                     pc.code_igd = Woak["code_igd"].ToString();
                     pc.brand_name = Woak["brand_name"].ToString();
                     pc.size_title = Woak["size_title"].ToString();
-                    pc.carpet_title = Woak["carpet_title"].ToString();
                     pc.color_name = Woak["color_name"].ToString();
                     pc.porz_title = Woak["porz_title"].ToString();
                     pc.chele_title = Woak["chele_title"].ToString();

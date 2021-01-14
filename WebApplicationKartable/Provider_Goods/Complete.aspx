@@ -85,14 +85,14 @@
                                         <%#Eval("size_title") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                            <asp:TemplateField SortExpression="carpet_title" ItemStyle-Width="80">
+                            <asp:TemplateField SortExpression="u_buy" ItemStyle-Width="80">
                                     <HeaderTemplate>
-                                        <asp:LinkButton ID="lbcarpet_title" runat="server" Text="نوع" CommandName="Sort" CommandArgument="carpet_title" Width="80"></asp:LinkButton>
+                                        <asp:LinkButton ID="lbu_buy" runat="server" Text="خرید متری" CommandName="Sort" CommandArgument="u_buy" Width="80"></asp:LinkButton>
                                         <br />
-                                        <asp:TextBox runat="server" ID="txtcarpet_title" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtu_buy" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <%#Eval("carpet_title") %>
+                                        <%#Eval("u_buy") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             <asp:TemplateField SortExpression="color_name" ItemStyle-Width="80">

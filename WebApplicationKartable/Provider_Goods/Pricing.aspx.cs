@@ -80,11 +80,14 @@ namespace WebApplicationKartable
                 dbl_buy_price = Convert.ToDouble(obj.remove_cama(txt_buy.Text));
             if (!string.IsNullOrEmpty(txt_discount.Text))
                 dbl_discount = Convert.ToDouble(obj.remove_cama(txt_discount.Text));
+            double dbl_price_home = 0;
+            if (!string.IsNullOrEmpty(txt_price_home.Text))
+                dbl_price_home = Convert.ToDouble(obj.remove_cama(txt_price_home.Text));
             SqlConnection con = new SqlConnection(strConnString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update inv_goods set sale_price=@sale_price,buy_price=@buy_price, discount=@discount where srl=@srl";
+            cmd.CommandText = "update inv_goods set sale_price=@sale_price,buy_price=@buy_price, discount=@discount, price_home=@price_home where srl=@srl";
             cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(ViewState["srl_good"]);
             if(dbl_sale_price == 0)
                 cmd.Parameters.Add("@sale_price", SqlDbType.BigInt).Value = DBNull.Value;
@@ -95,6 +98,10 @@ namespace WebApplicationKartable
             else
                 cmd.Parameters.Add("@buy_price", SqlDbType.BigInt).Value = dbl_buy_price;
             cmd.Parameters.Add("@discount", SqlDbType.BigInt).Value = dbl_discount;
+            if (dbl_price_home == 0)
+                cmd.Parameters.Add("@price_home", SqlDbType.BigInt).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@price_home", SqlDbType.BigInt).Value = dbl_price_home;
             if (con.State == ConnectionState.Closed)
                 con.Open();
             cmd.ExecuteNonQuery();
@@ -103,7 +110,7 @@ namespace WebApplicationKartable
             //PricingClass Found = lstPricingClass.Find(Woak => Woak.srl == ViewState["srl_good"].ToString());
 
             DataTable dt = new DataTable(); Search objdb = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
-            dt = objdb.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name FROM dbo.Sale_Pricing where srl={0}", ViewState["srl_good"]));
+            dt = objdb.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,price_home FROM dbo.Sale_Pricing where srl={0}", ViewState["srl_good"]));
             if (dt.Rows.Count > 0)
             {
                 ViewState["buy_price"] = dt.Rows[0]["buy_price"];
@@ -112,6 +119,10 @@ namespace WebApplicationKartable
                 ViewState["u_sale"] = dt.Rows[0]["u_sale"];
                 ViewState["discount_amount"] = dt.Rows[0]["discount_amount"];
                 ViewState["final_sale"] = dt.Rows[0]["final_sale"];
+                if(!Convert.IsDBNull(dt.Rows[0]["price_home"]))
+                    ViewState["price_home"] = dt.Rows[0]["price_home"];
+                else
+                    ViewState["price_home"] = string.Empty;
                 load_panel();
             }
             lblError.Text = "قیمت گذاری انجام شد";
@@ -280,7 +291,7 @@ namespace WebApplicationKartable
             Search obj = new Search(strConnString);
             DataTable dt = new DataTable();
             {
-                dt = obj.Get_Data("SELECT srl, u_date_time, title_igd, provider_srl, porz_type, chele_type, carpet_type, build_state, ibt_srl, city_srl, size_srl, color_srl, lenght, widht, margin_color, dorangi, rofo, kaji, badbaf, pakhordegi, tear, code_igd, provider_code, good_value, color_srl2,raj_srl, buy_price, sale_price, discount FROM dbo.inv_goods Where srl = " + srl);
+                dt = obj.Get_Data("SELECT srl, u_date_time, title_igd, provider_srl, porz_type, chele_type, carpet_type, build_state, ibt_srl, city_srl, size_srl, color_srl, lenght, widht, margin_color, dorangi, rofo, kaji, badbaf, pakhordegi, tear, code_igd, provider_code, good_value, color_srl2,raj_srl, buy_price, sale_price, discount,price_home FROM dbo.inv_goods Where srl = " + srl);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
@@ -358,6 +369,8 @@ namespace WebApplicationKartable
                     txt_buy.Text = obobo.str;
                     obobo.str = row["sale_price"].ToString();
                     txt_sell.Text = obobo.str;
+                    obobo.str = row["price_home"].ToString();
+                    txt_price_home.Text = obobo.str;
                     txt_discount.Text = row["discount"].ToString();
                     if (!Convert.IsDBNull(row["dorangi"]))
                         chk_choose.Checked = Convert.ToBoolean(row["dorangi"]);
@@ -645,7 +658,7 @@ namespace WebApplicationKartable
         {
             if (ViewState["srl_good"] != null)
                 set_boxes(ViewState["srl_good"].ToString());
-            double buy_price = 0, sale_price = 0, u_buy = 0, u_sale = 0, discount_amount = 0, final_sale = 0, area = 0;
+            double buy_price = 0, sale_price = 0, u_buy = 0, u_sale = 0, discount_amount = 0, final_sale = 0, area = 0, price_home = 0;
             if (ViewState["area"] != null)
                 txt_area.Text = ViewState["area"].ToString();
             try
@@ -684,7 +697,13 @@ namespace WebApplicationKartable
                     final_sale = Convert.ToDouble(ViewState["final_sale"]);
             }
             catch { }
-                obobo.str = (final_sale - buy_price).ToString();
+            try
+            {
+                if (ViewState["price_home"] != null)
+                    price_home = Convert.ToDouble(ViewState["price_home"]);
+            }
+            catch { }
+            obobo.str = (final_sale - buy_price).ToString();
                 List<PricingClass> lst = ViewState["lstOutstandingOrders"] as List<PricingClass>;
                 foreach (PricingClass Woak in lst)
                 {
@@ -695,7 +714,9 @@ namespace WebApplicationKartable
                 if ((final_sale - buy_price) > 0)
                     lbl_Margin.Text = " حاشیه سود : " + obobo.str;
                 else
-                    lbl_Margin.Text = string.Empty; 
+                    lbl_Margin.Text = string.Empty;
+            obobo.str = (price_home - sale_price).ToString();
+            lblCompaire.Text = "مقایسه قیمت = " + obobo.str;
                 //if (area != 0)
                 //{
                 //    obobo.str = Math.Round(((final_sale / area) - u_buy), 0).ToString();

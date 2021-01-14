@@ -15,13 +15,13 @@ namespace WebApplicationKartable
     {
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// ToolkitScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
 
         /// <summary>
         /// RegisterUserValidationSummary control.
@@ -303,6 +303,60 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_chele;
 
         /// <summary>
+        /// chk_dorangi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_dorangi;
+
+        /// <summary>
+        /// chk_rofo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_rofo;
+
+        /// <summary>
+        /// chk_kaji control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_kaji;
+
+        /// <summary>
+        /// chk_badbaf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_badbaf;
+
+        /// <summary>
+        /// chk_pakhordegi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_pakhordegi;
+
+        /// <summary>
+        /// chk_tear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_tear;
+
+        /// <summary>
         /// lst_raj control.
         /// </summary>
         /// <remarks>
@@ -319,6 +373,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_barcode;
+
+        /// <summary>
+        /// txt_price_home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_price_home;
 
         /// <summary>
         /// FileUploadBarcode control.
@@ -391,5 +454,14 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridview;
+
+        /// <summary>
+        /// MaskedEditExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
     }
 }
