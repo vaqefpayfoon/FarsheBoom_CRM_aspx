@@ -183,7 +183,7 @@ namespace WebApplicationKartable
                     image1.ImageUrl = null;
                     ViewState["title_igd"] = null;
                 }
-                string state = "فرش شامل ";
+                string state = "";
                 if (!Convert.IsDBNull(Find["dorangi"]))
                 {
                     bool dorangi = Convert.ToBoolean(Find["dorangi"]);
@@ -220,7 +220,8 @@ namespace WebApplicationKartable
                     if (dorangi)
                         state += "پارگی ،";
                 }
-                state += "می باشد";
+                if (state.Length > 0)
+                    state = string.Format("{0}در این فرش می باشد", state);
                 dt2.Rows[0]["state"] = state;
                 //
                 //
