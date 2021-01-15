@@ -52,6 +52,7 @@ namespace WebApplicationKartable
                         lnk_cities.Enabled = true;
                         lnk_clue.Enabled = true;
                         lnk_colors.Enabled = true;
+                        lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
                         lnk_firm.Enabled = true;
                         lnk_opportunity_sale.Enabled = true;
@@ -91,6 +92,7 @@ namespace WebApplicationKartable
                         lnk_cities.Enabled = true;
                         lnk_clue.Enabled = true;
                         lnk_colors.Enabled = true;
+                        lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
                         lnk_firm.Enabled = true;
                         lnk_opportunity_sale.Enabled = true;

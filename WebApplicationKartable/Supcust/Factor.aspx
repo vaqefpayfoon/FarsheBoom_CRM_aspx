@@ -7,6 +7,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:SqlDataSource ID="source_project" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, project_code FROM dbo.bas_project order by srl desc"/>
+
+    <asp:SqlDataSource ID="source_bank" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, bank_name FROM dbo.inv_bank order by srl desc"/>
+
+
     <pdc:PersianDateScriptManager ID="PersianDateScriptManager" runat="server" CalendarCSS="PickerCalendarCSS"
         CalendarDayWidth="50" FooterCSS="PickerFooterCSS" ForbidenCSS="PickerForbidenCSS"
         ForbidenDates="" ForbidenWeekDays="" FrameCSS="PickerCSS" HeaderCSS="PickerHeaderCSS"
@@ -61,6 +65,10 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
     <tr>
         <td>
             <table>
+        <tr>
+            <td>حساب بانکی :</td>
+        <td><asp:DropDownList ID="lst_bank" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_bank" DataTextField="bank_name" DataValueField="srl"></asp:DropDownList></td>
+        </tr>
         <tr>
         <td>انتخاب نمایشگاه :</td>
         <td><asp:DropDownList ID="lst_project" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_project" DataTextField="project_code" DataValueField="srl"></asp:DropDownList></td>

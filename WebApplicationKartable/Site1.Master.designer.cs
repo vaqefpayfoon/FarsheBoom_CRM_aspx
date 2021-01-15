@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class Site1 {
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class Site1
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// literal_alarm_count control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal literal_alarm_count;
-        
+
         /// <summary>
         /// literal_alarm control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal literal_alarm;
-        
+
         /// <summary>
         /// literal_personal control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal literal_personal;
-        
+
         /// <summary>
         /// literal_online control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal literal_online;
-        
+
         /// <summary>
         /// lnk_personal control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_personal;
-        
+
         /// <summary>
         /// lnk_brands control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_brands;
-        
+
         /// <summary>
         /// lnk_cities control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_cities;
-        
+
         /// <summary>
         /// lnk_colors control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_colors;
-        
+
         /// <summary>
         /// lnk_sizes control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_sizes;
-        
+
         /// <summary>
         /// lnk_carpet control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_carpet;
-        
+
         /// <summary>
         /// lnk_plan control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_plan;
-        
+
         /// <summary>
         /// lnk_locate control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_locate;
-        
+
         /// <summary>
         /// lnk_porz control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_porz;
-        
+
         /// <summary>
         /// lnk_chele control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_chele;
-        
+
         /// <summary>
         /// lnk_clue control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_clue;
-        
+
         /// <summary>
         /// lnk_raj control.
         /// </summary>
@@ -173,7 +175,16 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_raj;
-        
+
+        /// <summary>
+        /// lnk_bank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_bank;
+
         /// <summary>
         /// lnk_import control.
         /// </summary>
@@ -182,7 +193,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_import;
-        
+
         /// <summary>
         /// lnk_supcust control.
         /// </summary>
@@ -191,7 +202,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_supcust;
-        
+
         /// <summary>
         /// lnk_firm control.
         /// </summary>
@@ -200,7 +211,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_firm;
-        
+
         /// <summary>
         /// lnk_Sale_price control.
         /// </summary>
@@ -209,7 +220,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Sale_price;
-        
+
         /// <summary>
         /// lnk_project control.
         /// </summary>
@@ -218,7 +229,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_project;
-        
+
         /// <summary>
         /// lnk_opportunity_sale control.
         /// </summary>
@@ -227,7 +238,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_opportunity_sale;
-        
+
         /// <summary>
         /// lnk_factor control.
         /// </summary>
@@ -236,7 +247,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_factor;
-        
+
         /// <summary>
         /// lnk_alarm control.
         /// </summary>
@@ -245,7 +256,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_alarm;
-        
+
         /// <summary>
         /// lnk_acceptgoods control.
         /// </summary>
@@ -254,7 +265,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_acceptgoods;
-        
+
         /// <summary>
         /// lnk_sale control.
         /// </summary>
@@ -263,7 +274,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_sale;
-        
+
         /// <summary>
         /// lnk_reject control.
         /// </summary>
@@ -272,7 +283,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_reject;
-        
+
         /// <summary>
         /// lnk_main_callback control.
         /// </summary>
@@ -281,7 +292,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_main_callback;
-        
+
         /// <summary>
         /// lnk_label control.
         /// </summary>
@@ -290,7 +301,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_label;
-        
+
         /// <summary>
         /// lnk_complete control.
         /// </summary>
@@ -299,7 +310,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_complete;
-        
+
         /// <summary>
         /// lnk_settelment control.
         /// </summary>
@@ -308,7 +319,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_settelment;
-        
+
         /// <summary>
         /// lnk_supcust_excel control.
         /// </summary>
@@ -317,7 +328,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_excel;
-        
+
         /// <summary>
         /// lnk_all_goods control.
         /// </summary>
@@ -326,7 +337,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_all_goods;
-        
+
         /// <summary>
         /// lnk_supcust_report control.
         /// </summary>
@@ -335,7 +346,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_report;
-        
+
         /// <summary>
         /// lnk_remain_carpet control.
         /// </summary>
@@ -344,7 +355,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_remain_carpet;
-        
+
         /// <summary>
         /// lnk_factorreport control.
         /// </summary>
@@ -353,7 +364,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_factorreport;
-        
+
         /// <summary>
         /// lnk_customers control.
         /// </summary>
@@ -362,7 +373,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_customers;
-        
+
         /// <summary>
         /// lnk_barcode_report control.
         /// </summary>
@@ -371,7 +382,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_barcode_report;
-        
+
         /// <summary>
         /// lnk_Survey control.
         /// </summary>
@@ -380,7 +391,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Survey;
-        
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>

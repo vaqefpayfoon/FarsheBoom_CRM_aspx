@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseInformation\BankAccount.aspx" />
     <Content Include="Project\CallBackReportCouples.aspx" />
     <Content Include="Project\ListOfBarcodes.aspx" />
     <Content Include="Project\CallPerform.aspx" />
@@ -866,6 +867,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseInformation\BankAccount.aspx.cs">
+      <DependentUpon>BankAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseInformation\BankAccount.aspx.designer.cs">
+      <DependentUpon>BankAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Project\CallBackReportCouples.aspx.cs">
       <DependentUpon>CallBackReportCouples.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -93,21 +93,21 @@
         </tr>
         <tr>
             <td>دورنگی :</td>
-            <td><asp:CheckBox ID="chk_dorangi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_dorangi" runat="server" ></asp:CheckBox></td>
             <td>رفو :</td>
-            <td><asp:CheckBox ID="chk_rofo" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_rofo" runat="server" ></asp:CheckBox></td>
         </tr>
         <tr>
             <td>کجی :</td>
-            <td><asp:CheckBox ID="chk_kaji" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_kaji" runat="server" ></asp:CheckBox></td>
             <td>بد بافت :</td>
-            <td><asp:CheckBox ID="chk_badbaf" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_badbaf" runat="server" ></asp:CheckBox></td>
         </tr>
         <tr>
             <td>پا خوردگی :</td>
-            <td><asp:CheckBox ID="chk_pakhordegi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_pakhordegi" runat="server"  ></asp:CheckBox></td>
             <td>پارگی :</td>
-            <td><asp:CheckBox ID="chk_tear" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td><asp:CheckBox ID="chk_tear" runat="server" ></asp:CheckBox></td>
         </tr>
         <tr>
         <td>رج شمار :</td>

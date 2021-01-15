@@ -146,6 +146,7 @@ namespace WebApplicationKartable
                         lnk_porz.Enabled = true;
                         lnk_project.Enabled = true;
                         lnk_reject.Enabled = true;
+                        lnk_bank.Enabled = true;
                         lnk_Sale_price.Enabled = true;
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
@@ -175,6 +176,7 @@ namespace WebApplicationKartable
                         lnk_cities.Enabled = true;
                         lnk_clue.Enabled = true;
                         lnk_colors.Enabled = true;
+                        lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
                         lnk_firm.Enabled = true;
                         lnk_opportunity_sale.Enabled = true;

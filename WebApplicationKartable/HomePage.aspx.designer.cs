@@ -195,6 +195,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_raj;
 
         /// <summary>
+        /// lnk_bank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_bank;
+
+        /// <summary>
         /// lnk_import control.
         /// </summary>
         /// <remarks>

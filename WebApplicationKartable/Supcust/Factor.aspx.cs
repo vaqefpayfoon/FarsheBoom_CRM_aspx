@@ -161,7 +161,7 @@ namespace WebApplicationKartable
         private void setboxes2(string str_srl)
         {
             image1.ImageUrl = "..\\img\\person.png";
-            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state FROM dbo.Factor_View Where srl=" + str_srl);
+            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state, bank_srl FROM dbo.Factor_View Where srl=" + str_srl);
             if (dt2.Rows.Count > 0)
             {                
                 DataRow Find = dt2.Rows[0];
@@ -281,6 +281,10 @@ namespace WebApplicationKartable
                 if (!Convert.IsDBNull(Find["bayane"]))
                 {
                     chk_bayane.Checked = Convert.ToBoolean(Find["bayane"]);
+                }
+                if (!Convert.IsDBNull(Find["bank_srl"]))
+                {
+                    lst_bank.SelectedValue = Find["bank_srl"].ToString();
                 }
             }
             ViewState["table"] = dt2;
@@ -405,7 +409,7 @@ namespace WebApplicationKartable
             if (lblError.Text == "فاکتور جدید ایجاد شد")
                 return;
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[10];
+            SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -426,6 +430,8 @@ namespace WebApplicationKartable
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
             param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
             param[9].Value = chk_bayane.Checked;
+            param[10] = new SqlParameter("@bank_srl", SqlDbType.Int);
+            param[10].Value = lst_bank.SelectedValue;
             new ManageCommands(param, "insert_factor");           
 
             SqlConnection con = new SqlConnection(strConnString);
@@ -469,7 +475,7 @@ namespace WebApplicationKartable
             if (lblError.Text == "فاکتور جدید ایجاد شد")
                 return;
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[10];
+            SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -490,6 +496,8 @@ namespace WebApplicationKartable
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
             param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
             param[9].Value = chk_bayane.Checked;
+            param[10] = new SqlParameter("@bank_srl", SqlDbType.Int);
+            param[10].Value = lst_bank.SelectedValue;
             new ManageCommands(param, "insert_factor");            
 
             SqlConnection con = new SqlConnection(strConnString);
@@ -515,7 +523,7 @@ namespace WebApplicationKartable
                 return;
             }
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[10];
+            SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl"]);
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -536,6 +544,8 @@ namespace WebApplicationKartable
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
             param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
             param[9].Value = chk_bayane.Checked;
+            param[10] = new SqlParameter("@bank_srl", SqlDbType.Int);
+            param[10].Value = lst_bank.SelectedValue;
             new ManageCommands(param, "update_factor");
             lblError.Text = "فاکتور جدید ویرایش شد";
 

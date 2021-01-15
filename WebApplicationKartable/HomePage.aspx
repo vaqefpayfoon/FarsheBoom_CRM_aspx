@@ -145,7 +145,8 @@
     <li><asp:LinkButton ID="lnk_porz" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Sizes.aspx" > پرز</asp:LinkButton></li>
     <li><asp:LinkButton ID="lnk_chele" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Porz.aspx" > چله</asp:LinkButton></li>
     <li><asp:LinkButton ID="lnk_clue" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Chele.aspx" >سطح ارتباط </asp:LinkButton></li> 
-    <li><asp:LinkButton ID="lnk_raj" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Raj.aspx" >رج شمار</asp:LinkButton></li>                      
+    <li><asp:LinkButton ID="lnk_raj" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Raj.aspx" >رج شمار</asp:LinkButton></li>      
+    <li><asp:LinkButton ID="lnk_bank" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/BankAccount.aspx" >حساب های بانکی</asp:LinkButton></li>    
                             </ul>
                         </li>
                         <li class="treeview">
