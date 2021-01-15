@@ -42,11 +42,51 @@ namespace WebApplicationKartable
             {
                 ViewState["bassc_srl"] = dt.Rows[0][1];
                 string header_srl = dt.Rows[0][0].ToString();
-                dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, provider_srl, code_igd, provider_name, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price, discount,color_srl2,provider_code, ' ' As full_name, ' ' As tel1, ' ' cell_phone, ' ' As address1, 0 AS down_payment, 0 AS payment,' ' factor_no , ' ' AS u_date_tome  FROM dbo.Project_Goods_View where srl =" + header_srl);
+                dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, provider_srl, code_igd, provider_name, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price, discount,color_srl2,provider_code, ' ' As full_name, ' ' As tel1, ' ' cell_phone, ' ' As address1, 0 AS down_payment, 0 AS payment,' ' factor_no , ' ' AS u_date_tome, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state  FROM dbo.Project_Goods_View where srl =" + header_srl);
                 if(dt2.Rows.Count > 0)
                 {
                     Common obb = new Common();
                     DataRow Find = dt2.Rows[0];
+                    string state = string.Empty;
+                    if (!Convert.IsDBNull(Find["dorangi"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["dorangi"]);
+                        if (dorangi)
+                            state += "دورنگی ،";
+                    }
+                    if (!Convert.IsDBNull(Find["rofo"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["rofo"]);
+                        if (dorangi)
+                            state += "رفو ،";
+                    }
+                    if (!Convert.IsDBNull(Find["kaji"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["kaji"]);
+                        if (dorangi)
+                            state += "کجی ،";
+                    }
+                    if (!Convert.IsDBNull(Find["badbaf"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["badbaf"]);
+                        if (dorangi)
+                            state += "بدبافت ،";
+                    }
+                    if (!Convert.IsDBNull(Find["pakhordegi"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["pakhordegi"]);
+                        if (dorangi)
+                            state += "پاخوردگی ،";
+                    }
+                    if (!Convert.IsDBNull(Find["tear"]))
+                    {
+                        bool dorangi = Convert.ToBoolean(Find["tear"]);
+                        if (dorangi)
+                            state += "پارگی ،";
+                    }
+                    if (state.Length > 0)
+                        state = string.Format("{0}در این فرش می باشد", state);
+                    dt2.Rows[0]["state"] = state;
                     ViewState["igd_srl"] = Find["srl"];
                     txt_code.Text = Find["code_igd"].ToString().Trim();
                     txt_carpet_type.Text = Find["carpet_title"].ToString().Trim();
@@ -121,7 +161,7 @@ namespace WebApplicationKartable
         private void setboxes2(string str_srl)
         {
             image1.ImageUrl = "..\\img\\person.png";
-            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd FROM dbo.Factor_View Where srl=" + str_srl);
+            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state FROM dbo.Factor_View Where srl=" + str_srl);
             if (dt2.Rows.Count > 0)
             {                
                 DataRow Find = dt2.Rows[0];
@@ -143,6 +183,45 @@ namespace WebApplicationKartable
                     image1.ImageUrl = null;
                     ViewState["title_igd"] = null;
                 }
+                string state = "فرش شامل ";
+                if (!Convert.IsDBNull(Find["dorangi"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["dorangi"]);
+                    if (dorangi)
+                        state += "دورنگی ،";
+                }
+                if (!Convert.IsDBNull(Find["rofo"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["rofo"]);
+                    if (dorangi)
+                        state += "رفو ،";
+                }
+                if (!Convert.IsDBNull(Find["kaji"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["kaji"]);
+                    if (dorangi)
+                        state += "کجی ،";
+                }
+                if (!Convert.IsDBNull(Find["badbaf"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["badbaf"]);
+                    if (dorangi)
+                        state += "بدبافت ،";
+                }
+                if (!Convert.IsDBNull(Find["pakhordegi"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["pakhordegi"]);
+                    if (dorangi)
+                        state += "پاخوردگی ،";
+                }
+                if (!Convert.IsDBNull(Find["tear"]))
+                {
+                    bool dorangi = Convert.ToBoolean(Find["tear"]);
+                    if (dorangi)
+                        state += "پارگی ،";
+                }
+                state += "می باشد";
+                dt2.Rows[0]["state"] = state;
                 //
                 //
                 int widht = 1;
@@ -198,7 +277,10 @@ namespace WebApplicationKartable
                 txt_down_payment.Text = obb.str;
                 obb.str = Find["payment"].ToString();
                 txt_payment.Text = obb.str;
-
+                if (!Convert.IsDBNull(Find["bayane"]))
+                {
+                    chk_bayane.Checked = Convert.ToBoolean(Find["bayane"]);
+                }
             }
             ViewState["table"] = dt2;
         }
@@ -322,7 +404,7 @@ namespace WebApplicationKartable
             if (lblError.Text == "فاکتور جدید ایجاد شد")
                 return;
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[9];
+            SqlParameter[] param = new SqlParameter[10];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -341,6 +423,8 @@ namespace WebApplicationKartable
             param[7].Value = Convert.ToInt64(obb.remove_cama(txt_payment.Text));
             param[8] = new SqlParameter("@project_srl", SqlDbType.Int);
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
+            param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
+            param[9].Value = chk_bayane.Checked;
             new ManageCommands(param, "insert_factor");           
 
             SqlConnection con = new SqlConnection(strConnString);
@@ -384,7 +468,7 @@ namespace WebApplicationKartable
             if (lblError.Text == "فاکتور جدید ایجاد شد")
                 return;
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[9];
+            SqlParameter[] param = new SqlParameter[10];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -403,6 +487,8 @@ namespace WebApplicationKartable
             param[7].Value = Convert.ToInt64(obb.remove_cama(txt_payment.Text));
             param[8] = new SqlParameter("@project_srl", SqlDbType.Int);
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
+            param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
+            param[9].Value = chk_bayane.Checked;
             new ManageCommands(param, "insert_factor");            
 
             SqlConnection con = new SqlConnection(strConnString);
@@ -428,7 +514,7 @@ namespace WebApplicationKartable
                 return;
             }
             Common obb = new Common();
-            SqlParameter[] param = new SqlParameter[9];
+            SqlParameter[] param = new SqlParameter[10];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl"]);
             param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
@@ -447,6 +533,8 @@ namespace WebApplicationKartable
             param[7].Value = Convert.ToInt64(obb.remove_cama(txt_payment.Text));
             param[8] = new SqlParameter("@project_srl", SqlDbType.Int);
             param[8].Value = Convert.ToInt32(lst_project.SelectedValue);
+            param[9] = new SqlParameter("@bayane", SqlDbType.Bit);
+            param[9].Value = chk_bayane.Checked;
             new ManageCommands(param, "update_factor");
             lblError.Text = "فاکتور جدید ویرایش شد";
 

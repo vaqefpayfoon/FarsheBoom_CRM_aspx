@@ -26,7 +26,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="text-align:center;"><h2>فاکتورهای مشتری</h2></div>
         <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
-
+    <asp:SqlDataSource ID="source_brand" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, brand_name FROM dbo.inv_brand"/>
    <asp:Panel ID="search_panel" runat="server" CssClass="panelbackcolor">
       <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" ForeColor="Red"
             ValidationGroup="RegisterUserValidationGroup"/>   
@@ -47,6 +47,12 @@
             <td><asp:TextBox ID="txt_cell_phone" runat="server" Width="250"  CssClass="textbox" ></asp:TextBox><asp:Button ID="btn_cell_phone_finder" runat="server" OnClick="btn_cell_phone_finder_Click" Text="جستجو" CssClass="btn-default" />
             </td>
         </tr>
+        <tr>
+            <td>گونه :</td>
+        <td><asp:DropDownList ID="lst_brand" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_brand" DataTextField="brand_name" DataValueField="srl"></asp:DropDownList>
+            <asp:Button ID="btn_brand_search" runat="server" OnClick="btn_brand_search_Click" Text="جستجو" CssClass="btn-default" />
+        </td>
+        </tr>
     </table>  
     </asp:Panel>    
         <cc1:AutoCompleteExtender ServiceMethod="FilterSearch" MinimumPrefixLength="2"
@@ -56,9 +62,11 @@
         </cc1:AutoCompleteExtender>
 
 <br /><hr />
-    <asp:GridView ID="gridview" runat="server"  CssClass="textbox"  AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D"  HeaderStyle-ForeColor="White" Font-Size="10">
+    <asp:GridView ID="gridview" runat="server"  CssClass="textbox"  AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D"  HeaderStyle-ForeColor="White" Font-Size="10" AllowPaging ="true"  ShowFooter = "true"  
+        OnPageIndexChanging = "OnPaging">
     <Columns>                      
     <asp:HyperLinkField DataTextField="srl_f" DataNavigateUrlFields="srl_f" DataNavigateUrlFormatString="~/Supcust/Factor.aspx?snd={0}"  HeaderText="فاکتور"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
+        <asp:HyperLinkField DataTextField="srl" DataNavigateUrlFields="srl" DataNavigateUrlFormatString="~/Provider_Goods/ProductAssign.aspx?srl={0}"  HeaderText="فرش"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
     <asp:BoundField DataField="u_date_tome" HeaderText="تاریخ" ItemStyle-Width="80" ReadOnly="True"/> 
     <asp:BoundField DataField="code_igd" HeaderText="کد" ItemStyle-Width="80" ReadOnly="True"/>   
     <asp:BoundField DataField="factor_no" HeaderText="ش فاکتور" ItemStyle-Width="80" ReadOnly="True"/>

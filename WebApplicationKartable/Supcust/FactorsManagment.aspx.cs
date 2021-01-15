@@ -44,7 +44,7 @@ namespace WebApplicationKartable
         public static List<string> FilterSearch2(string prefixText, int count)
         {
             Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
-            return obj.FilterSearch("SELECT full_name FROM dbo.bas_supcust where full_name like '%'+ @SearchText + '%' AND ((reject is null) or reject = 'false')", prefixText, count);
+            return obj.FilterSearch("SELECT full_name FROM dbo.bas_supcust where full_name like '%'+ @SearchText + '%'", prefixText, count);
         }
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]

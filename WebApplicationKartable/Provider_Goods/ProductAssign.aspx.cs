@@ -527,11 +527,16 @@ namespace WebApplicationKartable
             if (!string.IsNullOrEmpty(txt_price_home.Text))
                 dbl_price_home = Convert.ToDouble(obj.remove_cama(txt_price_home.Text));
             Common per = new Common();
-            SqlParameter[] param = new SqlParameter[32];
+            SqlParameter[] param = new SqlParameter[31];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl_details"]);
-            param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
-            param[1].Value = per.persian_date();
+            //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
+            //param[1].Value = per.persian_date();
+            param[1] = new SqlParameter("@price_home", SqlDbType.Int);
+            if (string.IsNullOrEmpty(txt_price_home.Text))
+                param[1].Value = DBNull.Value;
+            else
+                param[1].Value = dbl_price_home;
             param[2] = new SqlParameter("@title_igd", SqlDbType.VarChar, 100);
             param[2].Value = save_image;
             param[3] = new SqlParameter("@provider_srl", SqlDbType.Int);
@@ -626,11 +631,7 @@ namespace WebApplicationKartable
                 param[30].Value = DBNull.Value;
             else
                 param[30].Value = Convert.ToInt32(lst_raj.SelectedValue);
-            param[31] = new SqlParameter("@price_home", SqlDbType.Int);
-            if (string.IsNullOrEmpty(txt_price_home.Text))
-                param[31].Value = DBNull.Value;
-            else
-                param[31].Value = dbl_price_home;
+ 
             new ManageCommands(param, "update_goods");
             lblError.Text = "فرش جاری ویرایش شد";
         }

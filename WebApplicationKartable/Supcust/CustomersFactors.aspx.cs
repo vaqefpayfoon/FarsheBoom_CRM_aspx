@@ -67,12 +67,41 @@ namespace WebApplicationKartable
         private void fill_grid(string srl)
         {
             Search obj = new Search(strConnString); DataTable dt = new DataTable();
-            dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets Where bassc_srl={0} order by u_date_tome desc", srl));
+            dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd,srl FROM SoldCarpets Where bassc_srl={0} order by u_date_tome desc", srl));
             if (dt.Rows.Count > 0)
             {
                 gridview.DataSource = dt;
                 gridview.DataBind();
             }
+            ViewState["dt"] = dt;
+        }
+
+        protected void btn_brand_search_Click(object sender, EventArgs e)
+        {
+            Search obj = new Search(strConnString); DataTable dt = new DataTable();
+            dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd,srl FROM SoldCarpets Where ibt_srl={0} order by u_date_tome desc", lst_brand.SelectedValue));
+            if (dt.Rows.Count > 0)
+            {
+                gridview.DataSource = dt;
+                gridview.DataBind();
+            }
+            ViewState["dt"] = dt;
+        }
+        private void BindData()
+        {
+            DataTable dt = ViewState["dt"] as DataTable;
+            if (dt.Rows.Count > 0)
+            {
+                gridview.DataSource = dt;
+                gridview.DataBind();
+            }
+        }
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            BindData();
+            gridview.PageIndex = e.NewPageIndex;
+            gridview.DataBind();
+
         }
     }
 }

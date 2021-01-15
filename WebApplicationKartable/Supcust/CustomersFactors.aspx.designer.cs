@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class CustomersFactors {
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class CustomersFactors
+    {
+
         /// <summary>
         /// ToolkitScriptManager control.
         /// </summary>
@@ -20,7 +22,16 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
-        
+
+        /// <summary>
+        /// source_brand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource source_brand;
+
         /// <summary>
         /// search_panel control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel search_panel;
-        
+
         /// <summary>
         /// RegisterUserValidationSummary control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary RegisterUserValidationSummary;
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// report control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton report;
-        
+
         /// <summary>
         /// txtContactsSearch control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContactsSearch;
-        
+
         /// <summary>
         /// UserNameRequired control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
-        
+
         /// <summary>
         /// txt_cell_phone control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_cell_phone;
-        
+
         /// <summary>
         /// btn_cell_phone_finder control.
         /// </summary>
@@ -92,7 +103,25 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_cell_phone_finder;
-        
+
+        /// <summary>
+        /// lst_brand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_brand;
+
+        /// <summary>
+        /// btn_brand_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_brand_search;
+
         /// <summary>
         /// AutoCompleteExtender1 control.
         /// </summary>
@@ -101,7 +130,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender1;
-        
+
         /// <summary>
         /// gridview control.
         /// </summary>

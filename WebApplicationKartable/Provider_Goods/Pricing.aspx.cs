@@ -157,11 +157,16 @@ namespace WebApplicationKartable
                     save_image = "..\\img\\person.png";
             }
             Common per = new Common();
-            SqlParameter[] param = new SqlParameter[31];
+            SqlParameter[] param = new SqlParameter[30];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl_details"]);
-            param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
-            param[1].Value = per.persian_date();
+            //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
+            //param[1].Value = per.persian_date();
+            param[1] = new SqlParameter("@raj_srl", SqlDbType.Int);
+            if (lst_raj.SelectedIndex == 0)
+                param[1].Value = DBNull.Value;
+            else
+                param[1].Value = Convert.ToInt32(lst_raj.SelectedValue);
             param[2] = new SqlParameter("@title_igd", SqlDbType.VarChar, 100);
             param[2].Value = save_image;
             param[3] = new SqlParameter("@provider_srl", SqlDbType.Int);
@@ -226,15 +231,15 @@ namespace WebApplicationKartable
             param[19] = new SqlParameter("@dorangi", SqlDbType.Bit);
             param[19].Value = chk_choose.Checked;
             param[20] = new SqlParameter("@rofo", SqlDbType.Bit);
-            param[20].Value = DBNull.Value;
+            param[20].Value = chk_rofo.Checked;
             param[21] = new SqlParameter("@kaji", SqlDbType.Bit);
-            param[21].Value = DBNull.Value;
+            param[21].Value = chk_kaji.Checked;
             param[22] = new SqlParameter("@badbaf", SqlDbType.Bit);
-            param[22].Value = DBNull.Value;
+            param[22].Value = chk_badbaf.Checked;
             param[23] = new SqlParameter("@pakhordegi", SqlDbType.Bit);
-            param[23].Value = DBNull.Value;
+            param[23].Value = chk_pakhordegi.Checked;
             param[24] = new SqlParameter("@tear", SqlDbType.Bit);
-            param[24].Value = DBNull.Value;
+            param[24].Value = chk_tear.Checked;
             param[25] = new SqlParameter("@code_igd", SqlDbType.VarChar, 30);
             param[25].Value = txt_code.Text;
             param[26] = new SqlParameter("@plan_desc", SqlDbType.VarChar, 100);
@@ -248,11 +253,7 @@ namespace WebApplicationKartable
                 param[29].Value = DBNull.Value;
             else
                 param[29].Value = Convert.ToInt32(lst_color2.SelectedValue);
-            param[30] = new SqlParameter("@raj_srl", SqlDbType.Int);
-            if (lst_raj.SelectedIndex == 0)
-                param[30].Value = DBNull.Value;
-            else
-                param[30].Value = Convert.ToInt32(lst_raj.SelectedValue);
+
             new ManageCommands(param, "update_goods");
             lblError.Text = "فرش جاری ویرایش شد";
         }
@@ -376,6 +377,30 @@ namespace WebApplicationKartable
                         chk_choose.Checked = Convert.ToBoolean(row["dorangi"]);
                     else
                         chk_choose.Checked = false;
+                    if (!Convert.IsDBNull(row["dorangi"]))
+                        chk_dorangi.Checked = Convert.ToBoolean(row["dorangi"]);
+                    else
+                        chk_dorangi.Checked = false;
+                    if (!Convert.IsDBNull(row["rofo"]))
+                        chk_rofo.Checked = Convert.ToBoolean(row["rofo"]);
+                    else
+                        chk_rofo.Checked = false;
+                    if (!Convert.IsDBNull(row["kaji"]))
+                        chk_kaji.Checked = Convert.ToBoolean(row["kaji"]);
+                    else
+                        chk_kaji.Checked = false;
+                    if (!Convert.IsDBNull(row["badbaf"]))
+                        chk_badbaf.Checked = Convert.ToBoolean(row["badbaf"]);
+                    else
+                        chk_badbaf.Checked = false;
+                    if (!Convert.IsDBNull(row["pakhordegi"]))
+                        chk_pakhordegi.Checked = Convert.ToBoolean(row["pakhordegi"]);
+                    else
+                        chk_pakhordegi.Checked = false;
+                    if (!Convert.IsDBNull(row["tear"]))
+                        chk_tear.Checked = Convert.ToBoolean(row["tear"]);
+                    else
+                        chk_tear.Checked = false;
                 }
             }
         }

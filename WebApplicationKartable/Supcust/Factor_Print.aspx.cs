@@ -56,6 +56,7 @@ namespace WebApplicationKartable
                     {
                         row["disc_per"] = (Convert.ToInt64(Woak["discount"]) * 100) / Convert.ToInt64(Woak["sale_price"]);
                     }
+                    row["state"] = Woak["state"].ToString();
                     Temp.Rows.Add(row);
                 }
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;

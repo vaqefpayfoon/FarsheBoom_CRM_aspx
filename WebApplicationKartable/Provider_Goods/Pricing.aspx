@@ -137,6 +137,24 @@
         <td>چله :</td>
         <td><asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
         </tr>
+                    <tr>
+            <td>دورنگی :</td>
+            <td><asp:CheckBox ID="chk_dorangi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>رفو :</td>
+            <td><asp:CheckBox ID="chk_rofo" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
+        <tr>
+            <td>کجی :</td>
+            <td><asp:CheckBox ID="chk_kaji" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>بد بافت :</td>
+            <td><asp:CheckBox ID="chk_badbaf" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
+        <tr>
+            <td>پا خوردگی :</td>
+            <td><asp:CheckBox ID="chk_pakhordegi" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+            <td>پارگی :</td>
+            <td><asp:CheckBox ID="chk_tear" runat="server" CssClass="textbox"  ></asp:CheckBox></td>
+        </tr>
         <tr>
         <td>رج شمار :</td>
         <td><asp:DropDownList ID="lst_raj" runat="server" CssClass="dropdown1"  Width="150px" DataSourceID="source_raj" DataTextField="raj_title" DataValueField="srl"></asp:DropDownList></td>
@@ -247,8 +265,7 @@
                         <%--<asp:Button ID="lbRemoveFilterOutstanding" runat="server" CssClass="btn-facebook" Text="حذف فیلتر" OnClick="lbRemoveFilterOutstanding_Click"/>--%>
                         <asp:GridView ID="grdViewOutstanding" runat="server" AutoGenerateColumns="False"
                             BackColor="#39cccc" BorderColor="#999999" BorderStyle="Solid" CellPadding="3" ForeColor="Black"
-                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق" AllowPaging ="true"  ShowFooter = "true"
-                            CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
+                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق" AllowPaging ="true" PageSize="40" ShowFooter = "true" CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
                             OnRowDataBound="grdViewOutstanding_RowDataBound" OnSorting="grdViewOutstanding_Sorting" OnSelectedIndexChanged="grdViewOutstanding_SelectedIndexChanged">
                             <FooterStyle BackColor="#CCCCCC" />
                             <Columns>

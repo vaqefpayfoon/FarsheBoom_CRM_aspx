@@ -42,6 +42,7 @@
               <xs:element name="cell_phone" msprop:Generator_ColumnVarNameInTable="columncell_phone" msprop:Generator_ColumnPropNameInRow="cell_phone" msprop:Generator_ColumnPropNameInTable="cell_phoneColumn" msprop:Generator_UserColumnName="cell_phone" type="xs:string" minOccurs="0" />
               <xs:element name="margin_color" msprop:Generator_ColumnVarNameInTable="columnmargin_color" msprop:Generator_ColumnPropNameInRow="margin_color" msprop:Generator_ColumnPropNameInTable="margin_colorColumn" msprop:Generator_UserColumnName="margin_color" type="xs:string" minOccurs="0" />
               <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:string" minOccurs="0" />
+              <xs:element name="state" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_ColumnVarNameInTable="columnstate" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_UserColumnName="state" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

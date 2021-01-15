@@ -2011,8 +2011,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox80</rd:DefaultName>
-        <Top>4.13533in</Top>
-        <Left>0.18751in</Left>
+        <Top>4.18972in</Top>
+        <Left>0.19792in</Left>
         <Height>0.53358in</Height>
         <Width>5.42235in</Width>
         <ZIndex>7</ZIndex>
@@ -2165,8 +2165,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox80</rd:DefaultName>
-        <Top>4.66197in</Top>
-        <Left>0.18751in</Left>
+        <Top>4.71636in</Top>
+        <Left>0.19792in</Left>
         <Height>0.56483in</Height>
         <Width>5.42235in</Width>
         <ZIndex>11</ZIndex>
@@ -2203,8 +2203,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox80</rd:DefaultName>
-        <Top>5.17124in</Top>
-        <Left>0.18751in</Left>
+        <Top>5.22563in</Top>
+        <Left>0.19792in</Left>
         <Height>0.56719in</Height>
         <Width>5.42235in</Width>
         <ZIndex>12</ZIndex>
@@ -2313,6 +2313,40 @@
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
           <Direction>RTL</Direction>
+        </Style>
+      </Textbox>
+      <Textbox Name="state">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!state.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>state</rd:DefaultName>
+        <Top>3.88417in</Top>
+        <Left>0.32293in</Left>
+        <Height>0.25in</Height>
+        <Width>5.29734in</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
     </ReportItems>
@@ -2442,10 +2476,14 @@
           <DataField>logo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="state">
+          <DataField>state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>E:\vs_2015\FarsheBoom_CRM\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\vaqef\Documents\Visual Studio 2017\Projects\FarsheBoom_CRM\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>Factor_DataTable</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
