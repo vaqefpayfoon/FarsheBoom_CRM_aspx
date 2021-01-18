@@ -39,8 +39,7 @@
                         <asp:Button ID="lbRemoveFilterOutstanding" runat="server" CssClass="btn btn-primary" Text="حذف فیلتر" OnClick="lbRemoveFilterOutstanding_Click"/>
                         <asp:GridView ID="grdViewOutstanding" runat="server" AutoGenerateColumns="False"
                             BackColor="#39cccc" BorderColor="#999999" BorderStyle="Solid" CellPadding="3" ForeColor="Black"
-                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق"
-                            CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
+                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق"  AllowPaging ="true" PageSize="40" CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
                             OnRowDataBound="grdViewOutstanding_RowDataBound" OnSorting="grdViewOutstanding_Sorting" OnSelectedIndexChanged="grdViewOutstanding_SelectedIndexChanged">
                             <FooterStyle BackColor="#CCCCCC" />
                             <Columns>
