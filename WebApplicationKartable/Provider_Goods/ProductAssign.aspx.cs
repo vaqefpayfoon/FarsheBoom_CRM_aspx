@@ -462,9 +462,9 @@ namespace WebApplicationKartable
                 param[30].Value = Convert.ToInt32(lst_raj.SelectedValue);
             param[31] = new SqlParameter("@price_home", SqlDbType.Int);
             if (string.IsNullOrEmpty(txt_price_home.Text))
-                param[31].Value = DBNull.Value;
+                param[30].Value = DBNull.Value;
             else
-                param[31].Value = dbl_price_home;
+                param[30].Value = dbl_price_home;
             new ManageCommands(param, "insert_goods");
             empty_boxes();
             preparecode();

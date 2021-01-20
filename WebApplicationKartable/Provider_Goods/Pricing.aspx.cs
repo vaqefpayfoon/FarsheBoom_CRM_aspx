@@ -157,7 +157,7 @@ namespace WebApplicationKartable
                     save_image = "..\\img\\person.png";
             }
             Common per = new Common();
-            SqlParameter[] param = new SqlParameter[30];
+            SqlParameter[] param = new SqlParameter[31];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl_details"]);
             //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
@@ -253,7 +253,14 @@ namespace WebApplicationKartable
                 param[29].Value = DBNull.Value;
             else
                 param[29].Value = Convert.ToInt32(lst_color2.SelectedValue);
-
+            param[30] = new SqlParameter("@price_home", SqlDbType.Int);
+            double dbl_price_home = 0;
+            if (!string.IsNullOrEmpty(txt_price_home.Text))
+                dbl_price_home = Convert.ToDouble(per.remove_cama(txt_price_home.Text));
+            if (string.IsNullOrEmpty(txt_price_home.Text))
+                param[30].Value = DBNull.Value;
+            else
+                param[30].Value = dbl_price_home;
             new ManageCommands(param, "update_goods");
             lblError.Text = "فرش جاری ویرایش شد";
         }
