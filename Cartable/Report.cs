@@ -58,7 +58,7 @@ namespace Cartable
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
-            sb.Append("<thead><tr><th>ردیف</th><th>نام طرف حساب</th><th>تاریخ</th><th>موبایل</th><th>سطح ارتباط</th><th>توضیحات</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام طرف حساب</th><th>تاریخ</th><th>موبایل</th><th>سطح ارتباط</th><th>توضیحات</th></tr></tfoot>");
+            sb.Append("<thead><tr><th>ردیف</th><th>نام طرف حساب</th><th>تاریخ ورود به سیستم</th><th>موبایل</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام طرف حساب</th><th>تاریخ</th><th>موبایل</th></tr></tfoot>");
             sb.Append("<tbody>");
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
@@ -71,9 +71,34 @@ namespace Cartable
                 sb.Append("</td><td>");
                 sb.Append(dt.Rows[i]["cell_phone"]);
                 sb.Append("</td><td>");
-                sb.Append(dt.Rows[i]["meet_title"]);
+                sb.Append(dt.Rows[i]["tel1"]);
+                sb.Append("</td></tr>");
+            }
+            sb.Append("</tbody></table>");
+            return sb.ToString();
+        }
+        public string buyers_list(DataTable dt)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
+            sb.Append("<thead><tr><th>ردیف</th><th>نام طرف حساب</th><th>تلفن</th><th>موبایل</th><th>تعداد فرش </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام طرف حساب</th><th>تلفن</th><th>موبایل</th><th>تعداد فرش </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></tfoot>");
+            sb.Append("<tbody>");
+            for (int i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                sb.Append("<tr><td>");
+                sb.Append(i + 1);
+                sb.Append("</td><td><a href='../Supcust/Supcust.aspx?srl=" + dt.Rows[i]["srl"] + "'>");
+                sb.Append(dt.Rows[i]["full_name"] + "</a>");
                 sb.Append("</td><td>");
-                sb.Append(dt.Rows[i]["describtion"]);
+                sb.Append(dt.Rows[i]["tel1"]);
+                sb.Append("</td><td>");
+                sb.Append(dt.Rows[i]["cell_phone"]);
+                sb.Append("</td><td>");
+                sb.Append(dt.Rows[i]["carpetCount"]);
+                sb.Append("</td><td>");
+                sb.Append(dt.Rows[i]["u_date_tome"]);
+                sb.Append("</td><td>");
+                sb.Append(dt.Rows[i]["payment"]);
                 sb.Append("</td></tr>");
             }
             sb.Append("</tbody></table>");

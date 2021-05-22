@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class Sale_Report {
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class Sale_Report
+    {
+
         /// <summary>
         /// PersianDateScriptManager control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateScriptManager PersianDateScriptManager;
-        
+
         /// <summary>
         /// Panel_grid control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel_grid;
-        
+
         /// <summary>
         /// txt_from_date control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateTextBox txt_from_date;
-        
+
         /// <summary>
         /// txt_to_date control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateTextBox txt_to_date;
-        
+
         /// <summary>
         /// lst_project control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lst_project;
-        
+
         /// <summary>
         /// lst_provider control.
         /// </summary>
@@ -65,7 +67,16 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lst_provider;
-        
+
+        /// <summary>
+        /// lst_bank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_bank;
+
         /// <summary>
         /// ImageButton_Report control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_Report;
-        
+
         /// <summary>
         /// ImageButton_print control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_print;
-        
+
         /// <summary>
         /// imaged_product control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imaged_product;
-        
+
         /// <summary>
         /// txt_sum control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_sum;
-        
+
         /// <summary>
         /// txt_buy control.
         /// </summary>
@@ -110,16 +121,34 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_buy;
-        
+
         /// <summary>
-        /// txt_final_price control.
+        /// txt_down_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_final_price;
-        
+        protected global::System.Web.UI.WebControls.TextBox txt_down_payment;
+
+        /// <summary>
+        /// txt_remain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_remain;
+
+        /// <summary>
+        /// txt_payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_payment;
+
         /// <summary>
         /// txt_total_discount control.
         /// </summary>
@@ -128,7 +157,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_total_discount;
-        
+
         /// <summary>
         /// txt_margin control.
         /// </summary>
@@ -137,7 +166,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_margin;
-        
+
         /// <summary>
         /// txt_profit control.
         /// </summary>
@@ -146,7 +175,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_profit;
-        
+
         /// <summary>
         /// gridview control.
         /// </summary>

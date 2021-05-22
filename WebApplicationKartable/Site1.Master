@@ -5,62 +5,70 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>بانک فرش بوم</title>
-        <meta charset="UTF-8" />
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-            <style type="text/css">
-            @font-face {    
-    src: url(farsiwebfont.ttf);
-    font-family: FarsiWebFont;
-}
-.textbox {
-             font-family:FarsiWebFont;
-            line-height:normal;
-            border-color:steelblue;
-            background-color:#39cccc;
-            color:black;
-    }
-.dropdown1 {
-            font-family:FarsiWebFont;
-            line-height:normal;
-            border-color:steelblue;
-            background-color:lawngreen;
-            color:black;
-    }
-     .GridStart
-     {
-        direction:rtl;
-        text-align:right;
-        line-height:normal;
-        text-align:right;
-        font-family:FarsiWebFont;
-        font-size:14px;font-weight:bold;
-        border-color:lemonchiffon;
-        color:black;
-     }
-.GridText {
-            line-height:normal;
-	        font-size: 14px;
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        @font-face {
+            src: url(farsiwebfont.ttf);
+            font-family: FarsiWebFont;
+        }
+
+        .textbox {
+            font-family: FarsiWebFont;
+            line-height: normal;
+            border-color: steelblue;
+            background-color: #39cccc;
+            color: black;
+        }
+
+        .dropdown1 {
+            font-family: FarsiWebFont;
+            line-height: normal;
+            border-color: steelblue;
+            background-color: lawngreen;
+            color: black;
+        }
+
+        .GridStart {
+            direction: rtl;
+            text-align: right;
+            line-height: normal;
+            text-align: right;
+            font-family: FarsiWebFont;
+            font-size: 14px;
+            font-weight: bold;
+            border-color: lemonchiffon;
+            color: black;
+        }
+
+        .GridText {
+            line-height: normal;
+            font-size: 14px;
             border-color: greenyellow;
-            color:black;
-            font-family:FarsiWebFont;
-    }
-.lbl_alarm{
-    font-size: 20px;
-    font-weight:bolder;
-    background-color:Aqua;
-    border-radius: 25px;
-    border-color:steelblue;
-    text-align: center;  
-}
-.lnk{color:#003300;
-     font-size: 22px;     
-}
-.lnk:hover {
-                color:White;
+            color: black;
+            font-family: FarsiWebFont;
+        }
+
+        .lbl_alarm {
+            font-size: 20px;
+            font-weight: bolder;
+            background-color: Aqua;
+            border-radius: 25px;
+            border-color: steelblue;
+            text-align: center;
+        }
+
+        .lnk {
+            color: #003300;
+            font-size: 22px;
+        }
+
+            .lnk:hover {
+                color: White;
             }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -69,143 +77,151 @@
 <body class="skin-blue">
     <form id="form1" runat="server">
         <div class="body1">
-        <header class="header">
-            <a href="../HomePage.aspx" class="logo">
-                <span>بانک فرش بوم</span>
-            </a>
-            <nav class="navbar navbar-static-top" role="navigation">
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+            <header class="header">
+                <a href="../HomePage.aspx" class="logo">
+                    <span>بانک فرش بوم</span>
                 </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-warning"></i>
-                                <span class="label label-warning"><asp:Literal ID="literal_alarm_count" runat="server"></asp:Literal></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">سر رسید آلارم ها</li>
-                                <li>
-                                    <ul class="menu">
-                                        <asp:Literal ID="literal_alarm" runat="server"></asp:Literal>
+            </header>
+            <div class="wrapper row-offcanvas row-offcanvas-left">
+                <aside class="left-side sidebar-offcanvas">
+                    <section class="sidebar">
+                        <div class="user-panel">
+                            <asp:Literal runat="server" ID="literal_online"></asp:Literal>
+                        </div>
+                        <ul class="sidebar-menu">
+                            <li class="active">
+                                <a href="#">
+                                    <i class="fa fa-dashboard"></i><span></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../HomePage.aspx">
+                                    <i class="fa fa-laptop"></i><span>صفحه من</span>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-table"></i>
+                                    <span>اطلاعات پایه</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <asp:LinkButton ID="lnk_personal" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Personel_Managment.aspx">پرسنل</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_brands" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Brands.aspx">گونه</asp:LinkButton></li>
+
+                                    <li>
+                                        <asp:LinkButton ID="lnk_colors" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Colors.aspx">رنگ</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_sizes" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Sizes.aspx">اندازه</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_carpet" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Carpet.aspx">نوع فرش</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_plan" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/plan.aspx">نقشه فرش</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_porz" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Porz.aspx">پرز</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_chele" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Chele.aspx">چله</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_clue" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Clue.aspx">سطح ارتباط</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_bank" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/BankAccount.aspx">حساب های بانکی</asp:LinkButton></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-th"></i>
+                                    <span>عملیات خرید و فروش</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <asp:LinkButton ID="lnk_import" runat="server" PostBackUrl="~/Provider_Goods/ProductAssign.aspx">ورود فرش</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust" runat="server" Enabled="false" PostBackUrl="~/Supcust/SupcustManagers.aspx">مدیریت مشتری</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_firm" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Provider_Managment.aspx">مدیریت تامین کننده</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_Sale_price" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Pricing.aspx">قیمت گذاری</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_project" runat="server" Enabled="false" PostBackUrl="~/Project/ProjectManagment.aspx">مدیریت نمایشگاه</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_opportunity_sale" runat="server" Enabled="false" PostBackUrl="~/Project/Opportunity_Managment.aspx">انتقال فرصت فروش</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_factor" runat="server" Enabled="false" PostBackUrl="~/Supcust/FactorsManagment.aspx">مدیریت فاکتورها</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_alarm" runat="server" Enabled="false" PostBackUrl="~/Alarm.aspx">سیستم آلارم</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_acceptgoods" runat="server" PostBackUrl="~/Provider_Goods/AcceptGoods.aspx">پذیرش فرش</asp:LinkButton></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-table"></i><span>گزارش ها</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <asp:LinkButton ID="lnk_sale" runat="server" Enabled="false" PostBackUrl="~/Sale_Report.aspx">تحلیل مالی</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_reject" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReport.aspx">لیست تحویل</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_main_callback" runat="server" Enabled="false" PostBackUrl="~/Project/MainCallBack.aspx">لیست فراخوان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_label" runat="server" Enabled="false" PostBackUrl="~/Project/LabelGenerator.aspx">چاپ برچسب</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_complete" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Complete.aspx">تکمیل اطلاعات</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_settelment" runat="server" Enabled="false" PostBackUrl="~/Project/Settelment.aspx">لیست تسویه حساب</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_all_goods" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=AllProviderGoods">لیست فرش ها</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust_buyers" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Buyers">لیست مشتریان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust_excel" runat="server" Enabled="false" OnClick="lnkExcel_supcust_Click">اکسل مشتریان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust_audience" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Audience">لیست مخاطبین</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_audience_excel" runat="server" Enabled="false" OnClick="lnkExcel_audience_Click">اکسل مخاطبین</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust_report" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=supcust_list">لیست تمام مشتریان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_remain_carpet" runat="server" Enabled="false" PostBackUrl="~/Project/CallPerform.aspx">مدیریت فراخوان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_factorreport" runat="server" Enabled="false" PostBackUrl="~/Supcust/RejectFactor.aspx">گزارش مرجوعی</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_customers" runat="server" Enabled="false" PostBackUrl="~/Supcust/CustomersFactors.aspx">فاکتور مشتریان</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_barcode_report" runat="server" Enabled="false" PostBackUrl="~/Project/ListOfBarcodes.aspx">ورود بارکد</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnk_Survey" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReportCouples.aspx">بررسی نمایشگاه</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lnkExcel" runat="server" Enabled="true" OnClick="lnkExcel_Click">خروجی اکسل</asp:LinkButton></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </aside>
+                <aside class="right-side">
+                    <section class="content">
+                        <div class="row">
+                            <section class="col-lg-12 connectedSortable">
+                                <div class="nav-tabs-custom" style="padding-right: 5%">
+                                    <ul class="nav nav-tabs pull-right">
+                                        <li class="pull-right header"></li>
                                     </ul>
-                                </li>
-                                <li class="footer"><a href="../Alarm.aspx">نمایش لیست</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown user user-menu">
-                            <asp:Literal ID="literal_personal" runat="server"></asp:Literal>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-                        <aside class="left-side sidebar-offcanvas">
-                <section class="sidebar">
-                    <div class="user-panel">
-                        <asp:Literal runat="server" ID="literal_online"></asp:Literal>
-                    </div>
-                    <ul class="sidebar-menu">
-                        <li class="active">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../HomePage.aspx">
-                                <i class="fa fa-laptop"></i> <span>صفحه من</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-table"></i>
-                                <span>اطلاعات پایه</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                            <li><asp:LinkButton ID="lnk_personal" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Personel_Managment.aspx" >پرسنل</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_brands" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Brands.aspx" >گونه</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_cities" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Cities.aspx" >شهر</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_colors" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Colors.aspx" >رنگ</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_sizes" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Sizes.aspx" >اندازه</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_carpet" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Carpet.aspx" >نوع فرش</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_plan" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/plan.aspx" >نقشه فرش</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_locate" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/location.aspx" >محل برگزاری</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_porz" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Porz.aspx" >پرز</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_chele" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Chele.aspx" >چله</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_clue" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Clue.aspx" >سطح ارتباط</asp:LinkButton></li>
-                                <li><asp:LinkButton ID="lnk_raj" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/Raj.aspx" >رج شمار</asp:LinkButton></li> 
-                                 <li><asp:LinkButton ID="lnk_bank" runat="server" Enabled="false" PostBackUrl="~/BaseInformation/BankAccount.aspx" >حساب های بانکی</asp:LinkButton></li>    
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>عملیات خرید و فروش</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                        <ul class="treeview-menu">    
-<li><asp:LinkButton ID="lnk_import" runat="server" PostBackUrl="~/Provider_Goods/ProductAssign.aspx" >ورود فرش</asp:LinkButton></li>                             
-    <li><asp:LinkButton ID="lnk_supcust" runat="server" Enabled="false" PostBackUrl="~/Supcust/SupcustManagers.aspx" >مدیریت مشتری</asp:LinkButton></li>
-    <li><asp:LinkButton ID="lnk_firm" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Provider_Managment.aspx" >مدیریت تامین کننده</asp:LinkButton></li>  
-    <li><asp:LinkButton ID="lnk_Sale_price" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Pricing.aspx" >قیمت گذاری</asp:LinkButton></li>  
-    <li><asp:LinkButton ID="lnk_project" runat="server" Enabled="false" PostBackUrl="~/Project/ProjectManagment.aspx" >مدیریت نمایشگاه</asp:LinkButton></li>    
-    <li><asp:LinkButton ID="lnk_opportunity_sale" runat="server" Enabled="false" PostBackUrl="~/Project/Opportunity_Managment.aspx" >انتقال فرصت فروش</asp:LinkButton></li>  
-    <li><asp:LinkButton ID="lnk_factor" runat="server" Enabled="false" PostBackUrl="~/Supcust/FactorsManagment.aspx" >مدیریت فاکتورها</asp:LinkButton></li>
-    <li><asp:LinkButton ID="lnk_alarm" runat="server" Enabled="false" PostBackUrl="~/Alarm.aspx" >سیستم آلارم</asp:LinkButton></li>
-<li><asp:LinkButton ID="lnk_acceptgoods" runat="server" PostBackUrl="~/Provider_Goods/AcceptGoods.aspx" >پذیرش فرش</asp:LinkButton></li>
-                         </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-table"></i> <span>گزارش ها</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                        <ul class="treeview-menu">
-                            <li><asp:LinkButton ID="lnk_sale" runat="server" Enabled="false" PostBackUrl="~/Sale_Report.aspx" >تحلیل مالی</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_reject" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReport.aspx" >لیست تحویل</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_main_callback" runat="server" Enabled="false" PostBackUrl="~/Project/MainCallBack.aspx" >لیست فراخوان</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_label" runat="server" Enabled="false" PostBackUrl="~/Project/LabelGenerator.aspx" >چاپ برچسب</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_complete" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Complete.aspx" >تکمیل اطلاعات</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_settelment" runat="server" Enabled="false" PostBackUrl="~/Project/Settelment.aspx" >لیست تسویه حساب</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_supcust_excel" runat="server" Enabled="false" PostBackUrl="~/Supcust/SupcustLevel_Export.aspx" >سطح ارتباط</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_all_goods" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=AllProviderGoods" >لیست فرش ها</asp:LinkButton></li>
-                            <li><asp:LinkButton ID="lnk_supcust_report" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=supcust_list" >گزارش مشتری</asp:LinkButton></li>   
-                        <li><asp:LinkButton ID="lnk_remain_carpet" runat="server" Enabled="false" PostBackUrl="~/Project/CallPerform.aspx" >مدیریت فراخوان</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lnk_factorreport" runat="server" Enabled="false" PostBackUrl="~/Supcust/RejectFactor.aspx" >گزارش مرجوعی</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lnk_customers" runat="server" Enabled="false" PostBackUrl="~/Supcust/CustomersFactors.aspx" >فاکتور مشتریان</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lnk_barcode_report" runat="server" Enabled="false" PostBackUrl="~/Project/ListOfBarcodes.aspx" >ورود بارکد</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lnk_Survey" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReportCouples.aspx" >بررسی نمایشگاه</asp:LinkButton></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-            </aside>
-            <aside class="right-side">
-                <section class="content">
-                    <div class="row">
-                <section class="col-lg-12 connectedSortable"> 
-                       <div class="nav-tabs-custom" style="padding-right:5%">
-                           <ul class="nav nav-tabs pull-right">
-                             <li class="pull-right header"></li>
-                           </ul>                 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-                            </div>
-                        </section>
-                    </div>
-                </section>
-            </aside>
-        </div>   
-        <script src="../js/Ajax_Code.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+            <script src="../js/Ajax_Code.js" type="text/javascript"></script>
+            <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
         </div>
     </form>
 </body>

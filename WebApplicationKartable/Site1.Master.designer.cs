@@ -33,33 +33,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// literal_alarm_count control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literal_alarm_count;
-
-        /// <summary>
-        /// literal_alarm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literal_alarm;
-
-        /// <summary>
-        /// literal_personal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literal_personal;
-
-        /// <summary>
         /// literal_online control.
         /// </summary>
         /// <remarks>
@@ -85,15 +58,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_brands;
-
-        /// <summary>
-        /// lnk_cities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_cities;
 
         /// <summary>
         /// lnk_colors control.
@@ -132,15 +96,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_plan;
 
         /// <summary>
-        /// lnk_locate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_locate;
-
-        /// <summary>
         /// lnk_porz control.
         /// </summary>
         /// <remarks>
@@ -166,15 +121,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_clue;
-
-        /// <summary>
-        /// lnk_raj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_raj;
 
         /// <summary>
         /// lnk_bank control.
@@ -321,6 +267,24 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_settelment;
 
         /// <summary>
+        /// lnk_all_goods control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_all_goods;
+
+        /// <summary>
+        /// lnk_supcust_buyers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_buyers;
+
+        /// <summary>
         /// lnk_supcust_excel control.
         /// </summary>
         /// <remarks>
@@ -330,13 +294,22 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_excel;
 
         /// <summary>
-        /// lnk_all_goods control.
+        /// lnk_supcust_audience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_all_goods;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_audience;
+
+        /// <summary>
+        /// lnk_audience_excel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_audience_excel;
 
         /// <summary>
         /// lnk_supcust_report control.
@@ -391,6 +364,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Survey;
+
+        /// <summary>
+        /// lnkExcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkExcel;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

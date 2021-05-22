@@ -163,10 +163,8 @@ namespace WebApplicationKartable
             //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
             //param[1].Value = per.persian_date();
             param[1] = new SqlParameter("@raj_srl", SqlDbType.Int);
-            if (lst_raj.SelectedIndex == 0)
-                param[1].Value = DBNull.Value;
-            else
-                param[1].Value = Convert.ToInt32(lst_raj.SelectedValue);
+            if (!string.IsNullOrEmpty(txt_raj.Text))
+                param[1].Value = Convert.ToInt32(txt_raj.Text);
             param[2] = new SqlParameter("@title_igd", SqlDbType.VarChar, 100);
             param[2].Value = save_image;
             param[3] = new SqlParameter("@provider_srl", SqlDbType.Int);
@@ -182,10 +180,7 @@ namespace WebApplicationKartable
             else
                 param[5].Value = Convert.ToInt32(lst_chele.SelectedValue);
             param[6] = new SqlParameter("@carpet_type", SqlDbType.TinyInt);
-            if (lst_carpet.SelectedIndex == 0)
-                param[6].Value = DBNull.Value;
-            else
-                param[6].Value = Convert.ToInt32(lst_carpet.SelectedValue);
+            param[6].Value = 1;
             param[7] = new SqlParameter("@build_state", SqlDbType.TinyInt);
             param[7].Value = lst_status.SelectedValue;
             param[8] = new SqlParameter("@ibt_srl", SqlDbType.TinyInt);
@@ -247,7 +242,7 @@ namespace WebApplicationKartable
             param[27] = new SqlParameter("@provider_code", SqlDbType.VarChar, 30);
             param[27].Value = txt_pcode.Text;
             param[28] = new SqlParameter("@good_value", SqlDbType.TinyInt);
-            param[28].Value = lst_value.SelectedValue;
+            param[28].Value = 1;
             param[29] = new SqlParameter("@color_srl2", SqlDbType.TinyInt);
             if (lst_color2.SelectedIndex == 0)
                 param[29].Value = DBNull.Value;
@@ -329,10 +324,7 @@ namespace WebApplicationKartable
                         lst_chele.SelectedValue = row["chele_type"].ToString();
                     else
                         lst_chele.SelectedIndex = 0;
-                    if (!Convert.IsDBNull(row["carpet_type"]))
-                        lst_carpet.SelectedValue = row["carpet_type"].ToString();
-                    else
-                        lst_carpet.SelectedIndex = 0;
+
                     if (!string.IsNullOrEmpty(row["build_state"].ToString()))
                         lst_status.SelectedValue = row["build_state"].ToString();
                     else
@@ -354,9 +346,7 @@ namespace WebApplicationKartable
                     else
                         lst_color2.SelectedIndex = 0;
                     if (!Convert.IsDBNull(row["raj_srl"]))
-                        lst_raj.SelectedValue = row["raj_srl"].ToString();
-                    else
-                        lst_raj.SelectedIndex = 0;
+                        txt_raj.Text = row["raj_srl"].ToString();
                     txt_u_date_time.Text = row["u_date_time"].ToString();
                     txt_lenght.Text = row["lenght"].ToString();
                     txt_weight.Text = row["widht"].ToString();
@@ -369,10 +359,6 @@ namespace WebApplicationKartable
                     txt_code.Text = row["code_igd"].ToString();
                     ViewState["code_igd"] = row["code_igd"].ToString();
                     txt_pcode.Text = row["provider_code"].ToString();
-                    if (!Convert.IsDBNull(row["good_value"]))
-                        lst_value.SelectedValue = row["good_value"].ToString();
-                    else
-                        lst_value.SelectedIndex = 0;
                     obobo.str = row["buy_price"].ToString();
                     txt_buy.Text = obobo.str;
                     obobo.str = row["sale_price"].ToString();
@@ -446,8 +432,6 @@ namespace WebApplicationKartable
                 {
                     if (headerRow.Cells[i].Controls.Count != 0)
                     {
-                        //if (!(headerRow.Cells[i].Controls[0] is System.Web.UI.LiteralControl))
-                        //{
                         if (((LinkButton)headerRow.Cells[i].Controls[1]).Text == columnName)
                         {
                             headerRow.Cells[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#2F8CDE");

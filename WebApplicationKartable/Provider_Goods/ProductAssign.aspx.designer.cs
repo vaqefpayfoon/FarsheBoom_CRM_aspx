@@ -105,15 +105,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.SqlDataSource source_size;
 
         /// <summary>
-        /// source_carpet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource source_carpet;
-
-        /// <summary>
         /// source_porz control.
         /// </summary>
         /// <remarks>
@@ -139,15 +130,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource source_plan;
-
-        /// <summary>
-        /// source_raj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource source_raj;
 
         /// <summary>
         /// upload control.
@@ -195,13 +177,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_pcode;
 
         /// <summary>
-        /// lst_carpet control.
+        /// lst_porz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_carpet;
+        protected global::System.Web.UI.WebControls.DropDownList lst_porz;
 
         /// <summary>
         /// txt_lenght control.
@@ -265,24 +247,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lst_color2;
-
-        /// <summary>
-        /// lst_value control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_value;
-
-        /// <summary>
-        /// lst_porz control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_porz;
 
         /// <summary>
         /// lst_status control.
@@ -357,22 +321,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.CheckBox chk_tear;
 
         /// <summary>
-        /// lst_raj control.
+        /// txt_raj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_raj;
-
-        /// <summary>
-        /// txt_barcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_barcode;
+        protected global::System.Web.UI.WebControls.TextBox txt_raj;
 
         /// <summary>
         /// txt_price_home control.
@@ -382,15 +337,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_price_home;
-
-        /// <summary>
-        /// FileUploadBarcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploadBarcode;
 
         /// <summary>
         /// txt_plan_desc control.
@@ -436,6 +382,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_addnew;
+
+        /// <summary>
+        /// ImageButton_delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton_delete;
 
         /// <summary>
         /// ImageButton2 control.

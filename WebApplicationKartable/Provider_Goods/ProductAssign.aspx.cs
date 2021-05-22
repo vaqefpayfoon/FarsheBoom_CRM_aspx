@@ -77,10 +77,6 @@ namespace WebApplicationKartable
                         lst_chele.SelectedValue = row["chele_type"].ToString();
                     else
                         lst_chele.SelectedIndex = 0;
-                    if (!Convert.IsDBNull(row["carpet_type"]))
-                        lst_carpet.SelectedValue = row["carpet_type"].ToString();
-                    else
-                        lst_carpet.SelectedIndex = 0;
                     if (!string.IsNullOrEmpty(row["build_state"].ToString()))
                         lst_status.SelectedValue = row["build_state"].ToString();
                     else
@@ -102,44 +98,16 @@ namespace WebApplicationKartable
                     else
                         lst_color2.SelectedIndex = 0;
                     if (!Convert.IsDBNull(row["raj_srl"]))
-                        lst_raj.SelectedValue = row["raj_srl"].ToString();
+                        txt_raj.Text = row["raj_srl"].ToString();
                     else
-                        lst_raj.SelectedIndex = 0;
+                        txt_raj.Text = string.Empty;
                     ViewState["describtion"] = row["describtion"].ToString();
                     txt_lenght.Text = row["lenght"].ToString();
                     txt_weight.Text = row["widht"].ToString();
-                    //txt_color.Text = row["margin_color"].ToString();
-                    //if (!Convert.IsDBNull(row["dorangi"]))
-                    //    chk_dorangi.Checked = Convert.ToBoolean(row["dorangi"]);
-                    //else
-                    //    chk_dorangi.Checked = false;
-                    //if (!Convert.IsDBNull(row["rofo"]))
-                    //    chk_rofo.Checked = Convert.ToBoolean(row["rofo"]);
-                    //else
-                    //    chk_rofo.Checked = false;
-                    //if (!Convert.IsDBNull(row["kaji"]))
-                    //    chk_kaji.Checked = Convert.ToBoolean(row["kaji"]);
-                    //else
-                    //    chk_kaji.Checked = false;
-                    //if (!Convert.IsDBNull(row["badbaf"]))
-                    //    chk_badbaf.Checked = Convert.ToBoolean(row["badbaf"]);
-                    //else
-                    //    chk_badbaf.Checked = false;
-                    //if (!Convert.IsDBNull(row["pakhordegi"]))
-                    //    chk_pakhordegi.Checked = Convert.ToBoolean(row["pakhordegi"]);
-                    //else
-                    //    chk_pakhordegi.Checked = false;
-                    //if (!Convert.IsDBNull(row["tear"]))
-                    //    chk_tear.Checked = Convert.ToBoolean(row["tear"]);
-                    //else
-                    //    chk_tear.Checked = false;
                     txt_code.Text = row["code_igd"].ToString();
                     ViewState["code_igd"] = row["code_igd"].ToString();
                     txt_pcode.Text = row["provider_code"].ToString();
-                    if (!Convert.IsDBNull(row["good_value"]))
-                        lst_value.SelectedValue = row["good_value"].ToString();
-                    else
-                        lst_value.SelectedIndex = 0;
+
                 }
             }
         }
@@ -218,10 +186,6 @@ namespace WebApplicationKartable
                         lst_chele.SelectedValue = row["chele_type"].ToString();
                     else
                         lst_chele.SelectedIndex = 0;
-                    if (!Convert.IsDBNull(row["carpet_type"]))
-                        lst_carpet.SelectedValue = row["carpet_type"].ToString();
-                    else
-                        lst_carpet.SelectedIndex = 0;
                     if (!string.IsNullOrEmpty(row["build_state"].ToString()))
                         lst_status.SelectedValue = row["build_state"].ToString();
                     else
@@ -245,7 +209,6 @@ namespace WebApplicationKartable
                     ViewState["describtion"] = row["describtion"].ToString();
                     txt_lenght.Text = row["lenght"].ToString();
                     txt_weight.Text = row["widht"].ToString();
-                    //txt_color.Text = row["margin_color"].ToString();
                     if (!Convert.IsDBNull(row["dorangi"]))
                         chk_dorangi.Checked = Convert.ToBoolean(row["dorangi"]);
                     else
@@ -274,10 +237,6 @@ namespace WebApplicationKartable
                     ViewState["code_igd"] = row["code_igd"].ToString();
                     txt_pcode.Text = row["provider_code"].ToString();
                     txt_plan_desc.Text = row["plan_desc"].ToString();
-                    if (!Convert.IsDBNull(row["good_value"]))
-                        lst_value.SelectedValue = row["good_value"].ToString();
-                    else
-                        lst_value.SelectedIndex = 0;
                     Common common = new Common();
                     if (!Convert.IsDBNull(row["price_home"]))
                     {
@@ -336,28 +295,7 @@ namespace WebApplicationKartable
                 else
                     save_image = "..\\img\\person.png";
             }
-            int remainBarcode = (Convert.ToInt32(ViewState["srl_details"]) / 100) + 1;
-            string pathBarcode = Server.MapPath("/Barcode_images");
-            string save_imageBarcode = "../Barcode_images/" + remainBarcode;
-            if (!Directory.Exists(pathBarcode + "/" + remainBarcode))
-                Directory.CreateDirectory(pathBarcode + "/" + remainBarcode);
-            pathBarcode = Server.MapPath("/Barcode_images/" + remainBarcode);
-            if (FileUploadBarcode.HasFile)
-            {
-                string srlBarcode = txt_code.Text;
-                string file_type = Path.GetExtension(FileUploadBarcode.FileName);
-                pathBarcode = pathBarcode + "\\" + srlBarcode + file_type;
-                save_imageBarcode = save_imageBarcode + "\\" + srlBarcode + file_type;
-                FileUploadBarcode.SaveAs(pathBarcode);
-                //image2.ImageUrl = save_imageBarcode;
-            }
-            else
-            {
-                if (ViewState["describtion"] != null)
-                    save_imageBarcode = ViewState["describtion"].ToString();
-                else
-                    save_imageBarcode = "..\\img\\person.png";
-            }
+
             double dbl_price_home = 0;
             if (!string.IsNullOrEmpty(txt_price_home.Text))
                 dbl_price_home = Convert.ToDouble(obj.remove_cama(txt_price_home.Text));
@@ -381,10 +319,7 @@ namespace WebApplicationKartable
             else
                 param[5].Value = Convert.ToInt32(lst_chele.SelectedValue);
             param[6] = new SqlParameter("@carpet_type", SqlDbType.TinyInt);
-            if (lst_carpet.SelectedIndex == 0)
-                param[6].Value = DBNull.Value;
-            else
-                param[6].Value = Convert.ToInt32(lst_carpet.SelectedValue);
+            param[6].Value = 1;
             param[7] = new SqlParameter("@build_state", SqlDbType.TinyInt);
             param[7].Value = lst_status.SelectedValue;
             param[8] = new SqlParameter("@ibt_srl", SqlDbType.TinyInt);
@@ -408,14 +343,11 @@ namespace WebApplicationKartable
             else
                 param[11].Value = Convert.ToInt32(lst_color.SelectedValue);
             param[12] = new SqlParameter("@barcode", SqlDbType.Char, 30);
-            if (!string.IsNullOrEmpty(txt_barcode.Text))
-                param[12].Value = txt_barcode.Text;
-            else
-                param[12].Value = DBNull.Value;
+            param[12].Value = DBNull.Value;
             param[13] = new SqlParameter("@sold", SqlDbType.Bit);
             param[13].Value = DBNull.Value;
             param[14] = new SqlParameter("@describtion", SqlDbType.VarChar);
-            param[14].Value = save_imageBarcode;
+            param[14].Value = DBNull.Value;
             param[15] = new SqlParameter("@lenght", SqlDbType.Char, 20);
             if (!string.IsNullOrEmpty(txt_lenght.Text))
                 param[15].Value = Convert.ToDecimal(txt_lenght.Text);
@@ -449,17 +381,17 @@ namespace WebApplicationKartable
             param[27] = new SqlParameter("@provider_code", SqlDbType.VarChar, 30);
             param[27].Value = txt_pcode.Text;
             param[28] = new SqlParameter("@good_value", SqlDbType.TinyInt);
-            param[28].Value = lst_value.SelectedValue;
+            param[28].Value = 1;
             param[29] = new SqlParameter("@color_srl2", SqlDbType.TinyInt);
             if (lst_color2.SelectedIndex == 0)
                 param[29].Value = DBNull.Value;
             else
                 param[29].Value = Convert.ToInt32(lst_color2.SelectedValue);
             param[30] = new SqlParameter("@raj_srl", SqlDbType.Int);
-            if (lst_raj.SelectedIndex == 0)
-                param[30].Value = DBNull.Value;
+            if (!string.IsNullOrEmpty(txt_raj.Text))
+                param[30].Value = Convert.ToInt32(txt_raj.Text);
             else
-                param[30].Value = Convert.ToInt32(lst_raj.SelectedValue);
+                param[30].Value = DBNull.Value;
             param[31] = new SqlParameter("@price_home", SqlDbType.Int);
             if (string.IsNullOrEmpty(txt_price_home.Text))
                 param[31].Value = DBNull.Value;
@@ -500,28 +432,7 @@ namespace WebApplicationKartable
                 else
                     save_image = "..\\img\\person.png";
             }
-            int remainBarcode = (Convert.ToInt32(ViewState["srl_details"]) / 100) + 1;
-            string pathBarcode = Server.MapPath("/Barcode_images");
-            string save_imageBarcode = "../Barcode_images/" + remainBarcode;
-            if (!Directory.Exists(pathBarcode + "/" + remainBarcode))
-                Directory.CreateDirectory(pathBarcode + "/" + remainBarcode);
-            pathBarcode = Server.MapPath("/Barcode_images/" + remainBarcode);
-            if (FileUploadBarcode.HasFile)
-            {
-                string srlBarcode = txt_code.Text;
-                string file_type = Path.GetExtension(FileUploadBarcode.FileName);
-                pathBarcode = pathBarcode + "\\" + srlBarcode + file_type;
-                save_imageBarcode = save_imageBarcode + "\\" + srlBarcode + file_type;
-                FileUploadBarcode.SaveAs(pathBarcode);
-                //image2.ImageUrl = save_imageBarcode;
-            }
-            else
-            {
-                if (ViewState["describtion"] != null)
-                    save_imageBarcode = ViewState["describtion"].ToString();
-                else
-                    save_imageBarcode = "..\\img\\person.png";
-            }
+
             Common obj = new Common();
             double dbl_price_home = 0;
             if (!string.IsNullOrEmpty(txt_price_home.Text))
@@ -530,8 +441,6 @@ namespace WebApplicationKartable
             SqlParameter[] param = new SqlParameter[31];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl_details"]);
-            //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
-            //param[1].Value = per.persian_date();
             param[1] = new SqlParameter("@price_home", SqlDbType.Int);
             if (string.IsNullOrEmpty(txt_price_home.Text))
                 param[1].Value = DBNull.Value;
@@ -552,10 +461,7 @@ namespace WebApplicationKartable
             else
                 param[5].Value = Convert.ToInt32(lst_chele.SelectedValue);
             param[6] = new SqlParameter("@carpet_type", SqlDbType.TinyInt);
-            if (lst_carpet.SelectedIndex == 0)
-                param[6].Value = DBNull.Value;
-            else
-                param[6].Value = Convert.ToInt32(lst_carpet.SelectedValue);
+            param[6].Value = 1;
             param[7] = new SqlParameter("@build_state", SqlDbType.TinyInt);
             param[7].Value = lst_status.SelectedValue;
             param[8] = new SqlParameter("@ibt_srl", SqlDbType.TinyInt);
@@ -579,14 +485,11 @@ namespace WebApplicationKartable
             else
                 param[11].Value = Convert.ToInt32(lst_color.SelectedValue);
             param[12] = new SqlParameter("@barcode", SqlDbType.Char, 30);
-            if (!string.IsNullOrEmpty(txt_barcode.Text))
-                param[12].Value = txt_barcode.Text;
-            else
-                param[12].Value = DBNull.Value;
+            param[12].Value = DBNull.Value;
             param[13] = new SqlParameter("@sold", SqlDbType.Bit);
             param[13].Value = DBNull.Value;
             param[14] = new SqlParameter("@describtion", SqlDbType.VarChar);
-            param[14].Value = save_imageBarcode;
+            param[14].Value = DBNull.Value;
             param[15] = new SqlParameter("@lenght", SqlDbType.Char, 20);
             if (!string.IsNullOrEmpty(txt_lenght.Text))
                 param[15].Value = Convert.ToDecimal(txt_lenght.Text);
@@ -620,18 +523,18 @@ namespace WebApplicationKartable
             param[27] = new SqlParameter("@provider_code", SqlDbType.VarChar, 30);
             param[27].Value = txt_pcode.Text;
             param[28] = new SqlParameter("@good_value", SqlDbType.TinyInt);
-            param[28].Value = lst_value.SelectedValue;
+            param[28].Value = 1;
             param[29] = new SqlParameter("@color_srl2", SqlDbType.TinyInt);
             if (lst_color2.SelectedIndex == 0)
                 param[29].Value = DBNull.Value;
             else
                 param[29].Value = Convert.ToInt32(lst_color2.SelectedValue);
             param[30] = new SqlParameter("@raj_srl", SqlDbType.Int);
-            if (lst_raj.SelectedIndex == 0)
-                param[30].Value = DBNull.Value;
+            if (!string.IsNullOrEmpty(txt_raj.Text))
+                param[30].Value = Convert.ToInt32(txt_raj.Text);
             else
-                param[30].Value = Convert.ToInt32(lst_raj.SelectedValue);
- 
+                param[30].Value = DBNull.Value;
+
             new ManageCommands(param, "update_goods");
             lblError.Text = "فرش جاری ویرایش شد";
         }
@@ -689,17 +592,14 @@ namespace WebApplicationKartable
         private void empty_boxes()
         {
             ViewState["update"] = "0";
-            txt_barcode.Text = string.Empty;
             lst_brand.SelectedIndex = 0;
             lst_status.SelectedIndex = 0;
-            lst_carpet.SelectedIndex = 0;
             lst_chele.SelectedIndex = 0;
             lst_porz.SelectedIndex = 0;
             lst_color.SelectedIndex = 0;
             lst_color2.SelectedIndex = 0;
             lst_porz.SelectedIndex = 0;
             lst_size.SelectedIndex = 0;
-            lst_value.SelectedIndex = 0;
             lst_plan.SelectedIndex = 0;
             txt_lenght.Text = string.Empty;
             txt_weight.Text = string.Empty;
@@ -802,6 +702,25 @@ namespace WebApplicationKartable
         {
             gridview.PageIndex = e.NewPageIndex;
             fill_grid(ViewState["srl"].ToString());
+        }
+
+        protected void ImageButton_delete_Click(object sender, ImageClickEventArgs e)
+        {
+            foreach (GridViewRow gvrow in gridview.Rows)
+            {
+                var checkbox = gvrow.FindControl("chk_delete") as CheckBox;
+                if (checkbox.Checked)
+                {
+                    var code_igd = gvrow.FindControl("code_igd") as Label;
+                    SqlConnection con = new SqlConnection(strConnString);
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from inv_goods where " +
+                    "code_igd=@code_igd";
+                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = code_igd;
+                    fill_grid(lst_provider.SelectedValue);
+                }
+            }
         }
     }
 }

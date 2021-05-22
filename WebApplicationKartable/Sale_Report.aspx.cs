@@ -28,10 +28,10 @@ namespace WebApplicationKartable
         }
         protected void btn_filter_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0)
+            if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data("Select srl_f, factor_no,u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (from_date between '" + txt_from_date.Text + "' and '" + txt_to_date.Text + "') order by u_date_tome desc");
+                dt = obj.Get_Data("Select srl_f, factor_no,u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, bank_srl, bank_name, final_price,margin_profit,final_profit2,title_igd,down_payment,payment FROM SoldCarpets where (from_date between '" + txt_from_date.Text + "' and '" + txt_to_date.Text + "') order by u_date_tome desc");
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -45,10 +45,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (from_date between '{0}' and '{1}') And provider_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And provider_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_provider.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -62,10 +62,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (from_date between '{0}' and '{1}') And header_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And header_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -79,10 +79,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (from_date between '{0}' and '{1}') And (header_srl={2}) And (provider_srl={3}) order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And (header_srl={2}) And (provider_srl={3}) order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_provider.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -96,10 +96,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (header_srl={0}) And (provider_srl={1}) order by u_date_tome desc", lst_project.SelectedValue, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (header_srl={0}) And (provider_srl={1}) order by u_date_tome desc", lst_project.SelectedValue, lst_provider.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -113,10 +113,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (header_srl={0}) order by u_date_tome desc", lst_project.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (header_srl={0}) order by u_date_tome desc", lst_project.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -130,10 +130,10 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex == 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
-                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets where (provider_srl={0}) order by u_date_tome desc", lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (provider_srl={0}) order by u_date_tome desc", lst_provider.SelectedValue));
                 Session["Financial"] = dt;
                 if (dt.Rows.Count > 0)
                 {
@@ -147,13 +147,139 @@ namespace WebApplicationKartable
                 }
                 calcute(dt);
             }
+            //start bank
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no,u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, bank_srl, bank_name, final_price,margin_profit,final_profit2,title_igd,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') and bank_srl = {2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+
+
+
+
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And provider_srl={2} and bank_srl={3} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_provider.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And header_srl={2} and bank_srl={3} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (from_date between '{0}' and '{1}') And (header_srl={2}) And (provider_srl={3}) and bank_srl={4} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_provider.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (header_srl={0}) And (provider_srl={1}) and bank_srl={2} order by u_date_tome desc", lst_project.SelectedValue, lst_provider.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (header_srl={0}) and bank_srl={1} order by u_date_tome desc", lst_project.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets where (provider_srl={0}) and bank_srl = {1} order by u_date_tome desc", lst_provider.SelectedValue, lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
+
+
             else
                 fill_grid();
         }
         private void fill_grid()
         {
             Search obj = new Search(strConnString); DataTable dt = new DataTable();
-            dt = obj.Get_Data("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd FROM SoldCarpets order by u_date_tome desc");
+            dt = obj.Get_Data("Select srl_f, factor_no, u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, final_price,margin_profit,final_profit2,title_igd, bank_srl, bank_name,down_payment,payment FROM SoldCarpets order by u_date_tome desc");
             Session["Financial"] = dt;
             if (dt.Rows.Count > 0)
             {
@@ -203,7 +329,7 @@ namespace WebApplicationKartable
                 if (!Convert.IsDBNull(payment))
                 {
                     obj.str = payment.ToString();
-                    txt_final_price.Text = obj.str;
+                    txt_payment.Text = obj.str;
                 }
                 object discount_amount;
                 discount_amount = dt.Compute("SUM(discount_amount)", "");
@@ -228,15 +354,31 @@ namespace WebApplicationKartable
                     obj.str = profit.ToString();
                     txt_profit.Text = obj.str;
                 }
+
+                object downPayment;
+                downPayment = dt.Compute("SUM(down_payment)", "");
+                if (!Convert.IsDBNull(downPayment))
+                {
+                    obj.str = downPayment.ToString();
+                    txt_down_payment.Text = obj.str;
+                }
+
+                if (!Convert.IsDBNull(payment) && !Convert.IsDBNull(downPayment))
+                {
+                    obj.str = (Convert.ToDouble(payment) - Convert.ToDouble(downPayment)).ToString();
+                    txt_remain.Text = obj.str;
+                }
             }
             else
             {
                 txt_sum.Text = string.Empty;
                 txt_buy.Text = string.Empty;
-                txt_final_price.Text = string.Empty;
+                txt_payment.Text = string.Empty;
                 txt_total_discount.Text = string.Empty;
                 txt_margin.Text = string.Empty;
                 txt_profit.Text = string.Empty;
+                txt_down_payment.Text = string.Empty;
+                txt_remain.Text = string.Empty;
             }
         }
         public void fill_combo()
@@ -259,6 +401,17 @@ namespace WebApplicationKartable
                 foreach (DataRow Woak in dt.Rows)
                 {
                     lst_provider.Items.Add(new ListItem(Woak["provider_name"].ToString(), Woak["srl"].ToString()));
+                }
+            }
+
+            dt = new DataTable();
+            dt = obj.Get_Data("SELECT srl, bank_name FROM dbo.inv_bank");
+            if (dt.Rows.Count > 0)
+            {
+                lst_provider.Items.Add(new ListItem("---", "0"));
+                foreach (DataRow Woak in dt.Rows)
+                {
+                    lst_bank.Items.Add(new ListItem(Woak["bank_name"].ToString(), Woak["srl"].ToString()));
                 }
             }
         }

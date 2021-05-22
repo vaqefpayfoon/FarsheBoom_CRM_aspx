@@ -29,14 +29,14 @@ namespace WebApplicationKartable
                 case "provider_list":
                     {
                         lbl_header.Text = "گزارش تامین کننده ها";
-                        DataTable dt = obj.Get_Data("SELECT srl, provider_name, related_person, tel1, cell_phone FROM dbo.bas_provider");
+                        DataTable dt = obj.Get_Data("SELECT srl, provider_name, related_person, tel1, cell_phone FROM dbo.bas_provider order by srl desc");
                         literal_report.Text = rpt.provider_list(dt);
                     }
                     break;
                 case "supcust_list":
                     {
                         lbl_header.Text = "گزارش مشتری";
-                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.u_date_time, dbo.bas_supcust.cell_phone, dbo.bas_sale_clue.meet_title, dbo.bas_supcust.describtion FROM dbo.bas_sale_clue INNER JOIN dbo.bas_supcust ON dbo.bas_sale_clue.srl = dbo.bas_supcust.clue_srl");
+                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone FROM dbo.bas_supcust order by srl desc");
                         literal_report.Text = rpt.supcust_list(dt);
                     }
                     break;
@@ -50,8 +50,22 @@ namespace WebApplicationKartable
                 case "AllProviderGoods":
                     {
                         lbl_header.Text = "لیست تمام فرش ها";
-                        DataTable dt = obj.Get_Data("SELECT srl, code_igd,provider_name, brand_name, size_title, provider_code, plan_title, porz_title, chele_title, color_name, build_state FROM AllProviderGoods");
+                        DataTable dt = obj.Get_Data("SELECT srl, code_igd,provider_name, brand_name, size_title, provider_code, plan_title, porz_title, chele_title, color_name, build_state FROM AllProviderGoods Where build_state In (0, 3) order by srl desc");
                         literal_report.Text = rpt.AllProviderGoods(dt);
+                    }
+                    break;
+                case "Buyers":
+                    {
+                        lbl_header.Text = "لیست مشتریان";
+                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN                          dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment)");
+                        literal_report.Text = rpt.buyers_list(dt);
+                    }
+                    break;
+                case "Audience":
+                    {
+                        lbl_header.Text = "لیست مخاطبین";
+                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
+                        literal_report.Text = rpt.supcust_list(dt);
                     }
                     break;
             }

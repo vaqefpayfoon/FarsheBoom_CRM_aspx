@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class Provider_Managment {
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class Provider_Managment
+    {
+
         /// <summary>
         /// ToolkitScriptManager control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
-        
+
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+
         /// <summary>
         /// grid control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid;
-        
+
         /// <summary>
         /// btnClose control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClose;
-        
+
         /// <summary>
         /// mp1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mp1;
-        
+
         /// <summary>
         /// search_panel control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel search_panel;
-        
+
         /// <summary>
         /// RegisterUserValidationSummary control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary RegisterUserValidationSummary;
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// add_new control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton add_new;
-        
+
         /// <summary>
         /// edit control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton edit;
-        
+
         /// <summary>
         /// delete control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton delete;
-        
+
         /// <summary>
         /// report control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton report;
-        
+
         /// <summary>
         /// txtContactsSearch control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContactsSearch;
-        
+
         /// <summary>
         /// UserNameRequired control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
-        
+
         /// <summary>
         /// txt_code control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_code;
-        
+
         /// <summary>
         /// btnShow control.
         /// </summary>
@@ -155,7 +157,25 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnShow;
-        
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
         /// <summary>
         /// AutoCompleteExtender1 control.
         /// </summary>

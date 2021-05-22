@@ -22,7 +22,7 @@ namespace WebApplicationKartable
         {           
             if(!IsPostBack)
             {
-                fill_grid();
+                // fill_grid();
                 security();
             }
         }
@@ -49,8 +49,6 @@ namespace WebApplicationKartable
                         lnk_brands.Enabled = true;
                         lnk_carpet.Enabled = true;
                         lnk_chele.Enabled = true;
-                        lnk_cities.Enabled = true;
-                        lnk_clue.Enabled = true;
                         lnk_colors.Enabled = true;
                         lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
@@ -65,12 +63,10 @@ namespace WebApplicationKartable
                         lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
-                        lnk_locate.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;
                         lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
-                        lnk_raj.Enabled = true;
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
@@ -89,8 +85,6 @@ namespace WebApplicationKartable
                         lnk_brands.Enabled = true;
                         lnk_carpet.Enabled = true;
                         lnk_chele.Enabled = true;
-                        lnk_cities.Enabled = true;
-                        lnk_clue.Enabled = true;
                         lnk_colors.Enabled = true;
                         lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
@@ -107,12 +101,10 @@ namespace WebApplicationKartable
                         lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
-                        lnk_locate.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;
                         lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
-                        lnk_raj.Enabled = true;
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
@@ -124,51 +116,7 @@ namespace WebApplicationKartable
                     break;
             }
         }
-        protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Response.Redirect("supcust/factor.aspx?srl=" + gridview.SelectedRow.Cells[0].Text.Trim());
-        }
-        protected void gridview_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gridview.PageIndex = e.NewPageIndex;
-            fill_grid();
-        }
-        private void fill_grid()
-        {
-            CheckLogin();
-            StringBuilder sb_personal = new StringBuilder();
-            StringBuilder sb_online = new StringBuilder();
-            StringBuilder sb_dropdown_menu = new StringBuilder();
-            Search obj = new Search(strConnString); DataTable dt = new DataTable();
-            dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View order by project_srl desc");
-            if (dt.Rows.Count > 0)
-            {
-                gridview.DataSource = dt;
-                gridview.DataBind();
-            }
-            DataTable dt_personal = new DataTable();
-            dt_personal = obj.Get_Data("SELECT first_name + ' ' + last_name AS full_name, image_hpl FROM dbo.hpl_personal WHERE srl=" + ubuzhi.srl);
-            if (dt_personal.Rows.Count > 0)
-            {
-                DataRow row = dt_personal.Rows[0];
-                if (!Convert.IsDBNull(row["image_hpl"]))
-                {
-                    sb_personal.Append("<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='glyphicon glyphicon-user'></i><span>" + row["full_name"] + "<i class='caret'></i></span></a><ul class='dropdown-menu'><li class='user-header bg-light-blue'><img src='" + row["image_hpl"] + "' class='img-circle' /><p>" + row["full_name"] + "</p></li><li class='user-body'><div class='col-xs-6 text-center'><a href='#' name='logout' runat='server' >ارزیابی</a></div></li><li class='user-footer'><div class='pull-left'><a href='BaseInformation/Edit_Profile.aspx' class='btn btn-default btn-flat'>مشخصات فردی</a></div><div class='pull-right'><a href='../login.aspx?snd=-1' class='btn btn-default btn-flat' name='logout'>خروج</a></div></li></ul>");
-                    sb_online.Append("<div class='pull-left image'><img src=" + row["image_hpl"] + " class='img-circle' /></div><div class='pull-left info'>");
-                }
-                else
-                {
-                    sb_dropdown_menu.Append("<img src='img/person.png' class='img-circle'/>");
-                }
-                if (row["full_name"] != null)
-                {
-                    sb_online.Append("<p>" + row["full_name"] + "</p><i class='fa fa-circle text-success'></i> Online</div>");
-                }
-                literal_personal.Text = sb_personal.ToString();
-                literal_online.Text = sb_online.ToString();
-                alarms();
-            }
-        }
+
         private void CheckLogin()
         {
             if (Request.Cookies["myCookie"] != null)
@@ -189,32 +137,6 @@ namespace WebApplicationKartable
                     ubuzhi.group_srl = Request.Cookies["myCookie"]["group_srl"].ToString();
                 else
                     Response.Redirect("login.aspx");
-            }
-        }
-        private void alarms()
-        {
-            StringBuilder sb_alarm = new StringBuilder();
-            DataTable dt = new DataTable();
-            dt = obj.Get_Data("SELECT srl,date_time, alarm_subject FROM dbo.hpl_alarm WHERE hpl_srl=" + ubuzhi.srl + " AND (date_time between '" + one_day_earlier() + "' AND '" + one_day_later() + "')");
-            if (dt.Rows.Count > 0)
-            {
-                object sumObject;
-                sumObject = dt.Compute("count(date_time)", "date_time IS NOT NULL");
-                if (sumObject != null)
-                    literal_alarm_count.Text = sumObject.ToString();
-
-                foreach (DataRow Woak in dt.Rows)
-                {
-                    if (!Convert.IsDBNull(Woak["date_time"]))
-                    {
-                        sb_alarm.Append("<li><a href='../Alarm.aspx?srl=" + Woak["srl"] + "'>");
-                        sb_alarm.Append(Woak["date_time"]);
-                        sb_alarm.Append(" _ ");
-                        sb_alarm.Append(Woak["alarm_subject"]);
-                        sb_alarm.Append("</a></li>");
-                    }
-                }
-                literal_alarm.Text = sb_alarm.ToString();
             }
         }
         private string one_day_earlier()
@@ -272,37 +194,7 @@ namespace WebApplicationKartable
                 con.Close();
             }
         }
-        protected void btn_filter_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            if (!string.IsNullOrEmpty(txtContactsSearch.Text))
-            {
-                int provider = provider_srl(txtContactsSearch.Text);
-                dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View Where (sold is null or sold = 'False') AND  ([confirm] is null or (confirm='False')) and  provider_srl=" + provider);
-                gridview.DataSource = dt; gridview.DataBind();
-            }
-            else if (!string.IsNullOrEmpty(txt_product.Text))
-            {
-                int good = goods_srl(txt_product.Text);
-                dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View Where  (sold is null or sold = 'False') AND ([confirm] is null or (confirm='False')) and  igd_srl=" + good);
-                gridview.DataSource = dt; gridview.DataBind();
-            }
-            else if (lst_city2.SelectedIndex > 0)
-            {
-                dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View Where (sold is null or sold = 'False') AND ([confirm] is null or (confirm='False')) and ibt_srl=" + lst_city2.SelectedValue);
-                gridview.DataSource = dt; gridview.DataBind();
-            }
-            else if (lst_size.SelectedIndex > 0)
-            {
-                dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View Where (sold is null or sold = 'False') AND ([confirm] is null or (confirm='False')) and size_srl=" + lst_size.SelectedValue);
-                gridview.DataSource = dt; gridview.DataBind();
-            }
-            else
-            {
-                dt = obj.Get_Data("SELECT srl, u_date_time, meet_title,full_name, header_srl, igd_srl, code_igd, provider_name, size_title,project_srl FROM  dbo.Project_Details_View Where (sold is null or sold = 'False') AND ([confirm] is null or (confirm='False'))");
-                gridview.DataSource = dt; gridview.DataBind();
-            }
-        }
+       
         private int provider_srl(string name)
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
@@ -351,6 +243,20 @@ namespace WebApplicationKartable
                               FROM[94_farsheboom].[94_vaq].[excel]");
             ExporttoExcel2(dt);
         }
+        protected void lnkExcel_supcust_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+
+            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment)");
+            ExporttoExcelSupcust(dt);
+        }
+        protected void lnkExcel_audience_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+
+            dt = obj.Get_Data(@"SELECT full_name, u_date_time, tel1, cell_phone FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
+            ExporttoExcelAudience(dt);
+        }
         private void ExporttoExcel2(DataTable table)
         {
             HttpContext.Current.Response.Clear();
@@ -389,6 +295,105 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.Write("<Td>");
             HttpContext.Current.Response.Write("مساحت");
             HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("</TR>");
+            foreach (DataRow row in table.Rows)
+            {
+                HttpContext.Current.Response.Write("<TR>");
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    HttpContext.Current.Response.Write("<Td>");
+                    HttpContext.Current.Response.Write(row[i].ToString());
+                    HttpContext.Current.Response.Write("</Td>");
+                }
+
+                HttpContext.Current.Response.Write("</TR>");
+            }
+            HttpContext.Current.Response.Write("</Table>");
+            HttpContext.Current.Response.Write("</font>");
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.End();
+        }
+        private void ExporttoExcelSupcust(DataTable table)
+        {
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.ClearContent();
+            HttpContext.Current.Response.ClearHeaders();
+            HttpContext.Current.Response.Buffer = true;
+            HttpContext.Current.Response.ContentType = "application/ms-excel";
+            HttpContext.Current.Response.Write(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
+            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
+            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+            HttpContext.Current.Response.Write("<font style='font-size:14.0pt; font-family:B Nazanin;'>");
+            HttpContext.Current.Response.Write("<BR><BR><BR>");
+            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt; font-family:B Nazanin; background:white;'> <TR>");
+            int columnscount = table.Columns.Count;
+            HttpContext.Current.Response.Write("</TR>");
+            HttpContext.Current.Response.Write("<TR>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("نام و نام خانوادگی");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تلفن");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("موبایل");
+            HttpContext.Current.Response.Write("</Td>");
+
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تعداد فرش");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("آخرین فاکتور");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("جمع مبلغ فروش");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("</TR>");
+            foreach (DataRow row in table.Rows)
+            {
+                HttpContext.Current.Response.Write("<TR>");
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    HttpContext.Current.Response.Write("<Td>");
+                    HttpContext.Current.Response.Write(row[i].ToString());
+                    HttpContext.Current.Response.Write("</Td>");
+                }
+
+                HttpContext.Current.Response.Write("</TR>");
+            }
+            HttpContext.Current.Response.Write("</Table>");
+            HttpContext.Current.Response.Write("</font>");
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.End();
+        }
+        private void ExporttoExcelAudience(DataTable table)
+        {
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.ClearContent();
+            HttpContext.Current.Response.ClearHeaders();
+            HttpContext.Current.Response.Buffer = true;
+            HttpContext.Current.Response.ContentType = "application/ms-excel";
+            HttpContext.Current.Response.Write(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
+            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
+            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+            HttpContext.Current.Response.Write("<font style='font-size:14.0pt; font-family:B Nazanin;'>");
+            HttpContext.Current.Response.Write("<BR><BR><BR>");
+            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt; font-family:B Nazanin; background:white;'> <TR>");
+            int columnscount = table.Columns.Count;
+            HttpContext.Current.Response.Write("</TR>");
+            HttpContext.Current.Response.Write("<TR>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("نام و نام خانوادگی");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تاریخ ورود به سیستم");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تلفن");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("موبایل");
+            HttpContext.Current.Response.Write("</Td>");   
             HttpContext.Current.Response.Write("</TR>");
             foreach (DataRow row in table.Rows)
             {
