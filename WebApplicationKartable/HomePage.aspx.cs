@@ -22,30 +22,26 @@ namespace WebApplicationKartable
         {           
             if(!IsPostBack)
             {
-                // fill_grid();
+                fill_grid();
                 security();
             }
         }
         private void security()
         {
+            if(ubuzhi.group_srl == null)
+            {
+
+            }
             switch(ubuzhi.group_srl)
             {
                 case "1":
                     {
                         lnk_firm.Enabled = true;
-                        box_supcust.Enabled = true;
-                        box_provider.Enabled = true;
-                        box_alarm.Enabled = true;
-                        lnk_alarm.Enabled = true;
                         lnk_supcust_excel.Enabled = true;                        
                     }
                     break;
                 case "2":
                     {
-                        box_supcust.Enabled = true;
-                        box_alarm.Enabled = true;
-                        box_opportunity.Enabled = true;
-                        box_provider.Enabled = true;
                         lnk_brands.Enabled = true;
                         lnk_carpet.Enabled = true;
                         lnk_chele.Enabled = true;
@@ -77,11 +73,7 @@ namespace WebApplicationKartable
                     }
                     break;
                 case "3":
-                    {
-                        box_supcust.Enabled = true;
-                        box_alarm.Enabled = true;
-                        box_opportunity.Enabled = true;
-                        box_provider.Enabled = true;                        
+                    {                      
                         lnk_brands.Enabled = true;
                         lnk_carpet.Enabled = true;
                         lnk_chele.Enabled = true;
@@ -116,7 +108,6 @@ namespace WebApplicationKartable
                     break;
             }
         }
-
         private void CheckLogin()
         {
             if (Request.Cookies["myCookie"] != null)
@@ -139,79 +130,34 @@ namespace WebApplicationKartable
                     Response.Redirect("login.aspx");
             }
         }
-        private string one_day_earlier()
+        private void fill_grid()
         {
-            DateTime dt = pc.AddDays(DateTime.Now, -1);
-            string year = pc.GetYear(dt).ToString();
-            string month = pc.GetMonth(dt).ToString("d2");
-            string day = pc.GetDayOfMonth(dt).ToString("d2");
-            return string.Concat(year, "/", month, "/", day);
-        }
-        private string one_day_later()
-        {
-            DateTime dt = pc.AddDays(DateTime.Now, 1);
-            string year = pc.GetYear(dt).ToString();
-            string month = pc.GetMonth(dt).ToString("d2");
-            string day = pc.GetDayOfMonth(dt).ToString("d2");
-            return string.Concat(year, "/", month, "/", day);
-        }
-        private string persian_date()
-        {
-            DateTime dt2 = DateTime.Now;
-            string year1 = pc.GetYear(dt2).ToString();
-            string month1 = pc.GetMonth(dt2).ToString("d2");
-            string day1 = pc.GetDayOfMonth(dt2).ToString("d2");
-            return string.Concat(year1, "/", month1, "/", day1);
-        }
-        private void check_requests()
-        {
-            if (Request.QueryString["snd"] != null)
+            CheckLogin();
+            StringBuilder sb_personal = new StringBuilder();
+            StringBuilder sb_online = new StringBuilder();
+            StringBuilder sb_dropdown_menu = new StringBuilder();
+            Search obj = new Search(strConnString);
+            DataTable dt_personal = new DataTable();
+            dt_personal = obj.Get_Data("SELECT first_name + ' ' + last_name AS full_name, image_hpl FROM dbo.hpl_personal WHERE srl=" + ubuzhi.srl);
+            if (dt_personal.Rows.Count > 0)
             {
-                SqlConnection con = new SqlConnection(strConnString);
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = con;
-                cmd.CommandText = "update ltr_transfer_details set read_l=@read_l where srl=@srl";
-                cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(Request.QueryString["snd"]);
-                cmd.Parameters.Add("@read_l", SqlDbType.Bit).Value = true;
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                DataRow row = dt_personal.Rows[0];
+                if (!Convert.IsDBNull(row["image_hpl"]))
+                {
+                    sb_personal.Append("<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='glyphicon glyphicon-user'></i><span>" + row["full_name"] + "<i class='caret'></i></span></a><ul class='dropdown-menu'><li class='user-header bg-light-blue'><img src='" + row["image_hpl"] + "' class='img-circle' /><p>" + row["full_name"] + "</p></li><li class='user-body'><div class='col-xs-6 text-center'><a href='#' name='logout' runat='server' >ارزیابی</a></div></li><li class='user-footer'><div class='pull-left'><a href='BaseInformation/Edit_Profile.aspx' class='btn btn-default btn-flat'>مشخصات فردی</a></div><div class='pull-right'><a href='../login.aspx?snd=-1' class='btn btn-default btn-flat' name='logout'>خروج</a></div></li></ul>");
+                    sb_online.Append("<div class='pull-left image'><img src=" + row["image_hpl"] + " class='img-circle' /></div><div class='pull-left info'>");
+                }
+                else
+                {
+                    sb_dropdown_menu.Append("<img src='img/person.png' class='img-circle'/>");
+                }
+                if (row["full_name"] != null)
+                {
+                    sb_online.Append("<p>" + row["full_name"] + "</p><i class='fa fa-circle text-success'></i> Online</div>");
+                }
+                literal_personal.Text = sb_personal.ToString();
+                literal_online.Text = sb_online.ToString();
             }
-            else if (Request.QueryString["snd2"] != null)
-            {
-                SqlConnection con = new SqlConnection(strConnString);
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = con;
-                cmd.CommandText = "update ltr_transfer_details set archive=@archive where srl=@srl";
-                cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(Request.QueryString["snd2"]);
-                cmd.Parameters.Add("@archive", SqlDbType.Bit).Value = true;
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-        }
-       
-        private int provider_srl(string name)
-        {
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl FROM dbo.bas_provider where provider_name='" + name + "' ");
-            int srl = 0;
-            if (dt.Rows.Count > 0)
-                srl = Convert.ToInt32(dt.Rows[0][0]);
-            return srl;
-        }
-        private int goods_srl(string name)
-        {
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl FROM dbo.inv_goods where code_igd='" + name + "' ");
-            int srl = 0;
-            if (dt.Rows.Count > 0)
-                srl = Convert.ToInt32(dt.Rows[0][0]);
-            return srl;
         }
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]

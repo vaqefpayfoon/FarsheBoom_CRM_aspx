@@ -24,13 +24,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ToolkitScriptManager control.
+        /// literal_personal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
+        protected global::System.Web.UI.WebControls.Literal literal_personal;
 
         /// <summary>
         /// literal_online control.
@@ -372,7 +372,7 @@ namespace WebApplicationKartable
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton box_supcust;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor box_supcust;
 
         /// <summary>
         /// box_provider control.
@@ -381,7 +381,7 @@ namespace WebApplicationKartable
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton box_provider;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor box_provider;
 
         /// <summary>
         /// box_opportunity control.
@@ -390,7 +390,7 @@ namespace WebApplicationKartable
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton box_opportunity;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor box_opportunity;
 
         /// <summary>
         /// box_alarm control.
@@ -399,6 +399,6 @@ namespace WebApplicationKartable
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton box_alarm;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor box_alarm;
     }
 }

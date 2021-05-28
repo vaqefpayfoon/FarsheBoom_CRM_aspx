@@ -66,7 +66,6 @@
             color: #003300;
             font-size: 22px;
         }
-
             .lnk:hover {
                 color: White;
             }
@@ -77,11 +76,26 @@
 <body class="skin-blue">
     <form id="form1" runat="server">
         <div class="body1">
-            <header class="header">
-                <a href="../HomePage.aspx" class="logo">
-                    <span>بانک فرش بوم</span>
+        <header class="header">
+            <a href="../HomePage.aspx" class="logo">
+                <span>بانک فرش بوم</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </a>
-            </header>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <asp:Literal ID="literal_personal" runat="server"></asp:Literal>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
             <div class="wrapper row-offcanvas row-offcanvas-left">
                 <aside class="left-side sidebar-offcanvas">
                     <section class="sidebar">

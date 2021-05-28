@@ -33,6 +33,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// literal_personal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal literal_personal;
+
+        /// <summary>
         /// literal_online control.
         /// </summary>
         /// <remarks>

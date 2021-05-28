@@ -53,6 +53,7 @@ namespace WebApplicationKartable
                 {
                     sb_online.Append("<p>" + row["full_name"] + "</p><i class='fa fa-circle text-success'></i> Online</div>");
                 }
+                literal_personal.Text = sb_personal.ToString();
                 literal_online.Text = sb_online.ToString();
             }
         }
