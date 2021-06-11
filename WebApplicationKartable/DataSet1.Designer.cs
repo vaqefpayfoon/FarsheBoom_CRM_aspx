@@ -1765,6 +1765,8 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnfinal_price;
             
+            private global::System.Data.DataColumn columnprovider_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CallBackDataTable() {
@@ -1960,6 +1962,14 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn provider_nameColumn {
+                get {
+                    return this.columnprovider_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2015,7 +2025,8 @@ namespace WebApplicationKartable {
                         string buy_price, 
                         string u_buy, 
                         string has_pic, 
-                        string final_price) {
+                        string final_price, 
+                        string provider_name) {
                 CallBackRow rowCallBackRow = ((CallBackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code_igd,
@@ -2037,7 +2048,8 @@ namespace WebApplicationKartable {
                         buy_price,
                         u_buy,
                         has_pic,
-                        final_price};
+                        final_price,
+                        provider_name};
                 rowCallBackRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCallBackRow);
                 return rowCallBackRow;
@@ -2080,6 +2092,7 @@ namespace WebApplicationKartable {
                 this.columnu_buy = base.Columns["u_buy"];
                 this.columnhas_pic = base.Columns["has_pic"];
                 this.columnfinal_price = base.Columns["final_price"];
+                this.columnprovider_name = base.Columns["provider_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2125,6 +2138,8 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnhas_pic);
                 this.columnfinal_price = new global::System.Data.DataColumn("final_price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfinal_price);
+                this.columnprovider_name = new global::System.Data.DataColumn("provider_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprovider_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4486,6 +4501,22 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string provider_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableCallBack.provider_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'provider_name\' in table \'CallBack\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCallBack.provider_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Iscode_igdNull() {
                 return this.IsNull(this.tableCallBack.code_igdColumn);
             }
@@ -4722,6 +4753,18 @@ namespace WebApplicationKartable {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setfinal_priceNull() {
                 this[this.tableCallBack.final_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isprovider_nameNull() {
+                return this.IsNull(this.tableCallBack.provider_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setprovider_nameNull() {
+                this[this.tableCallBack.provider_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -95,8 +95,9 @@
             <%--<asp:BoundField DataField="area" HeaderText="مساحت" ItemStyle-Width="80" ReadOnly="True" />--%>
             <asp:BoundField DataField="buy_price" HeaderText="خرید" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="sale_price" HeaderText="فروش" ItemStyle-Width="90" DataFormatString="{0:C0}" />
-            <asp:BoundField DataField="discount" HeaderText="تخفیف" ItemStyle-Width="60" />
+            <%--<asp:BoundField DataField="discount" HeaderText="تخفیف" ItemStyle-Width="60" />--%>
             <asp:BoundField DataField="discount_amount" HeaderText="تخفیف" ItemStyle-Width="90" DataFormatString="{0:C0}" />
+            <asp:BoundField DataField="down_payment" HeaderText="پیش پرداخت" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="final_sale" HeaderText="نمایشگاه" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="final_discount" HeaderText="تخفیف ن" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="final_price" HeaderText="قیمت ن" ItemStyle-Width="90" DataFormatString="{0:C0}" />
