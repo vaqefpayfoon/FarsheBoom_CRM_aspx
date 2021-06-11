@@ -16,9 +16,95 @@
         <DataSourceName>DataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
+      <Fields>
+        <Field Name="code_igd">
+          <DataField>code_igd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="brand_name">
+          <DataField>brand_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="size_title">
+          <DataField>size_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="carpet_title">
+          <DataField>carpet_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="porz_title">
+          <DataField>porz_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="chele_title">
+          <DataField>chele_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="lenght">
+          <DataField>lenght</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="widht">
+          <DataField>widht</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="area">
+          <DataField>area</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="margin_color">
+          <DataField>margin_color</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="plan_title">
+          <DataField>plan_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="color_name">
+          <DataField>color_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="discount">
+          <DataField>discount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="discount_amount">
+          <DataField>discount_amount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sale_price">
+          <DataField>sale_price</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="provider_code">
+          <DataField>provider_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="buy_price">
+          <DataField>buy_price</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="u_buy">
+          <DataField>u_buy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="has_pic">
+          <DataField>has_pic</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="final_price">
+          <DataField>final_price</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="provider_name">
+          <DataField>provider_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>E:\vs_2015\FarsheBoom_CRM\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\CSharp\FarshboomASPX\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>CallBack</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -1236,7 +1322,7 @@
             <Top>0.94104in</Top>
             <Left>0.16444in</Left>
             <Height>0.88542in</Height>
-            <Width>10.59139in</Width>
+            <Width>10.59133in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1409,7 +1495,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>2.03819in</Top>
+            <Top>2.05208in</Top>
             <Left>0.16444in</Left>
             <Height>0.82292in</Height>
             <Width>10.59139in</Width>
