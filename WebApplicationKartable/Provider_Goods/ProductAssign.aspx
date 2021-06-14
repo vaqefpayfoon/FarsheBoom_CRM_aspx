@@ -170,7 +170,7 @@
             <asp:BoundField DataField="carpet_title" HeaderText="نوع" ItemStyle-Width="150" ReadOnly="True" />
             <asp:BoundField DataField="chele_title" HeaderText="چله" ItemStyle-Width="150" ReadOnly="True" />
             <asp:BoundField DataField="porz_title" HeaderText="پرز" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:TemplateField HeaderText="Select Data">  
+            <asp:TemplateField HeaderText="حذف">  
                     <ItemTemplate>  
                         <asp:CheckBox ID="chk_delete" runat="server" />  
                     </ItemTemplate>  

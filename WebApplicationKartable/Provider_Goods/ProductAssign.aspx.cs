@@ -706,21 +706,30 @@ namespace WebApplicationKartable
 
         protected void ImageButton_delete_Click(object sender, ImageClickEventArgs e)
         {
+            int count = 0;
             foreach (GridViewRow gvrow in gridview.Rows)
             {
-                var checkbox = gvrow.FindControl("chk_delete") as CheckBox;
+                CheckBox checkbox = (CheckBox)gvrow.FindControl("chk_delete");
+
+
                 if (checkbox.Checked)
                 {
-                    var code_igd = gvrow.FindControl("code_igd") as Label;
+                    string code_igd = gridview.Rows[count].Cells[0].Text;
                     SqlConnection con = new SqlConnection(strConnString);
                     SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "delete from inv_goods where " +
                     "code_igd=@code_igd";
-                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = code_igd;
-                    fill_grid(lst_provider.SelectedValue);
+                    cmd.Parameters.Add("@code_igd", SqlDbType.Int).Value = code_igd;
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    cmd.ExecuteNonQuery();
+                    lblError.Text = "عملیات موفق";
                 }
+                count++;
             }
+            fill_grid(lst_provider.SelectedValue);
         }
     }
 }
