@@ -56,13 +56,13 @@ namespace WebApplicationKartable
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
             if (lst_provider.SelectedIndex == 0)
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name FROM dbo.Project_Goods_View Where header_srl={0} order by {1}", lst_project.SelectedValue, lst_sort.SelectedValue));
-                dt2 = obj.Get_Data(string.Format("Select brand_name,size_title, carpet_title, count(brand_name)cnt from dbo.Project_Goods_View Where header_srl={0} group by brand_name, size_title, carpet_title", lst_project.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name,dorangi,rofo, kaji, badbaf, pakhordegi, tear FROM dbo.Project_Goods_View Where header_srl={0} order by {1}", lst_project.SelectedValue, lst_sort.SelectedValue));
+                dt2 = obj.Get_Data(string.Format("Select brand_name,size_title, carpet_title, count(brand_name)cnt,dorangi,rofo, kaji, badbaf, pakhordegi, tear from dbo.Project_Goods_View Where header_srl={0} group by brand_name, size_title, carpet_title", lst_project.SelectedValue));
             }
             else
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name FROM dbo.Project_Goods_View Where header_srl={0} And provider_srl={1} order by {2}", lst_project.SelectedValue, lst_provider.SelectedValue, lst_sort.SelectedValue));                
-                dt2 = obj.Get_Data(string.Format("Select brand_name,size_title, carpet_title, count(brand_name)cnt from dbo.Project_Goods_View Where header_srl={0} And provider_srl={1} group by brand_name, size_title, carpet_title", lst_project.SelectedValue, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name,dorangi,rofo, kaji, badbaf, pakhordegi, tear FROM dbo.Project_Goods_View Where header_srl={0} And provider_srl={1} order by {2}", lst_project.SelectedValue, lst_provider.SelectedValue, lst_sort.SelectedValue));                
+                dt2 = obj.Get_Data(string.Format("Select brand_name,size_title, carpet_title, count(brand_name)cnt,dorangi,rofo, kaji, badbaf, pakhordegi, tear from dbo.Project_Goods_View Where header_srl={0} And provider_srl={1} group by brand_name, size_title, carpet_title", lst_project.SelectedValue, lst_provider.SelectedValue));
             }
             if (dt.Rows.Count > 0)
             {
@@ -83,6 +83,14 @@ namespace WebApplicationKartable
                     row["plan_title"] = Woak["plan_title"];
                     row["color_name"] = Woak["color_name"];
                     row["provider_code"] = Woak["provider_code"];
+                    string irad = "";
+                    irad = Convert.IsDBNull(row["dorangi"]) ? "" : "دو رنگی";
+                    irad += Convert.IsDBNull(row["rofo"]) ? "" : "رفو";
+                    irad += Convert.IsDBNull(row["kaji"]) ? "" : "کجی";
+                    irad += Convert.IsDBNull(row["badbaf"]) ? "" : "بدبافت";
+                    irad += Convert.IsDBNull(row["pakhordegi"]) ? "" : "پاخوردگی";
+                    irad += Convert.IsDBNull(row["tear"]) ? "" : "پارگی";
+                    row["irad"] = irad;
                     Temp.Rows.Add(row);
                 }
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
