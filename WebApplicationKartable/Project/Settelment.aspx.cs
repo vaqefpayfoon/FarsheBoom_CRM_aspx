@@ -57,15 +57,16 @@ namespace WebApplicationKartable
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
             if (lst_provider.SelectedIndex == 0)
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code FROM SoldCarpets Where header_srl={0}", lst_project.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code, dorangi, rofo, kaji, badbaf, pakhordegi, tear FROM SoldCarpets Where header_srl={0}", lst_project.SelectedValue));
             }
             else
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code FROM SoldCarpets Where header_srl={0} And provider_srl={1}", lst_project.SelectedValue, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code, dorangi, rofo, kaji, badbaf, pakhordegi, tear FROM SoldCarpets Where header_srl={0} And provider_srl={1}", lst_project.SelectedValue, lst_provider.SelectedValue));
             }
             DataSet1.CallBackDataTable Temp = new DataSet1.CallBackDataTable();
             if (dt.Rows.Count > 0)
             {
+                string irad = "";
                 ViewState["lstOutstandingOrders"] = dt;
                 foreach (DataRow Woak in dt.Rows)
                 {
@@ -87,6 +88,13 @@ namespace WebApplicationKartable
                     row["provider_code"] = Woak["provider_code"];
                     obo.str = Woak["buy_price"].ToString();
                     row["buy_price"] = obo.str;
+                    irad = Convert.IsDBNull(row["dorangi"]) ? "" : "دو رنگی";
+                    irad += Convert.IsDBNull(row["rofo"]) ? "" : "روفو";
+                    irad += Convert.IsDBNull(row["kaji"]) ? "" : "کجی";
+                    irad += Convert.IsDBNull(row["badbaf"]) ? "" : "بدبافت";
+                    irad += Convert.IsDBNull(row["pakhordegi"]) ? "" : "پاخوردگی";
+                    irad += Convert.IsDBNull(row["tear"]) ? "" : "پارگی";
+                    row["irad"] = irad;
                     Temp.Rows.Add(row);
                 }
             }
@@ -142,7 +150,7 @@ namespace WebApplicationKartable
                 sb.Append(obo.str);
             }
             sb.Append(" ريال ");
-            sb.Append("به صورت بیعانه ای به فروش رفته که از مبلغ فوق کسر شده و در صورت تسویه خریدار حداکثر ظرف یک ماه تسویه می گردد. باقیمانده طی یک فقره چک بانک .............................. به شماره ................................. به مبلغ ..................................................................... ریال به ایشان (یا نماینده وی) پرداخت می گردد. بنابراین حسابهای فیمابین بابت نمایشگاه");
+            sb.Append("به صورت بیعانه ای به فروش رفته که از مبلغ فوق کسر شده و در صورت تسویه خریدار حداکثر ظرف یک ماه تسویه می گردد. باقیمانده طی یک فقره سند .............................. به شماره ................................. به مبلغ ..................................................................... ریال به ایشان (یا نماینده وی) پرداخت می گردد. بنابراین حسابهای فیمابین بابت نمایشگاه");
             sb.Append("  ");
             if(dt.Rows.Count > 0)
                 sb.Append(dt.Rows[0]["project_code"]);

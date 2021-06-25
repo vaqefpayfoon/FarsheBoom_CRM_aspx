@@ -387,9 +387,9 @@ namespace WebApplicationKartable
                 param[29].Value = DBNull.Value;
             else
                 param[29].Value = Convert.ToInt32(lst_color2.SelectedValue);
-            param[30] = new SqlParameter("@raj_srl", SqlDbType.Int);
+            param[30] = new SqlParameter("@raj_srl", SqlDbType.VarChar, 3);
             if (!string.IsNullOrEmpty(txt_raj.Text))
-                param[30].Value = Convert.ToInt32(txt_raj.Text);
+                param[30].Value = txt_raj.Text;
             else
                 param[30].Value = DBNull.Value;
             param[31] = new SqlParameter("@price_home", SqlDbType.Int);

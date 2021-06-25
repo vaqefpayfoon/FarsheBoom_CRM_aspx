@@ -1767,6 +1767,8 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnprovider_name;
             
+            private global::System.Data.DataColumn columnirad;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CallBackDataTable() {
@@ -1970,6 +1972,14 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn iradColumn {
+                get {
+                    return this.columnirad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2026,7 +2036,8 @@ namespace WebApplicationKartable {
                         string u_buy, 
                         string has_pic, 
                         string final_price, 
-                        string provider_name) {
+                        string provider_name, 
+                        string irad) {
                 CallBackRow rowCallBackRow = ((CallBackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code_igd,
@@ -2049,7 +2060,8 @@ namespace WebApplicationKartable {
                         u_buy,
                         has_pic,
                         final_price,
-                        provider_name};
+                        provider_name,
+                        irad};
                 rowCallBackRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCallBackRow);
                 return rowCallBackRow;
@@ -2093,6 +2105,7 @@ namespace WebApplicationKartable {
                 this.columnhas_pic = base.Columns["has_pic"];
                 this.columnfinal_price = base.Columns["final_price"];
                 this.columnprovider_name = base.Columns["provider_name"];
+                this.columnirad = base.Columns["irad"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2140,6 +2153,8 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnfinal_price);
                 this.columnprovider_name = new global::System.Data.DataColumn("provider_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprovider_name);
+                this.columnirad = new global::System.Data.DataColumn("irad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnirad);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4517,6 +4532,22 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string irad {
+                get {
+                    try {
+                        return ((string)(this[this.tableCallBack.iradColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'irad\' in table \'CallBack\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCallBack.iradColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Iscode_igdNull() {
                 return this.IsNull(this.tableCallBack.code_igdColumn);
             }
@@ -4765,6 +4796,18 @@ namespace WebApplicationKartable {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setprovider_nameNull() {
                 this[this.tableCallBack.provider_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsiradNull() {
+                return this.IsNull(this.tableCallBack.iradColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetiradNull() {
+                this[this.tableCallBack.iradColumn] = global::System.Convert.DBNull;
             }
         }
         

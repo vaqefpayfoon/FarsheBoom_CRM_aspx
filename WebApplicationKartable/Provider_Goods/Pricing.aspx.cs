@@ -162,9 +162,9 @@ namespace WebApplicationKartable
             param[0].Value = Convert.ToInt32(ViewState["srl_details"]);
             //param[1] = new SqlParameter("@u_date_time", SqlDbType.Char, 10);
             //param[1].Value = per.persian_date();
-            param[1] = new SqlParameter("@raj_srl", SqlDbType.Int);
+            param[1] = new SqlParameter("@raj_srl", SqlDbType.VarChar, 3);
             if (!string.IsNullOrEmpty(txt_raj.Text))
-                param[1].Value = Convert.ToInt32(txt_raj.Text);
+                param[1].Value = txt_raj.Text;
             param[2] = new SqlParameter("@title_igd", SqlDbType.VarChar, 100);
             param[2].Value = save_image;
             param[3] = new SqlParameter("@provider_srl", SqlDbType.Int);
@@ -347,6 +347,8 @@ namespace WebApplicationKartable
                         lst_color2.SelectedIndex = 0;
                     if (!Convert.IsDBNull(row["raj_srl"]))
                         txt_raj.Text = row["raj_srl"].ToString();
+                    else
+                        txt_raj.Text = "";
                     txt_u_date_time.Text = row["u_date_time"].ToString();
                     txt_lenght.Text = row["lenght"].ToString();
                     txt_weight.Text = row["widht"].ToString();
