@@ -36,6 +36,8 @@ namespace WebApplicationKartable
             StringBuilder sb_online = new StringBuilder();
             StringBuilder sb_dropdown_menu = new StringBuilder();
             DataTable dt_personal = new DataTable();
+            if (ubuzhi.srl == null)
+                Response.Redirect("login.aspx");
             dt_personal = obj.Get_Data("SELECT first_name + ' ' + last_name AS full_name, image_hpl FROM dbo.hpl_personal WHERE srl=" + ubuzhi.srl);
             if (dt_personal.Rows.Count > 0)
             {

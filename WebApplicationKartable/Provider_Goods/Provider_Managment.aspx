@@ -129,18 +129,56 @@
             <ItemTemplate>
                 <asp:Label ID="lbl_srl" runat="server" Text='<%# Eval("srl")%>'></asp:Label>
             </ItemTemplate> 
+        </asp:TemplateField>
+    <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "کد">
+            <ItemTemplate>
+                <asp:Label ID="lbl_provider_code" runat="server" Text='<%# Eval("provider_code")%>'></asp:Label>
+            </ItemTemplate> 
+            <EditItemTemplate>
+                <asp:TextBox ID="txt_provider_code" runat="server" Text='<%# Eval("provider_code")%>'></asp:TextBox>
+            </EditItemTemplate>  
+            <FooterTemplate>
+                <asp:TextBox ID="txt_provider_code_add" Width = "100px" MaxLength = "11" runat="server" CssClass="textbox"></asp:TextBox>
+        </FooterTemplate> 
         </asp:TemplateField> 
         <asp:TemplateField ItemStyle-Width = "300px"  HeaderText = "عنوان">
             <ItemTemplate>
-                <asp:Label ID="lbl_provider_name" runat="server" Text='<%# Eval("brand_name")%>'></asp:Label>
+                <asp:Label ID="lbl_provider_name" runat="server" Text='<%# Eval("provider_name")%>'></asp:Label>
             </ItemTemplate> 
             <EditItemTemplate>
-                <asp:TextBox ID="txt_brand_name" runat="server" Text='<%# Eval("brand_name")%>'></asp:TextBox>
+                <asp:TextBox ID="txt_provider_name" runat="server" Text='<%# Eval("provider_name")%>'></asp:TextBox>
             </EditItemTemplate>  
             <FooterTemplate>
-                <asp:TextBox ID="txt_brand_name_add" Width = "300px" MaxLength = "30" runat="server" CssClass="textbox"></asp:TextBox>
+                <asp:TextBox ID="txt_provider_name_add" Width = "300px" MaxLength = "50" runat="server" CssClass="textbox"></asp:TextBox>
             </FooterTemplate> 
+        </asp:TemplateField>
+
+
+        <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "تلفن">
+            <ItemTemplate>
+                <asp:Label ID="lbl_tel1" runat="server" Text='<%# Eval("tel1")%>'></asp:Label>
+            </ItemTemplate> 
+            <EditItemTemplate>
+                <asp:TextBox ID="txt_tel1" runat="server" Text='<%# Eval("tel1")%>'></asp:TextBox>
+            </EditItemTemplate>  
+            <FooterTemplate>
+                <asp:TextBox ID="txt_tel1_add" Width = "100px" MaxLength = "11" runat="server" CssClass="textbox"></asp:TextBox>
+        </FooterTemplate> 
+        </asp:TemplateField>
+
+
+        <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "موبایل">
+            <ItemTemplate>
+                <asp:Label ID="lbl_cell_phone" runat="server" Text='<%# Eval("cell_phone")%>'></asp:Label>
+            </ItemTemplate> 
+            <EditItemTemplate>
+                <asp:TextBox ID="txt_cell_phone" runat="server" Text='<%# Eval("cell_phone")%>'></asp:TextBox>
+            </EditItemTemplate>  
+            <FooterTemplate>
+                <asp:TextBox ID="txt_cell_phone_add" Width = "100px" MaxLength = "12" runat="server" CssClass="textbox"></asp:TextBox>
+        </FooterTemplate> 
         </asp:TemplateField> 
+
         <asp:TemplateField>
             <ItemTemplate>
                 <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument = '<%# Eval("srl")%>' 
