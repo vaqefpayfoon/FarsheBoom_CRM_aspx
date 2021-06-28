@@ -126,16 +126,22 @@ namespace WebApplicationKartable
                 lblError.Text = "نام تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_tel1(tel1))
+            if (tel1 != "" && duplicate_provider_tel1(tel1))
             {
                 lblError.Text = "تلفن تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_cell_phone(cell_phone))
+            if (cell_phone != "" && duplicate_provider_cell_phone(cell_phone))
             {
                 lblError.Text = "تلفن همراه تامین کننده تکراری است";
                 return;
             }
+
+
+            ViewState["srl"] = srl;
+            ViewState["tel1"] = tel1;
+            ViewState["cell_phone"] = cell_phone;
+
 
             SqlConnection con = new SqlConnection(strConnString);
             SqlCommand cmd = new SqlCommand();
