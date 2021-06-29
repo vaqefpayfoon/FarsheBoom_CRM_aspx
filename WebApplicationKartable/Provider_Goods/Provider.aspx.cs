@@ -61,12 +61,12 @@ namespace WebApplicationKartable
                 lblError.Text = "نام تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_tel1())
+            if (txt_tel1.Text != "" && duplicate_provider_tel1())
             {
                 lblError.Text = "تلفن تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_cell_phone())
+            if (txt_cell_phone.Text != "" && duplicate_provider_cell_phone())
             {
                 lblError.Text = "تلفن همراه تامین کننده تکراری است";
                 return;
@@ -75,6 +75,8 @@ namespace WebApplicationKartable
             if (lblError.Text == "تامین کننده جدید ایجاد شد")
                 return;
             ViewState["srl"] = srl;
+            ViewState["tel1"] = txt_tel1.Text;
+            ViewState["cell_phone"] = txt_cell_phone.Text;
             Common per = new Common();
             SqlParameter[] param = new SqlParameter[13];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
@@ -134,16 +136,18 @@ namespace WebApplicationKartable
                 lblError.Text = "نام تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_tel1_update())
+            if (txt_tel1.Text != "" && duplicate_provider_tel1_update())
             {
                 lblError.Text = "تلفن تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_cell_phone_update())
+            if (txt_cell_phone.Text != "" && duplicate_provider_cell_phone_update())
             {
                 lblError.Text = "تلفن همراه تامین کننده تکراری است";
                 return;
             }
+            ViewState["tel1"] = txt_tel1.Text;
+            ViewState["cell_phone"] = txt_cell_phone.Text;
             Common per = new Common();
             SqlParameter[] param = new SqlParameter[13];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);

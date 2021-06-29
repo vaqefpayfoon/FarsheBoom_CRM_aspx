@@ -120,36 +120,40 @@ namespace WebApplicationKartable
             string provider_name = ((TextBox)GridView1.FooterRow.FindControl("txt_provider_name_add")).Text;
             string provider_code = ((TextBox)GridView1.FooterRow.FindControl("txt_provider_code_add")).Text;
             string tel1 = ((TextBox)GridView1.FooterRow.FindControl("txt_tel1_add")).Text;
-            string fax1 = ((TextBox)GridView1.FooterRow.FindControl("txt_fax1_add")).Text;
             string cell_phone = ((TextBox)GridView1.FooterRow.FindControl("txt_cell_phone_add")).Text;
             if (duplicate_provider_name(provider_name))
             {
                 lblError.Text = "نام تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_tel1(tel1))
+            if (tel1 != "" && duplicate_provider_tel1(tel1))
             {
                 lblError.Text = "تلفن تامین کننده تکراری است";
                 return;
             }
-            if (duplicate_provider_cell_phone(cell_phone))
+            if (cell_phone != "" && duplicate_provider_cell_phone(cell_phone))
             {
                 lblError.Text = "تلفن همراه تامین کننده تکراری است";
                 return;
             }
 
+
+            ViewState["srl"] = srl;
+            ViewState["tel1"] = tel1;
+            ViewState["cell_phone"] = cell_phone;
+
+
             SqlConnection con = new SqlConnection(strConnString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into bas_provider(srl, provider_name, provider_code, tel1, fax1, cell_phone) " +
-            "values(@srl, @provider_name, @provider_code, @tel1, @fax1, @cell_phone);" +
-             "SELECT srl, provider_name, provider_code, tel1, fax1, cell_phone FROM dbo.bas_provider";
+            cmd.CommandText = "insert into bas_provider(srl, provider_name, provider_code, tel1, cell_phone) " +
+            "values(@srl, @provider_name, @provider_code, @tel1, @cell_phone);" +
+             "SELECT srl, provider_name, provider_code, tel1, cell_phone FROM dbo.bas_provider";
             cmd.Parameters.Add("@srl", SqlDbType.Int).Value = srl;
-            cmd.Parameters.Add("@provider_name", SqlDbType.VarChar, 50).Value = provider_name;
-            cmd.Parameters.Add("@provider_code", SqlDbType.VarChar, 50).Value = provider_code;
-            cmd.Parameters.Add("@tel1", SqlDbType.VarChar, 12).Value = tel1;
-            cmd.Parameters.Add("@fax1", SqlDbType.VarChar, 12).Value = fax1;
-            cmd.Parameters.Add("@cell_phone", SqlDbType.VarChar, 12).Value = cell_phone;
+            cmd.Parameters.Add("@provider_name", SqlDbType.VarChar, 50).Value = provider_name.Trim();
+            cmd.Parameters.Add("@provider_code", SqlDbType.VarChar, 50).Value = provider_code.Trim();
+            cmd.Parameters.Add("@tel1", SqlDbType.VarChar, 12).Value = tel1.Trim();
+            cmd.Parameters.Add("@cell_phone", SqlDbType.VarChar, 12).Value = cell_phone.Trim();
             GridView1.DataSource = GetData(cmd);
             GridView1.DataBind();
         }
@@ -183,23 +187,21 @@ namespace WebApplicationKartable
         protected void UpdateCustomer(object sender, GridViewUpdateEventArgs e)
         {
             string srl = ((Label)GridView1.Rows[e.RowIndex].FindControl("lbl_srl")).Text;
-            string provider_name = ((TextBox)GridView1.FooterRow.FindControl("txt_provider_name_add")).Text;
-            string provider_code = ((TextBox)GridView1.FooterRow.FindControl("txt_provider_code_add")).Text;
-            string tel1 = ((TextBox)GridView1.FooterRow.FindControl("txt_tel1_add")).Text;
-            string fax1 = ((TextBox)GridView1.FooterRow.FindControl("txt_fax1_add")).Text;
-            string cell_phone = ((TextBox)GridView1.FooterRow.FindControl("txt_cell_phone_add")).Text;
+            string provider_name = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_provider_name")).Text;
+            string provider_code = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_provider_code")).Text;
+            string tel1 = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_tel1")).Text;
+            string cell_phone = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_cell_phone")).Text;
             SqlConnection con = new SqlConnection(strConnString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update bas_provider set provider_name=@provider_name, provider_code=@provider_code, tel1=@tel1, fax1=@fax1, cell_phone=@cell_phone " +
+            cmd.CommandText = "update bas_provider set provider_name=@provider_name, provider_code=@provider_code, tel1=@tel1, cell_phone=@cell_phone " +
              "where srl=@srl;" +
              "SELECT srl, provider_name, provider_code, tel1, fax1, cell_phone FROM dbo.bas_provider";
             cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(srl);
-            cmd.Parameters.Add("@provider_name", SqlDbType.VarChar, 50).Value = provider_name;
-            cmd.Parameters.Add("@provider_code", SqlDbType.VarChar, 50).Value = provider_code;
-            cmd.Parameters.Add("@tel1", SqlDbType.VarChar, 12).Value = tel1;
-            cmd.Parameters.Add("@fax1", SqlDbType.VarChar, 12).Value = fax1;
-            cmd.Parameters.Add("@cell_phone", SqlDbType.VarChar, 12).Value = cell_phone;
+            cmd.Parameters.Add("@provider_name", SqlDbType.VarChar, 50).Value = provider_name.Trim();
+            cmd.Parameters.Add("@provider_code", SqlDbType.VarChar, 50).Value = provider_code.Trim();
+            cmd.Parameters.Add("@tel1", SqlDbType.VarChar, 12).Value = tel1.Trim();
+            cmd.Parameters.Add("@cell_phone", SqlDbType.VarChar, 12).Value = cell_phone.Trim();
             GridView1.EditIndex = -1;
             GridView1.DataSource = GetData(cmd);
             GridView1.DataBind();
