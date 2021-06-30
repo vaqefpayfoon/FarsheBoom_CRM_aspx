@@ -49,12 +49,11 @@ namespace WebApplicationKartable
                     break;
                 case "AllProviderGoods":
                     {
-                        lbl_header.Text = "لیست تمام فرش ها";
-                        DataTable dt = obj.Get_Data(@"SELECT dbo.inv_goods.srl, dbo.inv_goods.title_igd, dbo.inv_brand.brand_name, dbo.inv_size.size_title, dbo.inv_goods.u_date_time, dbo.inv_goods.provider_srl, dbo.inv_goods.code_igd, dbo.bas_provider.provider_name, 
-                         dbo.inv_goods.selection, dbo.inv_goods.sold, dbo.inv_goods.ibt_srl, dbo.inv_goods.size_srl, dbo.inv_color.color_name, dbo.inv_porz.porz_title, dbo.inv_chele.chele_title, dbo.inv_plan.plan_title, dbo.inv_carpet.carpet_title,
-                         dbo.inv_goods.sale_price, dbo.inv_goods.widht, dbo.inv_goods.lenght, dbo.inv_goods.buy_price, dbo.inv_goods.discount, dbo.inv_goods.color_srl2, dbo.inv_goods.provider_code,
-                         CASE WHEN build_state = 0 THEN 'فرش های موجود' WHEN build_state = 1 THEN N'فروش توسط تامین کننده' WHEN build_state = 2 THEN 'غیر فعال' WHEN build_state = 3 THEN 'آماده نیست' WHEN build_state = 5 THEN 'فرش مرجوعی'
-                          WHEN sold = 'True' THEN 'فروش توسط فرش بوم' ELSE 'موجود نزد تامین کننده' END AS build_state_exp
+                        string str = @"SELECT        dbo.inv_goods.srl, dbo.inv_goods.title_igd, dbo.inv_brand.brand_name, dbo.inv_size.size_title, dbo.inv_goods.u_date_time, dbo.inv_goods.provider_srl, dbo.inv_goods.code_igd, dbo.bas_provider.provider_name, 
+                         dbo.inv_goods.selection, dbo.inv_goods.sold, dbo.inv_goods.ibt_srl, dbo.inv_goods.size_srl, dbo.inv_color.color_name, dbo.inv_porz.porz_title, dbo.inv_chele.chele_title, dbo.inv_plan.plan_title, dbo.inv_carpet.carpet_title, 
+                         dbo.inv_goods.sale_price, dbo.inv_goods.widht, dbo.inv_goods.lenght, dbo.inv_goods.buy_price, dbo.inv_goods.discount, dbo.inv_goods.color_srl2, dbo.inv_goods.provider_code, dbo.inv_goods.build_state, 
+                         CASE WHEN build_state = 0 THEN 'فرش های موجود' WHEN build_state = 1 THEN N'فروش توسط تامین کننده' WHEN build_state = 2 THEN 'غیر فعال' WHEN build_state = 3 THEN 'آماده نیست' WHEN build_state = 5 THEN 'فرش مرجوعی' WHEN
+                          sold = 'True' THEN 'فروش توسط فرش بوم' ELSE 'موجود نزد تامین کننده' END AS build_state_exp
 FROM            dbo.inv_goods LEFT OUTER JOIN
                          dbo.bas_provider ON dbo.inv_goods.provider_srl = dbo.bas_provider.srl LEFT OUTER JOIN
                          dbo.inv_carpet ON dbo.inv_goods.carpet_type = dbo.inv_carpet.srl LEFT OUTER JOIN
@@ -64,7 +63,9 @@ FROM            dbo.inv_goods LEFT OUTER JOIN
                          dbo.inv_color ON dbo.inv_goods.color_srl = dbo.inv_color.srl LEFT OUTER JOIN
                          dbo.inv_size ON dbo.inv_goods.size_srl = dbo.inv_size.srl LEFT OUTER JOIN
                          dbo.inv_brand ON dbo.inv_goods.ibt_srl = dbo.inv_brand.srl
-Where build_state In(0, 3) order by srl desc");
+Where build_state In (0, 3) order by srl desc";
+                        lbl_header.Text = "لیست تمام فرش ها";
+                        DataTable dt = obj.Get_Data(str);
                         literal_report.Text = rpt.AllProviderGoods(dt);
                     }
                     break;

@@ -136,11 +136,11 @@ namespace WebApplicationKartable
                 ReportParameter ProviderName = new ReportParameter("ProviderName", lst_provider.SelectedItem.Text);
                 ReportParameter ProjectName = new ReportParameter("ProjectName", lst_project.SelectedItem.Text);
                 ReportParameter Passage = new ReportParameter("Passage", sb.ToString());
-                ReportViewer1.LocalReport.SetParameters(parameter);
-                ReportViewer1.LocalReport.SetParameters(parameter_Date);
-                ReportViewer1.LocalReport.SetParameters(ProviderName);
-                ReportViewer1.LocalReport.SetParameters(ProjectName);
-                ReportViewer1.LocalReport.SetParameters(Passage);
+                //ReportViewer1.LocalReport.SetParameters(parameter);
+                //ReportViewer1.LocalReport.SetParameters(parameter_Date);
+                //ReportViewer1.LocalReport.SetParameters(ProviderName);
+                //ReportViewer1.LocalReport.SetParameters(ProjectName);
+                //ReportViewer1.LocalReport.SetParameters(Passage);
                 ReportViewer1.LocalReport.Refresh();
             }
         }
