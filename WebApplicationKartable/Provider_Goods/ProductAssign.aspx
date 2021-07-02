@@ -160,7 +160,7 @@
         </table>
     </asp:Panel>
     <br />
-    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" OnSelectedIndexChanged="gridview_SelectedIndexChanged" OnPageIndexChanging="gridview_PageIndexChanging" Width="900px">
+    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" OnSelectedIndexChanged="gridview_SelectedIndexChanged" AllowPaging="true" PageSize="14" OnPageIndexChanging="gridview_PageIndexChanging" Width="900px">
         <Columns>
             <asp:BoundField DataField="code_igd" HeaderText="کد فرش" ItemStyle-Width="100" ReadOnly="True" />
             <asp:BoundField DataField="brand_name" HeaderText="گونه" ItemStyle-Width="200" ReadOnly="True" />
