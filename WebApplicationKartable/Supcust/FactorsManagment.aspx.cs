@@ -226,5 +226,10 @@ namespace WebApplicationKartable
             }
             catch { lblError.Text = "عملیات ناموفق"; }
         }
+
+        protected void btn_cancel_report_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

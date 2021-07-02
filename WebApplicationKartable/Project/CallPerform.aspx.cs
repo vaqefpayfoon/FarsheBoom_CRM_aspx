@@ -281,6 +281,7 @@ namespace WebApplicationKartable
                 count++;
             }
         }
+        
         private int max_srl_details()
         {
             SqlConnection myConnection = new SqlConnection();

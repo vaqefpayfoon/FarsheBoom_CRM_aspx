@@ -213,15 +213,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_alarm;
 
         /// <summary>
-        /// lnk_acceptgoods control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_acceptgoods;
-
-        /// <summary>
         /// lnk_sale control.
         /// </summary>
         /// <remarks>
@@ -321,15 +312,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_audience_excel;
 
         /// <summary>
-        /// lnk_supcust_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_supcust_report;
-
-        /// <summary>
         /// lnk_remain_carpet control.
         /// </summary>
         /// <remarks>
@@ -339,15 +321,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.LinkButton lnk_remain_carpet;
 
         /// <summary>
-        /// lnk_factorreport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_factorreport;
-
-        /// <summary>
         /// lnk_customers control.
         /// </summary>
         /// <remarks>
@@ -355,15 +328,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_customers;
-
-        /// <summary>
-        /// lnk_barcode_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_barcode_report;
 
         /// <summary>
         /// lnk_Survey control.

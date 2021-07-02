@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CallBackReport.aspx.cs" Inherits="WebApplicationKartable.CallBackReport" %>
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +15,7 @@
         <td><asp:DropDownList ID="lst_project" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_project" DataTextField="project_code" DataValueField="srl"></asp:DropDownList></td>
         <td style="padding-left:5%;"></td>
         <td>تامین کننده :</td>
-        <td><td><asp:DropDownList ID="lst_provider" runat="server" CssClass="dropdown1"  Width="180px"></asp:DropDownList></td></td>
+        <td><asp:DropDownList ID="lst_provider" runat="server" CssClass="dropdown1"  Width="180px"></asp:DropDownList></td>
         <td style="padding-left:5%;"></td>
         <td><asp:ImageButton ID="btn_report" ToolTip="گزارش" runat="server" ImageUrl="~/images/Controls/report.png" OnClick="btn_report_Click"  ValidationGroup="RegisterUserValidationGroup"/></td>            
         </tr>
@@ -29,5 +32,6 @@
     </table>
 </asp:Panel>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="500px" Width="960px"></rsweb:ReportViewer>
+
+<rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="900"></rsweb:ReportViewer>
 </asp:Content>

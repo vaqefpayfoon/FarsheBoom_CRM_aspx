@@ -52,31 +52,7 @@
         <h2>مدیریت تامین کننده ها</h2>
     </div>
     <cc1:ToolkitScriptManager ID="ToolkitScriptManager" runat="server"></cc1:ToolkitScriptManager>
-    <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
-        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" AllowPaging="true" PageSize="14" OnPageIndexChanging="grid_PageIndexChanging"
-            OnSelectedIndexChanging="CustomersGridView_SelectedIndexChanging" GridLines="Horizontal" Width="600" Height="500">
-            <AlternatingRowStyle BackColor="LemonChiffon" />
-            <Columns>
-                <asp:BoundField HeaderText="شماره" DataField="srl">
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                </asp:BoundField>
-                <asp:BoundField HeaderText="تامین کننده" DataField="provider_name">
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="300" />
-                </asp:BoundField>
-                <asp:BoundField HeaderText="طرف تماس" DataField="related_person">
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="300" />
-                </asp:BoundField>
-                <asp:CommandField ShowSelectButton="True" HeaderText="انتخاب" SelectText="انتخاب" />
-            </Columns>
-        </asp:GridView>
-        <asp:Button ID="btnClose" runat="server" Text="بستن" Font-Size="15" />
-    </asp:Panel>
-    <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
-        CancelControlID="btnClose" BackgroundCssClass="modalBackground">
-    </cc1:ModalPopupExtender>
+
     <asp:Panel ID="search_panel" runat="server" CssClass="panelbackcolor">
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" ForeColor="Red"
             ValidationGroup="RegisterUserValidationGroup" />
@@ -108,7 +84,6 @@
                 <td>کد تامین کننده :</td>
                 <td>
                     <asp:TextBox ID="txt_code" runat="server" Width="250" CssClass="textbox" ReadOnly="true"></asp:TextBox>
-                    <asp:ImageButton ID="btnShow" runat="server" ImageUrl="~/images/Controls/Select.gif" />
                 </td>
             </tr>
         </table>

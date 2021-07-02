@@ -42,7 +42,11 @@
     <asp:SqlDataSource ID="source_project" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, project_code FROM dbo.bas_project order by srl desc"/>
     <asp:SqlDataSource ID="source_provider" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, provider_name FROM dbo.bas_provider order by provider_name"/>
     <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
+        
+    <div class="row">
         <asp:Label ID="lblError" runat="server" ForeColor="Yellow" BackColor="#003399"></asp:Label>
+        <asp:LinkButton ID="lnk_delete" CssClass="btn btn-primary" runat="server" Enabled="true" PostBackUrl="~/Project/CallBackEdit.aspx">حذف تخصیص از نمایشگاه</asp:LinkButton>
+    </div>
     <table>
         <tr>
         <td>انتخاب نمایشگاه :</td>
@@ -66,7 +70,7 @@
                 <asp:Button ID="lbRemoveFilterOutstanding" runat="server" CssClass="btn-facebook" Text="حذف فیلتر" OnClick="lbRemoveFilterOutstanding_Click"/>
             <asp:GridView ID="grdViewOutstanding" runat="server" AutoGenerateColumns="False"
                 BackColor="#39cccc" BorderColor="#999999" BorderStyle="Solid" CellPadding="3" ForeColor="Black"
-                GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق"
+                GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق" AllowPaging="true" PageIndex="20"
                 CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
                 OnRowDataBound="grdViewOutstanding_RowDataBound" OnSorting="grdViewOutstanding_Sorting">
                 <FooterStyle BackColor="#CCCCCC" />

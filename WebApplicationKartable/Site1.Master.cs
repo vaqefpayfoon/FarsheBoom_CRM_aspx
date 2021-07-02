@@ -125,7 +125,7 @@ namespace WebApplicationKartable
                         lnk_Sale_price.Enabled = true;
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
-                        lnk_supcust_report.Enabled = true;
+                        //lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
@@ -135,10 +135,12 @@ namespace WebApplicationKartable
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
-                        lnk_factorreport.Enabled = true;
                         lnk_customers.Enabled = true;
-                        lnk_barcode_report.Enabled = true;
                         lnk_Survey.Enabled = true;
+
+                        lnk_supcust_buyers.Enabled = true;
+                        lnk_supcust_audience.Enabled = true;
+                        lnk_audience_excel.Enabled = true;
                     }
                     break;
                 case "3":
@@ -160,7 +162,7 @@ namespace WebApplicationKartable
                         lnk_Sale_price.Enabled = true;
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
-                        lnk_supcust_report.Enabled = true;
+                        //lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
@@ -170,10 +172,12 @@ namespace WebApplicationKartable
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
-                        lnk_factorreport.Enabled = true;
                         lnk_customers.Enabled = true;
-                        lnk_barcode_report.Enabled = true;
                         lnk_Survey.Enabled = true;
+
+                        lnk_supcust_buyers.Enabled = true;
+                        lnk_supcust_audience.Enabled = true;
+                        lnk_audience_excel.Enabled = true;
                     }
                     break;
             }
@@ -198,14 +202,14 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
 
-            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment)");
+            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
             ExporttoExcelSupcust(dt);
         }
         protected void lnkExcel_audience_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
 
-            dt = obj.Get_Data(@"SELECT full_name, u_date_time, tel1, cell_phone FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
+            dt = obj.Get_Data(@"SELECT full_name, u_date_time, tel1, cell_phone, address1 FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
             ExporttoExcelAudience(dt);
         }
         private void ExporttoExcel2(DataTable table)

@@ -56,7 +56,7 @@ namespace WebApplicationKartable
                         lnk_Sale_price.Enabled = true;
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
-                        lnk_supcust_report.Enabled = true;
+                        //lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
@@ -66,10 +66,12 @@ namespace WebApplicationKartable
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
-                        lnk_factorreport.Enabled = true;
                         lnk_customers.Enabled = true;
-                        lnk_barcode_report.Enabled = true;
                         lnk_Survey.Enabled = true;
+
+                        lnk_supcust_buyers.Enabled = true;
+                        lnk_supcust_audience.Enabled = true;
+                        lnk_audience_excel.Enabled = true;
                     }
                     break;
                 case "3":
@@ -90,7 +92,7 @@ namespace WebApplicationKartable
                         lnk_Sale_price.Enabled = true;
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
-                        lnk_supcust_report.Enabled = true;
+                        //lnk_supcust_report.Enabled = true;
                         lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
@@ -100,10 +102,12 @@ namespace WebApplicationKartable
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
                         lnk_remain_carpet.Enabled = true;
-                        lnk_factorreport.Enabled = true;
                         lnk_customers.Enabled = true;
-                        lnk_barcode_report.Enabled = true;
                         lnk_Survey.Enabled = true;
+
+                        lnk_supcust_buyers.Enabled = true;
+                        lnk_supcust_audience.Enabled = true;
+                        lnk_audience_excel.Enabled = true;
                     }
                     break;
             }

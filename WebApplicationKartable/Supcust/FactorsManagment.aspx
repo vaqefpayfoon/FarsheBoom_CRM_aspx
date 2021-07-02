@@ -73,6 +73,9 @@
                 <asp:Button ID="btn_cancelreturn" runat="server" CssClass="btn-facebook" OnClick=
                     "btn_cancelreturn_Click" Text="کنسل مرجوع" ValidationGroup="RegisterUserValidationGroup"/>
             </td>
+            <td>
+                <asp:Button ID="btn_cancel_report" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/RejectFactor.aspx" Text="گزارش مرجوع"/>
+            </td>
         </tr>
     </table>
      <table>

@@ -19,19 +19,9 @@ namespace WebApplicationKartable
             if (!IsPostBack)
             {
                 DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-                dt = obj.Get_Data("SELECT srl, provider_name, related_person FROM dbo.bas_provider");
-                grid.DataSource = dt; grid.DataBind();
 
                 BindData();
             }
-        }
-        protected void grid_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grid.PageIndex = e.NewPageIndex;
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl, provider_name, related_person FROM dbo.bas_provider");
-            grid.DataSource = dt; grid.DataBind();
-            mp1.Show();
         }
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
@@ -39,12 +29,6 @@ namespace WebApplicationKartable
         {
             Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
             return obj.FilterSearch("SELECT provider_name FROM dbo.bas_provider where provider_name like '%'+ @SearchText + '%'", prefixText, count);
-        }
-        protected void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
-        {
-            GridViewRow row = grid.Rows[e.NewSelectedIndex];
-            txtContactsSearch.Text = row.Cells[1].Text.ToString();
-            txt_code.Text = row.Cells[0].Text.ToString();
         }
         protected void add_new_Click(object sender, ImageClickEventArgs e)
         {

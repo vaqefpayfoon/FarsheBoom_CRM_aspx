@@ -36,7 +36,7 @@ namespace WebApplicationKartable
                 case "supcust_list":
                     {
                         lbl_header.Text = "گزارش مشتری";
-                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone FROM dbo.bas_supcust order by srl desc");
+                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, address1 FROM dbo.bas_supcust order by srl desc");
                         literal_report.Text = rpt.supcust_list(dt);
                     }
                     break;
@@ -72,14 +72,14 @@ Where build_state In (0, 3) order by srl desc";
                 case "Buyers":
                     {
                         lbl_header.Text = "لیست مشتریان";
-                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN                          dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment)");
+                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
                         literal_report.Text = rpt.buyers_list(dt);
                     }
                     break;
                 case "Audience":
                     {
                         lbl_header.Text = "لیست مخاطبین";
-                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
+                        DataTable dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, address1 FROM dbo.bas_supcust where srl not in (SELECT bassc_srl as srl FROM dbo.acc_factor)");
                         literal_report.Text = rpt.supcust_list(dt);
                     }
                     break;

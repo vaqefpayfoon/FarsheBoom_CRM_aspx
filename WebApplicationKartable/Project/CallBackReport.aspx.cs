@@ -3,6 +3,7 @@ using Microsoft.Reporting.WebForms;
 using System;
 using System.Configuration;
 using System.Data;
+using System.Text;
 using System.Web.UI.WebControls;
 
 namespace WebApplicationKartable
@@ -52,6 +53,7 @@ namespace WebApplicationKartable
         }
         protected void btn_report_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
+            StringBuilder irad = new StringBuilder();
             Common obobo = new Common(); DataTable dt2 = new DataTable();
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
             if (lst_provider.SelectedIndex == 0)
@@ -83,31 +85,61 @@ namespace WebApplicationKartable
                     row["plan_title"] = Woak["plan_title"];
                     row["color_name"] = Woak["color_name"];
                     row["provider_code"] = Woak["provider_code"];
-                    string irad = "";
-                    irad = Convert.IsDBNull(Woak["dorangi"]) ? "" : "دو رنگی";
-                    irad += Convert.IsDBNull(Woak["rofo"]) ? "" : "رفو";
-                    irad += Convert.IsDBNull(Woak["kaji"]) ? "" : "کجی";
-                    irad += Convert.IsDBNull(Woak["badbaf"]) ? "" : "بدبافت";
-                    irad += Convert.IsDBNull(Woak["pakhordegi"]) ? "" : "پاخوردگی";
-                    irad += Convert.IsDBNull(Woak["tear"]) ? "" : "پارگی";
-                    row["irad"] = irad;
+
+                    if((!Convert.IsDBNull(Woak["dorangi"])) ||
+                       (!Convert.IsDBNull(Woak["rofo"])) ||
+                       (!Convert.IsDBNull(Woak["badbaf"])) ||
+                       (!Convert.IsDBNull(Woak["pakhordegi"])) ||
+                       (!Convert.IsDBNull(Woak["tear"])))
+                    {
+                        if ((Convert.ToBoolean(Woak["dorangi"])) ||
+                       (Convert.ToBoolean(Woak["rofo"])) ||
+                       (Convert.ToBoolean(Woak["badbaf"])) ||
+                       (Convert.ToBoolean(Woak["pakhordegi"])) ||
+                       (Convert.ToBoolean(Woak["tear"])))
+                        {
+                            irad.Append("فرش");
+                            irad.Append(" ");
+                            irad.Append(Woak["brand_name"]);
+                            irad.Append(" ");
+                            irad.Append(Woak["size_title"]);
+                            irad.Append(" ");
+                            irad.Append("با ایرادات ");
+                            irad.Append(!Convert.ToBoolean(Woak["dorangi"]) ? "" : "دو رنگی");
+                            irad.Append(" ");
+                            irad.Append(!Convert.ToBoolean(Woak["rofo"]) ? "" : "رفو");
+                            irad.Append(" ");
+                            irad.Append(!Convert.ToBoolean(Woak["kaji"]) ? "" : "کجی");
+                            irad.Append(" ");
+                            irad.Append(!Convert.ToBoolean(Woak["badbaf"]) ? "" : "بدبافت");
+                            irad.Append(" ");
+                            irad.Append(!Convert.ToBoolean(Woak["pakhordegi"]) ? "" : "پاخوردگی");
+                            irad.Append(" ");
+                            irad.Append(!Convert.ToBoolean(Woak["tear"]) ? "" : "پارگی");
+                            irad.Append("تحویل گرفته شد");
+                        }
+                    }
                     Temp.Rows.Add(row);
                 }
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 if (dt.Rows.Count > 0)
                 {
-                    sb.Append(" تعداد ");
+                    //sb.Append(" تعداد ");
+                    //sb.Append("  ");
+                    //sb.Append(" ............ ");
+                    //sb.Append("تخته فرشی مطابق لیست فوق در تاریخ");
+                    //sb.Append("  ");
+                    //sb.Append(obobo.persian_date2());
+                    //sb.Append("  ");
+                    //sb.Append("از طرف جناب آقای");
+                    //sb.Append("  ");
+                    //sb.Append(lst_provider.SelectedItem.Text);
+                    //sb.Append("  ");
+                    //sb.Append("تحویل فرش بوم شد.");
+                    sb.Append(" گواهی می کنم که شرایط فرش های فروش رفته را که در لیست تحویل نمایشگاه ");
                     sb.Append("  ");
-                    sb.Append(" ............ ");
-                    sb.Append("تخته فرشی مطابق لیست فوق در تاریخ");
-                    sb.Append("  ");
-                    sb.Append(obobo.persian_date2());
-                    sb.Append("  ");
-                    sb.Append("از طرف جناب آقای");
-                    sb.Append("  ");
-                    sb.Append(lst_provider.SelectedItem.Text);
-                    sb.Append("  ");
-                    sb.Append("تحویل فرش بوم شد.");
+                    sb.Append(lst_project.SelectedItem.Text);
+                    sb.Append("اعلام داشته اند کاملا صحیح است در غیر این صورت موظف هستم  فرش را پس گرفته و مبلغ آن را عودت دهم");
                 }
                 DataSet1.groupingDataTable Tmp = new DataSet1.groupingDataTable();
                 if (dt2.Rows.Count > 0)
@@ -136,11 +168,14 @@ namespace WebApplicationKartable
                 ReportParameter ProviderName = new ReportParameter("ProviderName", lst_provider.SelectedItem.Text);
                 ReportParameter ProjectName = new ReportParameter("ProjectName", lst_project.SelectedItem.Text);
                 ReportParameter Passage = new ReportParameter("Passage", sb.ToString());
-                //ReportViewer1.LocalReport.SetParameters(parameter);
-                //ReportViewer1.LocalReport.SetParameters(parameter_Date);
-                //ReportViewer1.LocalReport.SetParameters(ProviderName);
-                //ReportViewer1.LocalReport.SetParameters(ProjectName);
-                //ReportViewer1.LocalReport.SetParameters(Passage);
+                ReportParameter Problems = new ReportParameter("Problems", irad.ToString());
+
+                ReportViewer1.LocalReport.SetParameters(parameter);
+                ReportViewer1.LocalReport.SetParameters(parameter_Date);
+                ReportViewer1.LocalReport.SetParameters(ProviderName);
+                ReportViewer1.LocalReport.SetParameters(ProjectName);
+                ReportViewer1.LocalReport.SetParameters(Passage);
+                ReportViewer1.LocalReport.SetParameters(Problems);
                 ReportViewer1.LocalReport.Refresh();
             }
         }

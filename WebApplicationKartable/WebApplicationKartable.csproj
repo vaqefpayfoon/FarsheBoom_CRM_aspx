@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebApplicationKartable</RootNamespace>
     <AssemblyName>WebApplicationKartable</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -56,17 +56,26 @@
       <HintPath>ReferencedLibrary\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -93,9 +102,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -108,9 +117,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseInformation\BankAccount.aspx" />
+    <Content Include="Project\CallBackEdit.aspx" />
+    <Content Include="Project\CallBackReport.aspx" />
     <Content Include="Project\CallBackReportCouples.aspx" />
-    <Content Include="Project\ListOfBarcodes.aspx" />
     <Content Include="Project\CallPerform.aspx" />
+    <Content Include="Project\Financial.aspx" />
+    <Content Include="Project\LabelGenerator.aspx" />
+    <Content Include="Project\MainCallBack.aspx" />
+    <Content Include="Project\RemainCarpets.aspx" />
+    <Content Include="Project\SalesMan.aspx" />
+    <Content Include="Project\Settelment.aspx" />
+    <Content Include="Project\SettelmentsPic.aspx" />
+    <Content Include="Provider_Goods\CompletePrint.aspx" />
+    <Content Include="Provider_Goods\CompleteWithPic.aspx" />
+    <Content Include="Provider_Goods\Rejected_Goods.aspx" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Supcust\CustomersFactors.aspx" />
     <Content Include="Project\SaleReportPics.aspx" />
     <Content Include="Provider_Goods\AcceptGoods.aspx" />
@@ -181,8 +214,6 @@
     <Content Include="js\waypoints.js" />
     <Content Include="js\wow.min.js" />
     <Content Include="PersianDateControls 2.0.dll" />
-    <Content Include="Provider_Goods\CompleteWithPic.aspx" />
-    <Content Include="Provider_Goods\CompletePrint.aspx" />
     <Content Include="Provider_Goods\Complete.aspx" />
     <Content Include="images\bg_nav.jpg" />
     <Content Include="images\down.png" />
@@ -191,10 +222,7 @@
     <Content Include="images\up.png" />
     <Content Include="Provider_Goods\Pricing.aspx" />
     <Content Include="Project\ProjectDefine.aspx" />
-    <Content Include="Project\Financial.aspx" />
     <Content Include="images\logo.png" />
-    <Content Include="Project\MainCallBack.aspx" />
-    <Content Include="Project\CallBackReport.aspx" />
     <Content Include="css\bootstrap-slider\slider.css" />
     <Content Include="css\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
     <Content Include="css\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
@@ -252,26 +280,20 @@
     <Content Include="BaseInformation\location.aspx" />
     <Content Include="Help.txt" />
     <Content Include="images\Controls\Excel-icon.jpg" />
-    <Content Include="Project\LabelGenerator.aspx" />
     <Content Include="Project\Project_Products.aspx" />
     <Content Include="Provider_Goods\ProductAssign.aspx" />
-    <Content Include="Provider_Goods\Rejected_Goods.aspx" />
     <Content Include="BaseInformation\Raj.aspx" />
     <Content Include="ReadData.aspx" />
     <Content Include="ReadFromAccessDB.aspx" />
-    <Content Include="Project\SalesMan.aspx" />
-    <Content Include="Project\RemainCarpets.aspx" />
+    <Content Include="Supcust\FactorsGuaranty.aspx" />
+    <Content Include="Supcust\Factor_Print.aspx" />
     <Content Include="Supcust\RejectFactor.aspx" />
     <Content Include="Sale_Report.aspx" />
     <Content Include="Script\jquery-1.4.1.min.js" />
     <Content Include="Script\ScrollableGridViewPlugin_ASP.NetAJAXmin.js" />
     <Content Include="Service1.svc" />
-    <Content Include="Project\Settelment.aspx" />
-    <Content Include="Project\SettelmentsPic.aspx" />
-    <Content Include="Supcust\FactorsGuaranty.aspx" />
     <Content Include="Supcust\SupcustLevel_Export.aspx" />
     <Content Include="Supcust\FactorsManagment.aspx" />
-    <Content Include="Supcust\Factor_Print.aspx" />
     <Content Include="Supcust\Factor.aspx" />
     <Content Include="images\Controls\history.png" />
     <Content Include="images\Controls\ultimate_config.png" />
@@ -874,19 +896,26 @@
     <Compile Include="BaseInformation\BankAccount.aspx.designer.cs">
       <DependentUpon>BankAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Project\CallBackEdit.aspx.cs">
+      <DependentUpon>CallBackEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\CallBackEdit.aspx.designer.cs">
+      <DependentUpon>CallBackEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CallBackReport.aspx.cs">
+      <DependentUpon>CallBackReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\CallBackReport.aspx.designer.cs">
+      <DependentUpon>CallBackReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Project\CallBackReportCouples.aspx.cs">
       <DependentUpon>CallBackReportCouples.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Project\CallBackReportCouples.aspx.designer.cs">
       <DependentUpon>CallBackReportCouples.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Project\ListOfBarcodes.aspx.cs">
-      <DependentUpon>ListOfBarcodes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\ListOfBarcodes.aspx.designer.cs">
-      <DependentUpon>ListOfBarcodes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Project\CallPerform.aspx.cs">
       <DependentUpon>CallPerform.aspx</DependentUpon>
@@ -895,6 +924,77 @@
     <Compile Include="Project\CallPerform.aspx.designer.cs">
       <DependentUpon>CallPerform.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Project\Financial.aspx.cs">
+      <DependentUpon>Financial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\Financial.aspx.designer.cs">
+      <DependentUpon>Financial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\LabelGenerator.aspx.cs">
+      <DependentUpon>LabelGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\LabelGenerator.aspx.designer.cs">
+      <DependentUpon>LabelGenerator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\MainCallBack.aspx.cs">
+      <DependentUpon>MainCallBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\MainCallBack.aspx.designer.cs">
+      <DependentUpon>MainCallBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\RemainCarpets.aspx.cs">
+      <DependentUpon>RemainCarpets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\RemainCarpets.aspx.designer.cs">
+      <DependentUpon>RemainCarpets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\SalesMan.aspx.cs">
+      <DependentUpon>SalesMan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\SalesMan.aspx.designer.cs">
+      <DependentUpon>SalesMan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Settelment.aspx.cs">
+      <DependentUpon>Settelment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\Settelment.aspx.designer.cs">
+      <DependentUpon>Settelment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Project\SettelmentsPic.aspx.cs">
+      <DependentUpon>SettelmentsPic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project\SettelmentsPic.aspx.designer.cs">
+      <DependentUpon>SettelmentsPic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Provider_Goods\CompletePrint.aspx.cs">
+      <DependentUpon>CompletePrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Provider_Goods\CompletePrint.aspx.designer.cs">
+      <DependentUpon>CompletePrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Provider_Goods\CompleteWithPic.aspx.cs">
+      <DependentUpon>CompleteWithPic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Provider_Goods\CompleteWithPic.aspx.designer.cs">
+      <DependentUpon>CompleteWithPic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Provider_Goods\Rejected_Goods.aspx.cs">
+      <DependentUpon>Rejected_Goods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Provider_Goods\Rejected_Goods.aspx.designer.cs">
+      <DependentUpon>Rejected_Goods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supcust\CustomersFactors.aspx.cs">
       <DependentUpon>CustomersFactors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1000,20 +1100,6 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Provider_Goods\CompleteWithPic.aspx.cs">
-      <DependentUpon>CompleteWithPic.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Provider_Goods\CompleteWithPic.aspx.designer.cs">
-      <DependentUpon>CompleteWithPic.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Provider_Goods\CompletePrint.aspx.cs">
-      <DependentUpon>CompletePrint.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Provider_Goods\CompletePrint.aspx.designer.cs">
-      <DependentUpon>CompletePrint.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Provider_Goods\Complete.aspx.cs">
       <DependentUpon>Complete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1036,40 +1122,12 @@
     <Compile Include="Project\ProjectDefine.aspx.designer.cs">
       <DependentUpon>ProjectDefine.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Project\Financial.aspx.cs">
-      <DependentUpon>Financial.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\Financial.aspx.designer.cs">
-      <DependentUpon>Financial.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Project\MainCallBack.aspx.cs">
-      <DependentUpon>MainCallBack.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\MainCallBack.aspx.designer.cs">
-      <DependentUpon>MainCallBack.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Project\CallBackReport.aspx.cs">
-      <DependentUpon>CallBackReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\CallBackReport.aspx.designer.cs">
-      <DependentUpon>CallBackReport.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
-    <Compile Include="Project\LabelGenerator.aspx.cs">
-      <DependentUpon>LabelGenerator.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\LabelGenerator.aspx.designer.cs">
-      <DependentUpon>LabelGenerator.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Project\Project_Products.aspx.cs">
       <DependentUpon>Project_Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1083,13 +1141,6 @@
     </Compile>
     <Compile Include="Provider_Goods\ProductAssign.aspx.designer.cs">
       <DependentUpon>ProductAssign.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Provider_Goods\Rejected_Goods.aspx.cs">
-      <DependentUpon>Rejected_Goods.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Provider_Goods\Rejected_Goods.aspx.designer.cs">
-      <DependentUpon>Rejected_Goods.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaseInformation\Raj.aspx.cs">
       <DependentUpon>Raj.aspx</DependentUpon>
@@ -1112,19 +1163,19 @@
     <Compile Include="ReadFromAccessDB.aspx.designer.cs">
       <DependentUpon>ReadFromAccessDB.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Project\SalesMan.aspx.cs">
-      <DependentUpon>SalesMan.aspx</DependentUpon>
+    <Compile Include="Supcust\FactorsGuaranty.aspx.cs">
+      <DependentUpon>FactorsGuaranty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Project\SalesMan.aspx.designer.cs">
-      <DependentUpon>SalesMan.aspx</DependentUpon>
+    <Compile Include="Supcust\FactorsGuaranty.aspx.designer.cs">
+      <DependentUpon>FactorsGuaranty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Project\RemainCarpets.aspx.cs">
-      <DependentUpon>RemainCarpets.aspx</DependentUpon>
+    <Compile Include="Supcust\Factor_Print.aspx.cs">
+      <DependentUpon>Factor_Print.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Project\RemainCarpets.aspx.designer.cs">
-      <DependentUpon>RemainCarpets.aspx</DependentUpon>
+    <Compile Include="Supcust\Factor_Print.aspx.designer.cs">
+      <DependentUpon>Factor_Print.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supcust\RejectFactor.aspx.cs">
       <DependentUpon>RejectFactor.aspx</DependentUpon>
@@ -1143,27 +1194,6 @@
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
-    <Compile Include="Project\Settelment.aspx.cs">
-      <DependentUpon>Settelment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\Settelment.aspx.designer.cs">
-      <DependentUpon>Settelment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Project\SettelmentsPic.aspx.cs">
-      <DependentUpon>SettelmentsPic.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Project\SettelmentsPic.aspx.designer.cs">
-      <DependentUpon>SettelmentsPic.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Supcust\FactorsGuaranty.aspx.cs">
-      <DependentUpon>FactorsGuaranty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Supcust\FactorsGuaranty.aspx.designer.cs">
-      <DependentUpon>FactorsGuaranty.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Supcust\SupcustLevel_Export.aspx.cs">
       <DependentUpon>SupcustLevel_Export.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1177,13 +1207,6 @@
     </Compile>
     <Compile Include="Supcust\FactorsManagment.aspx.designer.cs">
       <DependentUpon>FactorsManagment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Supcust\Factor_Print.aspx.cs">
-      <DependentUpon>Factor_Print.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Supcust\Factor_Print.aspx.designer.cs">
-      <DependentUpon>Factor_Print.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supcust\Factor.aspx.cs">
       <DependentUpon>Factor.aspx</DependentUpon>

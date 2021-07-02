@@ -11,7 +11,7 @@ namespace WebApplicationKartable
 {
 
 
-    public partial class CallBackReportCouples
+    public partial class CallBackEdit
     {
 
         /// <summary>
@@ -22,6 +22,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource source_project;
+
+        /// <summary>
+        /// source_provider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource source_provider;
 
         /// <summary>
         /// search_panel control.
@@ -40,6 +49,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// lnk_delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_delete;
 
         /// <summary>
         /// lst_project control.
@@ -69,6 +87,24 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.ImageButton btn_report;
 
         /// <summary>
+        /// txt_count control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_count;
+
+        /// <summary>
+        /// chk_all control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_all;
+
+        /// <summary>
         /// lst_sort control.
         /// </summary>
         /// <remarks>
@@ -78,21 +114,21 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_sort;
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// ImageButton_delete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton_delete;
 
         /// <summary>
-        /// ReportViewer1 control.
+        /// gridview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        protected global::System.Web.UI.WebControls.GridView gridview;
     }
 }

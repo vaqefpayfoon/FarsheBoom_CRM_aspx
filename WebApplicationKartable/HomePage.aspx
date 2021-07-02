@@ -163,8 +163,8 @@
                                         <asp:LinkButton ID="lnk_factor" runat="server" Enabled="false" PostBackUrl="~/Supcust/FactorsManagment.aspx">مدیریت فاکتورها</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_alarm" runat="server" Enabled="false" PostBackUrl="~/Alarm.aspx">سیستم آلارم</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_acceptgoods" runat="server" PostBackUrl="~/Provider_Goods/AcceptGoods.aspx">پذیرش فرش</asp:LinkButton></li>
+<li>
+                                        <asp:LinkButton ID="lnk_remain_carpet" runat="server" Enabled="false" PostBackUrl="~/Project/CallPerform.aspx">مدیریت فراخوان</asp:LinkButton></li>
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -195,16 +195,12 @@
                                         <asp:LinkButton ID="lnk_supcust_audience" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Audience">لیست مخاطبین</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_audience_excel" runat="server" Enabled="false" OnClick="lnkExcel_audience_Click">اکسل مخاطبین</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_supcust_report" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=supcust_list">لیست تمام مشتریان</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_remain_carpet" runat="server" Enabled="false" PostBackUrl="~/Project/CallPerform.aspx">مدیریت فراخوان</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_factorreport" runat="server" Enabled="false" PostBackUrl="~/Supcust/RejectFactor.aspx">گزارش مرجوعی</asp:LinkButton></li>
+<%--                                    <li>
+                                        <asp:LinkButton ID="lnk_supcust_report" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=supcust_list">لیست تمام مشتریان</asp:LinkButton></li>--%>
+
                                     <li>
                                         <asp:LinkButton ID="lnk_customers" runat="server" Enabled="false" PostBackUrl="~/Supcust/CustomersFactors.aspx">فاکتور مشتریان</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_barcode_report" runat="server" Enabled="false" PostBackUrl="~/Project/ListOfBarcodes.aspx">ورود بارکد</asp:LinkButton></li>
+
                                     <li>
                                         <asp:LinkButton ID="lnk_Survey" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReportCouples.aspx">بررسی نمایشگاه</asp:LinkButton></li>
                                     <li>
