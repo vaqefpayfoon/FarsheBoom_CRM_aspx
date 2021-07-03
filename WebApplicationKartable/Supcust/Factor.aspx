@@ -159,8 +159,8 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
             <td colspan="3"><asp:TextBox ID="txt_address" runat="server" CssClass="textbox" ReadOnly="true" BackColor="LightSteelBlue" Width="450px"></asp:TextBox></td>
         </tr>
         <tr>
-            <td>بیانه :</td>
-            <td><asp:CheckBox ID="chk_bayane" runat="server"  ></asp:CheckBox></td>
+            <%--<td>بیانه :</td>--%>
+            <td><asp:CheckBox ID="chk_bayane" runat="server" Visible="false" ></asp:CheckBox></td>
         </tr>
 </table>
         </td>

@@ -76,6 +76,9 @@
             <td>
                 <asp:Button ID="btn_cancel_report" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/RejectFactor.aspx" Text="گزارش مرجوع"/>
             </td>
+            <td>
+                <asp:Button ID="Button1" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/Depositis.aspx" Text="لیست بیعانه ها"/>
+            </td>
         </tr>
     </table>
      <table>
