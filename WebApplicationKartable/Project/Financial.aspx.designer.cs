@@ -7,29 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class Financial {
-        
-        /// <summary>
-        /// source_project control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource source_project;
-        
-        /// <summary>
-        /// source_provider control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource source_provider;
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class Financial
+    {
+
         /// <summary>
         /// search_panel control.
         /// </summary>
@@ -38,7 +22,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel search_panel;
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -47,7 +31,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -56,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// ReportViewer1 control.
         /// </summary>
