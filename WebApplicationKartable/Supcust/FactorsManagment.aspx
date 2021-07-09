@@ -26,7 +26,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="text-align:center;"><h2>مدیریت فاکتورها</h2></div>
         <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
-        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
+<%--        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" AllowPaging="true" PageSize="14"  OnPageIndexChanging="grid_PageIndexChanging" 
      OnSelectedIndexChanging="CustomersGridView_SelectedIndexChanging" GridLines="Horizontal" Width="600" Height="500">
         <AlternatingRowStyle BackColor="LemonChiffon" />
@@ -47,10 +47,10 @@
         </Columns>
     </asp:GridView>
     <asp:Button ID="btnClose" runat="server" Text="بستن" Font-Size="15" />
-    </asp:Panel>    
+    </asp:Panel>   
 <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
     CancelControlID="btnClose" BackgroundCssClass="modalBackground">
-</cc1:ModalPopupExtender>
+</cc1:ModalPopupExtender --%>
    <asp:Panel ID="search_panel" runat="server" CssClass="panelbackcolor">
       <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" ForeColor="Red"
             ValidationGroup="RegisterUserValidationGroup"/>   
@@ -93,12 +93,6 @@
         <tr>
             <td>تلفن همراه :</td>
             <td><asp:TextBox ID="txt_cell_phone" runat="server" Width="250"  CssClass="textbox" ></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>تاریخ فاکتور :</td>
-            <td><asp:TextBox ID="txt_code" runat="server" Width="250"  CssClass="textbox" ReadOnly="true"></asp:TextBox>
-                    <asp:ImageButton ID="btnShow" runat="server"  ImageUrl="~/images/Controls/Select.gif" />
             </td>
         </tr>
         <tr>

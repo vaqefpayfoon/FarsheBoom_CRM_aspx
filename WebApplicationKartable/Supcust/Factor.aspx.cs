@@ -379,7 +379,7 @@ namespace WebApplicationKartable
         protected void ImageButton_print_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
             if (string.IsNullOrEmpty(txt_first_discount.Text)) txt_first_discount.Text = "0";
-   dt2 = (DataTable)ViewState["table"];
+            dt2 = (DataTable)ViewState["table"];
             Common obj = new Common();
             if(string.IsNullOrEmpty(txt_discount.Text))
                 dt2.Rows[0]["discount"] = 0;

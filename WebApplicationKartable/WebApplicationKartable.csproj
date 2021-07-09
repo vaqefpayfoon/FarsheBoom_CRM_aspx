@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseInformation\BankAccount.aspx" />
+    <Content Include="Supcust\FactorsList.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -896,6 +897,13 @@
     </Compile>
     <Compile Include="BaseInformation\BankAccount.aspx.designer.cs">
       <DependentUpon>BankAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supcust\FactorsList.aspx.cs">
+      <DependentUpon>FactorsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supcust\FactorsList.aspx.designer.cs">
+      <DependentUpon>FactorsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supcust\Depositis.aspx.cs">

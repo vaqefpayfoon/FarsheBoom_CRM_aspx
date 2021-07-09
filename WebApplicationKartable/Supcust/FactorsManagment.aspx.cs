@@ -17,21 +17,21 @@ namespace WebApplicationKartable
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckLogin();
-            if (!IsPostBack)
-            {
-                DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-                dt = obj.Get_Data("SELECT srl, factor_no,u_date_tome FROM dbo.acc_factor order by factor_no desc");
-                grid.DataSource = dt; grid.DataBind();
-            }
+            //if (!IsPostBack)
+            //{
+            //    DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+            //    dt = obj.Get_Data("SELECT srl, factor_no,u_date_tome FROM dbo.acc_factor order by factor_no desc");
+            //    grid.DataSource = dt; grid.DataBind();
+            //}
         }
-        protected void grid_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grid.PageIndex = e.NewPageIndex;
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl, factor_no,u_date_tome FROM dbo.acc_factor order by factor_no desc");
-            grid.DataSource = dt; grid.DataBind();
-            mp1.Show();
-        }
+        //protected void grid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //    grid.PageIndex = e.NewPageIndex;
+        //    DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+        //    dt = obj.Get_Data("SELECT srl, factor_no,u_date_tome FROM dbo.acc_factor order by factor_no desc");
+        //    grid.DataSource = dt; grid.DataBind();
+        //    mp1.Show();
+        //}
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> FilterSearch(string prefixText, int count)
@@ -53,12 +53,12 @@ namespace WebApplicationKartable
             Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
             return obj.FilterSearch("SELECT cell_phone FROM dbo.bas_supcust where cell_phone like '%'+ @SearchText + '%' AND ((reject is null) or reject = 'false')", prefixText, count);
         }
-        protected void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
-        {
-            GridViewRow row = grid.Rows[e.NewSelectedIndex];
-            txtContactsSearch.Text = row.Cells[1].Text.ToString();
-            txt_code.Text = row.Cells[0].Text.ToString();
-        }
+        //protected void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
+        //{
+        //    GridViewRow row = grid.Rows[e.NewSelectedIndex];
+        //    txtContactsSearch.Text = row.Cells[1].Text.ToString();
+        //    txt_code.Text = row.Cells[0].Text.ToString();
+        //}
         protected void add_new_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("Factor.aspx?snd=-1");
