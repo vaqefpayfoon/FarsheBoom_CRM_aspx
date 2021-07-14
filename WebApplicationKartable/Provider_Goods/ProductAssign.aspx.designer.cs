@@ -177,15 +177,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_pcode;
 
         /// <summary>
-        /// lst_porz control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_porz;
-
-        /// <summary>
         /// txt_lenght control.
         /// </summary>
         /// <remarks>
@@ -193,15 +184,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_lenght;
-
-        /// <summary>
-        /// lst_brand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_brand;
 
         /// <summary>
         /// txt_weight control.
@@ -213,13 +195,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_weight;
 
         /// <summary>
-        /// lst_size control.
+        /// lst_brand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_size;
+        protected global::System.Web.UI.WebControls.DropDownList lst_brand;
 
         /// <summary>
         /// lst_color control.
@@ -231,13 +213,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_color;
 
         /// <summary>
-        /// lst_plan control.
+        /// lst_size control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_plan;
+        protected global::System.Web.UI.WebControls.DropDownList lst_size;
 
         /// <summary>
         /// lst_color2 control.
@@ -249,13 +231,22 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_color2;
 
         /// <summary>
-        /// lst_status control.
+        /// lst_plan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_status;
+        protected global::System.Web.UI.WebControls.DropDownList lst_plan;
+
+        /// <summary>
+        /// lst_porz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_porz;
 
         /// <summary>
         /// lst_chele control.
@@ -265,6 +256,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lst_chele;
+
+        /// <summary>
+        /// lst_status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_status;
 
         /// <summary>
         /// chk_dorangi control.

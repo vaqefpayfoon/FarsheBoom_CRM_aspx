@@ -331,31 +331,65 @@ namespace WebApplicationKartable
 
             Common obj = new Common();
 
-            DataSet1.Factor_DataTableDataTable Temp = new DataSet1.Factor_DataTableDataTable();
+            DataSet1.FactorListDataTable Temp = new DataSet1.FactorListDataTable();
+            int countRow = 1;
+
+            string str_down_payment = "";
+            object down_payment;
+            down_payment = dt.Compute("SUM(down_payment)", "");
+            if (!Convert.IsDBNull(down_payment))
+            {
+                obj.str = down_payment.ToString();
+                str_down_payment = obj.str;
+            }
+            else
+            {
+                down_payment = 0;
+            }
+
+
+            string str_discount_amount = "";
+            object discount_amount;
+            discount_amount = dt.Compute("SUM(discount_amount)", "");
+            if (!Convert.IsDBNull(discount_amount))
+            {
+                obj.str = discount_amount.ToString();
+                str_discount_amount = obj.str;
+            }
+            else
+            {
+                discount_amount = 0;
+            }
+
+            string str_final_price = "";
+            object final_price;
+            final_price = dt.Compute("SUM(final_price)", "");
+            if (!Convert.IsDBNull(final_price))
+            {
+                final_price = Convert.ToDouble(final_price) - Convert.ToDouble(down_payment) - Convert.ToDouble(discount_amount);
+                obj.str = final_price.ToString();
+                str_final_price = obj.str;
+            }
+
             foreach (DataRow Woak in dt.Rows)
             {
                 DataRow row = Temp.NewRow();
+                row["sum_downpayment"] = str_down_payment;
+                row["sum_remaining"] = str_final_price;
+                row["row"] = countRow;
                 row["size_title"] = Woak["size_title"];
-                row["lenght"] = Woak["lenght"];
-                row["widht"] = Woak["widht"];
                 row["city_name"] = Woak["brand_name"];
                 row["code_igd"] = Woak["code_igd"];
                 obj.str = Woak["sale_price"].ToString();
                 row["sale_price"] = obj.str;
-                row["carpet_title"] = Woak["carpet_title"];
-                row["color_name"] = Woak["color_name"].ToString().Trim();
-                row["porz_title"] = Woak["porz_title"];
-                row["chele_title"] = Woak["chele_title"];
-                row["plan_desc"] = Woak["plan_title"];
                 row["full_name"] = Woak["full_name"];
-                row["tel1"] = Woak["tel1"];
+                //row["tel1"] = Woak["tel1"];
                 row["cell_phone"] = Woak["cell_phone"];
-                row["disc_per"] = Woak["disc_per"];
                 row["address1"] = Woak["address1"];
                 obj.str = Woak["discount"].ToString();
                 row["discount"] = obj.str;
-                obj.str = Woak["down_payment"].ToString();
-                row["down_payment"] = obj.str;
+                //obj.str = Woak["down_payment"].ToString();
+                //row["down_payment"] = obj.str;
                 obj.str = Woak["payment"].ToString();
                 row["payment"] = obj.str;
                 row["factor_no"] = Woak["factor_no"];
@@ -371,8 +405,8 @@ namespace WebApplicationKartable
                 {
                     row["disc_per"] = (Convert.ToInt64(Woak["discount"]) * 100) / Convert.ToInt64(Woak["sale_price"]);
                 }
-                row["state"] = Woak["state"].ToString();
                 Temp.Rows.Add(row);
+                countRow++;
             }
             ReportViewer1.ProcessingMode = ProcessingMode.Local;
             ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/FactorList.rdlc");

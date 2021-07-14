@@ -51,40 +51,43 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>پرز :</td>
-                        <td>
-                            <asp:DropDownList ID="lst_porz" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_porz" DataTextField="porz_title" DataValueField="srl"></asp:DropDownList></td>
                         <td>طول :</td>
                         <td>
                             <asp:TextBox ID="txt_lenght" runat="server" CssClass="textbox" Width="150px" MaxLength="30"></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td>گونه :</td>
-                        <td>
-                            <asp:DropDownList ID="lst_brand" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_brand" DataTextField="brand_name" DataValueField="srl"></asp:DropDownList></td>
                         <td>عرض :</td>
                         <td>
                             <asp:TextBox ID="txt_weight" runat="server" CssClass="textbox" Width="150px" MaxLength="30"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td>اندازه :</td>
+                        <td>گونه :</td>
                         <td>
-                            <asp:DropDownList ID="lst_size" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_size" DataTextField="size_title" DataValueField="srl"></asp:DropDownList></td>
+                            <asp:DropDownList ID="lst_brand" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_brand" DataTextField="brand_name" DataValueField="srl"></asp:DropDownList></td>
                         <td>رنگ متن :</td>
                         <td>
                             <asp:DropDownList ID="lst_color" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_color" DataTextField="color_name" DataValueField="srl"></asp:DropDownList></td>
+                    </tr>
+                    <tr>
+                        <td>اندازه :</td>
+                        <td>
+                            <asp:DropDownList ID="lst_size" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_size" DataTextField="size_title" DataValueField="srl"></asp:DropDownList></td>
+                        <td>رنگ حاشیه :</td>
+                        <td>
+                            <asp:DropDownList ID="lst_color2" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_color" DataTextField="color_name" DataValueField="srl"></asp:DropDownList></td>
 
                     </tr>
                     <tr>
                         <td>نقشه فرش :</td>
                         <td>
                             <asp:DropDownList ID="lst_plan" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_plan" DataTextField="plan_title" DataValueField="srl"></asp:DropDownList></td>
-                        <td>رنگ حاشیه :</td>
+                        <td>پرز :</td>
                         <td>
-                            <asp:DropDownList ID="lst_color2" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_color" DataTextField="color_name" DataValueField="srl"></asp:DropDownList></td>
+                            <asp:DropDownList ID="lst_porz" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_porz" DataTextField="porz_title" DataValueField="srl"></asp:DropDownList></td>
                     </tr>
                     <tr>
-                        <td>موقعیت :</td>
+                        <td>چله :</td>
+                        <td>
+                            <asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
+                    <td>موقعیت :</td>
                         <td>
                             <asp:DropDownList ID="lst_status" runat="server" CssClass="dropdown1" Width="150px">
                                 <asp:ListItem Value="0" Text="موجود"></asp:ListItem>
@@ -94,9 +97,6 @@
                                 <asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                        <td>چله :</td>
-                        <td>
-                            <asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td>دورنگی :</td>

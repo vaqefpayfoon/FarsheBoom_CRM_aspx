@@ -17,115 +17,79 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="size_title">
-          <DataField>size_title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="city_name">
-          <DataField>city_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="code_igd">
-          <DataField>code_igd</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="sale_price">
-          <DataField>sale_price</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="carpet_title">
-          <DataField>carpet_title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="color_name">
-          <DataField>color_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="porz_title">
-          <DataField>porz_title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="chele_title">
-          <DataField>chele_title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="plan_desc">
-          <DataField>plan_desc</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="full_name">
-          <DataField>full_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tel1">
-          <DataField>tel1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="address1">
-          <DataField>address1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="discount">
-          <DataField>discount</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="down_payment">
-          <DataField>down_payment</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="payment">
-          <DataField>payment</DataField>
+        <Field Name="factor_no">
+          <DataField>factor_no</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="factor_date">
           <DataField>factor_date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="factor_no">
-          <DataField>factor_no</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="disc_per">
-          <DataField>disc_per</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="lenght">
-          <DataField>lenght</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="widht">
-          <DataField>widht</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="area">
-          <DataField>area</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="price_after_dis">
-          <DataField>price_after_dis</DataField>
+        <Field Name="fullname">
+          <DataField>fullname</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="cell_phone">
           <DataField>cell_phone</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="margin_color">
-          <DataField>margin_color</DataField>
+        <Field Name="national_code">
+          <DataField>national_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="logo">
-          <DataField>logo</DataField>
+        <Field Name="address1">
+          <DataField>address1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="state">
-          <DataField>state</DataField>
+        <Field Name="row">
+          <DataField>row</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="code_igd">
+          <DataField>code_igd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="brand_name">
+          <DataField>brand_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="size_title">
+          <DataField>size_title</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sale_price">
+          <DataField>sale_price</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="discount">
+          <DataField>discount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="payment">
+          <DataField>payment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sum_downpayment">
+          <DataField>sum_downpayment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sum_remaining">
+          <DataField>sum_remaining</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="price_after_dis">
+          <DataField>price_after_dis</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="area">
+          <DataField>area</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\vaqef\Documents\Visual Studio 2017\Projects\FarsheBoom_CRM\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>Factor_DataTable</rd:TableName>
+        <rd:SchemaPath>C:\CSharp\FarshboomASPX\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>FactorList</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -285,9 +249,9 @@
             </Paragraphs>
             <rd:DefaultName>city_name</rd:DefaultName>
             <Top>0.76958in</Top>
-            <Left>7.86398in</Left>
+            <Left>7.76038in</Left>
             <Height>0.27083in</Height>
-            <Width>1.1028in</Width>
+            <Width>1.2064in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -323,9 +287,9 @@
             </Paragraphs>
             <rd:DefaultName>city_name</rd:DefaultName>
             <Top>1.10986in</Top>
-            <Left>7.86398in</Left>
+            <Left>7.76038in</Left>
             <Height>0.27083in</Height>
-            <Width>1.04877in</Width>
+            <Width>1.15237in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -569,44 +533,6 @@
               <Direction>RTL</Direction>
             </Style>
           </Textbox>
-          <Textbox Name="city_name4">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!Hours.Value</Value>
-                    <Style>
-                      <FontFamily>B Nazanin</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>city_name</rd:DefaultName>
-            <Top>1.10986in</Top>
-            <Left>7.06714in</Left>
-            <Height>0.27083in</Height>
-            <Width>0.76906in</Width>
-            <ZIndex>12</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-              <Direction>RTL</Direction>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox5">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -628,10 +554,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>0.79736in</Top>
-            <Left>6.0199in</Left>
+            <Left>6.6437in</Left>
             <Height>0.27083in</Height>
             <Width>1.04724in</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -651,7 +577,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_no.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!fullname.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -668,8 +594,8 @@
             <Top>0.79736in</Top>
             <Left>4.90321in</Left>
             <Height>0.27083in</Height>
-            <Width>1.1028in</Width>
-            <ZIndex>14</ZIndex>
+            <Width>1.69882in</Width>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -703,10 +629,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>1.10986in</Top>
-            <Left>6.0199in</Left>
+            <Left>6.6437in</Left>
             <Height>0.27083in</Height>
             <Width>1.04724in</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -726,7 +652,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_no.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!cell_phone.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -740,11 +666,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>city_name</rd:DefaultName>
-            <Top>1.10986in</Top>
+            <Top>1.12375in</Top>
             <Left>4.90321in</Left>
             <Height>0.27083in</Height>
-            <Width>1.1028in</Width>
-            <ZIndex>16</ZIndex>
+            <Width>1.68493in</Width>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -781,7 +707,7 @@
             <Left>4.26916in</Left>
             <Height>0.27083in</Height>
             <Width>0.5445in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -801,7 +727,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_no.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!address1.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -819,7 +745,7 @@
             <Left>0.26706in</Left>
             <Height>0.27083in</Height>
             <Width>3.97432in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -856,7 +782,7 @@
             <Left>4.26916in</Left>
             <Height>0.27083in</Height>
             <Width>0.57849in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -876,7 +802,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_no.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!national_code.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -894,7 +820,7 @@
             <Left>2.69761in</Left>
             <Height>0.27083in</Height>
             <Width>1.52988in</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1223,14 +1149,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="u_buy1">
+                        <Textbox Name="price_after_dis">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!u_buy.Value</Value>
+                                  <Value>=Fields!price_after_dis.Value</Value>
                                   <Style>
                                     <FontFamily>b nazanin</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1242,44 +1168,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>u_buy1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Direction>RTL</Direction>
-                          </Style>
-                        </Textbox>
-                        <rd:Selected>true</rd:Selected>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="u_buy">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!buy_price.Value</Value>
-                                  <Style>
-                                    <FontFamily>b nazanin</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>u_buy</rd:DefaultName>
+                          <rd:DefaultName>price_after_dis</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1296,14 +1185,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="payment">
+                        <Textbox Name="discount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!payment.Value</Value>
+                                  <Value>=Fields!discount.Value</Value>
                                   <Style>
                                     <FontFamily>b nazanin</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1315,7 +1204,43 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>payment</rd:DefaultName>
+                          <rd:DefaultName>discount</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="sale_price">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!sale_price.Value</Value>
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>sale_price</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1404,42 +1329,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="provider_code">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!provider_code.Value</Value>
-                                  <Style>
-                                    <FontFamily>b nazanin</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>provider_code</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Direction>RTL</Direction>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="code_igd">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1460,6 +1349,42 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>code_igd</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="row">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!row.Value</Value>
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>row</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1507,8 +1432,8 @@
             <Top>1.57921in</Top>
             <Left>0.45057in</Left>
             <Height>0.88542in</Height>
-            <Width>9.01525in</Width>
-            <ZIndex>21</ZIndex>
+            <Width>9.01527in</Width>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1539,7 +1464,7 @@
             <Left>8.82304in</Left>
             <Height>0.27083in</Height>
             <Width>0.76867in</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1559,7 +1484,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_date.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!sum_downpayment.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1574,10 +1499,10 @@
             </Paragraphs>
             <rd:DefaultName>city_name</rd:DefaultName>
             <Top>4.12609in</Top>
-            <Left>7.76038in</Left>
+            <Left>7.22009in</Left>
             <Height>0.27083in</Height>
-            <Width>1.04877in</Width>
-            <ZIndex>23</ZIndex>
+            <Width>1.60295in</Width>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1614,7 +1539,7 @@
             <Left>4.28742in</Left>
             <Height>0.27083in</Height>
             <Width>0.76867in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1634,7 +1559,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!factor_date.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!sum_remaining.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1649,10 +1574,10 @@
             </Paragraphs>
             <rd:DefaultName>city_name</rd:DefaultName>
             <Top>4.12609in</Top>
-            <Left>3.22476in</Left>
+            <Left>2.69761in</Left>
             <Height>0.27083in</Height>
-            <Width>1.04877in</Width>
-            <ZIndex>25</ZIndex>
+            <Width>1.57592in</Width>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>

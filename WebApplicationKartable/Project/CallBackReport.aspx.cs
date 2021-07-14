@@ -92,32 +92,36 @@ namespace WebApplicationKartable
                        (!Convert.IsDBNull(Woak["pakhordegi"])) ||
                        (!Convert.IsDBNull(Woak["tear"])))
                     {
-                        if ((Convert.ToBoolean(Woak["dorangi"])) ||
-                       (Convert.ToBoolean(Woak["rofo"])) ||
-                       (Convert.ToBoolean(Woak["badbaf"])) ||
-                       (Convert.ToBoolean(Woak["pakhordegi"])) ||
-                       (Convert.ToBoolean(Woak["tear"])))
+                        try
                         {
-                            irad.Append("فرش");
-                            irad.Append(" ");
-                            irad.Append(Woak["brand_name"]);
-                            irad.Append(" ");
-                            irad.Append(Woak["size_title"]);
-                            irad.Append(" ");
-                            irad.Append("با ایرادات ");
-                            irad.Append(!Convert.ToBoolean(Woak["dorangi"]) ? "" : "دو رنگی");
-                            irad.Append(" ");
-                            irad.Append(!Convert.ToBoolean(Woak["rofo"]) ? "" : "رفو");
-                            irad.Append(" ");
-                            irad.Append(!Convert.ToBoolean(Woak["kaji"]) ? "" : "کجی");
-                            irad.Append(" ");
-                            irad.Append(!Convert.ToBoolean(Woak["badbaf"]) ? "" : "بدبافت");
-                            irad.Append(" ");
-                            irad.Append(!Convert.ToBoolean(Woak["pakhordegi"]) ? "" : "پاخوردگی");
-                            irad.Append(" ");
-                            irad.Append(!Convert.ToBoolean(Woak["tear"]) ? "" : "پارگی");
-                            irad.Append("تحویل گرفته شد");
+                            if ((Convert.ToBoolean(Woak["dorangi"])) ||
+                                (Convert.ToBoolean(Woak["rofo"])) ||
+                                (Convert.ToBoolean(Woak["badbaf"])) ||
+                                (Convert.ToBoolean(Woak["pakhordegi"])) ||
+                                (Convert.ToBoolean(Woak["tear"])))
+                            {
+                                irad.Append("فرش");
+                                irad.Append(" ");
+                                irad.Append(Woak["brand_name"]);
+                                irad.Append(" ");
+                                irad.Append(Woak["size_title"]);
+                                irad.Append(" ");
+                                irad.Append("با ایرادات ");
+                                irad.Append(!Convert.ToBoolean(Woak["dorangi"]) ? "" : "دو رنگی");
+                                irad.Append(" ");
+                                irad.Append(!Convert.ToBoolean(Woak["rofo"]) ? "" : "رفو");
+                                irad.Append(" ");
+                                irad.Append(!Convert.ToBoolean(Woak["kaji"]) ? "" : "کجی");
+                                irad.Append(" ");
+                                irad.Append(!Convert.ToBoolean(Woak["badbaf"]) ? "" : "بدبافت");
+                                irad.Append(" ");
+                                irad.Append(!Convert.ToBoolean(Woak["pakhordegi"]) ? "" : "پاخوردگی");
+                                irad.Append(" ");
+                                irad.Append(!Convert.ToBoolean(Woak["tear"]) ? "" : "پارگی");
+                                irad.Append("تحویل گرفته شد");
+                            }
                         }
+                        catch { }
                     }
                     Temp.Rows.Add(row);
                 }
@@ -168,6 +172,34 @@ namespace WebApplicationKartable
                 ReportParameter ProviderName = new ReportParameter("ProviderName", lst_provider.SelectedItem.Text);
                 ReportParameter ProjectName = new ReportParameter("ProjectName", lst_project.SelectedItem.Text);
                 ReportParameter Passage = new ReportParameter("Passage", sb.ToString());
+                ReportParameter Problems = new ReportParameter("Problems", irad.ToString());
+
+                ReportViewer1.LocalReport.SetParameters(parameter);
+                ReportViewer1.LocalReport.SetParameters(parameter_Date);
+                ReportViewer1.LocalReport.SetParameters(ProviderName);
+                ReportViewer1.LocalReport.SetParameters(ProjectName);
+                ReportViewer1.LocalReport.SetParameters(Passage);
+                ReportViewer1.LocalReport.SetParameters(Problems);
+                ReportViewer1.LocalReport.Refresh();
+            }
+            else
+            {
+                DataSet1.CallBackDataTable Temp = new DataSet1.CallBackDataTable();
+                DataSet1.groupingDataTable Tmp = new DataSet1.groupingDataTable();
+                ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/CallBackReport.rdlc");
+                ReportViewer1.LocalReport.EnableExternalImages = true;
+                ReportDataSource datasource = new ReportDataSource("DataSet1", (DataTable)Temp);
+                ReportDataSource datasource2 = new ReportDataSource("DataSet2", (DataTable)Tmp);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(datasource);
+                ReportViewer1.LocalReport.DataSources.Add(datasource2);
+                string imagePath = new Uri(Server.MapPath("~/images/logo.png")).AbsoluteUri;
+                ReportParameter parameter = new ReportParameter("ImagePath", imagePath);
+                ReportParameter parameter_Date = new ReportParameter("Date", new Common().persian_date());
+                ReportParameter ProviderName = new ReportParameter("ProviderName", lst_provider.SelectedItem.Text);
+                ReportParameter ProjectName = new ReportParameter("ProjectName", lst_project.SelectedItem.Text);
+                ReportParameter Passage = new ReportParameter("Passage", string.Empty);
                 ReportParameter Problems = new ReportParameter("Problems", irad.ToString());
 
                 ReportViewer1.LocalReport.SetParameters(parameter);
