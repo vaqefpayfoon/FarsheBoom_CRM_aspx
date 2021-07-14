@@ -84,9 +84,6 @@
                             <asp:DropDownList ID="lst_porz" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_porz" DataTextField="porz_title" DataValueField="srl"></asp:DropDownList></td>
                     </tr>
                     <tr>
-                        <td>چله :</td>
-                        <td>
-                            <asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
                     <td>موقعیت :</td>
                         <td>
                             <asp:DropDownList ID="lst_status" runat="server" CssClass="dropdown1" Width="150px">
@@ -97,6 +94,9 @@
                                 <asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
+                        <td>چله :</td>
+                        <td>
+                            <asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td>دورنگی :</td>

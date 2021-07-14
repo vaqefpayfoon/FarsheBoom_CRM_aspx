@@ -249,15 +249,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_porz;
 
         /// <summary>
-        /// lst_chele control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_chele;
-
-        /// <summary>
         /// lst_status control.
         /// </summary>
         /// <remarks>
@@ -265,6 +256,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lst_status;
+
+        /// <summary>
+        /// lst_chele control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_chele;
 
         /// <summary>
         /// chk_dorangi control.
