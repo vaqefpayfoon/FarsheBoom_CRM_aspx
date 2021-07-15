@@ -65,8 +65,7 @@
             </tr>
         </table>
     </asp:Panel>
-    <asp:GridView ID="gridview" runat="server"  CssClass="textbox"  AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D"  HeaderStyle-ForeColor="White" Font-Size="15" AllowPaging ="true"  ShowFooter = "true"  
-        OnPageIndexChanging = "OnPaging">
+    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" AllowPaging="true" PageSize="14" OnPageIndexChanging="gridview_PageIndexChanging" Width="900px">
     <Columns>                      
     <asp:HyperLinkField DataTextField="srl_f" DataNavigateUrlFields="srl_f" DataNavigateUrlFormatString="~/Supcust/Factor.aspx?snd={0}"  HeaderText="فاکتور"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
         <asp:HyperLinkField DataTextField="srl" DataNavigateUrlFields="srl" DataNavigateUrlFormatString="~/Provider_Goods/ProductAssign.aspx?srl={0}"  HeaderText="فرش"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
@@ -80,12 +79,14 @@
             <asp:BoundField DataField="discount" HeaderText="تخفیف" ItemStyle-Width="60" />
     <asp:BoundField DataField="discount_amount" HeaderText="تخفیف" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
     <asp:BoundField DataField="down_payment" HeaderText="پیش پرداخت" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
+<asp:BoundField DataField="sale_price" HeaderText="قیمت فروش" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
     <asp:BoundField DataField="final_price" HeaderText="مبلغ فاکتور" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
-                    <asp:TemplateField HeaderText="چاپ">  
+                <asp:TemplateField HeaderText="چاپ">  
                     <ItemTemplate>  
-                        <asp:CheckBox ID="chk_delete" runat="server" />  
+                        <asp:CheckBox ID="CheckBox1" runat="server" />  
                     </ItemTemplate>  
-                </asp:TemplateField> 
+                </asp:TemplateField>  
+
         </Columns>
     <AlternatingRowStyle BackColor="Azure" /> <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" /> 
     </asp:GridView>

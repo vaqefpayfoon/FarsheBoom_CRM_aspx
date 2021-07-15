@@ -3092,9 +3092,9 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnsale_price;
             
-            private global::System.Data.DataColumn columndiscount;
+            private global::System.Data.DataColumn columndiscount_amount;
             
-            private global::System.Data.DataColumn columnpayment;
+            private global::System.Data.DataColumn columnfinal_price;
             
             private global::System.Data.DataColumn columnsum_downpayment;
             
@@ -3227,17 +3227,17 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn discountColumn {
+            public global::System.Data.DataColumn discount_amountColumn {
                 get {
-                    return this.columndiscount;
+                    return this.columndiscount_amount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn paymentColumn {
+            public global::System.Data.DataColumn final_priceColumn {
                 get {
-                    return this.columnpayment;
+                    return this.columnfinal_price;
                 }
             }
             
@@ -3322,8 +3322,8 @@ namespace WebApplicationKartable {
                         string brand_name, 
                         string size_title, 
                         string sale_price, 
-                        string discount, 
-                        string payment, 
+                        string discount_amount, 
+                        string final_price, 
                         string sum_downpayment, 
                         string sum_remaining, 
                         string price_after_dis, 
@@ -3341,8 +3341,8 @@ namespace WebApplicationKartable {
                         brand_name,
                         size_title,
                         sale_price,
-                        discount,
-                        payment,
+                        discount_amount,
+                        final_price,
                         sum_downpayment,
                         sum_remaining,
                         price_after_dis,
@@ -3380,8 +3380,8 @@ namespace WebApplicationKartable {
                 this.columnbrand_name = base.Columns["brand_name"];
                 this.columnsize_title = base.Columns["size_title"];
                 this.columnsale_price = base.Columns["sale_price"];
-                this.columndiscount = base.Columns["discount"];
-                this.columnpayment = base.Columns["payment"];
+                this.columndiscount_amount = base.Columns["discount_amount"];
+                this.columnfinal_price = base.Columns["final_price"];
                 this.columnsum_downpayment = base.Columns["sum_downpayment"];
                 this.columnsum_remaining = base.Columns["sum_remaining"];
                 this.columnprice_after_dis = base.Columns["price_after_dis"];
@@ -3413,10 +3413,10 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnsize_title);
                 this.columnsale_price = new global::System.Data.DataColumn("sale_price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsale_price);
-                this.columndiscount = new global::System.Data.DataColumn("discount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndiscount);
-                this.columnpayment = new global::System.Data.DataColumn("payment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpayment);
+                this.columndiscount_amount = new global::System.Data.DataColumn("discount_amount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiscount_amount);
+                this.columnfinal_price = new global::System.Data.DataColumn("final_price", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfinal_price);
                 this.columnsum_downpayment = new global::System.Data.DataColumn("sum_downpayment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsum_downpayment);
                 this.columnsum_remaining = new global::System.Data.DataColumn("sum_remaining", typeof(string), null, global::System.Data.MappingType.Element);
@@ -6073,33 +6073,33 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string discount {
+            public string discount_amount {
                 get {
                     try {
-                        return ((string)(this[this.tableFactorList.discountColumn]));
+                        return ((string)(this[this.tableFactorList.discount_amountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'discount\' in table \'FactorList\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'discount_amount\' in table \'FactorList\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFactorList.discountColumn] = value;
+                    this[this.tableFactorList.discount_amountColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string payment {
+            public string final_price {
                 get {
                     try {
-                        return ((string)(this[this.tableFactorList.paymentColumn]));
+                        return ((string)(this[this.tableFactorList.final_priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payment\' in table \'FactorList\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'final_price\' in table \'FactorList\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFactorList.paymentColumn] = value;
+                    this[this.tableFactorList.final_priceColumn] = value;
                 }
             }
             
@@ -6301,26 +6301,26 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsdiscountNull() {
-                return this.IsNull(this.tableFactorList.discountColumn);
+            public bool Isdiscount_amountNull() {
+                return this.IsNull(this.tableFactorList.discount_amountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetdiscountNull() {
-                this[this.tableFactorList.discountColumn] = global::System.Convert.DBNull;
+            public void Setdiscount_amountNull() {
+                this[this.tableFactorList.discount_amountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IspaymentNull() {
-                return this.IsNull(this.tableFactorList.paymentColumn);
+            public bool Isfinal_priceNull() {
+                return this.IsNull(this.tableFactorList.final_priceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetpaymentNull() {
-                this[this.tableFactorList.paymentColumn] = global::System.Convert.DBNull;
+            public void Setfinal_priceNull() {
+                this[this.tableFactorList.final_priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
