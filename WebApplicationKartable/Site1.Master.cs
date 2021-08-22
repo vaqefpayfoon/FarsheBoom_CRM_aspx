@@ -117,7 +117,7 @@ namespace WebApplicationKartable
                         lnk_colors.Enabled = true;
                         lnk_factor.Enabled = true;
                         lnk_firm.Enabled = true;
-                        lnk_opportunity_sale.Enabled = true;
+                        //lnk_opportunity_sale.Enabled = true;
                         lnk_porz.Enabled = true;
                         lnk_project.Enabled = true;
                         lnk_reject.Enabled = true;
@@ -130,7 +130,7 @@ namespace WebApplicationKartable
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;
-                        lnk_label.Enabled = true;
+                        //lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
@@ -153,7 +153,7 @@ namespace WebApplicationKartable
                         lnk_bank.Enabled = true;
                         lnk_factor.Enabled = true;
                         lnk_firm.Enabled = true;
-                        lnk_opportunity_sale.Enabled = true;
+                        //lnk_opportunity_sale.Enabled = true;
                         lnk_personal.Enabled = true;
                         lnk_porz.Enabled = true;
                         lnk_project.Enabled = true;
@@ -167,7 +167,7 @@ namespace WebApplicationKartable
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;
-                        lnk_label.Enabled = true;
+                        //lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
                         lnk_complete.Enabled = true;
                         lnk_settelment.Enabled = true;
@@ -202,7 +202,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
 
-            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
+            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE dbo.acc_factor.payment <> 0 And (dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
             ExporttoExcelSupcust(dt);
         }
         protected void lnkExcel_audience_Click(object sender, EventArgs e)

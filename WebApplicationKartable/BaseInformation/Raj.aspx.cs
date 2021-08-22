@@ -64,6 +64,7 @@ namespace WebApplicationKartable
             cmd.Parameters.Add("@raj_title", SqlDbType.VarChar, 30).Value = raj_title;
             GridView1.DataSource = GetData(cmd);
             GridView1.DataBind();
+            lblError.Text = "";
         }
         protected void DeleteCustomer(object sender, EventArgs e)
         {
@@ -80,7 +81,10 @@ namespace WebApplicationKartable
                 GridView1.DataSource = GetData(cmd);
                 GridView1.DataBind();
             }
-            catch { }
+            catch
+            {
+                lblError.Text = "این اطلاعات در بانک استفاده شده است";
+            }
         }
         protected void EditCustomer(object sender, GridViewEditEventArgs e)
         {
@@ -107,6 +111,7 @@ namespace WebApplicationKartable
             GridView1.EditIndex = -1;
             GridView1.DataSource = GetData(cmd);
             GridView1.DataBind();
+            lblError.Text = "";
         }
         private void CheckLogin()
         {

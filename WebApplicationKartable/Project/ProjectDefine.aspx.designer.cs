@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationKartable {
-    
-    
-    public partial class ProjectDefine {
-        
+namespace WebApplicationKartable
+{
+
+
+    public partial class ProjectDefine
+    {
+
         /// <summary>
         /// PersianDateScriptManager control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateScriptManager PersianDateScriptManager;
-        
+
         /// <summary>
         /// ToolkitScriptManager control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
-        
+
         /// <summary>
         /// source_size control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource source_size;
-        
+
         /// <summary>
         /// source_brand control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource source_brand;
-        
+
         /// <summary>
         /// source_locate control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource source_locate;
-        
+
         /// <summary>
         /// RegisterUserValidationSummary control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary RegisterUserValidationSummary;
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// txt_project_code control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_project_code;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
+
         /// <summary>
         /// txt_project_name control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_project_name;
-        
+
         /// <summary>
         /// lblName control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblName;
-        
+
         /// <summary>
         /// UserNameRequired control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
-        
+
         /// <summary>
         /// txt_from_date control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateTextBox txt_from_date;
-        
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// txt_to_date control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PersianDateControls.PersianDateTextBox txt_to_date;
-        
+
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -164,16 +166,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// lst_locate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_locate;
-        
+
         /// <summary>
         /// txt_desc control.
         /// </summary>
@@ -182,7 +175,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_desc;
-        
+
         /// <summary>
         /// chk_confirm control.
         /// </summary>
@@ -191,7 +184,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chk_confirm;
-        
+
         /// <summary>
         /// search_panel control.
         /// </summary>
@@ -200,7 +193,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel search_panel;
-        
+
         /// <summary>
         /// btn_save control.
         /// </summary>
@@ -209,7 +202,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btn_save;
-        
+
         /// <summary>
         /// btn_return control.
         /// </summary>
@@ -218,7 +211,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btn_return;
-        
+
         /// <summary>
         /// Panel_grid control.
         /// </summary>
@@ -227,7 +220,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel_grid;
-        
+
         /// <summary>
         /// btn_add control.
         /// </summary>
@@ -236,7 +229,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_add;
-        
+
         /// <summary>
         /// btn_remove control.
         /// </summary>
@@ -245,7 +238,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_remove;
-        
+
         /// <summary>
         /// btn_remove_all control.
         /// </summary>
@@ -254,7 +247,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_remove_all;
-        
+
         /// <summary>
         /// lblAdd control.
         /// </summary>
@@ -263,7 +256,7 @@ namespace WebApplicationKartable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAdd;
-        
+
         /// <summary>
         /// txt_enter_codes control.
         /// </summary>

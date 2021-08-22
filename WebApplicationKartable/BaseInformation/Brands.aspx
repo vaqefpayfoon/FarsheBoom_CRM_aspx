@@ -35,6 +35,9 @@
     <div style="direction: rtl; padding-right: 5%">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+            <div class="row">
+                <asp:Label ID="lblError" runat="server" ForeColor="Yellow" BackColor="#003399"></asp:Label>
+            </div>
                 <asp:GridView ID="GridView1" runat="server" Width="600px" AutoGenerateColumns="false" CssClass="GridStart"
                     HeaderStyle-BackColor="#5D7B9D" AllowPaging="true" ShowFooter="true"
                     OnPageIndexChanging="OnPaging" OnRowEditing="EditCustomer"

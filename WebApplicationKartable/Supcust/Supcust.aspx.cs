@@ -139,7 +139,7 @@ namespace WebApplicationKartable
                 return;
             }
             Common per = new Common();
-            SqlParameter[] param = new SqlParameter[17];
+            SqlParameter[] param = new SqlParameter[16];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl"]);
             param[1] = new SqlParameter("@full_name", SqlDbType.VarChar, 100);

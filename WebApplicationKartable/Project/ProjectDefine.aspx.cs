@@ -40,10 +40,10 @@ namespace WebApplicationKartable
                 txt_desc.Text = row["describtion"].ToString();
                 if (!Convert.IsDBNull(row["confirm"]))
                     chk_confirm.Checked = Convert.ToBoolean(row["confirm"]);
-                if (!Convert.IsDBNull(row["locate_srl"]))
-                    lst_locate.SelectedValue = row["locate_srl"].ToString();
-                else
-                    lst_locate.SelectedIndex = 0;
+                //if (!Convert.IsDBNull(row["locate_srl"]))
+                //    lst_locate.SelectedValue = row["locate_srl"].ToString();
+                //else
+                //    lst_locate.SelectedIndex = 0;
             }
         }
         protected void btn_save_Click(object sender, ImageClickEventArgs e)
@@ -75,9 +75,9 @@ namespace WebApplicationKartable
             param[5] = new SqlParameter("@confirm", SqlDbType.Bit);
             param[5].Value = chk_confirm.Checked;
             param[6] = new SqlParameter("@locate_srl", SqlDbType.TinyInt);
-            if (lst_locate.SelectedIndex > 0)
-                param[6].Value = Convert.ToInt32(lst_locate.SelectedValue);
-            else
+            //if (lst_locate.SelectedIndex > 0)
+            //    param[6].Value = Convert.ToInt32(lst_locate.SelectedValue);
+            //else
                 param[6].Value = DBNull.Value;
             param[7] = new SqlParameter("@project_code", SqlDbType.VarChar, 20);
             param[7].Value = txt_project_code.Text;
@@ -103,9 +103,9 @@ namespace WebApplicationKartable
             param[5] = new SqlParameter("@confirm", SqlDbType.Bit);
             param[5].Value = chk_confirm.Checked;
             param[6] = new SqlParameter("@locate_srl", SqlDbType.TinyInt);
-            if (lst_locate.SelectedIndex > 0)
-                param[6].Value = Convert.ToInt32(lst_locate.SelectedValue);
-            else
+            //if (lst_locate.SelectedIndex > 0)
+            //    param[6].Value = Convert.ToInt32(lst_locate.SelectedValue);
+            //else
                 param[6].Value = DBNull.Value;
             param[7] = new SqlParameter("@project_code", SqlDbType.VarChar, 20);
             param[7].Value = txt_project_code.Text;

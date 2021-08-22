@@ -72,7 +72,7 @@ namespace WebApplicationKartable
                 case "Buyers":
                     {
                         lbl_header.Text = "لیست مشتریان";
-                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE(dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
+                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount,MAX(dbo.acc_factor.u_date_tome) AS u_date_tome,SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE dbo.acc_factor.payment <> 0 And (dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.acc_factor.u_date_tome, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.payment");
                         literal_report.Text = rpt.buyers_list(dt);
                     }
                     break;

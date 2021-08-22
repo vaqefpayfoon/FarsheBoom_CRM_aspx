@@ -60,10 +60,10 @@
             <td><pdc:PersianDateTextBox ID="txt_to_date" runat="server"  IconUrl="~/images/Calendar.gif" SetDefaultDateOnEvent="OnClick" Width="200px" CssClass="textbox"></pdc:PersianDateTextBox><asp:RequiredFieldValidator Display = "None" ForeColor="Red" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_to_date"
                 ErrorMessage="تاریخ نمایشگاه  اجباریست" ToolTip="تاریخ نمایشگاه اجباریست" ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator></td>
         </tr>
-        <tr>
+<%--        <tr>
             <td>محل برگزاری :</td>
             <td><asp:DropDownList ID="lst_locate" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_locate" DataTextField="location" DataValueField="srl"></asp:DropDownList></td>
-        </tr>      
+        </tr>      --%>
         <tr>
             <td>توضیحات  :</td>
             <td colspan="3"><asp:TextBox ID="txt_desc" runat="server" CssClass="textbox"  Width="480px"></asp:TextBox></td>

@@ -83,7 +83,7 @@ namespace Cartable
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
-            sb.Append("<thead><tr><th>ردیف</th><th>نام طرف حساب</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام طرف حساب</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></tfoot>");
+            sb.Append("<thead><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></tfoot>");
             sb.Append("<tbody>");
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {

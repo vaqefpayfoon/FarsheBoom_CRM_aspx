@@ -160,8 +160,7 @@
                                         <asp:LinkButton ID="lnk_Sale_price" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Pricing.aspx">قیمت گذاری</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_project" runat="server" Enabled="false" PostBackUrl="~/Project/ProjectManagment.aspx">مدیریت نمایشگاه</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_opportunity_sale" runat="server" Enabled="false" PostBackUrl="~/Project/Opportunity_Managment.aspx">انتقال فرصت فروش</asp:LinkButton></li>
+     
                                     <li>
                                         <asp:LinkButton ID="lnk_factor" runat="server" Enabled="false" PostBackUrl="~/Supcust/FactorsManagment.aspx">مدیریت فاکتورها</asp:LinkButton></li>
                                     <li>
@@ -180,8 +179,6 @@
                                         <asp:LinkButton ID="lnk_reject" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReport.aspx">لیست تحویل</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_main_callback" runat="server" Enabled="false" PostBackUrl="~/Project/MainCallBack.aspx">لیست فراخوان</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_label" runat="server" Enabled="false" PostBackUrl="~/Project/LabelGenerator.aspx">چاپ برچسب</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_complete" runat="server" Enabled="false" PostBackUrl="~/Provider_Goods/Complete.aspx">تکمیل اطلاعات</asp:LinkButton></li>
                                     <li>
