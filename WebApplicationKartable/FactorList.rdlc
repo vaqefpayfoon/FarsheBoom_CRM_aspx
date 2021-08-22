@@ -61,12 +61,12 @@
           <DataField>sale_price</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="discount">
-          <DataField>discount</DataField>
+        <Field Name="discount_amount">
+          <DataField>discount_amount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="payment">
-          <DataField>payment</DataField>
+        <Field Name="final_price">
+          <DataField>final_price</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="sum_downpayment">
@@ -88,7 +88,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\CSharp\FarshboomASPX\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\v.payfoon\source\repos\FarsheBoom_CRM_aspx\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>FactorList</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -1185,14 +1185,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="discount">
+                        <Textbox Name="discount_amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!discount.Value</Value>
+                                  <Value>=Fields!discount_amount.Value</Value>
                                   <Style>
                                     <FontFamily>b nazanin</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1204,7 +1204,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>discount</rd:DefaultName>
+                          <rd:DefaultName>discount_amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

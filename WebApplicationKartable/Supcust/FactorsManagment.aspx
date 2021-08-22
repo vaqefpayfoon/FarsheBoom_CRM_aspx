@@ -79,6 +79,9 @@
             <td>
                 <asp:Button ID="Button1" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/Depositis.aspx" Text="لیست بیعانه ها"/>
             </td>
+            <td>
+                <asp:Button ID="Button2" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/FactorsList.aspx" Text="گزارش فاکتور"/>
+            </td>
         </tr>
     </table>
      <table>
