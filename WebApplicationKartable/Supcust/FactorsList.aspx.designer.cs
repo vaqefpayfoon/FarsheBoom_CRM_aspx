@@ -78,6 +78,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_bank;
 
         /// <summary>
+        /// txt_discount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_discount;
+
+        /// <summary>
         /// ImageButton_Report control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_print;
+
+        /// <summary>
+        /// excel_export control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton excel_export;
 
         /// <summary>
         /// gridview control.

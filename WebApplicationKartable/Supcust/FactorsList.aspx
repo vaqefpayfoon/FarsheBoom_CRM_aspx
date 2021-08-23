@@ -54,6 +54,12 @@
                 <td>حساب بانکی :</td>
                 <td>
                     <asp:DropDownList ID="lst_bank" runat="server" CssClass="dropdown1" Width="180px"></asp:DropDownList></td>
+                <td>
+                    درصد تخفیف :
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_discount" runat="server" CssClass="textbox" Width="150px" MaxLength="100"></asp:TextBox>
+                </td>
             </tr>
         </table>
         <table>
@@ -62,6 +68,8 @@
                     <asp:ImageButton ID="ImageButton_Report" ToolTip="گزارش" runat="server" ImageUrl="~/images/Controls/Report.png" OnClick="ImageButton_Report_Click" /></td>
                 <td>
                     <asp:ImageButton ID="ImageButton_print" ToolTip="چاپ" runat="server" ImageUrl="~/images/Controls/Print.png" OnClick="ImageButton_print_Click" /></td>
+                <td>
+                    <asp:ImageButton ID="excel_export" ToolTip="خروجی اکسل" runat="server" ImageUrl="~/images/Controls/Report.png" OnClick="excel_export_Click" /></td>
             </tr>
         </table>
     </asp:Panel>
