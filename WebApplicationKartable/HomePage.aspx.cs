@@ -37,7 +37,8 @@ namespace WebApplicationKartable
                 case "1":
                     {
                         lnk_firm.Enabled = true;
-                        lnk_supcust_excel.Enabled = true;                        
+                        lnk_supcust_excel.Enabled = true;
+                        lnk_supcust.Enabled = true;
                     }
                     break;
                 case "2":
@@ -57,7 +58,6 @@ namespace WebApplicationKartable
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
                         //lnk_supcust_report.Enabled = true;
-                        lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;
@@ -93,7 +93,6 @@ namespace WebApplicationKartable
                         lnk_sizes.Enabled = true;
                         lnk_supcust.Enabled = true;
                         //lnk_supcust_report.Enabled = true;
-                        lnk_alarm.Enabled = true;
                         lnk_plan.Enabled = true;
                         lnk_supcust_excel.Enabled = true;
                         lnk_all_goods.Enabled = true;

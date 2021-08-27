@@ -160,8 +160,6 @@
 
                                     <li>
                                         <asp:LinkButton ID="lnk_factor" runat="server" Enabled="false" PostBackUrl="~/Supcust/FactorsManagment.aspx">مدیریت فاکتورها</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnk_alarm" runat="server" Enabled="false" PostBackUrl="~/Alarm.aspx">سیستم آلارم</asp:LinkButton></li>
 <li>
                                         <asp:LinkButton ID="lnk_remain_carpet" runat="server" Enabled="false" PostBackUrl="~/Project/CallPerform.aspx">مدیریت فراخوان</asp:LinkButton></li>
                                 </ul>
