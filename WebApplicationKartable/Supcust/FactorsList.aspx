@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="FactorsList.aspx.cs" Inherits="WebApplicationKartable.FactorsList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
             <style type="text/css">
         .loading
         {
@@ -32,6 +33,7 @@
         ForbidenDates="" ForbidenWeekDays="" FrameCSS="PickerCSS" HeaderCSS="PickerHeaderCSS"
         SelectedCSS="PickerSelectedCSS" WeekDayCSS="PickerWeekDayCSS" WorkDayCSS="PickerWorkDayCSS">
     </pdc:PersianDateScriptManager>
+            <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
     <asp:Panel ID="Panel_grid" runat="server" CssClass="panelbackcolor">
         <table>
             <tr>
@@ -61,6 +63,23 @@
                     <asp:TextBox ID="txt_discount" runat="server" CssClass="textbox" Width="150px" MaxLength="100"></asp:TextBox>
                 </td>
             </tr>
+        </table>
+        <table>
+        <tr>
+            <td>نام مشتری :</td>
+            <td><asp:TextBox ID="txtContactsSearch2" runat="server" Width="250"  CssClass="textbox"></asp:TextBox></td>
+            <td>
+                <asp:Button ID="btn_supcust_name" runat="server" CssClass="btn-facebook" OnClick="btn_supcust_name_Click" Text="جستجو"/>
+            </td>
+        </tr>
+        <tr>
+            <td>تلفن همراه :</td>
+            <td><asp:TextBox ID="txt_cell_phone" runat="server" Width="250"  CssClass="textbox" ></asp:TextBox>
+            </td>
+            <td>
+                <asp:Button ID="btn_cell_phone" runat="server" CssClass="btn-facebook" OnClick="btn_cell_phone_Click" Text="جستجو"/>
+            </td>
+        </tr>
         </table>
         <table>
             <tr>
@@ -99,6 +118,24 @@
     <AlternatingRowStyle BackColor="Azure" /> <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" /> 
     </asp:GridView>
     <br /><br />
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
     <rsweb:ReportViewer ID="ReportViewer1" Width="900" runat="server"></rsweb:ReportViewer>
+        <cc1:AutoCompleteExtender ServiceMethod="FilterSearch2" MinimumPrefixLength="2"
+            CompletionInterval="100" EnableCaching="false" CompletionSetCount="10" TargetControlID="txtContactsSearch2"
+            ID="AutoCompleteExtender2" runat="server" FirstRowSelected="false" OnClientHiding="OnClientCompleted"
+            OnClientPopulated="OnClientCompleted" OnClientPopulating="OnClientPopulating">
+        </cc1:AutoCompleteExtender>
+    <cc1:AutoCompleteExtender ServiceMethod="FilterSearch3" MinimumPrefixLength="2"
+            CompletionInterval="100" EnableCaching="false" CompletionSetCount="10" TargetControlID="txt_cell_phone"
+            ID="AutoCompleteExtender3" runat="server" FirstRowSelected="false" OnClientHiding="OnClientCompleted"
+            OnClientPopulated="OnClientCompleted" OnClientPopulating="OnClientPopulating">
+        </cc1:AutoCompleteExtender>
+    <script type="text/javascript">
+        function OnClientPopulating(sender, e) {
+            sender._element.className = "loading";
+        }
+        function OnClientCompleted(sender, e) {
+            sender._element.className = "";
+        }
+    </script>
 </asp:Content>

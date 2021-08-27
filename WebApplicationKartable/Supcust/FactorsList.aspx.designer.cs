@@ -24,6 +24,15 @@ namespace WebApplicationKartable
         protected global::PersianDateControls.PersianDateScriptManager PersianDateScriptManager;
 
         /// <summary>
+        /// ToolkitScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager;
+
+        /// <summary>
         /// Panel_grid control.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,42 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_discount;
 
         /// <summary>
+        /// txtContactsSearch2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContactsSearch2;
+
+        /// <summary>
+        /// btn_supcust_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_supcust_name;
+
+        /// <summary>
+        /// txt_cell_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_cell_phone;
+
+        /// <summary>
+        /// btn_cell_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_cell_phone;
+
+        /// <summary>
         /// ImageButton_Report control.
         /// </summary>
         /// <remarks>
@@ -123,15 +168,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.GridView gridview;
 
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
         /// ReportViewer1 control.
         /// </summary>
         /// <remarks>
@@ -139,5 +175,23 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+
+        /// <summary>
+        /// AutoCompleteExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender2;
+
+        /// <summary>
+        /// AutoCompleteExtender3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender3;
     }
 }

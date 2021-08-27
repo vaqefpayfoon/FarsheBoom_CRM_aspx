@@ -51,7 +51,7 @@ namespace WebApplicationKartable
         public static List<string> FilterSearch3(string prefixText, int count)
         {
             Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
-            return obj.FilterSearch("SELECT cell_phone FROM dbo.bas_supcust where cell_phone like '%'+ @SearchText + '%' AND ((reject is null) or reject = 'false')", prefixText, count);
+            return obj.FilterSearch("SELECT cell_phone FROM dbo.bas_supcust where cell_phone like '%'+ @SearchText + '%'", prefixText, count);
         }
         //protected void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
         //{

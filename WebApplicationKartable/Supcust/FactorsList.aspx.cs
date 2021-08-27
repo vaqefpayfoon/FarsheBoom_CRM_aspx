@@ -48,7 +48,20 @@ namespace WebApplicationKartable
             }
         }
 
-
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> FilterSearch2(string prefixText, int count)
+        {
+            Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
+            return obj.FilterSearch("SELECT full_name FROM dbo.bas_supcust where full_name like '%'+ @SearchText + '%'", prefixText, count);
+        }
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> FilterSearch3(string prefixText, int count)
+        {
+            Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
+            return obj.FilterSearch("SELECT cell_phone FROM dbo.bas_supcust where cell_phone like '%'+ @SearchText + '%'", prefixText, count);
+        }
         private void fill_grid()
         {
             DataTable dt = new DataTable();
@@ -727,6 +740,31 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.Write("</font>");
             HttpContext.Current.Response.Flush();
             HttpContext.Current.Response.End();
+        }
+
+        protected void btn_supcust_name_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            Search obj = new Search(strConnString);
+            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets where full_name='{0}' order by u_date_tome desc", txtContactsSearch2.Text));
+            if (dt.Rows.Count > 0)
+            {
+                gridview.DataSource = dt;
+                gridview.DataBind();
+            }
+            ViewState.Add("table", dt);
+        }
+        protected void btn_cell_phone_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            Search obj = new Search(strConnString);
+            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets Where cell_phone='{0}' order by u_date_tome desc", txt_cell_phone.Text));
+            if (dt.Rows.Count > 0)
+            {
+                gridview.DataSource = dt;
+                gridview.DataBind();
+            }
+            ViewState.Add("table", dt);
         }
     }
 }

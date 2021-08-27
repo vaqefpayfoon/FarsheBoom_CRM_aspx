@@ -305,7 +305,7 @@ namespace WebApplicationKartable
             foreach (DataRow row in table.Rows)
             {
                 HttpContext.Current.Response.Write("<TR>");
-                for (int i = 0; i < table.Columns.Count; i++)
+                for (int i = 1; i < table.Columns.Count; i++)
                 {
                     HttpContext.Current.Response.Write("<Td>");
                     HttpContext.Current.Response.Write(row[i].ToString());
