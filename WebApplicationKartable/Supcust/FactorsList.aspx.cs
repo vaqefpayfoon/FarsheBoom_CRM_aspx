@@ -87,7 +87,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable();
             string query = "SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets";
-            if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex == -1 && txt_discount.Text == "")
+            if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex == 0 && txt_discount.Text == "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(query + " where (from_date between '" + txt_from_date.Text + "' and '" + txt_to_date.Text + "') order by u_date_tome desc");
@@ -103,7 +103,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex == -1)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') And provider_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_provider.SelectedValue));
@@ -119,7 +119,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == -1)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') And header_srl={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue));
@@ -134,7 +134,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == -1)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') And (header_srl={2}) And (provider_srl={3}) order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_provider.SelectedValue));
@@ -149,7 +149,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == -1)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (header_srl={0}) And (provider_srl={1}) order by u_date_tome desc", lst_project.SelectedValue, lst_provider.SelectedValue));
@@ -165,7 +165,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex == -1)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (header_srl={0}) order by u_date_tome desc", lst_project.SelectedValue));
@@ -180,7 +180,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex == -1)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex ==0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (provider_srl={0}) order by u_date_tome desc", lst_provider.SelectedValue));
@@ -197,7 +197,7 @@ namespace WebApplicationKartable
                 }
             }
             //start bank
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex > 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where bank_srl = {1} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_bank.SelectedValue));
@@ -213,7 +213,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex > 0)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') and bank_srl = {2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_bank.SelectedValue));
@@ -245,7 +245,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString);  
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') And header_srl={2} and bank_srl={3} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_bank.SelectedValue));
@@ -293,7 +293,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString);  
                 dt = obj.Get_Data(string.Format(query + " where (header_srl={0}) and bank_srl={1} order by u_date_tome desc", lst_project.SelectedValue, lst_bank.SelectedValue));
@@ -310,7 +310,7 @@ namespace WebApplicationKartable
                 }
                 
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex > 0)
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString);  
                 dt = obj.Get_Data(string.Format( query + " where (provider_srl={0}) and bank_srl = {1} order by u_date_tome desc", lst_provider.SelectedValue, lst_bank.SelectedValue));
@@ -326,7 +326,7 @@ namespace WebApplicationKartable
                 }
             }
             //start discount
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex == -1 && txt_discount.Text != "")
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex ==0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where discount={0} order by u_date_tome desc", txt_discount.Text));
@@ -342,7 +342,23 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex == -1 && txt_discount.Text != "")
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
+            {
+                Search obj = new Search(strConnString);
+                dt = obj.Get_Data(string.Format(query + " where discount={0} and bank_srl = {1} order by u_date_tome desc", txt_discount.Text, lst_bank.SelectedValue));
+
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+            }
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex ==0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') and discount={2} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, txt_discount.Text));
@@ -358,7 +374,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') and bank_srl = {2} and discount={3} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_bank.SelectedValue, txt_discount.Text));
@@ -390,7 +406,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
+            else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (from_date between '{0}' and '{1}') And header_srl={2} and bank_srl={3} and discount={4} order by u_date_tome desc", txt_from_date.Text, txt_to_date.Text, lst_project.SelectedValue, lst_bank.SelectedValue, txt_discount.Text));
@@ -438,7 +454,7 @@ namespace WebApplicationKartable
                     gridview.DataBind();
                 }
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == -1 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex ==0 && lst_project.SelectedIndex > 0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (header_srl={0}) and bank_srl={1} and discount={2} order by u_date_tome desc", lst_project.SelectedValue, lst_bank.SelectedValue, txt_discount.Text));
@@ -455,7 +471,7 @@ namespace WebApplicationKartable
                 }
 
             }
-            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex == -1 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex > 0 && lst_project.SelectedIndex ==0 && lst_bank.SelectedIndex > 0 && txt_discount.Text != "")
             {
                 Search obj = new Search(strConnString);
                 dt = obj.Get_Data(string.Format(query + " where (provider_srl={0}) and bank_srl = {1} and discount={2} order by u_date_tome desc", lst_provider.SelectedValue, lst_bank.SelectedValue, txt_discount.Text));
@@ -501,7 +517,7 @@ namespace WebApplicationKartable
             dt = obj.Get_Data("SELECT srl, bank_name FROM dbo.inv_bank");
             if (dt.Rows.Count > 0)
             {
-                lst_provider.Items.Add(new ListItem("---", "0"));
+                lst_bank.Items.Add(new ListItem("---", "0"));
                 foreach (DataRow Woak in dt.Rows)
                 {
                     lst_bank.Items.Add(new ListItem(Woak["bank_name"].ToString(), Woak["srl"].ToString()));
@@ -531,7 +547,7 @@ namespace WebApplicationKartable
             if (!chk) return;
             srl_factor = srl_factor.Remove(srl_factor.Length - 1);
             srl_factor += ")";
-            string query = "SELECT srl_f, srl, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, code_igd, sale_price, full_name, address1, final_price, discount, cell_phone FROM dbo.SoldCarpets" + srl_factor;
+            string query = "SELECT srl_f, srl, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, code_igd, sale_price, full_name, address1, final_price, discount, cell_phone, email FROM dbo.SoldCarpets" + srl_factor;
 
             Search objSearch = new Search(strConnString);  
             dt = objSearch.Get_Data(query);
@@ -593,6 +609,7 @@ namespace WebApplicationKartable
                 //row["tel1"] = Woak["tel1"];
                 row["cell_phone"] = Woak["cell_phone"];
                 row["address1"] = Woak["address1"];
+                row["email"] = Woak["email"];
                 obj.str = Woak["discount_amount"].ToString();
                 row["discount_amount"] = obj.str;
                 //obj.str = Woak["down_payment"].ToString();

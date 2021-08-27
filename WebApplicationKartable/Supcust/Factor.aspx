@@ -71,7 +71,7 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
         </tr>
         <tr>
         <td>انتخاب نمایشگاه :</td>
-        <td><asp:DropDownList ID="lst_project" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_project" DataTextField="project_code" DataValueField="srl"></asp:DropDownList></td>
+        <td><asp:DropDownList ID="lst_project" runat="server" CssClass="dropdown1"  Width="180px" DataSourceID="source_project" DataTextField="project_code" DataValueField="srl" AutoPostBack = "true" OnSelectedIndexChanged = "lst_project_SelectedIndexChanged"></asp:DropDownList></td>
             <td>کد فرش :</td>
             <td><asp:TextBox ID="txt_code" runat="server" CssClass="textbox" Width="180px" ReadOnly="true" BackColor="LightSteelBlue" ></asp:TextBox></td>
         </tr>
@@ -138,7 +138,7 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
             </td>
         </tr>
         <tr>
-            <td>پرداختی :</td>
+            <td>پیش پرداخت :</td>
             <td><asp:TextBox ID="txt_down_payment" runat="server" CssClass="textbox"  Width="180px" MaxLength="20"></asp:TextBox>
             </td>
             <td>مبلغ مانده :</td>

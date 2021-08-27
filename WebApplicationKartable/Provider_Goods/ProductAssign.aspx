@@ -91,7 +91,7 @@
                                 <asp:ListItem Value="3" Text="ناموجود"></asp:ListItem>
                                 <asp:ListItem Value="4" Text="فروش توسط فرش بوم"></asp:ListItem>
                                 <asp:ListItem Value="2" Text="حذف توسط فرش بوم"></asp:ListItem>
-                                <asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>
+                                <%--<asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>--%>
                             </asp:DropDownList>
                         </td>
                         <td>چله :</td>

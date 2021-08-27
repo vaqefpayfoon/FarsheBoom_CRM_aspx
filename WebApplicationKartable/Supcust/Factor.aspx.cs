@@ -42,7 +42,7 @@ namespace WebApplicationKartable
             {
                 ViewState["bassc_srl"] = dt.Rows[0][1];
                 string header_srl = dt.Rows[0][0].ToString();
-                dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, provider_srl, code_igd, provider_name, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price, discount,color_srl2,provider_code, ' ' As full_name, ' ' As tel1, ' ' cell_phone, ' ' As address1, 0 AS down_payment, 0 AS payment,' ' factor_no , ' ' AS u_date_tome, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state  FROM dbo.Project_Goods_View where srl =" + header_srl);
+                dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, provider_srl, code_igd, provider_name, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price, discount,color_srl2,provider_code, ' ' As full_name, ' ' As tel1, ' ' cell_phone, ' ', As email, ' ' As address1, 0 AS down_payment, 0 AS payment,' ' factor_no , ' ' AS u_date_tome, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state  FROM dbo.Project_Goods_View where srl =" + header_srl);
                 if(dt2.Rows.Count > 0)
                 {
                     Common obb = new Common();
@@ -85,7 +85,7 @@ namespace WebApplicationKartable
                             state += "پارگی ،";
                     }
                     if (state.Length > 0)
-                        state = string.Format("{0}در این فرش می باشد", state);
+                        state = string.Format("{0}در فرش با کد {1} می باشد", state, Find["code_igd"].ToString().Trim());
                     dt2.Rows[0]["state"] = state;
                     ViewState["igd_srl"] = Find["srl"];
                     txt_code.Text = Find["code_igd"].ToString().Trim();
@@ -147,6 +147,7 @@ namespace WebApplicationKartable
                     dt2.Rows[0]["tel1"] = str_supcust[1];
                     dt2.Rows[0]["cell_phone"] = str_supcust[2];
                     dt2.Rows[0]["address1"] = str_supcust[3];
+                    dt2.Rows[0]["email"] = str_supcust[4];
                     DataTable dt3 = new DataTable();
                     dt3 = obj.Get_Data("SELECT  dbo.bas_project.project_code FROM dbo.bas_project_goods INNER JOIN dbo.bas_project ON dbo.bas_project_goods.header_srl = dbo.bas_project.srl where dbo.bas_project_goods.igd_srl=" + Find["srl"].ToString());
                     if (dt3.Rows.Count > 0)
@@ -161,10 +162,11 @@ namespace WebApplicationKartable
         private void setboxes2(string str_srl)
         {
             image1.ImageUrl = "..\\img\\person.png";
-            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state, bank_srl FROM dbo.Factor_View Where srl=" + str_srl);
+            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state, bank_srl, project_srl FROM dbo.Factor_View Where srl=" + str_srl);
             if (dt2.Rows.Count > 0)
             {                
                 DataRow Find = dt2.Rows[0];
+                lst_project.SelectedValue = Find["project_srl"].ToString();
                 ViewState["srl"] = Find["srl"];
                 ViewState["igd_srl"] = Find["igd_srl"];
                 ViewState["bassc_srl"] = Find["bassc_srl"];
@@ -291,15 +293,16 @@ namespace WebApplicationKartable
         }
         private string[] find_supcust(string str)
         {
-            string[] collection = new string[4];
+            string[] collection = new string[5];
             DataTable dt = new DataTable();
-            dt = obj.Get_Data("SELECT full_name, tel1, cell_phone, address1 from bas_supcust where srl=" + str);
+            dt = obj.Get_Data("SELECT full_name, tel1, cell_phone, address1, email from bas_supcust where srl=" + str);
             if(dt.Rows.Count > 0)
             {
                 collection[0] = dt.Rows[0][0].ToString();
                 collection[1] = dt.Rows[0]["tel1"].ToString();
                 collection[2] = dt.Rows[0]["cell_phone"].ToString();
                 collection[3] = dt.Rows[0]["address1"].ToString();
+                collection[4] = dt.Rows[0]["email"].ToString();
                 return collection;
             }
             else
@@ -865,6 +868,32 @@ namespace WebApplicationKartable
                 down = Convert.ToInt64(obb.remove_cama(txt_down_payment.Text));
             obb.str = (sale - (first_dis + dis + down)).ToString();
             txt_payment.Text = obb.str;
+        }
+
+        protected void lst_project_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string project = lst_project.SelectedItem.Text;
+            string defaultStr = "000";
+            DataTable dt = obj.Get_Data("SELECT count(srl) FROM dbo.acc_factor Where project_srl=" + lst_project.SelectedValue);
+            if(dt.Rows.Count > 0)
+            {
+                string count = dt.Rows[0][0].ToString();
+                if(count == "0")
+                {
+                    string newString = defaultStr.PadLeft(3, '0') + 1;
+                    txt_factor_no.Text = project + newString;
+                } 
+                else
+                {
+                    string newString = (count.Length == 1 ? "000" : count.Length == 2 ? "0" : "").PadLeft(count.Length - 1, '0') + count;
+                    txt_factor_no.Text = project + newString;
+                }
+            }
+            else
+            {
+                string newString =  defaultStr.PadLeft(3, '0') + 1;
+                txt_factor_no.Text = project + newString;
+            }
         }
     }
 }

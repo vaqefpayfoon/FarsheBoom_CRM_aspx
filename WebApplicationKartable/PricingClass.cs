@@ -40,15 +40,23 @@ namespace WebApplicationKartable
             }
             else if (state == 2)
             {
-                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing order by buy_price,sale_price");
+                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home,title_igd FROM dbo.Sale_Pricing order by buy_price,sale_price");
             }
             else if (state == 3)
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where (buy_price is null or sale_price is null) AND (provider_srl={0}) order by buy_price,sale_price", provider));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home,title_igd FROM dbo.Sale_Pricing Where (buy_price is null or sale_price is null) AND (provider_srl={0}) order by buy_price,sale_price", provider));
             }
             else if (state == 4)
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where (provider_srl={0}) order by buy_price,sale_price", provider));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home,title_igd FROM dbo.Sale_Pricing Where (provider_srl={0}) order by buy_price,sale_price", provider));
+            }
+            else if (state == 5)
+            {
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home,title_igd FROM dbo.Sale_Pricing Where (ibt_srl={0}) order by buy_price,sale_price", provider));
+            }
+            else if (state == 6)
+            {
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home,title_igd FROM dbo.Sale_Pricing Where (size_srl={0}) order by buy_price,sale_price", provider));
             }
             if (dt.Rows.Count > 0)
             {
@@ -79,6 +87,7 @@ namespace WebApplicationKartable
                     pc.final_sale = cur.str;
                     pc.u_date_time = Woak["u_date_time"].ToString();
                     pc.provider_code = Woak["provider_code"].ToString();
+                    pc.title_igd = Woak["title_igd"].ToString();
                     try
                     {
                         if (Woak["margin_profit"] != null)
@@ -218,12 +227,12 @@ namespace WebApplicationKartable
             else
                 return string.Empty;
         }
-        public List<GoodsClass> GetNullGoodsClass()
+        public List<GoodsClass> GetNullGoodsClass(string provider_srl)
         {
             List<GoodsClass> lstGoodsClass = new List<GoodsClass>();
             DataTable dt = new DataTable(); Search obj = new Search(ConfigurationManager.ConnectionStrings["FarsheBoom"].ConnectionString);
             Common cur = new Common();
-            dt = obj.Get_Data("SELECT srl, code_igd, brand_name, size_title, carpet_title, color_name, porz_title, chele_title, plan_title, widht, lenght, provider_code, provider_name, selection, sold, buy_price, area, color_srl2,title_igd FROM dbo.Provider_Goods WHERE (ibt_srl is null) OR (size_srl is null) OR (city_srl is null) OR (color_srl is null) OR (color_srl2 is null) OR (widht is null) OR (lenght is null) OR (buy_price is null) order by code_igd");
+            dt = obj.Get_Data(string.Format("SELECT srl, code_igd, brand_name, size_title, carpet_title, color_name, porz_title, chele_title, plan_title, widht, lenght, provider_code, provider_name, selection, sold, buy_price, area, color_srl2,title_igd FROM dbo.Provider_Goods WHERE (provider_srl={0}) and (ibt_srl is null) OR (size_srl is null) OR (city_srl is null) OR (color_srl is null) OR (color_srl2 is null) OR (widht is null) OR (lenght is null) OR (buy_price is null) order by code_igd", provider_srl));
             if (dt.Rows.Count > 0)
             {
                 foreach (DataRow Woak in dt.Rows)

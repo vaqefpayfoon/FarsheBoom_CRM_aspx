@@ -248,7 +248,7 @@ namespace WebApplicationKartable
             if(ViewState["Gstate"].ToString().Equals("1"))
                 lstPricingClass = objOutstanding.GetGoodsClass();
             else
-                lstPricingClass = objOutstanding.GetNullGoodsClass();
+                lstPricingClass = objOutstanding.GetNullGoodsClass(lst_provider.SelectedValue);
             grdViewOutstanding.DataSource = lstPricingClass;
             grdViewOutstanding.DataBind();
             ViewState["lstOutstandingOrders"] = lstPricingClass;
@@ -269,7 +269,7 @@ namespace WebApplicationKartable
             ViewState["Gstate"] = "2";
             GoodsClass objPricingClass = new GoodsClass();
             List<GoodsClass> lstGoodsClass = new List<GoodsClass>();
-            lstGoodsClass = objPricingClass.GetNullGoodsClass();
+            lstGoodsClass = objPricingClass.GetNullGoodsClass(lst_provider.SelectedValue);
             grdViewOutstanding.DataSource = lstGoodsClass;
             grdViewOutstanding.DataBind();
             ViewState["lstOutstandingOrders"] = lstGoodsClass;

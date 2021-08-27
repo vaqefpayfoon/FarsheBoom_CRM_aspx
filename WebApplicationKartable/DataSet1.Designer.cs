@@ -541,6 +541,8 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnstate;
             
+            private global::System.Data.DataColumn columnemail;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Factor_DataTableDataTable() {
@@ -784,6 +786,14 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emailColumn {
+                get {
+                    return this.columnemail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -845,7 +855,8 @@ namespace WebApplicationKartable {
                         string cell_phone, 
                         string margin_color, 
                         string logo, 
-                        string state) {
+                        string state, 
+                        string email) {
                 Factor_DataTableRow rowFactor_DataTableRow = ((Factor_DataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         size_title,
@@ -873,7 +884,8 @@ namespace WebApplicationKartable {
                         cell_phone,
                         margin_color,
                         logo,
-                        state};
+                        state,
+                        email};
                 rowFactor_DataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFactor_DataTableRow);
                 return rowFactor_DataTableRow;
@@ -922,6 +934,7 @@ namespace WebApplicationKartable {
                 this.columnmargin_color = base.Columns["margin_color"];
                 this.columnlogo = base.Columns["logo"];
                 this.columnstate = base.Columns["state"];
+                this.columnemail = base.Columns["email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -979,6 +992,8 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnlogo);
                 this.columnstate = new global::System.Data.DataColumn("state", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstate);
+                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3104,6 +3119,8 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnarea;
             
+            private global::System.Data.DataColumn columnemail;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FactorListDataTable() {
@@ -3275,6 +3292,14 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emailColumn {
+                get {
+                    return this.columnemail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3327,7 +3352,8 @@ namespace WebApplicationKartable {
                         string sum_downpayment, 
                         string sum_remaining, 
                         string price_after_dis, 
-                        string area) {
+                        string area, 
+                        string email) {
                 FactorListRow rowFactorListRow = ((FactorListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         factor_no,
@@ -3346,7 +3372,8 @@ namespace WebApplicationKartable {
                         sum_downpayment,
                         sum_remaining,
                         price_after_dis,
-                        area};
+                        area,
+                        email};
                 rowFactorListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFactorListRow);
                 return rowFactorListRow;
@@ -3386,6 +3413,7 @@ namespace WebApplicationKartable {
                 this.columnsum_remaining = base.Columns["sum_remaining"];
                 this.columnprice_after_dis = base.Columns["price_after_dis"];
                 this.columnarea = base.Columns["area"];
+                this.columnemail = base.Columns["email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3425,6 +3453,8 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnprice_after_dis);
                 this.columnarea = new global::System.Data.DataColumn("area", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnarea);
+                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3983,6 +4013,22 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string email {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactor_DataTable.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'Factor_DataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactor_DataTable.emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Issize_titleNull() {
                 return this.IsNull(this.tableFactor_DataTable.size_titleColumn);
             }
@@ -4291,6 +4337,18 @@ namespace WebApplicationKartable {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetstateNull() {
                 this[this.tableFactor_DataTable.stateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsemailNull() {
+                return this.IsNull(this.tableFactor_DataTable.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetemailNull() {
+                this[this.tableFactor_DataTable.emailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6169,6 +6227,22 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string email {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactorList.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'FactorList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactorList.emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isfactor_noNull() {
                 return this.IsNull(this.tableFactorList.factor_noColumn);
             }
@@ -6369,6 +6443,18 @@ namespace WebApplicationKartable {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetareaNull() {
                 this[this.tableFactorList.areaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsemailNull() {
+                return this.IsNull(this.tableFactorList.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetemailNull() {
+                this[this.tableFactorList.emailColumn] = global::System.Convert.DBNull;
             }
         }
         

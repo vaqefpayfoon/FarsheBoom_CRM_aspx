@@ -13,6 +13,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <cc1:ToolkitScriptManager ID = "ToolkitScriptManager" runat = "server"></cc1:ToolkitScriptManager>
+        <asp:SqlDataSource ID="source_provider" runat="server" ConnectionString="<%$ ConnectionStrings:FarsheBoom %>" SelectCommand="SELECT srl, provider_name FROM dbo.bas_provider order by provider_name" />
+        <table>
+        <tr>
+            <td>تامین کننده :</td>
+            <td>
+                <asp:DropDownList ID="lst_provider" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_provider" DataTextField="provider_name" DataValueField="srl"></asp:DropDownList></td>
+        </tr>
+    </table>
     <table>
         <tr>
             <td> 

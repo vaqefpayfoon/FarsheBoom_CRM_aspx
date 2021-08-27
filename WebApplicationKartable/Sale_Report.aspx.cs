@@ -22,8 +22,6 @@ namespace WebApplicationKartable
             {
                 fill_grid();
                 fill_combo();
-                //lst_project.Items.Insert(0, new ListItem("---", "0"));
-                //lst_provider.Items.Insert(0, new ListItem("---", "0"));
             }
         }
         protected void btn_filter_Click(object sender, EventArgs e)
@@ -148,6 +146,23 @@ namespace WebApplicationKartable
                 calcute(dt);
             }
             //start bank
+            else if (string.IsNullOrEmpty(txt_from_date.Text) && string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex > 0)
+            {
+                Search obj = new Search(strConnString); DataTable dt = new DataTable();
+                dt = obj.Get_Data(string.Format("Select srl_f, factor_no,u_date_tome, code_igd, provider_name,size_title,brand_name, area, buy_price, sale_price, discount, discount_amount, final_sale, final_discount, bank_srl, bank_name, final_price,margin_profit,final_profit2,title_igd,down_payment  FROM SoldCarpets where bank_srl = {0} order by u_date_tome desc", lst_bank.SelectedValue));
+                Session["Financial"] = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt;
+                    gridview.DataBind();
+                }
+                else
+                {
+                    gridview.DataSource = null;
+                    gridview.DataBind();
+                }
+                calcute(dt);
+            }
             else if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex > 0)
             {
                 Search obj = new Search(strConnString); DataTable dt = new DataTable();
@@ -408,7 +423,7 @@ namespace WebApplicationKartable
             dt = obj.Get_Data("SELECT srl, bank_name FROM dbo.inv_bank");
             if (dt.Rows.Count > 0)
             {
-                lst_provider.Items.Add(new ListItem("---", "0"));
+                lst_bank.Items.Add(new ListItem("---", "0"));
                 foreach (DataRow Woak in dt.Rows)
                 {
                     lst_bank.Items.Add(new ListItem(Woak["bank_name"].ToString(), Woak["srl"].ToString()));

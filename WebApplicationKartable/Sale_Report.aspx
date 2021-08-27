@@ -103,7 +103,7 @@
             <asp:BoundField DataField="final_price" HeaderText="قیمت ن" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="margin_profit" HeaderText="حاشیه سود" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="final_profit2" HeaderText="سود" ItemStyle-Width="90" DataFormatString="{0:C0}" />
-            <asp:BoundField DataField="bank_name" HeaderText="کد" ItemStyle-Width="80" ReadOnly="True" />
+            <asp:BoundField DataField="bank_name" HeaderText="بانک" ItemStyle-Width="80" ReadOnly="True" />
         </Columns>
         <AlternatingRowStyle BackColor="Azure" />
         <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" />

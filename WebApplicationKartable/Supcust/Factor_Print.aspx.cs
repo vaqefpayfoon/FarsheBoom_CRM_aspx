@@ -37,6 +37,7 @@ namespace WebApplicationKartable
                     row["cell_phone"] = Woak["cell_phone"];
                     row["disc_per"] = Woak["disc_per"];                
                     row["address1"] = Woak["address1"];
+                    row["email"] = Woak["email"];
                     obj.str = Woak["discount"].ToString();
                     row["discount"] = obj.str;
                     obj.str = Woak["down_payment"].ToString();

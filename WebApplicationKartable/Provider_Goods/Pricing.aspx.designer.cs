@@ -159,6 +159,42 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.Button btn_with_price;
 
         /// <summary>
+        /// lst_search_brand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_search_brand;
+
+        /// <summary>
+        /// btn_search_brand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_search_brand;
+
+        /// <summary>
+        /// lst_search_size control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lst_search_size;
+
+        /// <summary>
+        /// btn_search_size control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_search_size;
+
+        /// <summary>
         /// btn_load_without_price control.
         /// </summary>
         /// <remarks>
@@ -580,6 +616,24 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCompaire;
+
+        /// <summary>
+        /// assign_selected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button assign_selected;
+
+        /// <summary>
+        /// delete_selected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button delete_selected;
 
         /// <summary>
         /// Button1 control.

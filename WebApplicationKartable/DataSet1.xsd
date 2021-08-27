@@ -43,6 +43,7 @@
               <xs:element name="margin_color" msprop:Generator_ColumnVarNameInTable="columnmargin_color" msprop:Generator_ColumnPropNameInRow="margin_color" msprop:Generator_ColumnPropNameInTable="margin_colorColumn" msprop:Generator_UserColumnName="margin_color" type="xs:string" minOccurs="0" />
               <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:string" minOccurs="0" />
               <xs:element name="state" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_ColumnVarNameInTable="columnstate" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_UserColumnName="state" type="xs:string" minOccurs="0" />
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -150,6 +151,7 @@
               <xs:element name="sum_remaining" msprop:Generator_ColumnVarNameInTable="columnsum_remaining" msprop:Generator_ColumnPropNameInRow="sum_remaining" msprop:Generator_ColumnPropNameInTable="sum_remainingColumn" msprop:Generator_UserColumnName="sum_remaining" type="xs:string" minOccurs="0" />
               <xs:element name="price_after_dis" msprop:Generator_ColumnVarNameInTable="columnprice_after_dis" msprop:Generator_ColumnPropNameInRow="price_after_dis" msprop:Generator_ColumnPropNameInTable="price_after_disColumn" msprop:Generator_UserColumnName="price_after_dis" type="xs:string" minOccurs="0" />
               <xs:element name="area" msprop:Generator_ColumnVarNameInTable="columnarea" msprop:Generator_ColumnPropNameInRow="area" msprop:Generator_ColumnPropNameInTable="areaColumn" msprop:Generator_UserColumnName="area" type="xs:string" minOccurs="0" />
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

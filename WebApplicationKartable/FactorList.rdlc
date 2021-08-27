@@ -85,10 +85,14 @@
           <DataField>area</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\v.payfoon\source\repos\FarsheBoom_CRM_aspx\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\CSharp\FarshboomASPX\WebApplicationKartable\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>FactorList</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -802,7 +806,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!national_code.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!email.Value, "DataSet1")</Value>
                     <Style>
                       <FontFamily>B Nazanin</FontFamily>
                       <FontSize>12pt</FontSize>

@@ -69,10 +69,10 @@
                     "btn_return_Click" Text="مرجوع فرش" ValidationGroup="RegisterUserValidationGroup"/>
             </td>
             <td style="padding-left:5%;"></td>
-            <td>
+<%--            <td>
                 <asp:Button ID="btn_cancelreturn" runat="server" CssClass="btn-facebook" OnClick=
                     "btn_cancelreturn_Click" Text="کنسل مرجوع" ValidationGroup="RegisterUserValidationGroup"/>
-            </td>
+            </td>--%>
             <td>
                 <asp:Button ID="btn_cancel_report" runat="server" CssClass="btn-facebook" PostBackUrl="~/Supcust/RejectFactor.aspx" Text="گزارش مرجوع"/>
             </td>

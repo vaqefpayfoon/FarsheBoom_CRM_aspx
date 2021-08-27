@@ -723,12 +723,16 @@ namespace WebApplicationKartable
             catch { }
             obobo.str = (final_sale - buy_price).ToString();
                 List<PricingClass> lst = ViewState["lstOutstandingOrders"] as List<PricingClass>;
+                if(ViewState["srl_good"] != null)
+            {
                 foreach (PricingClass Woak in lst)
                 {
                     if (Woak.srl.Equals(ViewState["srl_good"].ToString()))
                         if (!string.IsNullOrEmpty(Woak.area))
                             area = Convert.ToDouble(Woak.area);
                 }
+
+            }
                 if ((final_sale - buy_price) > 0)
                     lbl_Margin.Text = " حاشیه سود : " + obobo.str;
                 else
@@ -745,18 +749,21 @@ namespace WebApplicationKartable
                 lbl_MarginRatio.Text = " درصد حاشیه سود : " + Math.Round((((final_sale - buy_price) / final_sale) * 100), 0).ToString();
             Search obj = new Search(strConnString);
             DataTable dt = new DataTable();
-            dt = obj.Get_Data("SELECT dbo.bas_project.project_code, dbo.bas_project_goods.igd_srl FROM dbo.bas_project INNER JOIN dbo.bas_project_goods ON dbo.bas_project.srl = dbo.bas_project_goods.header_srl Where igd_srl = " + ViewState["srl_good"].ToString());
-            if (dt.Rows.Count > 0)
+            if (ViewState["srl_good"] != null)
             {
-                string project = " تخصیص در نمایشگاه/های : ";
-                foreach (DataRow Row in dt.Rows)
+                dt = obj.Get_Data("SELECT dbo.bas_project.project_code, dbo.bas_project_goods.igd_srl FROM dbo.bas_project INNER JOIN dbo.bas_project_goods ON dbo.bas_project.srl = dbo.bas_project_goods.header_srl Where igd_srl = " + ViewState["srl_good"].ToString());
+                if (dt.Rows.Count > 0)
                 {
-                    project += Row["project_code"].ToString() + "  ,  ";
+                    string project = " تخصیص در نمایشگاه/های : ";
+                    foreach (DataRow Row in dt.Rows)
+                    {
+                        project += Row["project_code"].ToString() + "  ,  ";
+                    }
+                    lbl_project_goods.Text = project;
                 }
-                lbl_project_goods.Text = project;
+                else
+                    lbl_project_goods.Text = string.Empty;
             }
-            else
-                lbl_project_goods.Text = string.Empty;
         }
         protected void btn_assign_Click(object sender, EventArgs e)
         {
@@ -980,6 +987,109 @@ namespace WebApplicationKartable
             grdViewOutstanding.DataBind();
             ViewState["lstOutstandingOrders"] = lstPricingClass;
             upnlOutstanding.Update();
+        }
+
+        protected void btn_search_brand_Click(object sender, EventArgs e)
+        {
+            PricingClass objPricingClass = new PricingClass();
+            List<PricingClass> lstPricingClass = new List<PricingClass>();
+            ViewState["getall"] = 0;
+            lstPricingClass = objPricingClass.GetPricingClass(5, lst_search_brand.SelectedValue);
+            grdViewOutstanding.DataSource = lstPricingClass;
+            grdViewOutstanding.DataBind();
+            ViewState["lstOutstandingOrders"] = lstPricingClass;
+            upnlOutstanding.Update();
+        }
+
+        protected void btn_search_size_Click(object sender, EventArgs e)
+        {
+            PricingClass objPricingClass = new PricingClass();
+            List<PricingClass> lstPricingClass = new List<PricingClass>();
+            ViewState["getall"] = 0;
+            lstPricingClass = objPricingClass.GetPricingClass(6, lst_search_size.SelectedValue);
+            grdViewOutstanding.DataSource = lstPricingClass;
+            grdViewOutstanding.DataBind();
+            ViewState["lstOutstandingOrders"] = lstPricingClass;
+            upnlOutstanding.Update();
+        }
+
+        protected void assign_selected_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (GridViewRow gvrow in grdViewOutstanding.Rows)
+            {
+                CheckBox checkbox = (CheckBox)gvrow.FindControl("chk_delete");
+                if (checkbox.Checked)
+                {
+                    //if (ViewState["srl_good"] == null)
+                    //{
+                    //    lblError.Text = "فرشی بارگذاری نشده است";
+                    //    return;
+                    //}
+                    string srl_good = grdViewOutstanding.Rows[count].Cells[0].Text;
+                    ViewState["srl_good"] = srl_good;
+                    int srl = max_srl_details();
+                    if (!Duplicate_GoodsInproject(srl_good, lst_project.SelectedValue))
+                    {
+                        SqlParameter[] param = new SqlParameter[3];
+                        param[0] = new SqlParameter("@srl", SqlDbType.Int);
+                        param[0].Value = srl;
+                        param[1] = new SqlParameter("@header_srl", SqlDbType.Int);
+                        param[1].Value = Convert.ToInt32(lst_project.SelectedValue);
+                        param[2] = new SqlParameter("@igd_srl", SqlDbType.Int);
+                        param[2].Value = Convert.ToInt32(srl_good);
+                        new ManageCommands(param, "insert_project_goods");
+                        SqlConnection con = new SqlConnection(strConnString);
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        if (con.State == ConnectionState.Closed)
+                            con.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "update inv_goods set selection=@selection where srl=@srl;";
+                        cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(ViewState["srl_good"]);
+                        cmd.Parameters.Add("@selection", SqlDbType.Bit).Value = true;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        lblError.Text = "تخصیص های امتخاب شده انجام شد";
+                    }
+                    else
+                    {
+                        lblError.Text = "فرش انتخاب شده در همین نمایشگاه موجود می باشد";
+                        return;
+                    }
+                }
+                count++;
+            }
+            btn_with_price_Click(sender, e);
+        }
+
+        protected void delete_selected_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (GridViewRow gvrow in grdViewOutstanding.Rows)
+            {
+                CheckBox checkbox = (CheckBox)gvrow.FindControl("chk_delete");
+
+
+                if (checkbox.Checked)
+                {
+                    string srl = grdViewOutstanding.Rows[count].Cells[0].Text;
+                    ViewState["srl_good"] = srl;
+                    SqlConnection con = new SqlConnection(strConnString);
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from inv_goods where " +
+                    "srl=@srl";
+                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = srl;
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    cmd.ExecuteNonQuery();
+                    lblError.Text = "عملیات موفق";
+                }
+                count++;
+            }
+            btn_with_price_Click(sender, e);
         }
     }
 }

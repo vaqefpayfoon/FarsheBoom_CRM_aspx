@@ -30,7 +30,7 @@ namespace WebApplicationKartable
         private void set_boxes(string srl)
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, instagram, address1, describtion FROM dbo.bas_supcust WHERE srl=" + srl);
+            dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, instagram, address1, describtion, sex, email FROM dbo.bas_supcust WHERE srl=" + srl);
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
@@ -44,6 +44,18 @@ namespace WebApplicationKartable
                 ViewState["cell_phone"] = row["cell_phone"].ToString();
                 txt_address.Text = row["address1"].ToString();
                 txt_desc.Text = row["describtion"].ToString();
+                txt_email.Text = row["email"].ToString();
+                if (!string.IsNullOrEmpty(row["sex"].ToString())) 
+                {
+                    if (row["sex"].ToString().Equals("1"))
+                        chk_sex.Checked = true;
+                    else
+                        chk_sex.Checked = false;
+                }
+                else
+                {
+                    chk_sex.Checked = false;
+                }
             }
         }
         protected void btn_save_Click(object sender, ImageClickEventArgs e)
@@ -101,7 +113,7 @@ namespace WebApplicationKartable
             param[8] = new SqlParameter("@instagram", SqlDbType.VarChar, 50);
             param[8].Value = DBNull.Value;
             param[9] = new SqlParameter("@sex", SqlDbType.Char, 1);
-            param[9].Value = '1';
+            param[9].Value = chk_sex.Checked ? "1" : "0";
             param[10] = new SqlParameter("@age", SqlDbType.Char, 3);
             param[10].Value = '1';
             param[11] = new SqlParameter("@user_name", SqlDbType.VarChar, 10);
@@ -114,7 +126,7 @@ namespace WebApplicationKartable
             else
                 param[13].Value = DBNull.Value;
             param[14] = new SqlParameter("@email", SqlDbType.VarChar, 100);
-            param[14].Value = DBNull.Value;
+            param[14].Value = txt_email.Text;
             param[15] = new SqlParameter("@describtion", SqlDbType.VarChar);
             if (!string.IsNullOrEmpty(txt_desc.Text))
                 param[15].Value = txt_desc.Text;
@@ -166,7 +178,7 @@ namespace WebApplicationKartable
             param[7] = new SqlParameter("@instagram", SqlDbType.VarChar, 50);
             param[7].Value = DBNull.Value;
             param[8] = new SqlParameter("@sex", SqlDbType.Char, 1);
-            param[8].Value = '1';
+            param[8].Value = chk_sex.Checked ? "1" : "0";
             param[9] = new SqlParameter("@age", SqlDbType.Char, 3);
             param[9].Value = '1';
             param[10] = new SqlParameter("@user_name", SqlDbType.VarChar, 10);
@@ -179,7 +191,7 @@ namespace WebApplicationKartable
             else
                 param[12].Value = DBNull.Value;
             param[13] = new SqlParameter("@email", SqlDbType.VarChar, 100);
-            param[13].Value = DBNull.Value;
+            param[13].Value = txt_email.Text;
             param[14] = new SqlParameter("@describtion", SqlDbType.VarChar);
             if (!string.IsNullOrEmpty(txt_desc.Text))
                 param[14].Value = txt_desc.Text;

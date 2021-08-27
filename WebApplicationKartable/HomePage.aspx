@@ -200,8 +200,6 @@
 
                                     <li>
                                         <asp:LinkButton ID="lnk_Survey" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReportCouples.aspx">بررسی نمایشگاه</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lnkExcel" runat="server" Enabled="true" OnClick="lnkExcel_Click">خروجی اکسل</asp:LinkButton></li>
                                 </ul>
                             </li>
                         </ul>

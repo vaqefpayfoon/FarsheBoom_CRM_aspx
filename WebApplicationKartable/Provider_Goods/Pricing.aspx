@@ -66,11 +66,21 @@
             <td>
                 <asp:Button ID="btn_with_price" runat="server" CssClass="btn-facebook" OnClick="btn_with_price_Click" Text="تمام فرش ها" /></td>
         </tr>
-        <tr style="border-color: navy; border-width: 2px;">
-            <td>تمام تامین کننده ها:</td>
-            <td></td>
+    </table>
+    <table>
+                <tr style="border-color: navy; border-width: 2px;">
             <td>
-                <asp:Button ID="btn_load_without_price" runat="server" CssClass="btn-facebook" Text="بدون قیمت ها" OnClick="btn_load_without_price_Click" /></td>
+                <asp:DropDownList ID="lst_search_brand" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_brand" DataTextField="brand_name" DataValueField="srl"></asp:DropDownList></td>
+            <td>
+                <asp:Button ID="btn_search_brand" runat="server" CssClass="btn-facebook" Text="جستجو بین تمام گونه ها" OnClick="btn_search_brand_Click" />
+            </td>            
+            <td>
+            <asp:DropDownList ID="lst_search_size" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_size" DataTextField="size_title" DataValueField="srl"></asp:DropDownList></td>
+            <td>
+                <asp:Button ID="btn_search_size" runat="server" CssClass="btn-facebook" Text="جستجو بین تمام اندازه ها" OnClick="btn_search_size_Click" />
+            </td>
+            <td>
+                <asp:Button ID="btn_load_without_price" runat="server" CssClass="btn-facebook" Text="تمام بدون قیمت ها" OnClick="btn_load_without_price_Click" /></td>
             <td>
                 <asp:Button ID="btn_cache_all_data" runat="server" CssClass="btn-facebook" Text="تمام فرش ها" OnClick="btn_cache_all_data_Click" /></td>
         </tr>
@@ -142,7 +152,6 @@
                                 <asp:ListItem Value="2" Text="غیرفعال"></asp:ListItem>
                                 <asp:ListItem Value="3" Text="آماده نیست"></asp:ListItem>
                                 <asp:ListItem Value="4" Text="فروش توسط فرش بوم"></asp:ListItem>
-                                <asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>
                             </asp:DropDownList></td>
                         <td>چله :</td>
                         <td>
@@ -286,10 +295,22 @@
             </td>
         </tr>
     </table>
-    <div>
+    <div class="row">
         <hr />
     </div>
 
+    <div class="row">
+        <table>
+            <tr>
+                <td>
+                    <asp:Button ID="assign_selected" runat="server" CssClass="btn-facebook" Text="تخصیص دسته ای به نمایشگاه" OnClick="assign_selected_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="delete_selected" runat="server" CssClass="btn-facebook" Text="حذف دسته ای" OnClick="delete_selected_Click" />
+                </td>
+            </tr>
+        </table>
+    </div>
     <table class="style1">
         <tr>
             <td style="direction: ltr; text-align: left">
@@ -352,7 +373,7 @@
                                         <%#Eval("size_title") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField SortExpression="carpet_title" ItemStyle-Width="50">
+<%--                                <asp:TemplateField SortExpression="carpet_title" ItemStyle-Width="50">
                                     <HeaderTemplate>
                                         <asp:LinkButton ID="lbcarpet_title" runat="server" Text="نوع" CommandName="Sort" CommandArgument="carpet_title" Width="50"></asp:LinkButton>
                                         <br />
@@ -361,7 +382,7 @@
                                     <ItemTemplate>
                                         <%#Eval("carpet_title") %>
                                     </ItemTemplate>
-                                </asp:TemplateField>
+                                </asp:TemplateField>--%>
                                 <%--                            <asp:TemplateField SortExpression="area" ItemStyle-Width="40">
                                     <HeaderTemplate>
                                         <asp:LinkButton ID="lbarea" runat="server" Text="مساحت" CommandName="Sort" CommandArgument="area" Width="40"></asp:LinkButton>
@@ -482,6 +503,13 @@
                                         <%#Eval("percent_profit") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:ImageField DataImageUrlField="title_igd" HeaderText="تصویر" ItemStyle-Height="100" ItemStyle-Width="100"></asp:ImageField> 
+                                <asp:TemplateField HeaderText="">  
+                                        <ItemTemplate>  
+                                            <asp:CheckBox ID="chk_delete" runat="server" />  
+                                        </ItemTemplate>  
+                                    </asp:TemplateField> 
+
                                 <asp:CommandField ShowSelectButton="true" HeaderText="انتخاب" SelectText="انتخاب" ItemStyle-Width="40" ControlStyle-ForeColor="Maroon" />
                             </Columns>
                             <PagerStyle HorizontalAlign="Center" CssClass="pgr" />

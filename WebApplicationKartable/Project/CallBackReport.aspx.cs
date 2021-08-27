@@ -100,7 +100,9 @@ namespace WebApplicationKartable
                                 (Convert.ToBoolean(Woak["pakhordegi"])) ||
                                 (Convert.ToBoolean(Woak["tear"])))
                             {
-                                irad.Append("فرش");
+                                irad.Append("فرش با کد");
+                                irad.Append(" ");
+                                irad.Append(Woak["code_igd"]);
                                 irad.Append(" ");
                                 irad.Append(Woak["brand_name"]);
                                 irad.Append(" ");
