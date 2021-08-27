@@ -162,7 +162,7 @@ namespace WebApplicationKartable
         private void setboxes2(string str_srl)
         {
             image1.ImageUrl = "..\\img\\person.png";
-            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state, bank_srl, project_srl FROM dbo.Factor_View Where srl=" + str_srl);
+            dt2 = obj.Get_Data("SELECT srl, brand_name, size_title, code_igd, color_name, porz_title, chele_title, plan_title, carpet_title, sale_price, widht, lenght, buy_price,color_srl2,provider_code, ' ' As full_name , ' ' AS tel1, ' ' cell_phone , ' ' AS address1,' ' As email,igd_srl,bassc_srl,factor_no,u_date_tome,disc_per,discount,down_payment, payment, title_igd,bayane, dorangi, rofo, kaji, badbaf, pakhordegi, tear, ' ' As state, bank_srl, project_srl FROM dbo.Factor_View Where srl=" + str_srl);
             if (dt2.Rows.Count > 0)
             {                
                 DataRow Find = dt2.Rows[0];
@@ -272,6 +272,7 @@ namespace WebApplicationKartable
                 dt2.Rows[0]["tel1"] = str_supcust[1];
                 dt2.Rows[0]["cell_phone"] = str_supcust[2];
                 dt2.Rows[0]["address1"] = str_supcust[3];
+                dt2.Rows[0]["email"] = str_supcust[4];
                 txt_factor_date.Text = Find["u_date_tome"].ToString();
                 txt_factor_no.Text = Find["factor_no"].ToString();
                 obb.str = Find["discount"].ToString();
