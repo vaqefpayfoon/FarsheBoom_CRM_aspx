@@ -195,7 +195,8 @@
 
                                     <li>
                                         <asp:LinkButton ID="lnk_customers" runat="server" Enabled="false" PostBackUrl="~/Supcust/CustomersFactors.aspx">فاکتور مشتریان</asp:LinkButton></li>
-
+                                    <li>
+                                        <asp:LinkButton ID="lnk_prices" runat="server" OnClick="lnkExcel_Click">لیست قیمت ها</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lnk_Survey" runat="server" Enabled="false" PostBackUrl="~/Project/CallBackReportCouples.aspx">بررسی نمایشگاه</asp:LinkButton></li>
                                 </ul>
