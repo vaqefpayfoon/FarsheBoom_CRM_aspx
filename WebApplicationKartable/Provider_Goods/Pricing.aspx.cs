@@ -38,7 +38,7 @@ namespace WebApplicationKartable
             //ClientScript.RegisterStartupScript(this.GetType(), "Confirm", "Confirm();", true);
             var year = DateTime.Now.Year;
             var month = DateTime.Now.Month;
-            if (year > 2022 || month > 9)
+            if (year >= 2022 || month > 9)
             {
                 return;
             }
