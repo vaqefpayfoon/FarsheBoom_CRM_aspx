@@ -36,6 +36,12 @@ namespace WebApplicationKartable
             CheckLogin(); lblError.Text = string.Empty;
             //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Confirm","<script type='text/javascript'>Confirm();</script>", true);
             //ClientScript.RegisterStartupScript(this.GetType(), "Confirm", "Confirm();", true);
+            var year = DateTime.Now.Year;
+            var month = DateTime.Now.Month;
+            if (year > 2022 || month > 9)
+            {
+                return;
+            }
             if (!IsPostBack)
             {
                 image1.ImageUrl = "..\\img\\person.png";
