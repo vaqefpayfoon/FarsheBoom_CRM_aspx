@@ -1090,8 +1090,15 @@ namespace WebApplicationKartable
                     cmd.Parameters.Add("@srl", SqlDbType.Int).Value = srl;
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    cmd.ExecuteNonQuery();
-                    lblError.Text = "عملیات موفق";
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        lblError.Text = "عملیات موفق";
+                    }
+                    catch
+                    {
+                        lblError.Text = "اطلاعات در بانک استفاده شده است";
+                    }
                 }
                 count++;
             }

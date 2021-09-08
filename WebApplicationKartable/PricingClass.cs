@@ -36,7 +36,7 @@ namespace WebApplicationKartable
             Common cur = new Common();
             if (state == 1)
             {
-                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home FROM dbo.Sale_Pricing Where buy_price is null or sale_price is null order by buy_price,sale_price");
+                dt = obj.Get_Data("SELECT srl,code_igd, brand_name, area, size_title, carpet_title, buy_price, discount, sale_price, u_buy, u_sale,discount_amount, final_sale,provider_name,u_date_time, provider_code, u_date_time,margin_profit,price_home, title_igd FROM dbo.Sale_Pricing Where buy_price is null or sale_price is null order by buy_price,sale_price");
             }
             else if (state == 2)
             {

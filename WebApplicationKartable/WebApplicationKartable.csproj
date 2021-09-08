@@ -75,7 +75,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -117,7 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseInformation\BankAccount.aspx" />
-    <Content Include="Supcust\FactorsList.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -131,6 +130,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Supcust\FactorsList.aspx" />
     <Content Include="Supcust\Depositis.aspx" />
     <Content Include="Project\CallBackEdit.aspx" />
     <Content Include="Project\CallBackReport.aspx" />
@@ -898,6 +898,7 @@
     <Compile Include="BaseInformation\BankAccount.aspx.designer.cs">
       <DependentUpon>BankAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supcust\FactorsList.aspx.cs">
       <DependentUpon>FactorsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -905,7 +906,6 @@
     <Compile Include="Supcust\FactorsList.aspx.designer.cs">
       <DependentUpon>FactorsList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supcust\Depositis.aspx.cs">
       <DependentUpon>Depositis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
