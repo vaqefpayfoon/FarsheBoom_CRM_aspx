@@ -136,7 +136,7 @@ namespace WebApplicationKartable
             //sb.Append(dt.Rows[0]["cnt_downpayment"]);
             sb.Append(" ........... ");
             sb.Append("تخته فرش به ارزش ");
-            sb.Append(" .............................................. ");
+            sb.Append("  ");
             if (dt.Rows.Count > 0)
             {
                 obo.str = dt.Compute("SUM(down_payment)", "").ToString();

@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="container" style="padding-left: 25%">
         <asp:Literal ID="literal" runat="server"></asp:Literal>
     </div>
     </form>
