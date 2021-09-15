@@ -34,6 +34,7 @@ namespace WebApplicationKartable
                     row["plan_desc"] = Woak["plan_title"];
                     row["full_name"] = Woak["full_name"];
                     row["tel1"] = Woak["tel1"];
+                    row["raj_srl"] = Woak["raj_srl"];
                     row["cell_phone"] = Woak["cell_phone"];
                     row["disc_per"] = Woak["disc_per"];                
                     row["address1"] = Woak["address1"];

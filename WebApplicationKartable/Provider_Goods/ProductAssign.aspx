@@ -88,9 +88,9 @@
                         <td>
                             <asp:DropDownList ID="lst_status" runat="server" CssClass="dropdown1" Width="150px">
                                 <asp:ListItem Value="0" Text="موجود"></asp:ListItem>
-                                <asp:ListItem Value="3" Text="ناموجود"></asp:ListItem>
-                                <asp:ListItem Value="4" Text="فروش توسط فرش بوم"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="حذف توسط فرش بوم"></asp:ListItem>
+                                <%--<asp:ListItem Value="3" Text="ناموجود"></asp:ListItem>--%>
+                                <asp:ListItem Value="4" Text="فروش"></asp:ListItem>
+                                <asp:ListItem Value="2" Text="حذف"></asp:ListItem>
                                 <%--<asp:ListItem Value="5" Text="فرش مرجوعی"></asp:ListItem>--%>
                             </asp:DropDownList>
                         </td>

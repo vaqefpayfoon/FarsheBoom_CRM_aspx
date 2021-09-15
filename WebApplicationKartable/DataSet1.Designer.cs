@@ -543,6 +543,8 @@ namespace WebApplicationKartable {
             
             private global::System.Data.DataColumn columnemail;
             
+            private global::System.Data.DataColumn columnraj_srl;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Factor_DataTableDataTable() {
@@ -794,6 +796,14 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn raj_srlColumn {
+                get {
+                    return this.columnraj_srl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -856,7 +866,8 @@ namespace WebApplicationKartable {
                         string margin_color, 
                         string logo, 
                         string state, 
-                        string email) {
+                        string email, 
+                        string raj_srl) {
                 Factor_DataTableRow rowFactor_DataTableRow = ((Factor_DataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         size_title,
@@ -885,7 +896,8 @@ namespace WebApplicationKartable {
                         margin_color,
                         logo,
                         state,
-                        email};
+                        email,
+                        raj_srl};
                 rowFactor_DataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFactor_DataTableRow);
                 return rowFactor_DataTableRow;
@@ -935,6 +947,7 @@ namespace WebApplicationKartable {
                 this.columnlogo = base.Columns["logo"];
                 this.columnstate = base.Columns["state"];
                 this.columnemail = base.Columns["email"];
+                this.columnraj_srl = base.Columns["raj_srl"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -994,6 +1007,8 @@ namespace WebApplicationKartable {
                 base.Columns.Add(this.columnstate);
                 this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnemail);
+                this.columnraj_srl = new global::System.Data.DataColumn("raj_srl", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnraj_srl);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4029,6 +4044,22 @@ namespace WebApplicationKartable {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string raj_srl {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactor_DataTable.raj_srlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'raj_srl\' in table \'Factor_DataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactor_DataTable.raj_srlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Issize_titleNull() {
                 return this.IsNull(this.tableFactor_DataTable.size_titleColumn);
             }
@@ -4349,6 +4380,18 @@ namespace WebApplicationKartable {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetemailNull() {
                 this[this.tableFactor_DataTable.emailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Israj_srlNull() {
+                return this.IsNull(this.tableFactor_DataTable.raj_srlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setraj_srlNull() {
+                this[this.tableFactor_DataTable.raj_srlColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -1498,7 +1498,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3016</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3016/</IISUrl>
+          <IISUrl>http://localhost:5016/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

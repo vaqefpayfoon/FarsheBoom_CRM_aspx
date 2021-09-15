@@ -92,13 +92,15 @@
             </tr>
         </table>
     </asp:Panel>
-    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" AllowPaging="true" PageSize="14" OnPageIndexChanging="gridview_PageIndexChanging" Width="900px">
+    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" AllowPaging="true" PageSize="14" OnPageIndexChanging="gridview_PageIndexChanging" Width="950px">
     <Columns>                      
     <asp:HyperLinkField DataTextField="srl_f" DataNavigateUrlFields="srl_f" DataNavigateUrlFormatString="~/Supcust/Factor.aspx?snd={0}"  HeaderText="فاکتور"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
         <asp:HyperLinkField DataTextField="srl" DataNavigateUrlFields="srl" DataNavigateUrlFormatString="~/Provider_Goods/ProductAssign.aspx?srl={0}"  HeaderText="فرش"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
     <asp:BoundField DataField="u_date_tome" HeaderText="تاریخ" ItemStyle-Width="80" ReadOnly="True"/> 
     <asp:BoundField DataField="code_igd" HeaderText="کد" ItemStyle-Width="80" ReadOnly="True"/>   
     <asp:BoundField DataField="factor_no" HeaderText="ش فاکتور" ItemStyle-Width="80" ReadOnly="True"/>
+    <asp:BoundField DataField="full_name" HeaderText="نام مشتری" ItemStyle-Width="300" ReadOnly="True"/>  
+    <asp:BoundField DataField="cell_phone" HeaderText="موبایل" ItemStyle-Width="200" ReadOnly="True"/>  
     <asp:BoundField DataField="provider_name" HeaderText="تامین کننده" ItemStyle-Width="200" ReadOnly="True"/>  
     <asp:BoundField DataField="size_title" HeaderText="اندازه" ItemStyle-Width="80" ReadOnly="True"/>   
     <asp:BoundField DataField="brand_name" HeaderText="گونه" ItemStyle-Width="80" ReadOnly="True"/>

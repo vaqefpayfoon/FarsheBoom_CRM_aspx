@@ -66,7 +66,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable();
             Search obj = new Search(strConnString);  
-            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets order by u_date_tome desc"));
+            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets order by u_date_tome desc"));
             if (dt.Rows.Count > 0)
             {
                 gridview.DataSource = dt;
@@ -99,7 +99,7 @@ namespace WebApplicationKartable
         protected void ImageButton_Report_Click(object sender, ImageClickEventArgs e)
         {
             DataTable dt = new DataTable();
-            string query = "SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets";
+            string query = "SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets";
             if (!string.IsNullOrEmpty(txt_from_date.Text) && !string.IsNullOrEmpty(txt_to_date.Text) && lst_provider.SelectedIndex == 0 && lst_project.SelectedIndex == 0 && lst_bank.SelectedIndex == 0 && txt_discount.Text == "")
             {
                 Search obj = new Search(strConnString);

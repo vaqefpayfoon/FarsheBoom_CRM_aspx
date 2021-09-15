@@ -26,6 +26,7 @@ namespace WebApplicationKartable
         }
         protected void btn_enter_Click(object sender, EventArgs e)
         {
+            // lakiroonasi
             if (myadmin())
             {
                 LoginInfo ubuzhi = new LoginInfo();
