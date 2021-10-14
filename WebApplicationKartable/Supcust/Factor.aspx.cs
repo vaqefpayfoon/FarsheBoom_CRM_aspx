@@ -31,8 +31,8 @@ namespace WebApplicationKartable
                 {
                     setboxes();
                 }
+                lst_project_SelectedIndexChanged(sender, e);
             }
-            lst_project_SelectedIndexChanged(sender, e);
         }
         private void setboxes()
         {
@@ -154,7 +154,7 @@ namespace WebApplicationKartable
                     if (dt3.Rows.Count > 0)
                     {
                         string str = dt3.Rows[0]["project_code"].ToString();
-                        preparecode(str);
+                        //preparecode(str);
                     }
                 }
                 ViewState["table"] = dt2;
@@ -355,7 +355,10 @@ namespace WebApplicationKartable
                 if (Request.QueryString["snd"] == "-1")
                 {
                     insert();
-                    setboxes2(ViewState["srl"].ToString());
+                    if(ViewState["srl"] != null)
+                    {
+                        setboxes2(ViewState["srl"].ToString());
+                    }
                 }
                 else
                 {
@@ -417,7 +420,7 @@ namespace WebApplicationKartable
             SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
-            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
+            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 20);
             param[1].Value = txt_factor_no.Text;
             param[2] = new SqlParameter("@u_date_tome", SqlDbType.Char, 10);
             param[2].Value = txt_factor_date.Text;
@@ -483,7 +486,7 @@ namespace WebApplicationKartable
             SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = srl;
-            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
+            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 20);
             param[1].Value = txt_factor_no.Text;
             param[2] = new SqlParameter("@u_date_tome", SqlDbType.Char, 10);
             param[2].Value = txt_factor_date.Text;
@@ -531,7 +534,7 @@ namespace WebApplicationKartable
             SqlParameter[] param = new SqlParameter[11];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(ViewState["srl"]);
-            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 10);
+            param[1] = new SqlParameter("@factor_no", SqlDbType.Char, 20);
             param[1].Value = txt_factor_no.Text;
             param[2] = new SqlParameter("@u_date_tome", SqlDbType.Char, 10);
             param[2].Value = txt_factor_date.Text;
@@ -822,15 +825,17 @@ namespace WebApplicationKartable
                     if (dt2.Rows.Count > 0)
                     {
                         string str = dt2.Rows[0]["project_code"].ToString();
-                        preparecode(str);
+                        // preparecode(str);
+                        if (Request.QueryString["snd"] == "-1")
+                            AutoGenerate();
                     }
                 }
             }
         }
-        private void preparecode(string str)
+        private void preparecode2(string str)
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data(string.Format("SELECT Convert(int,factor_no) As code FROM acc_factor where factor_no like '%{0}%' ", str));
+            dt = obj.Get_Data(string.Format("SELECT Convert(bigint,factor_no) As code FROM acc_factor where factor_no like '%{0}%' ", str));
             if (dt.Rows.Count > 0)
             {
                 object max_code;
@@ -874,6 +879,11 @@ namespace WebApplicationKartable
 
         protected void lst_project_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Request.QueryString["snd"] == "-1")
+                AutoGenerate();
+        }
+        private void AutoGenerate()
+        {
             string project = "";
             string projectSrl = "";
             if (lst_project.SelectedItem != null)
@@ -884,7 +894,7 @@ namespace WebApplicationKartable
             else
             {
                 DataTable dt2 = obj.Get_Data("SELECT srl, project_code FROM dbo.bas_project order by srl desc");
-                if(dt2.Rows.Count > 0)
+                if (dt2.Rows.Count > 0)
                 {
                     project = dt2.Rows[0][1].ToString();
                     projectSrl = dt2.Rows[0][0].ToString();
@@ -892,23 +902,23 @@ namespace WebApplicationKartable
             }
             string defaultStr = "000";
             DataTable dt = obj.Get_Data("SELECT count(srl) FROM dbo.acc_factor Where project_srl=" + projectSrl);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 string count = dt.Rows[0][0].ToString();
-                if(count == "0")
+                if (count == "0")
                 {
                     string newString = defaultStr.PadLeft(3, '0') + 1;
                     txt_factor_no.Text = project + newString;
-                } 
+                }
                 else
                 {
-                    string newString = (count.Length == 1 ? "000" : count.Length == 2 ? "0" : "").PadLeft(count.Length - 1, '0') + count;
-                    txt_factor_no.Text = project + newString;
+                    string newString = (count.Length == 1 ? "000" : count.Length == 2 ? "0" : "").PadLeft(count.Length - 1, '0') + (Convert.ToInt32(count) + 1);
+                    txt_factor_no.Text = project + (newString);
                 }
             }
             else
             {
-                string newString =  defaultStr.PadLeft(3, '0') + 1;
+                string newString = defaultStr.PadLeft(3, '0') + 1;
                 txt_factor_no.Text = project + newString;
             }
         }
