@@ -65,8 +65,6 @@
                 <asp:Button ID="btn_without_price" runat="server" CssClass="btn-facebook" OnClick="btn_without_price_Click" Text="بدون قیمت ها" /></td>
             <td>
                 <asp:Button ID="btn_with_price" runat="server" CssClass="btn-facebook" OnClick="btn_with_price_Click" Text="تمام فرش ها" /></td>
-            <td>
-                <asp:Button ID="btn_current_event" runat="server" CssClass="btn-facebook" OnClick="btn_current_event_Click" Text="فرش های تخصیص یافته نمایشگاه جاری" /></td>
         </tr>
     </table>
     <table>

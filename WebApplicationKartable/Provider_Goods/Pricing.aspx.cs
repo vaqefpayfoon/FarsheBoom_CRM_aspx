@@ -994,18 +994,7 @@ namespace WebApplicationKartable
             ViewState["lstOutstandingOrders"] = lstPricingClass;
             upnlOutstanding.Update();
         }
-        protected void btn_current_event_Click(object sender, EventArgs e)
-        {
-            PricingClass objPricingClass = new PricingClass();
-            List<PricingClass> lstPricingClass = new List<PricingClass>();
-            ViewState["getall"] = 0;
-            
-            lstPricingClass = objPricingClass.GetPricingClass(7, lst_project.Items[0].Value);
-            grdViewOutstanding.DataSource = lstPricingClass;
-            grdViewOutstanding.DataBind();
-            ViewState["lstOutstandingOrders"] = lstPricingClass;
-            upnlOutstanding.Update();
-        }
+
         protected void btn_search_brand_Click(object sender, EventArgs e)
         {
             PricingClass objPricingClass = new PricingClass();
