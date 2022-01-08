@@ -159,6 +159,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.Button btn_with_price;
 
         /// <summary>
+        /// btn_current_event control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_current_event;
+
+        /// <summary>
         /// lst_search_brand control.
         /// </summary>
         /// <remarks>

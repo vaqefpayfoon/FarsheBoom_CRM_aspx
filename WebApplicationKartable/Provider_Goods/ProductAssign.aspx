@@ -160,25 +160,146 @@
         </table>
     </asp:Panel>
     <br />
-    <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" OnSelectedIndexChanged="gridview_SelectedIndexChanged" AllowPaging="true" PageSize="14" OnPageIndexChanging="gridview_PageIndexChanging" Width="900px">
-        <Columns>
-            <asp:BoundField DataField="code_igd" HeaderText="کد فرش" ItemStyle-Width="100" ReadOnly="True" />
-            <asp:BoundField DataField="brand_name" HeaderText="گونه" ItemStyle-Width="200" ReadOnly="True" />
-            <asp:BoundField DataField="size_title" HeaderText="اندازه" ItemStyle-Width="100" ReadOnly="True" />
-            <asp:BoundField DataField="color_name" HeaderText="رنگ" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:BoundField DataField="plan_title" HeaderText="نقشه" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:BoundField DataField="carpet_title" HeaderText="نوع" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:BoundField DataField="chele_title" HeaderText="چله" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:BoundField DataField="porz_title" HeaderText="پرز" ItemStyle-Width="150" ReadOnly="True" />
-            <asp:TemplateField HeaderText="حذف">  
-                    <ItemTemplate>  
-                        <asp:CheckBox ID="chk_delete" runat="server" />  
-                    </ItemTemplate>  
-                </asp:TemplateField> 
-            <asp:CommandField ShowSelectButton="true" HeaderText="انتخاب" SelectText="انتخاب" ItemStyle-Width="50" ControlStyle-ForeColor="Maroon" />
+                    <div class="row col-md-12" style="direction: ltr; text-align: left">
+                <asp:Button ID="Button1" runat="server" CssClass="btn-facebook" Text="بارگذاری فرش" OnClick="btn_load_Click" />
+            </div>
+        <table class="style1">
+        <tr>
+            <td colspan="2">
+                <asp:UpdatePanel ID="upnlOutstanding" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <br />
+                        <asp:Button ID="lbRemoveFilterOutstanding" runat="server" CssClass="btn btn-primary" Text="حذف فیلتر" OnClick="lbRemoveFilterOutstanding_Click"/>
+                        <asp:GridView ID="grdViewOutstanding" runat="server" AutoGenerateColumns="False"
+                            BackColor="#39cccc" BorderColor="#999999" BorderStyle="Solid" CellPadding="3" ForeColor="Black"
+                            GridLines="Both" CellSpacing="1" EmptyDataText="جستجو ناموفق"  AllowPaging ="true" PageSize="40" CssClass="Grid" AllowSorting="true" OnPageIndexChanging="grdViewOutstanding_PageIndexChanging"
+                            OnRowDataBound="grdViewOutstanding_RowDataBound" OnSorting="grdViewOutstanding_Sorting" OnSelectedIndexChanged="grdViewOutstanding_SelectedIndexChanged">
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <Columns>
+                        <asp:BoundField DataField="code_igd" HeaderText="کد" ItemStyle-Width="60" />
+                        <asp:TemplateField SortExpression="provider_name" ItemStyle-Width="110">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbprovider_name" runat="server" Text="تامین کننده" CommandName="Sort" CommandArgument="provider_name" Width="110"></asp:LinkButton>
+                                        <br />
+                                        <asp:TextBox runat="server" ID="txtprovider_name" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="110"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("provider_name") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField SortExpression="code_igd" ItemStyle-Width="70">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbcode_igd" runat="server" Text="کدفرش" CommandName="Sort" CommandArgument="code_igd" Width="70"></asp:LinkButton>
+                                        <br />
+                                        <asp:TextBox runat="server" ID="txtcode_igd" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="70"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("code_igd") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField SortExpression="brand_name" ItemStyle-Width="70">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbbrand_name" runat="server" Text="گونه" CommandName="Sort" CommandArgument="brand_name" Width="70"></asp:LinkButton>
+                                        <br />
+                                        <asp:TextBox runat="server" ID="txtbrand_name" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="70"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("brand_name") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField SortExpression="size_title" ItemStyle-Width="70">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbsize_title" runat="server" Text="اندازه" CommandName="Sort" CommandArgument="size_title" Width="70"></asp:LinkButton>
+                                        <br />
+                                        <asp:TextBox runat="server" ID="txtsize_title" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="70"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("size_title") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            <asp:TemplateField SortExpression="u_buy" ItemStyle-Width="80">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbu_buy" runat="server" Text="خرید متری" CommandName="Sort" CommandArgument="u_buy" Width="80"></asp:LinkButton>
+                                        <br />
+                                        <asp:TextBox runat="server" ID="txtu_buy" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("u_buy") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            <asp:TemplateField SortExpression="color_name" ItemStyle-Width="80">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbcolor_name" runat="server" Text="رنگ متن" CommandName="Sort" CommandArgument="color_name" Width="80"></asp:LinkButton>
+                                        <br />
+                                <asp:TextBox runat="server" ID="txtcolor_name" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("color_name") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            <asp:TemplateField SortExpression="porz_title" ItemStyle-Width="80">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbporz_title" runat="server" Text="پرز" CommandName="Sort" CommandArgument="porz_title" Width="80"></asp:LinkButton>
+                                        <br />
+                                <asp:TextBox runat="server" ID="txtporz_title" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("porz_title") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            <asp:TemplateField SortExpression="chele_title" ItemStyle-Width="80">
+                                    <HeaderTemplate>
+                                        <asp:LinkButton ID="lbchele_title" runat="server" Text="چله" CommandName="Sort" CommandArgument="chele_title" Width="80"></asp:LinkButton>
+                                        <br />
+                                <asp:TextBox runat="server" ID="txtchele_title" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="80"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("chele_title") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            <asp:TemplateField SortExpression="plan_title" ItemStyle-Width="60">
+                                    <HeaderTemplate>
+                            <asp:LinkButton ID="lbplan_title" runat="server" Text="نقشه" CommandName="Sort" CommandArgument="plan_title" Width="60"></asp:LinkButton>
+                                        <br />
+                                <asp:TextBox runat="server" ID="txtplan_title" AutoPostBack="true" OnTextChanged="txt_TextChanged" Width="60"></asp:TextBox>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%#Eval("plan_title") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="">  
+                                        <ItemTemplate>  
+                                            <asp:CheckBox ID="chk_delete" runat="server" />  
+                                        </ItemTemplate>  
+                                    </asp:TemplateField> 
+        <asp:CommandField ShowSelectButton="true" HeaderText="انتخاب" SelectText="انتخاب" ItemStyle-Width="50" ControlStyle-ForeColor="Maroon" />
         </Columns>
+        <PagerStyle HorizontalAlign="Center" CssClass="pgr" />
+        <SelectedRowStyle BackColor="DarkOliveGreen" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle  Font-Bold="True" ForeColor="Black" Font-Size="13"/>
         <AlternatingRowStyle BackColor="Azure" />
-        <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" />
-    </asp:GridView>
+        </asp:GridView>
+        </ContentTemplate>
+        </asp:UpdatePanel>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+
     <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_price_home" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
 </asp:Content>
