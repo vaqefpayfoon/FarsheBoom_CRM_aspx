@@ -72,28 +72,6 @@ namespace WebApplicationKartable
                 if (dt.Rows.Count > 0)
                     Response.Redirect("Factor.aspx?snd=" + dt.Rows[0][0]);
             }
-            else if (!string.IsNullOrEmpty(txtContactsSearch2.Text))
-            {
-                dt = obj.Get_Data("SELECT srl FROM dbo.bas_supcust where full_name='" + txtContactsSearch2.Text + "'");
-                if (dt.Rows.Count > 0)
-                {
-                    DataTable dt2 = new DataTable();
-                    dt2 = obj.Get_Data("SELECT srl FROM dbo.acc_factor where bassc_srl='" + dt.Rows[0][0] + "'");
-                    if (dt2.Rows.Count > 0)
-                        Response.Redirect("Factor.aspx?snd=" + dt2.Rows[0][0]);
-                }
-            }
-            else if (!string.IsNullOrEmpty(txt_cell_phone.Text))
-            {
-                dt = obj.Get_Data("SELECT srl FROM dbo.bas_supcust where cell_phone='" + txt_cell_phone.Text + "'");
-                if (dt.Rows.Count > 0)
-                {
-                    DataTable dt2 = new DataTable();
-                    dt2 = obj.Get_Data("SELECT srl FROM dbo.acc_factor where bassc_srl='" + dt.Rows[0][0] + "'");
-                    if (dt2.Rows.Count > 0)
-                        Response.Redirect("Factor.aspx?snd=" + dt2.Rows[0][0]);
-                }
-            }
         }
         private void CheckLogin()
         {
@@ -230,6 +208,38 @@ namespace WebApplicationKartable
         protected void btn_cancel_report_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btn_cell_phone_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+            dt = obj.Get_Data("SELECT srl FROM dbo.bas_supcust where cell_phone='" + txt_cell_phone.Text + "'");
+            if (dt.Rows.Count > 0)
+            {
+                DataTable dt2 = new DataTable();
+                dt2 = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets where bassc_srl='" + dt.Rows[0][0] + "' order by u_date_tome desc"));
+                if (dt2.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt2;
+                    gridview.DataBind();
+                }
+            }
+        }
+
+        protected void btn_supcustname_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
+            dt = obj.Get_Data("SELECT srl FROM dbo.bas_supcust where full_name='" + txtContactsSearch2.Text + "'");
+            if (dt.Rows.Count > 0)
+            {
+                DataTable dt2 = new DataTable();
+                dt2 = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets where bassc_srl='" + dt.Rows[0][0] + "' order by u_date_tome desc"));
+                if (dt2.Rows.Count > 0)
+                {
+                    gridview.DataSource = dt2;
+                    gridview.DataBind();
+                }
+            }
         }
     }
 }

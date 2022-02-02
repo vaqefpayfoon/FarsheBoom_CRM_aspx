@@ -66,7 +66,7 @@
             <td style="padding-left:5%;"></td>
             <td>
                 <asp:Button ID="btn_return" runat="server" CssClass="btn-facebook" OnClick=
-                    "btn_return_Click" Text="مرجوع فرش" ValidationGroup="RegisterUserValidationGroup"/>
+                    "btn_return_Click" Text="مرجوع فرش"/>
             </td>
             <td style="padding-left:5%;"></td>
 <%--            <td>
@@ -91,11 +91,14 @@
         </tr>
         <tr>
             <td>نام مشتری :</td>
-            <td><asp:TextBox ID="txtContactsSearch2" runat="server" Width="300"  CssClass="textbox"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtContactsSearch2" runat="server" Width="300"  CssClass="textbox"></asp:TextBox>
+                <asp:Button ID="btn_supcustname" runat="server" OnClick="btn_supcustname_Click" Text="نمایش لیست" CssClass="btn-default" />
+            </td>
         </tr>
         <tr>
             <td>تلفن همراه :</td>
             <td><asp:TextBox ID="txt_cell_phone" runat="server" Width="250"  CssClass="textbox" ></asp:TextBox>
+                <asp:Button ID="btn_cell_phone" runat="server" OnClick="btn_cell_phone_Click" Text="نمایش لیست" CssClass="btn-default" />
             </td>
         </tr>
         <tr>
@@ -103,7 +106,32 @@
             <td><asp:TextBox ID="txt_code_igd" runat="server" Width="250"  CssClass="textbox" ></asp:TextBox><asp:Button ID="btn_cell_phone_finder" runat="server" OnClick="btn_cell_phone_finder_Click" Text="جستجو" CssClass="btn-default" />
             </td>
         </tr>
-    </table>  
+    </table>
+     <br />
+    <div class="row">
+            <asp:GridView ID="gridview" runat="server" CssClass="textbox" AutoGenerateColumns="False" HeaderStyle-BackColor="#5D7B9D" HeaderStyle-ForeColor="White" Width="950px">
+    <Columns>                      
+    <asp:HyperLinkField DataTextField="srl_f" DataNavigateUrlFields="srl_f" DataNavigateUrlFormatString="~/Supcust/Factor.aspx?snd={0}"  HeaderText="فاکتور"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
+        <asp:HyperLinkField DataTextField="srl" DataNavigateUrlFields="srl" DataNavigateUrlFormatString="~/Provider_Goods/ProductAssign.aspx?srl={0}"  HeaderText="فرش"  ControlStyle-ForeColor="Black" ItemStyle-Width="70" Target="_blank" />
+    <asp:BoundField DataField="u_date_tome" HeaderText="تاریخ" ItemStyle-Width="80" ReadOnly="True"/> 
+    <asp:BoundField DataField="code_igd" HeaderText="کد" ItemStyle-Width="80" ReadOnly="True"/>   
+    <asp:BoundField DataField="factor_no" HeaderText="ش فاکتور" ItemStyle-Width="80" ReadOnly="True"/>
+    <asp:BoundField DataField="full_name" HeaderText="نام مشتری" ItemStyle-Width="300" ReadOnly="True"/>  
+    <asp:BoundField DataField="cell_phone" HeaderText="موبایل" ItemStyle-Width="200" ReadOnly="True"/>  
+    <asp:BoundField DataField="provider_name" HeaderText="تامین کننده" ItemStyle-Width="200" ReadOnly="True"/>  
+    <asp:BoundField DataField="size_title" HeaderText="اندازه" ItemStyle-Width="80" ReadOnly="True"/>   
+    <asp:BoundField DataField="brand_name" HeaderText="گونه" ItemStyle-Width="80" ReadOnly="True"/>
+    <asp:BoundField DataField="area" HeaderText="مساحت" ItemStyle-Width="80" ReadOnly="True"/>    
+            <asp:BoundField DataField="discount" HeaderText="تخفیف" ItemStyle-Width="60" />
+    <asp:BoundField DataField="discount_amount" HeaderText="تخفیف" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
+    <asp:BoundField DataField="down_payment" HeaderText="پیش پرداخت" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
+<asp:BoundField DataField="sale_price" HeaderText="قیمت فروش" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
+    <asp:BoundField DataField="final_price" HeaderText="مبلغ فاکتور" ItemStyle-Width="90" DataFormatString="{0:C0}"/>
+
+        </Columns>
+    <AlternatingRowStyle BackColor="Azure" /> <PagerStyle BackColor="Navy" ForeColor="White" HorizontalAlign="Center" /> 
+    </asp:GridView>
+    </div>
     </asp:Panel>    
         <cc1:AutoCompleteExtender ServiceMethod="FilterSearch" MinimumPrefixLength="2"
             CompletionInterval="100" EnableCaching="false" CompletionSetCount="10" TargetControlID="txtContactsSearch"

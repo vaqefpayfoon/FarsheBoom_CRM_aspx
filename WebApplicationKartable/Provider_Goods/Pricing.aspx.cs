@@ -232,7 +232,7 @@ namespace WebApplicationKartable
             param[19] = new SqlParameter("@dorangi", SqlDbType.Bit);
             param[19].Value = chk_choose.Checked;
             param[20] = new SqlParameter("@rofo", SqlDbType.Bit);
-            param[20].Value = chk_rofo.Checked;
+            param[20].Value = false;// chk_rofo.Checked;
             param[21] = new SqlParameter("@kaji", SqlDbType.Bit);
             param[21].Value = chk_kaji.Checked;
             param[22] = new SqlParameter("@badbaf", SqlDbType.Bit);
@@ -240,7 +240,7 @@ namespace WebApplicationKartable
             param[23] = new SqlParameter("@pakhordegi", SqlDbType.Bit);
             param[23].Value = chk_pakhordegi.Checked;
             param[24] = new SqlParameter("@tear", SqlDbType.Bit);
-            param[24].Value = chk_tear.Checked;
+            param[24].Value = false;// chk_tear.Checked;
             param[25] = new SqlParameter("@code_igd", SqlDbType.VarChar, 30);
             param[25].Value = txt_code.Text;
             param[26] = new SqlParameter("@plan_desc", SqlDbType.VarChar, 100);
@@ -378,14 +378,14 @@ namespace WebApplicationKartable
                         chk_choose.Checked = Convert.ToBoolean(row["dorangi"]);
                     else
                         chk_choose.Checked = false;
-                    if (!Convert.IsDBNull(row["dorangi"]))
-                        chk_dorangi.Checked = Convert.ToBoolean(row["dorangi"]);
-                    else
-                        chk_dorangi.Checked = false;
-                    if (!Convert.IsDBNull(row["rofo"]))
-                        chk_rofo.Checked = Convert.ToBoolean(row["rofo"]);
-                    else
-                        chk_rofo.Checked = false;
+                    //if (!Convert.IsDBNull(row["dorangi"]))
+                    //    chk_dorangi.Checked = Convert.ToBoolean(row["dorangi"]);
+                    //else
+                    //    chk_dorangi.Checked = false;
+                    //if (!Convert.IsDBNull(row["rofo"]))
+                    //    chk_rofo.Checked = Convert.ToBoolean(row["rofo"]);
+                    //else
+                    //    chk_rofo.Checked = false;
                     if (!Convert.IsDBNull(row["kaji"]))
                         chk_kaji.Checked = Convert.ToBoolean(row["kaji"]);
                     else
@@ -398,10 +398,10 @@ namespace WebApplicationKartable
                         chk_pakhordegi.Checked = Convert.ToBoolean(row["pakhordegi"]);
                     else
                         chk_pakhordegi.Checked = false;
-                    if (!Convert.IsDBNull(row["tear"]))
-                        chk_tear.Checked = Convert.ToBoolean(row["tear"]);
-                    else
-                        chk_tear.Checked = false;
+                    //if (!Convert.IsDBNull(row["tear"]))
+                    //    chk_tear.Checked = Convert.ToBoolean(row["tear"]);
+                    //else
+                    //    chk_tear.Checked = false;
                 }
             }
         }
@@ -531,8 +531,11 @@ namespace WebApplicationKartable
                     }
                     else if (txtBox.ID == "txtdiscount")
                     {
-                        allPricingClass = allPricingClass.Where(x => x.discount.Contains(txtBox.Text.Trim().ToUpper())).ToList();
-                        ViewState["Odiscount"] = txtBox.Text.Trim().ToUpper();
+                        if(!string.IsNullOrEmpty(txtBox.Text))
+                        {
+                            allPricingClass = allPricingClass.Where(x => x.discount == Convert.ToInt32(txtBox.Text)).ToList();
+                            ViewState["Odiscount"] = txtBox.Text.Trim().ToUpper();
+                        }
                     }
                     else if (txtBox.ID == "txtprovider_code")
                     {
@@ -1103,6 +1106,18 @@ namespace WebApplicationKartable
                 count++;
             }
             btn_with_price_Click(sender, e);
+        }
+        protected void btn_current_event_Click(object sender, EventArgs e)
+        {
+            PricingClass objPricingClass = new PricingClass();
+            List<PricingClass> lstPricingClass = new List<PricingClass>();
+            ViewState["getall"] = 0;
+
+            lstPricingClass = objPricingClass.GetPricingClass(7, lst_project.Items[0].Value);
+            grdViewOutstanding.DataSource = lstPricingClass;
+            grdViewOutstanding.DataBind();
+            ViewState["lstOutstandingOrders"] = lstPricingClass;
+            upnlOutstanding.Update();
         }
     }
 }

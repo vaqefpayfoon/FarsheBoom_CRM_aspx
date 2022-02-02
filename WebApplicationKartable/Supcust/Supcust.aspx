@@ -48,13 +48,19 @@
             </td>
         </tr>
             <tr>
-            <td>کد ملی :</td>
-            <td>
-                <asp:TextBox ID="txt_email" runat="server" CssClass="textbox" Width="180px" MaxLength="10"></asp:TextBox></td>
-            <td>حضور در نمایشگاه :</td>
+            <td>مراجعه به نمایشگاه :</td>
             <td>
                 <asp:CheckBox ID="chk_sex" runat="server" Width="180px" Checked="false"></asp:CheckBox>
             </td>
+            <td>خریدار :</td>
+            <td>
+                <asp:CheckBox ID="chk_age" runat="server" Width="180px" Checked="false"></asp:CheckBox>
+            </td>
+        </tr>
+        <tr>
+            <td>کد ملی :</td>
+            <td>
+                <asp:TextBox ID="txt_email" runat="server" CssClass="textbox" Width="180px" MaxLength="10"></asp:TextBox></td>
         </tr>
         <tr>
             <td>تاریخ :</td>

@@ -54,6 +54,7 @@
                 <asp:ListItem  Value="1" Text="Operator"></asp:ListItem>
                 <asp:ListItem  Value="2" Text="Administrator"></asp:ListItem>
                 <asp:ListItem  Value="3" Text="CEO"></asp:ListItem>
+                <asp:ListItem  Value="4" Text="Sales"></asp:ListItem>
             </asp:DropDownList></td>
         <td><asp:Label ID="lbl_active" runat="server" CssClass="textbox" Text="فعال"></asp:Label> <asp:CheckBox ID="chk_active" runat="server" /></td>
         </tr>

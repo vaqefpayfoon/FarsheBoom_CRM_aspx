@@ -267,24 +267,6 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.DropDownList lst_chele;
 
         /// <summary>
-        /// chk_dorangi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_dorangi;
-
-        /// <summary>
-        /// chk_rofo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_rofo;
-
-        /// <summary>
         /// chk_kaji control.
         /// </summary>
         /// <remarks>
@@ -310,15 +292,6 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chk_pakhordegi;
-
-        /// <summary>
-        /// chk_tear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_tear;
 
         /// <summary>
         /// txt_raj control.
@@ -402,13 +375,40 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
 
         /// <summary>
-        /// gridview control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridview;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// upnlOutstanding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upnlOutstanding;
+
+        /// <summary>
+        /// lbRemoveFilterOutstanding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button lbRemoveFilterOutstanding;
+
+        /// <summary>
+        /// grdViewOutstanding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdViewOutstanding;
 
         /// <summary>
         /// MaskedEditExtender1 control.

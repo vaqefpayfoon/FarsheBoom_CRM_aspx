@@ -132,6 +132,15 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txtContactsSearch2;
 
         /// <summary>
+        /// btn_supcustname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_supcustname;
+
+        /// <summary>
         /// txt_cell_phone control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_cell_phone;
+
+        /// <summary>
+        /// btn_cell_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_cell_phone;
 
         /// <summary>
         /// txt_code_igd control.
@@ -157,6 +175,15 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_cell_phone_finder;
+
+        /// <summary>
+        /// gridview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridview;
 
         /// <summary>
         /// AutoCompleteExtender1 control.

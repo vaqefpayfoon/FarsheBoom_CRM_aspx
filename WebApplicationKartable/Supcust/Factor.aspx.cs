@@ -48,45 +48,47 @@ namespace WebApplicationKartable
                 {
                     Common obb = new Common();
                     DataRow Find = dt2.Rows[0];
-                    string state = string.Empty;
-                    if (!Convert.IsDBNull(Find["dorangi"]))
-                    {
-                        bool dorangi = Convert.ToBoolean(Find["dorangi"]);
-                        if (dorangi)
-                            state += "دورنگی ،";
-                    }
-                    if (!Convert.IsDBNull(Find["rofo"]))
-                    {
-                        bool dorangi = Convert.ToBoolean(Find["rofo"]);
-                        if (dorangi)
-                            state += "رفو ،";
-                    }
+                    string state = "";
+                    //if (!Convert.IsDBNull(Find["dorangi"]))
+                    //{
+                    //    bool dorangi = Convert.ToBoolean(Find["dorangi"]);
+                    //    if (dorangi)
+                    //        state += "دورنگی ،";
+                    //}
+                    //if (!Convert.IsDBNull(Find["rofo"]))
+                    //{
+                    //    bool dorangi = Convert.ToBoolean(Find["rofo"]);
+                    //    if (dorangi)
+                    //        state += "رفو ،";
+                    //}
                     if (!Convert.IsDBNull(Find["kaji"]))
                     {
                         bool dorangi = Convert.ToBoolean(Find["kaji"]);
                         if (dorangi)
-                            state += "کجی ،";
+                            state += "جفت ،";
                     }
                     if (!Convert.IsDBNull(Find["badbaf"]))
                     {
                         bool dorangi = Convert.ToBoolean(Find["badbaf"]);
                         if (dorangi)
-                            state += "بدبافت ،";
+                            state += "قدیم بافت ،";
                     }
                     if (!Convert.IsDBNull(Find["pakhordegi"]))
                     {
                         bool dorangi = Convert.ToBoolean(Find["pakhordegi"]);
                         if (dorangi)
-                            state += "پاخوردگی ،";
+                            state += "پاخورده ،";
                     }
-                    if (!Convert.IsDBNull(Find["tear"]))
-                    {
-                        bool dorangi = Convert.ToBoolean(Find["tear"]);
-                        if (dorangi)
-                            state += "پارگی ،";
-                    }
-                    if (state.Length > 0)
-                        state = string.Format("{0}در فرش با کد {1} می باشد", state, Find["code_igd"].ToString().Trim());
+                    //if (!Convert.IsDBNull(Find["tear"]))
+                    //{
+                    //    bool dorangi = Convert.ToBoolean(Find["tear"]);
+                    //    if (dorangi)
+                    //        state += "پارگی ،";
+                    //}
+                    if (state.Length > 1)
+                        state = string.Format("این فرش {0} است", state);
+                    //if (state.Length > 0)
+                    //    state = string.Format("{0}در فرش با کد {1} می باشد", state, Find["code_igd"].ToString().Trim());
                     dt2.Rows[0]["state"] = state;
                     ViewState["igd_srl"] = Find["srl"];
                     txt_code.Text = Find["code_igd"].ToString().Trim();
@@ -126,8 +128,23 @@ namespace WebApplicationKartable
                     if (dis > 0 && sale > 0)
                     {
                         obb.str = (dis * sale / 100).ToString();
+                        txt_discount.Text = obb.str;
+                        if (!Convert.IsDBNull(Find["discount"]))
+                        {
+                            if (Convert.ToDouble(Find["discount"]) > 0)
+                            {
+                                obb.str = ((dis * sale / 100) - (Convert.IsDBNull(Find["discount"]) ? 0 : Convert.ToDouble(Find["discount"]))).ToString();
+                                txt_first_discount.Text = obb.str;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        obb.str = ((Convert.IsDBNull(Find["discount"]) ? 0 : Convert.ToDouble(Find["discount"]))).ToString();
                         txt_first_discount.Text = obb.str;
                     }
+                    obb.str = Find["discount"].ToString();
+                    txt_total_discount.Text = obb.str;
                     obb.str = buy.ToString();
                     txt_buy.Text = obb.str;
                     obb.str = sale.ToString();
@@ -187,44 +204,44 @@ namespace WebApplicationKartable
                     ViewState["title_igd"] = null;
                 }
                 string state = "";
-                if (!Convert.IsDBNull(Find["dorangi"]))
-                {
-                    bool dorangi = Convert.ToBoolean(Find["dorangi"]);
-                    if (dorangi)
-                        state += "دورنگی ،";
-                }
-                if (!Convert.IsDBNull(Find["rofo"]))
-                {
-                    bool dorangi = Convert.ToBoolean(Find["rofo"]);
-                    if (dorangi)
-                        state += "رفو ،";
-                }
+                //if (!Convert.IsDBNull(Find["dorangi"]))
+                //{
+                //    bool dorangi = Convert.ToBoolean(Find["dorangi"]);
+                //    if (dorangi)
+                //        state += "دورنگی ،";
+                //}
+                //if (!Convert.IsDBNull(Find["rofo"]))
+                //{
+                //    bool dorangi = Convert.ToBoolean(Find["rofo"]);
+                //    if (dorangi)
+                //        state += "رفو ،";
+                //}
                 if (!Convert.IsDBNull(Find["kaji"]))
                 {
                     bool dorangi = Convert.ToBoolean(Find["kaji"]);
                     if (dorangi)
-                        state += "کجی ،";
+                        state += "جفت ،";
                 }
                 if (!Convert.IsDBNull(Find["badbaf"]))
                 {
                     bool dorangi = Convert.ToBoolean(Find["badbaf"]);
                     if (dorangi)
-                        state += "بدبافت ،";
+                        state += "قدیم بافت ،";
                 }
                 if (!Convert.IsDBNull(Find["pakhordegi"]))
                 {
                     bool dorangi = Convert.ToBoolean(Find["pakhordegi"]);
                     if (dorangi)
-                        state += "پاخوردگی ،";
+                        state += "پاخورده ،";
                 }
-                if (!Convert.IsDBNull(Find["tear"]))
-                {
-                    bool dorangi = Convert.ToBoolean(Find["tear"]);
-                    if (dorangi)
-                        state += "پارگی ،";
-                }
-                if (state.Length > 0)
-                    state = string.Format("{0}در این فرش می باشد", state);
+                //if (!Convert.IsDBNull(Find["tear"]))
+                //{
+                //    bool dorangi = Convert.ToBoolean(Find["tear"]);
+                //    if (dorangi)
+                //        state += "پارگی ،";
+                //}
+                if (state.Length > 1)
+                    state = string.Format("این فرش {0} است", state);
                 dt2.Rows[0]["state"] = state;
                 //
                 //
@@ -252,8 +269,26 @@ namespace WebApplicationKartable
                 if (dis > 0 && sale > 0)
                 {
                     obb.str = (dis * sale / 100).ToString();
+                    txt_discount.Text = obb.str;
+                    if(!Convert.IsDBNull(Find["discount"]))
+                    {
+                        if(Convert.ToDouble(Find["discount"]) > 0) 
+                        {
+                            obb.str = ((dis * sale / 100) - (Convert.IsDBNull(Find["discount"]) ? 0 : Convert.ToDouble(Find["discount"]))).ToString();
+                            txt_first_discount.Text = obb.str;
+                        }
+                    }
+                } 
+                else
+                {
+                    obb.str = ((Convert.IsDBNull(Find["discount"]) ? 0 : Convert.ToDouble(Find["discount"]))).ToString();
                     txt_first_discount.Text = obb.str;
                 }
+                obb.str = (sale - (Convert.IsDBNull(Find["discount"]) ? 0 : Convert.ToDouble(Find["discount"]))).ToString();
+                txt_final_payment.Text = obb.str;
+
+                obb.str = Find["discount"].ToString();
+                txt_total_discount.Text = obb.str;
                 obb.str = buy.ToString();
                 txt_buy.Text = obb.str;
                 obb.str = sale.ToString();
@@ -276,8 +311,8 @@ namespace WebApplicationKartable
                 dt2.Rows[0]["email"] = str_supcust[4];
                 txt_factor_date.Text = Find["u_date_tome"].ToString();
                 txt_factor_no.Text = Find["factor_no"].ToString();
-                obb.str = Find["discount"].ToString();
-                txt_discount.Text = obb.str;
+                txt_disc_per.Text = Find["disc_per"].ToString();
+
                 obb.str = Find["down_payment"].ToString();
                 txt_down_payment.Text = obb.str;
                 obb.str = Find["payment"].ToString();
@@ -497,7 +532,7 @@ namespace WebApplicationKartable
             param[5] = new SqlParameter("@down_payment", SqlDbType.BigInt);
             param[5].Value = Convert.ToInt64(obb.remove_cama(txt_down_payment.Text));
             param[6] = new SqlParameter("@discount", SqlDbType.BigInt);
-            param[6].Value = Convert.ToInt64(obb.remove_cama(txt_discount.Text));
+            param[6].Value = Convert.ToInt64(obb.remove_cama(txt_total_discount.Text));
             param[7] = new SqlParameter("@payment", SqlDbType.BigInt);
             param[7].Value = Convert.ToInt64(obb.remove_cama(txt_payment.Text));
             param[8] = new SqlParameter("@project_srl", SqlDbType.Int);
@@ -545,7 +580,7 @@ namespace WebApplicationKartable
             param[5] = new SqlParameter("@down_payment", SqlDbType.BigInt);
             param[5].Value = Convert.ToInt64(obb.remove_cama(txt_down_payment.Text));
             param[6] = new SqlParameter("@discount", SqlDbType.BigInt);
-            param[6].Value = Convert.ToInt64(obb.remove_cama(txt_discount.Text));
+            param[6].Value = Convert.ToInt64(obb.remove_cama(txt_total_discount.Text));
             param[7] = new SqlParameter("@payment", SqlDbType.BigInt);
             param[7].Value = Convert.ToInt64(obb.remove_cama(txt_payment.Text));
             param[8] = new SqlParameter("@project_srl", SqlDbType.Int);
@@ -705,7 +740,7 @@ namespace WebApplicationKartable
                 srl = Convert.ToInt32(dt.Rows[0][0]);
             return srl;
         }
-       private void emptyboxes()
+        private void emptyboxes()
         {
             txtContactsSearch.Text = string.Empty;
             txt_address.Text = string.Empty;
@@ -735,6 +770,8 @@ namespace WebApplicationKartable
         }
         protected void btn_list_Click(object sender, EventArgs e)
         {
+            txt_first_discount.Text = "0";
+            txt_total_discount.Text = "0";
             bool bln = false;
             if(!string.IsNullOrEmpty(txt_cellphone.Text) && !string.IsNullOrEmpty(txt_product.Text) && Request.QueryString["snd"] == "-1")
             {
@@ -764,7 +801,7 @@ namespace WebApplicationKartable
             }
             else
             {
-                lblError.Text = "مشخصات مشتری نامعتبر است";
+                lblError.Text = "مشخصات نامعتبر است";
                 emptyboxes();
                 return;
             }
@@ -799,6 +836,7 @@ namespace WebApplicationKartable
                         buy = Convert.ToInt64(Find["buy_price"]);
                     if (!Convert.IsDBNull(Find["discount"]))
                         dis = Convert.ToInt64(Find["discount"]);
+                    txt_disc_per.Text = dis.ToString();
                     double temp = Math.Round(Convert.ToDouble((lenght * widht) / 10000), 1);
                     if (temp == 0) temp = 1;
                     obb.str = (Math.Round(sale / temp)).ToString();
@@ -808,14 +846,14 @@ namespace WebApplicationKartable
                     if (dis > 0 && sale > 0)
                     {
                         obb.str = (dis * sale / 100).ToString();
-                        txt_first_discount.Text = obb.str;
+                        txt_discount.Text = obb.str;
+                        txt_total_discount.Text = obb.str;
                     }
                     obb.str = buy.ToString();
                     txt_buy.Text = obb.str;
                     obb.str = sale.ToString();
                     txt_sale.Text = obb.str;
                     txt_down_payment.Text = "0";
-                    txt_discount.Text = "0";
                     txt_payment.Text = "0";
                     //
                     txt_plan.Text = Find["plan_title"].ToString().Trim();
@@ -865,16 +903,27 @@ namespace WebApplicationKartable
             long dis = 0;
             long sale = 0;
             long down = 0;
+            long buy = 0;
             if (!string.IsNullOrEmpty(txt_first_discount.Text))
                 first_dis = Convert.ToInt64(obb.remove_cama(txt_first_discount.Text));
             if (!string.IsNullOrEmpty(txt_discount.Text))
                 dis = Convert.ToInt64(obb.remove_cama(txt_discount.Text));
+            long total_dis = dis + first_dis;
+            obb.str = total_dis.ToString();
+            txt_total_discount.Text = obb.str;
             if (!string.IsNullOrEmpty(txt_sale.Text))
                 sale = Convert.ToInt64(obb.remove_cama(txt_sale.Text));
+            if (!string.IsNullOrEmpty(txt_buy.Text))
+                buy = Convert.ToInt64(obb.remove_cama(txt_buy.Text));
+            obb.str = (sale - total_dis).ToString();
+            txt_final_payment.Text = obb.str;
             if (!string.IsNullOrEmpty(txt_down_payment.Text))
                 down = Convert.ToInt64(obb.remove_cama(txt_down_payment.Text));
             obb.str = (sale - (first_dis + dis + down)).ToString();
             txt_payment.Text = obb.str;
+
+            obb.str = ((sale - total_dis) - buy).ToString();
+            txt_profit.Text = obb.str;
         }
 
         protected void lst_project_SelectedIndexChanged(object sender, EventArgs e)

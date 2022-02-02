@@ -71,8 +71,8 @@ namespace WebApplicationKartable
                     break;
                 case "Buyers":
                     {
-                        lbl_header.Text = "لیست مشتریان";
-                        DataTable dt = obj.Get_Data("SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE (dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.u_date_tome order by u_date_tome desc");
+                        lbl_header.Text = "لیست خریداران";
+                        DataTable dt = obj.Get_Data("SELECT srl, full_name, tel1, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
                         literal_report.Text = rpt.buyers_list(dt);
                     }
                     break;

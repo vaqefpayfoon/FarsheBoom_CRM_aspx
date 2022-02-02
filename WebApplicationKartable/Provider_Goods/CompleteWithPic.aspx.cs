@@ -59,9 +59,9 @@ namespace WebApplicationKartable
                     sb.Append("<tr><td><span>مساحت</span>");
                     sb.Append(string.Format("<p>{0}</p>", Woak.area));
                     sb.Append("</td></tr>");
-
+                    obo.str = Woak.buy_price;
                     sb.Append("<tr><td><span>قیمت تخته ای به ریال</span>");
-                    sb.Append(string.Format("<p>{0}</p>", Woak.buy_price));
+                    sb.Append(string.Format("<p>{0}</p>", obo.str));
                     sb.Append("</td></tr>");
                     sb.Append("</table></td><td>");
                     sb.Append(string.Format("<img src='{0}' alt='فرشی یافت نشد'/>", Woak.title_igd));

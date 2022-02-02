@@ -131,18 +131,38 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
         </tr>
         <tr>
             <td>تخفیف نمایشگاه :</td>
-            <td><asp:TextBox ID="txt_first_discount" runat="server" CssClass="textbox"  Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
+            <td><asp:TextBox ID="txt_discount" runat="server" CssClass="textbox" Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
             </td>
-            <td>تخفیف نهایی :</td>
-            <td><asp:TextBox ID="txt_discount" runat="server" CssClass="textbox"  Width="180px" MaxLength="20"></asp:TextBox>
+            <td>تخفیف نمایشگاه :</td>
+            <td>
+                <asp:TextBox ID="txt_disc_per" runat="server" CssClass="textbox" Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>پیش پرداخت :</td>
+            <td>تخفیف مدیریتی :</td>
+            <td><asp:TextBox ID="txt_first_discount" runat="server" CssClass="textbox"  Width="180px" MaxLength="20"></asp:TextBox>
+            </td>
+            <td>مجموع تخفیف :</td>
+            <td>
+                <asp:TextBox ID="txt_total_discount" runat="server" CssClass="textbox" Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                قابل پرداخت
+            </td>
+            <td>
+                <asp:TextBox ID="txt_final_payment" runat="server" CssClass="textbox"  Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
+            </td>
+            <td>بیانه :</td>
+            <td><asp:CheckBox ID="chk_bayane" runat="server" ></asp:CheckBox></td>
+        </tr>
+        <tr>
+            <td>پرداخت شده :</td>
             <td><asp:TextBox ID="txt_down_payment" runat="server" CssClass="textbox"  Width="180px" MaxLength="20"></asp:TextBox>
             </td>
-            <td>مبلغ مانده :</td>
-            <td><asp:TextBox ID="txt_payment" runat="server" CssClass="textbox"  Width="180px" MaxLength="20"></asp:TextBox><asp:ImageButton ID="btnShow" runat="server"  ImageUrl="~/images/Controls/Select.gif" OnClick="btnShow_Click" /><asp:Label ID="Label2" Text="*"  runat="server"></asp:Label>
+            <td>مانده :</td>
+            <td><asp:TextBox ID="txt_payment" runat="server" CssClass="textbox"  ReadOnly="true" BackColor="LightSteelBlue" Width="180px" MaxLength="20"></asp:TextBox><asp:ImageButton ID="btnShow" runat="server"  ImageUrl="~/images/Controls/Select.gif" OnClick="btnShow_Click" /><asp:Label ID="Label2" Text="*"  runat="server"></asp:Label>
                 <asp:RequiredFieldValidator Display = "None" ForeColor="Red" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_payment" ErrorMessage="مبلغ مانده اجباریست" ToolTip="مبلغ مانده اجباریست" ValidationGroup="RegisterUserValidationGroup2"></asp:RequiredFieldValidator>
             </td>
         </tr>
@@ -159,8 +179,10 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
             <td colspan="3"><asp:TextBox ID="txt_address" runat="server" CssClass="textbox" ReadOnly="true" BackColor="LightSteelBlue" Width="450px"></asp:TextBox></td>
         </tr>
         <tr>
-            <%--<td>بیانه :</td>--%>
-            <td><asp:CheckBox ID="chk_bayane" runat="server" Visible="false" ></asp:CheckBox></td>
+            <td>حشایه سود :</td>
+            <td>
+                <asp:TextBox ID="txt_profit" runat="server" CssClass="textbox" Width="180px" ReadOnly="true" BackColor="LightSteelBlue"></asp:TextBox>
+            </td>
         </tr>
 </table>
         </td>
@@ -180,4 +202,8 @@ ValidationGroup="RegisterUserValidationGroup"></asp:RequiredFieldValidator>&nbsp
 <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_discount" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
 <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="txt_down_payment" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
 <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" TargetControlID="txt_payment" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+<cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" TargetControlID="txt_final_payment" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+<cc1:MaskedEditExtender ID="MaskedEditExtender6" runat="server" TargetControlID="txt_first_discount" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender5" runat="server" TargetControlID="txt_total_discount" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender7" runat="server" TargetControlID="txt_profit" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
 </asp:Content>

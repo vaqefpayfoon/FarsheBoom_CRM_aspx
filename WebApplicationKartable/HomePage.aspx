@@ -183,13 +183,15 @@
                                     <li>
                                         <asp:LinkButton ID="lnk_all_goods" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=AllProviderGoods">لیست فرش ها</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="lnk_supcust_buyers" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Buyers">لیست مشتریان</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lnk_supcustReport" runat="server" Enabled="false" PostBackUrl="~/SupcustReport.aspx">گزارش مشتریان</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="lnk_supcust_excel" runat="server" Enabled="false" OnClick="lnkExcel_supcust_Click">اکسل مشتریان</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lnk_supcust_buyers" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Buyers">گزارش خریداران</asp:LinkButton></li>
                                     <li>
+                                        <asp:LinkButton ID="lnk_supcust_excel" runat="server" Enabled="true" OnClick="lnkExcel_supcust_Click">اکسل خریدارن</asp:LinkButton></li>
+                                    <%--<li>
                                         <asp:LinkButton ID="lnk_supcust_audience" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=Audience">لیست مخاطبین</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="lnk_audience_excel" runat="server" Enabled="false" OnClick="lnkExcel_audience_Click">اکسل مخاطبین</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lnk_audience_excel" runat="server" Enabled="false" OnClick="lnkExcel_audience_Click">اکسل مخاطبین</asp:LinkButton></li>--%>
 <%--                                    <li>
                                         <asp:LinkButton ID="lnk_supcust_report" runat="server" Enabled="false" PostBackUrl="~/Archives/AllReports.aspx?snd=supcust_list">لیست تمام مشتریان</asp:LinkButton></li>--%>
 

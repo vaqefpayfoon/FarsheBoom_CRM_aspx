@@ -70,7 +70,10 @@ namespace WebApplicationKartable
                         myCookie["group_srl"] = dr[3].ToString();
                         myCookie.Expires = DateTime.Now.AddDays(1d);
                         Response.Cookies.Add(myCookie);
-                        Server.Transfer("HomePage.aspx");
+                        if (dr[3].ToString().Equals("4"))
+                            Server.Transfer("SalesWebForm.aspx");
+                        else
+                            Server.Transfer("HomePage.aspx");
                     }
                 }
                 if (!dr.Read())

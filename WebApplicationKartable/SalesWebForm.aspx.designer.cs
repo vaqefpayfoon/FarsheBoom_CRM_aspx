@@ -11,134 +11,107 @@ namespace WebApplicationKartable
 {
 
 
-    public partial class Sale_Report
+    public partial class SalesWebForm
     {
 
         /// <summary>
-        /// PersianDateScriptManager control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PersianDateControls.PersianDateScriptManager PersianDateScriptManager;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Panel_grid control.
+        /// txt_product control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_grid;
+        protected global::System.Web.UI.WebControls.TextBox txt_product;
 
         /// <summary>
-        /// txt_from_date control.
+        /// btn_list control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PersianDateControls.PersianDateTextBox txt_from_date;
+        protected global::System.Web.UI.WebControls.Button btn_list;
 
         /// <summary>
-        /// txt_to_date control.
+        /// btn_logout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PersianDateControls.PersianDateTextBox txt_to_date;
+        protected global::System.Web.UI.WebControls.Button btn_logout;
 
         /// <summary>
-        /// lst_project control.
+        /// image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_project;
+        protected global::System.Web.UI.WebControls.Image image1;
 
         /// <summary>
-        /// lst_provider control.
+        /// txt_pcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_provider;
+        protected global::System.Web.UI.WebControls.TextBox txt_pcode;
 
         /// <summary>
-        /// lst_bank control.
+        /// txt_carpet_type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lst_bank;
+        protected global::System.Web.UI.WebControls.TextBox txt_carpet_type;
 
         /// <summary>
-        /// ImageButton_Report control.
+        /// txt_brand_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton_Report;
+        protected global::System.Web.UI.WebControls.TextBox txt_brand_name;
 
         /// <summary>
-        /// ImageButton_print control.
+        /// txt_size control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton_print;
+        protected global::System.Web.UI.WebControls.TextBox txt_size;
 
         /// <summary>
-        /// imaged_product control.
+        /// txt_plan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imaged_product;
+        protected global::System.Web.UI.WebControls.TextBox txt_plan;
 
         /// <summary>
-        /// txt_sum control.
+        /// txt_color control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_sum;
-
-        /// <summary>
-        /// txt_buy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_buy;
-
-        /// <summary>
-        /// txt_payment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_payment;
-
-        /// <summary>
-        /// txt_total_discount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_total_discount;
+        protected global::System.Web.UI.WebControls.TextBox txt_color;
 
         /// <summary>
         /// txt_margin control.
@@ -150,21 +123,75 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_margin;
 
         /// <summary>
-        /// txt_profit control.
+        /// txt_porz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_profit;
+        protected global::System.Web.UI.WebControls.TextBox txt_porz;
 
         /// <summary>
-        /// gridview control.
+        /// txt_chele control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridview;
+        protected global::System.Web.UI.WebControls.TextBox txt_chele;
+
+        /// <summary>
+        /// chk_kaji control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_kaji;
+
+        /// <summary>
+        /// chk_badbaf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_badbaf;
+
+        /// <summary>
+        /// chk_pakhordegi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_pakhordegi;
+
+        /// <summary>
+        /// txt_sale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_sale;
+
+        /// <summary>
+        /// txt_discount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_discount;
+
+        /// <summary>
+        /// txt_final_payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_final_payment;
     }
 }

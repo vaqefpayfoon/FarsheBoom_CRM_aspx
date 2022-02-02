@@ -21,7 +21,9 @@ namespace WebApplicationKartable
             if (!IsPostBack)
             {
                 if (Request.QueryString["srl"] != "-1")
+                {
                     set_boxes(Request.QueryString["srl"].ToString());
+                }
                 else
                     txt_u_date_time.Text = obj.persian_date();
                 ViewState["update"] = "0"; ViewState["update2"] = "0";
@@ -29,8 +31,10 @@ namespace WebApplicationKartable
         }
         private void set_boxes(string srl)
         {
-            DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-            dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, instagram, address1, describtion, sex, email FROM dbo.bas_supcust WHERE srl=" + srl);
+            DataTable dt = new DataTable(); 
+            Search obj = new Search(strConnString);
+            dt = obj.Get_Data("SELECT srl, u_date_time, full_name, tel1, cell_phone, instagram, address1, describtion, sex, email, age FROM dbo.bas_supcust WHERE srl=" + srl);
+
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
@@ -45,18 +49,10 @@ namespace WebApplicationKartable
                 txt_address.Text = row["address1"].ToString();
                 txt_desc.Text = row["describtion"].ToString();
                 txt_email.Text = row["email"].ToString();
-                if (!string.IsNullOrEmpty(row["sex"].ToString())) 
-                {
-                    if (row["sex"].ToString().Equals("1"))
-                        chk_sex.Checked = true;
-                    else
-                        chk_sex.Checked = false;
-                }
-                else
-                {
-                    chk_sex.Checked = false;
-                }
+                chk_age.Checked = Convert.IsDBNull(row["age"]) ? false : Convert.ToBoolean(row["age"]);
+                chk_sex.Checked = Convert.IsDBNull(row["sex"]) ? false : Convert.ToBoolean(row["sex"]);
             }
+
         }
         protected void btn_save_Click(object sender, ImageClickEventArgs e)
         {
@@ -80,6 +76,14 @@ namespace WebApplicationKartable
                 dt = obj.Get_Data("SELECT srl FROM dbo.bas_supcust where cell_phone='" + txt_cell_phone.Text + "'");
                 if (dt.Rows.Count > 0)
                     Response.Redirect("Supcust.aspx?srl=" + dt.Rows[0][0]);
+            }
+            if (chk_age.Checked)
+            {
+                if (string.IsNullOrEmpty(txt_full_name.Text) || string.IsNullOrEmpty(txt_email.Text) || string.IsNullOrEmpty(txt_address.Text))
+                {
+                    lblError.Text = "نام، آدرس و کدملی خریدار الزامیست";
+                    return;
+                }
             }
             int srl = max_srl();
             if (lblError.Text == "تامین کننده جدید ایجاد شد")
@@ -112,10 +116,10 @@ namespace WebApplicationKartable
                 param[7].Value = DBNull.Value;
             param[8] = new SqlParameter("@instagram", SqlDbType.VarChar, 50);
             param[8].Value = DBNull.Value;
-            param[9] = new SqlParameter("@sex", SqlDbType.Char, 1);
-            param[9].Value = chk_sex.Checked ? "1" : "0";
-            param[10] = new SqlParameter("@age", SqlDbType.Char, 3);
-            param[10].Value = '1';
+            param[9] = new SqlParameter("@sex", SqlDbType.Bit);
+            param[9].Value = chk_sex.Checked;
+            param[10] = new SqlParameter("@age", SqlDbType.Bit);
+            param[10].Value = chk_age.Checked;
             param[11] = new SqlParameter("@user_name", SqlDbType.VarChar, 10);
             param[11].Value = DBNull.Value;
             param[12] = new SqlParameter("@pass", SqlDbType.VarChar, 10);
@@ -150,6 +154,14 @@ namespace WebApplicationKartable
                 lblError.Text = "تلفن همراه مشتری تکراری است";
                 return;
             }
+            if(chk_age.Checked)
+            {
+                if(string.IsNullOrEmpty(txt_full_name.Text) || string.IsNullOrEmpty(txt_email.Text) || string.IsNullOrEmpty(txt_address.Text))
+                {
+                    lblError.Text = "نام، آدرس و کدملی خریدار الزامیست";
+                    return;
+                }
+            }
             Common per = new Common();
             SqlParameter[] param = new SqlParameter[16];
             param[0] = new SqlParameter("@srl", SqlDbType.Int);
@@ -177,10 +189,10 @@ namespace WebApplicationKartable
                 param[6].Value = DBNull.Value;
             param[7] = new SqlParameter("@instagram", SqlDbType.VarChar, 50);
             param[7].Value = DBNull.Value;
-            param[8] = new SqlParameter("@sex", SqlDbType.Char, 1);
-            param[8].Value = chk_sex.Checked ? "1" : "0";
-            param[9] = new SqlParameter("@age", SqlDbType.Char, 3);
-            param[9].Value = '1';
+            param[8] = new SqlParameter("@sex", SqlDbType.Bit);
+            param[8].Value = chk_sex.Checked;
+            param[9] = new SqlParameter("@age", SqlDbType.Bit);
+            param[9].Value = chk_age.Checked;
             param[10] = new SqlParameter("@user_name", SqlDbType.VarChar, 10);
             param[10].Value = DBNull.Value;
             param[11] = new SqlParameter("@pass", SqlDbType.VarChar, 10);

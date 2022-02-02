@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -7,6 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>c0a3ee5b-b530-4aad-9c56-572fad8559f2</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -81,6 +82,18 @@
           <DataField>provider_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="feet">
+          <DataField>feet</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="neet">
+          <DataField>neet</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="couple">
+          <DataField>couple</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
@@ -147,52 +160,178 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.58493in</Width>
+                  <Width>0.42631in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.46754in</Width>
+                  <Width>0.52621in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.77443in</Width>
+                  <Width>0.45272in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.66813in</Width>
+                  <Width>0.4998in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64943in</Width>
+                  <Width>0.38241in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.76525in</Width>
+                  <Width>0.6893in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.03798in</Width>
+                  <Width>0.583in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.91293in</Width>
+                  <Width>0.5643in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.84648in</Width>
+                  <Width>0.68012in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.88072in</Width>
+                  <Width>0.95285in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.02059in</Width>
+                  <Width>0.8278in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.90203in</Width>
+                  <Width>0.76135in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.56225in</Width>
+                  <Width>0.79559in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.531in</Width>
+                  <Width>0.93546in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.8169in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.47712in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.44587in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.3125in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox28">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox28</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>DimGray</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox25">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>DimGray</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox21">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>DimGray</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox12">
@@ -746,6 +885,114 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="couple">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!couple.Value</Value>
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>couple</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="neet">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!neet.Value</Value>
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>neet</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="feet">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!feet.Value</Value>
+                                  <Style>
+                                    <FontFamily>b nazanin</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>feet</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="porz_title">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1270,6 +1517,9 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1290,7 +1540,7 @@
             <Top>0.93625in</Top>
             <Left>0.19904in</Left>
             <Height>0.625in</Height>
-            <Width>10.60369in</Width>
+            <Width>10.81711in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1463,10 +1713,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>3.25864in</Top>
+            <Top>3.23781in</Top>
             <Left>0.2121in</Left>
-            <Height>0.6875in</Height>
-            <Width>10.47055in</Width>
+            <Height>0.70833in</Height>
+            <Width>10.80407in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -1551,22 +1801,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.46458in</Width>
+                  <Width>0.50016in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.46458in</Width>
+                  <Width>0.50016in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.03558in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.03558in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.03558in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.03558in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2299,7 +2549,7 @@
             <Top>1.63069in</Top>
             <Left>5.87352in</Left>
             <Height>0.875in</Height>
-            <Width>4.92916in</Width>
+            <Width>5.14264in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -2328,8 +2578,11 @@
             <Top>2.74127in</Top>
             <Left>0.19407in</Left>
             <Height>0.28125in</Height>
-            <Width>10.48361in</Width>
+            <Width>10.8221in</Width>
             <ZIndex>10</ZIndex>
+            <Visibility>
+              <Hidden>true</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>

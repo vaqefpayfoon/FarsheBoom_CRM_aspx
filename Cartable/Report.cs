@@ -83,7 +83,7 @@ namespace Cartable
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
-            sb.Append("<thead><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>جمع مبلغ فروش</th></tr></tfoot>");
+            sb.Append("<thead><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></tfoot>");
             sb.Append("<tbody>");
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
@@ -100,7 +100,20 @@ namespace Cartable
                 sb.Append("</td><td>");
                 sb.Append(dt.Rows[i]["u_date_tome"]);
                 sb.Append("</td><td>");
-                sb.Append(dt.Rows[i]["payment"]);
+                str = dt.Rows[i]["sale_price"].ToString();
+                sb.Append(str);
+                sb.Append("</td><td>");
+                str = dt.Rows[i]["manager_discount"].ToString();
+                sb.Append(str);
+                sb.Append("</td><td>");
+                str = dt.Rows[i]["event_discount"].ToString();
+                sb.Append(str);
+                sb.Append("</td><td>");
+                str = dt.Rows[i]["discount"].ToString();
+                sb.Append(str);
+                sb.Append("</td><td>");
+                str = dt.Rows[i]["payment"].ToString();
+                sb.Append(str);
                 sb.Append("</td></tr>");
             }
             sb.Append("</tbody></table>");

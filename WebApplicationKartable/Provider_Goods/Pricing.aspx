@@ -65,6 +65,8 @@
                 <asp:Button ID="btn_without_price" runat="server" CssClass="btn-facebook" OnClick="btn_without_price_Click" Text="بدون قیمت ها" /></td>
             <td>
                 <asp:Button ID="btn_with_price" runat="server" CssClass="btn-facebook" OnClick="btn_with_price_Click" Text="تمام فرش ها" /></td>
+            <td>
+                <asp:Button ID="btn_current_event" runat="server" CssClass="btn-facebook" OnClick="btn_current_event_Click" Text="فرش های تخصیص یافته نمایشگاه جاری" /></td>
         </tr>
     </table>
     <table>
@@ -157,29 +159,30 @@
                         <td>
                             <asp:DropDownList ID="lst_chele" runat="server" CssClass="dropdown1" Width="150px" DataSourceID="source_chele" DataTextField="chele_title" DataValueField="srl"></asp:DropDownList></td>
                     </tr>
-                    <tr>
+                    </tr>
+<%--                    <tr>
                         <td>دورنگی :</td>
                         <td>
                             <asp:CheckBox ID="chk_dorangi" runat="server"></asp:CheckBox></td>
                         <td>رفو :</td>
                         <td>
                             <asp:CheckBox ID="chk_rofo" runat="server"></asp:CheckBox></td>
-                    </tr>
+                    </tr>--%>
                     <tr>
-                        <td>کجی :</td>
+                        <td>جفت :</td>
                         <td>
                             <asp:CheckBox ID="chk_kaji" runat="server"></asp:CheckBox></td>
-                        <td>بد بافت :</td>
+                        <td>قدیم بافت :</td>
                         <td>
                             <asp:CheckBox ID="chk_badbaf" runat="server"></asp:CheckBox></td>
                     </tr>
                     <tr>
-                        <td>پا خوردگی :</td>
+                        <td>پا خورده :</td>
                         <td>
                             <asp:CheckBox ID="chk_pakhordegi" runat="server"></asp:CheckBox></td>
-                        <td>پارگی :</td>
+<%--                        <td>پارگی :</td>
                         <td>
-                            <asp:CheckBox ID="chk_tear" runat="server"></asp:CheckBox></td>
+                            <asp:CheckBox ID="chk_tear" runat="server"></asp:CheckBox></td>--%>
                     </tr>
                     <tr>
                         <td>رج شمار :</td>

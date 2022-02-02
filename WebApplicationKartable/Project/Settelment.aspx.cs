@@ -57,11 +57,16 @@ namespace WebApplicationKartable
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
             if (lst_provider.SelectedIndex == 0)
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code FROM SoldCarpets Where header_srl={0}", lst_project.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code,bayane,final_price, kaji, badbaf, pakhordegi FROM SoldCarpets Where header_srl={0}", lst_project.SelectedValue));
             }
             else
             {
-                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code FROM SoldCarpets Where header_srl={0} And provider_srl={1}", lst_project.SelectedValue, lst_provider.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, area, color_srl2, plan_title, color_name, buy_price,from_date,to_date,title_igd,down_payment,project_code,bayane,final_price, kaji, badbaf, pakhordegi FROM SoldCarpets Where header_srl={0} And provider_srl={1}", lst_project.SelectedValue, lst_provider.SelectedValue));
+            }
+            double buy = 0;
+            foreach (DataRow item in dt.Rows)
+            {
+                buy += Convert.IsDBNull(item["buy_price"]) ? 0 : Convert.ToDouble(item["buy_price"]);
             }
             DataSet1.CallBackDataTable Temp = new DataSet1.CallBackDataTable();
             if (dt.Rows.Count > 0)
@@ -86,6 +91,9 @@ namespace WebApplicationKartable
                     row["plan_title"] = Woak["plan_title"];
                     row["color_name"] = Woak["color_name"];
                     row["provider_code"] = Woak["provider_code"];
+                    row["couple"] = Convert.IsDBNull(Woak["kaji"]) ? "تک" : Convert.ToBoolean(Woak["kaji"]) == false ? "تک" : "جفت";
+                    row["neet"] = Convert.IsDBNull(Woak["badbaf"]) ? "جدید بافت" : Convert.ToBoolean(Woak["badbaf"]) == false ? "جدید بافت" : "قدیم بافت";
+                    row["feet"] = Convert.IsDBNull(Woak["pakhordegi"]) ? "نو" : Convert.ToBoolean(Woak["pakhordegi"]) == false ? "نو" : "پاخورده";
                     obo.str = Woak["buy_price"].ToString();
                     row["buy_price"] = obo.str;
                     Temp.Rows.Add(row);
@@ -99,7 +107,7 @@ namespace WebApplicationKartable
             //if(dt2.Rows.Count > 0)
             //    sb.Append(dt2.Rows[0][0]);            
             sb.Append("  ");
-            sb.Append("تخته فرشی که از آقای");
+            sb.Append("تخته فرشی که");
             sb.Append("  ");
             sb.Append(lst_provider.SelectedItem.Text);
             sb.Append("  ");
@@ -107,7 +115,7 @@ namespace WebApplicationKartable
             sb.Append("  ");
             sb.Append(obo.persian_date2(p_date));
             sb.Append("  ");
-            sb.Append("به فرش بوم تحویل دادند، تعداد");
+            sb.Append("به فرش بوم تحویل داده بودند، تعداد");
             sb.Append("  ");
             sb.Append("<b>");
             if (dt.Rows.Count > 0)
@@ -123,32 +131,64 @@ namespace WebApplicationKartable
             sb.Append("  ");
             sb.Append(obo.persian_date2(to_date));
             sb.Append("  ");
-            sb.Append("به ایشان (یا نماینده وی) عودت داده شد. جمع مبلغ فرشهای فروش رفته معادل");
+            sb.Append("به ایشان عودت داده شد. جمع مبلغ فرشهای فروش رفته معادل");
             sb.Append("  ");
+            double totalprice = 0;
+            double totaldownpayment = 0;
+            double totalpayment = 0;
             if (dt.Rows.Count > 0)
             {
-                obo.str = dt.Compute("SUM(buy_price)", "").ToString();
+                try
+                {
+                    totalprice = Convert.ToDouble(dt.Compute("SUM(buy_price)", ""));
+                }
+                catch { }
+                obo.str = totalprice.ToString();
                 sb.Append(obo.str);
             }
             sb.Append(" ریال است ");
-            sb.Append("تعداد ");
+            sb.Append("که تعداد ");
             sb.Append(" ");
-            //sb.Append(dt.Rows[0]["cnt_downpayment"]);
-            sb.Append(" ........... ");
-            sb.Append("تخته فرش به ارزش ");
+            int cnt = 0;
+            try
+            {
+                cnt = Convert.ToInt32(dt.Compute("Count(buy_price)", "bayane=1"));
+            }
+            catch { }
+            sb.Append(cnt.ToString());
+            sb.Append(" تخته از آنها به ارزش ");
             sb.Append("  ");
             if (dt.Rows.Count > 0)
             {
-                obo.str = dt.Compute("SUM(down_payment)", "").ToString();
+                try
+                {
+                    //totaldownpayment = Convert.ToDouble(dt.Compute("SUM(down_payment)", "bayane=1"));
+                    //totalpayment = Convert.ToDouble(dt.Compute("SUM(payment)", "bayane=1"));
+                    totaldownpayment = Convert.ToInt32(dt.Compute("Sum(buy_price)", "bayane=1"));
+                }
+                catch { }
+                //obo.str = (totaldownpayment - totalpayment).ToString();
+                obo.str = totaldownpayment.ToString();
                 sb.Append(obo.str);
             }
+
             sb.Append(" ريال ");
-            sb.Append("به صورت بیعانه ای به فروش رفته که از مبلغ فوق کسر شده و در صورت تسویه خریدار حداکثر ظرف یک ماه تسویه می گردد. باقیمانده طی یک فقره سند .............................. به شماره ................................. به مبلغ ..................................................................... ریال به ایشان (یا نماینده وی) پرداخت می گردد. بنابراین حسابهای فیمابین بابت نمایشگاه");
+            sb.Append(" به صورت بیعانه ای به فروش رفته که در صورت تسویه مشتریان، تا تاریخ... تسویه و در غیر این صورت عودت می گردد.بنابراین مبلغ قابل پرداخت ");
+            try
+            {
+                totalprice = 0;
+                totalprice = Convert.ToDouble(dt.Compute("SUM(buy_price)", "bayane=1"));
+            }
+            catch { }
+            
+            obo.str = (buy - totalprice).ToString();
             sb.Append("  ");
+            sb.Append(obo.str);
+            sb.Append(" ریال است که طی سند ذیل پرداخت شده و در نتیجه کلیه حسابهای فیمابین نمایشگاه ");
             if(dt.Rows.Count > 0)
                 sb.Append(dt.Rows[0]["project_code"]);
             sb.Append(" ");
-            sb.Append("به طور کامل تسویه شده و طرفین هیچ حقی نسبت به یکدیگر ندارند.");
+            sb.Append("به طور کامل تسویه حساب شده و طرفین هیچ حقی نسبت به هم ندارند.");
             ReportViewer1.ProcessingMode = ProcessingMode.Local;
             ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Settelment.rdlc");
             ReportViewer1.LocalReport.EnableExternalImages = true;

@@ -44,11 +44,11 @@ namespace WebApplicationKartable
                 (strConnString);
             if (chk_all.Checked)
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name, buy_price, ROUND(buy_price / NULLIF(ROUND(lenght * widht / 10000, 1), 0),0) AS u_buy,title_igd FROM dbo.Project_Goods_View Where  header_srl={0} order by {1}", lst_project.SelectedValue, lst_sort.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name, buy_price, ROUND(buy_price / NULLIF(ROUND(lenght * widht / 10000, 1), 0),0) AS u_buy,title_igd,dorangi,rofo, kaji, badbaf, pakhordegi, tear FROM dbo.Project_Goods_View Where  header_srl={0} order by {1}", lst_project.SelectedValue, lst_sort.SelectedValue));
             }
             else
             {
-                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name, buy_price, ROUND(buy_price / NULLIF(ROUND(lenght * widht / 10000, 1), 0),0) AS u_buy,title_igd FROM dbo.Project_Goods_View Where  header_srl={0} And provider_srl={1} order by {2}", lst_project.SelectedValue, lst_provider.SelectedValue, lst_sort.SelectedValue));
+                dt = obj.Get_Data(string.Format("SELECT srl,code_igd, provider_code, brand_name, size_title, carpet_title, porz_title, chele_title, lenght, widht, ROUND(lenght * widht / 10000, 2) AS area, color_srl2, plan_title, color_name, buy_price, ROUND(buy_price / NULLIF(ROUND(lenght * widht / 10000, 1), 0),0) AS u_buy,title_igd,dorangi,rofo, kaji, badbaf, pakhordegi, tear FROM dbo.Project_Goods_View Where  header_srl={0} And provider_srl={1} order by {2}", lst_project.SelectedValue, lst_provider.SelectedValue, lst_sort.SelectedValue));
             }
             if (dt.Rows.Count > 0)
             {
@@ -75,6 +75,9 @@ namespace WebApplicationKartable
                     row["buy_price"] = obo.str;
                     obo.str = Woak["u_buy"].ToString();                    
                     row["u_buy"] = obo.str;
+                    row["couple"] = Convert.IsDBNull(Woak["kaji"]) ? "تک" : Convert.ToBoolean(Woak["kaji"]) == false ? "تک" : "جفت";
+                    row["neet"] = Convert.IsDBNull(Woak["badbaf"]) ? "جدید بافت" : Convert.ToBoolean(Woak["badbaf"]) == false ? "جدید بافت" : "قدیم بافت";
+                    row["feet"] = Convert.IsDBNull(Woak["pakhordegi"]) ? "نو" : Convert.ToBoolean(Woak["pakhordegi"]) == false ? "نو" : "پاخورده";
                     Temp.Rows.Add(row);
 
                     GoodsClass pc = new GoodsClass();

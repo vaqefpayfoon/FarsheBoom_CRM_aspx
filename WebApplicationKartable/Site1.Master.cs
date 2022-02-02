@@ -104,7 +104,7 @@ namespace WebApplicationKartable
                 case "1":
                     {
                         lnk_firm.Enabled = true;
-                        lnk_supcust_excel.Enabled = true;
+                        lnk_supcustReport.Enabled = true;
                         lnk_supcust.Enabled = true;
                     }
                     break;
@@ -127,7 +127,7 @@ namespace WebApplicationKartable
                         lnk_supcust.Enabled = true;
                         //lnk_supcust_report.Enabled = true;
                         lnk_plan.Enabled = true;
-                        lnk_supcust_excel.Enabled = true;
+                        lnk_supcustReport.Enabled = true;
                         lnk_all_goods.Enabled = true;
                         //lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
@@ -138,8 +138,8 @@ namespace WebApplicationKartable
                         lnk_Survey.Enabled = true;
 
                         lnk_supcust_buyers.Enabled = true;
-                        lnk_supcust_audience.Enabled = true;
-                        lnk_audience_excel.Enabled = true;
+                        //lnk_supcust_audience.Enabled = true;
+                        //lnk_audience_excel.Enabled = true;
                     }
                     break;
                 case "3":
@@ -163,7 +163,7 @@ namespace WebApplicationKartable
                         lnk_supcust.Enabled = true;
                         //lnk_supcust_report.Enabled = true;
                         lnk_plan.Enabled = true;
-                        lnk_supcust_excel.Enabled = true;
+                        lnk_supcustReport.Enabled = true;
                         lnk_all_goods.Enabled = true;
                         //lnk_label.Enabled = true;
                         lnk_main_callback.Enabled = true;
@@ -174,8 +174,8 @@ namespace WebApplicationKartable
                         lnk_Survey.Enabled = true;
 
                         lnk_supcust_buyers.Enabled = true;
-                        lnk_supcust_audience.Enabled = true;
-                        lnk_audience_excel.Enabled = true;
+                        //lnk_supcust_audience.Enabled = true;
+                        //lnk_audience_excel.Enabled = true;
                     }
                     break;
             }
@@ -200,7 +200,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
 
-            dt = obj.Get_Data(@"SELECT dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, COUNT(dbo.acc_factor.srl) AS carpetCount, MAX(dbo.acc_factor.u_date_tome) AS u_date_tome, SUM(dbo.acc_factor.payment) AS payment FROM dbo.bas_supcust INNER JOIN dbo.acc_factor ON dbo.bas_supcust.srl = dbo.acc_factor.bassc_srl WHERE (dbo.acc_factor.u_date_tome <> '') GROUP BY dbo.bas_supcust.srl, dbo.bas_supcust.full_name, dbo.bas_supcust.tel1, dbo.bas_supcust.cell_phone, dbo.acc_factor.u_date_tome order by u_date_tome desc");
+            dt = obj.Get_Data(@"SELECT srl, full_name, tel1, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
             ExporttoExcelSupcust(dt);
         }
         protected void lnkExcel_audience_Click(object sender, EventArgs e)
@@ -278,12 +278,12 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
             HttpContext.Current.Response.Write("<font style='font-size:14.0pt; font-family:B Nazanin;'>");
             HttpContext.Current.Response.Write("<BR><BR><BR>");
-            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt; font-family:B Nazanin; background:white;'> <TR>");
+            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt; background:white;'> <TR>");
             int columnscount = table.Columns.Count;
             HttpContext.Current.Response.Write("</TR>");
             HttpContext.Current.Response.Write("<TR>");
             HttpContext.Current.Response.Write("<Td>");
-            HttpContext.Current.Response.Write("نام و نام خانوادگی");
+            HttpContext.Current.Response.Write("نام");
             HttpContext.Current.Response.Write("</Td>");
             HttpContext.Current.Response.Write("<Td>");
             HttpContext.Current.Response.Write("تلفن");
@@ -291,7 +291,6 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.Write("<Td>");
             HttpContext.Current.Response.Write("موبایل");
             HttpContext.Current.Response.Write("</Td>");
-
             HttpContext.Current.Response.Write("<Td>");
             HttpContext.Current.Response.Write("تعداد فرش");
             HttpContext.Current.Response.Write("</Td>");
@@ -299,7 +298,19 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.Write("آخرین فاکتور");
             HttpContext.Current.Response.Write("</Td>");
             HttpContext.Current.Response.Write("<Td>");
-            HttpContext.Current.Response.Write("جمع مبلغ فروش");
+            HttpContext.Current.Response.Write("قیمت فروش");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تخفیف مدیریتی");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تخفیف نمایشگاهی");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("تخفیف");
+            HttpContext.Current.Response.Write("</Td>");
+            HttpContext.Current.Response.Write("<Td>");
+            HttpContext.Current.Response.Write("قابل پرداخت");
             HttpContext.Current.Response.Write("</Td>");
             HttpContext.Current.Response.Write("</TR>");
             foreach (DataRow row in table.Rows)

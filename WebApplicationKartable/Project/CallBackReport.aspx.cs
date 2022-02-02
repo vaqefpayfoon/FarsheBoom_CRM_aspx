@@ -85,46 +85,48 @@ namespace WebApplicationKartable
                     row["plan_title"] = Woak["plan_title"];
                     row["color_name"] = Woak["color_name"];
                     row["provider_code"] = Woak["provider_code"];
-
-                    if((!Convert.IsDBNull(Woak["dorangi"])) ||
-                       (!Convert.IsDBNull(Woak["rofo"])) ||
-                       (!Convert.IsDBNull(Woak["badbaf"])) ||
-                       (!Convert.IsDBNull(Woak["pakhordegi"])) ||
-                       (!Convert.IsDBNull(Woak["tear"])))
-                    {
-                        try
-                        {
-                            if ((Convert.ToBoolean(Woak["dorangi"])) ||
-                                (Convert.ToBoolean(Woak["rofo"])) ||
-                                (Convert.ToBoolean(Woak["badbaf"])) ||
-                                (Convert.ToBoolean(Woak["pakhordegi"])) ||
-                                (Convert.ToBoolean(Woak["tear"])))
-                            {
-                                irad.Append("فرش با کد");
-                                irad.Append(" ");
-                                irad.Append(Woak["code_igd"]);
-                                irad.Append(" ");
-                                irad.Append(Woak["brand_name"]);
-                                irad.Append(" ");
-                                irad.Append(Woak["size_title"]);
-                                irad.Append(" ");
-                                irad.Append("با ایرادات ");
-                                irad.Append(!Convert.ToBoolean(Woak["dorangi"]) ? "" : "دو رنگی");
-                                irad.Append(" ");
-                                irad.Append(!Convert.ToBoolean(Woak["rofo"]) ? "" : "رفو");
-                                irad.Append(" ");
-                                irad.Append(!Convert.ToBoolean(Woak["kaji"]) ? "" : "کجی");
-                                irad.Append(" ");
-                                irad.Append(!Convert.ToBoolean(Woak["badbaf"]) ? "" : "بدبافت");
-                                irad.Append(" ");
-                                irad.Append(!Convert.ToBoolean(Woak["pakhordegi"]) ? "" : "پاخوردگی");
-                                irad.Append(" ");
-                                irad.Append(!Convert.ToBoolean(Woak["tear"]) ? "" : "پارگی");
-                                irad.Append("تحویل گرفته شد");
-                            }
-                        }
-                        catch { }
-                    }
+                    row["couple"] = Convert.IsDBNull(Woak["kaji"]) ? "تک" : Convert.ToBoolean(Woak["kaji"]) == false ? "تک" : "جفت";
+                    row["neet"] = Convert.IsDBNull(Woak["badbaf"]) ? "جدید بافت" : Convert.ToBoolean(Woak["badbaf"]) == false ? "جدید بافت" : "قدیم بافت";
+                    row["feet"] = Convert.IsDBNull(Woak["pakhordegi"]) ? "نو" : Convert.ToBoolean(Woak["pakhordegi"]) == false ? "نو" : "پاخورده";
+                    //if((!Convert.IsDBNull(Woak["dorangi"])) ||
+                    //   (!Convert.IsDBNull(Woak["rofo"])) ||
+                    //   (!Convert.IsDBNull(Woak["badbaf"])) ||
+                    //   (!Convert.IsDBNull(Woak["pakhordegi"])) ||
+                    //   (!Convert.IsDBNull(Woak["tear"])))
+                    //{
+                    //    try
+                    //    {
+                    //        if ((Convert.ToBoolean(Woak["dorangi"])) ||
+                    //            (Convert.ToBoolean(Woak["rofo"])) ||
+                    //            (Convert.ToBoolean(Woak["badbaf"])) ||
+                    //            (Convert.ToBoolean(Woak["pakhordegi"])) ||
+                    //            (Convert.ToBoolean(Woak["tear"])))
+                    //        {
+                    //            irad.Append("فرش با کد");
+                    //            irad.Append(" ");
+                    //            irad.Append(Woak["code_igd"]);
+                    //            irad.Append(" ");
+                    //            irad.Append(Woak["brand_name"]);
+                    //            irad.Append(" ");
+                    //            irad.Append(Woak["size_title"]);
+                    //            irad.Append(" ");
+                    //            irad.Append("با ایرادات ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["dorangi"]) ? "" : "دو رنگی");
+                    //            irad.Append(" ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["rofo"]) ? "" : "رفو");
+                    //            irad.Append(" ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["kaji"]) ? "" : "کجی");
+                    //            irad.Append(" ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["badbaf"]) ? "" : "بدبافت");
+                    //            irad.Append(" ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["pakhordegi"]) ? "" : "پاخوردگی");
+                    //            irad.Append(" ");
+                    //            irad.Append(!Convert.ToBoolean(Woak["tear"]) ? "" : "پارگی");
+                    //            irad.Append("تحویل گرفته شد");
+                    //        }
+                    //    }
+                    //    catch { }
+                    //}
                     Temp.Rows.Add(row);
                 }
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();

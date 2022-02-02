@@ -312,6 +312,24 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_u_sale;
 
         /// <summary>
+        /// txt_discount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_discount;
+
+        /// <summary>
+        /// txt_disc_per control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_disc_per;
+
+        /// <summary>
         /// txt_first_discount control.
         /// </summary>
         /// <remarks>
@@ -321,13 +339,31 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_first_discount;
 
         /// <summary>
-        /// txt_discount control.
+        /// txt_total_discount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_discount;
+        protected global::System.Web.UI.WebControls.TextBox txt_total_discount;
+
+        /// <summary>
+        /// txt_final_payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_final_payment;
+
+        /// <summary>
+        /// chk_bayane control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_bayane;
 
         /// <summary>
         /// txt_down_payment control.
@@ -402,13 +438,13 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_address;
 
         /// <summary>
-        /// chk_bayane control.
+        /// txt_profit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_bayane;
+        protected global::System.Web.UI.WebControls.TextBox txt_profit;
 
         /// <summary>
         /// image1 control.
@@ -481,5 +517,41 @@ namespace WebApplicationKartable
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
+
+        /// <summary>
+        /// MaskedEditExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender4;
+
+        /// <summary>
+        /// MaskedEditExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender6;
+
+        /// <summary>
+        /// MaskedEditExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender5;
+
+        /// <summary>
+        /// MaskedEditExtender7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender7;
     }
 }
