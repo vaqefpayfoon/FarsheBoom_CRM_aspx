@@ -132,6 +132,24 @@ namespace WebApplicationKartable
         protected global::System.Web.UI.WebControls.TextBox txt_payment;
 
         /// <summary>
+        /// txt_event_discount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_event_discount;
+
+        /// <summary>
+        /// txt_admin_discount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_admin_discount;
+
+        /// <summary>
         /// txt_total_discount control.
         /// </summary>
         /// <remarks>

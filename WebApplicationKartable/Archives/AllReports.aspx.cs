@@ -72,7 +72,7 @@ namespace WebApplicationKartable
                 case "Buyers":
                     {
                         lbl_header.Text = "لیست خریداران";
-                        DataTable dt = obj.Get_Data("SELECT srl, full_name, tel1, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
+                        DataTable dt = obj.Get_Data("SELECT srl, full_name, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
                         literal_report.Text = rpt.buyers_list(dt);
                     }
                     break;

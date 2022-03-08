@@ -83,7 +83,7 @@ namespace Cartable
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<table id='example' class='display' cellspacing='0' width='100%'>");
-            sb.Append("<thead><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>تلفن</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></tfoot>");
+            sb.Append("<thead><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></thead><tfoot><tr><th>ردیف</th><th>نام و نام خانوادگی</th><th>موبایل</th><th>تعداد خرید </th><th>تاریخ آخرین فاکتور</th><th>مجموع قیمت فروش</th><th>مجموع تخفیف مدیریت</th><th>مجموع تخفیف نمایشگاهی</th><th>مجموع تخفیف</th><th>مجموع قابل پرداخت</th></tr></tfoot>");
             sb.Append("<tbody>");
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
@@ -91,8 +91,6 @@ namespace Cartable
                 sb.Append(i + 1);
                 sb.Append("</td><td><a href='../Supcust/Supcust.aspx?srl=" + dt.Rows[i]["srl"] + "'>");
                 sb.Append(dt.Rows[i]["full_name"] + "</a>");
-                sb.Append("</td><td>");
-                sb.Append(dt.Rows[i]["tel1"]);
                 sb.Append("</td><td>");
                 sb.Append(dt.Rows[i]["cell_phone"]);
                 sb.Append("</td><td>");

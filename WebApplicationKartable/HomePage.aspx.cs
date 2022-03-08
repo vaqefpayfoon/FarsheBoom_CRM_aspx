@@ -204,7 +204,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable(); Search obj = new Search(strConnString);
 
-            dt = obj.Get_Data(@"SELECT srl, full_name, tel1, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
+            dt = obj.Get_Data(@"SELECT srl, full_name, cell_phone, carpetCount, u_date_tome, sale_price, manager_discount, event_discount, discount, payment FROM [94_vaq].Buyers");
             ExporttoExcelSupcust(dt);
         }
         protected void lnkExcel_audience_Click(object sender, EventArgs e)
@@ -282,7 +282,7 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
             HttpContext.Current.Response.Write("<font style='font-size:14.0pt; font-family:B Nazanin;'>");
             HttpContext.Current.Response.Write("<BR><BR><BR>");
-            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt; font-family:B Nazanin; background:white;'> <TR>");
+            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:14.0pt;background:white;'> <TR>");
             int columnscount = table.Columns.Count;
             HttpContext.Current.Response.Write("</TR>");
             HttpContext.Current.Response.Write("<TR>");
@@ -290,10 +290,7 @@ namespace WebApplicationKartable
             HttpContext.Current.Response.Write("نام");
             HttpContext.Current.Response.Write("</Td>");
             HttpContext.Current.Response.Write("<Td>");
-            HttpContext.Current.Response.Write("تلفن");
-            HttpContext.Current.Response.Write("</Td>");
-            HttpContext.Current.Response.Write("<Td>");
-            HttpContext.Current.Response.Write("موبایل");
+            HttpContext.Current.Response.Write("همراه");
             HttpContext.Current.Response.Write("</Td>");
             HttpContext.Current.Response.Write("<Td>");
             HttpContext.Current.Response.Write("تعداد فرش");

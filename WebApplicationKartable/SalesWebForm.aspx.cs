@@ -76,12 +76,12 @@ namespace WebApplicationKartable
                 }
                 obb.str = sale.ToString();
                 txt_sale.Text = obb.str;
-                //
+                
                 if (dis > 0 && sale > 0)
                 {
-                    dis = sale - (dis * sale / 100);
+                    buy = sale - (dis * sale / 100);
                 }
-                obb.str = (sale - dis).ToString();
+                obb.str = (buy).ToString();
                 txt_final_payment.Text = obb.str;
                 txt_plan.Text = Find["plan_title"].ToString().Trim();
             }

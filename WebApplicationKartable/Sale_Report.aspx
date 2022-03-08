@@ -68,12 +68,21 @@
             <td>قیمت نمایشگاه</td>
             <td>
                 <asp:TextBox ID="txt_payment" runat="server" CssClass="textbox" BackColor="LightSteelBlue" Width="180px" ReadOnly="true"></asp:TextBox></td>
+            <td>تخفیف نمایشگاه :</td>
+            <td>
+                <asp:TextBox ID="txt_event_discount" runat="server" CssClass="textbox" BackColor="LightSteelBlue" Width="180px" ReadOnly="true"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>تخفیف مدیریتی :</td>
+            <td>
+                <asp:TextBox ID="txt_admin_discount" runat="server" CssClass="textbox" BackColor="LightSteelBlue" Width="180px" ReadOnly="true"></asp:TextBox></td>
+
             <td>مجموع تخفیف :</td>
             <td>
                 <asp:TextBox ID="txt_total_discount" runat="server" CssClass="textbox" BackColor="LightSteelBlue" Width="180px" ReadOnly="true"></asp:TextBox></td>
         </tr>
         <tr>
-            <td>حاشیه سود</td>
+            <td>قابل پرداخت</td>
             <td>
                 <asp:TextBox ID="txt_margin" runat="server" CssClass="textbox" BackColor="LightSteelBlue" Width="180px" ReadOnly="true"></asp:TextBox></td>
             <td>سود نهایی :</td>
@@ -96,13 +105,13 @@
             <asp:BoundField DataField="buy_price" HeaderText="خرید" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="sale_price" HeaderText="فروش" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <%--<asp:BoundField DataField="discount" HeaderText="تخفیف" ItemStyle-Width="60" />--%>
-            <asp:BoundField DataField="discount_amount" HeaderText="تخفیف" ItemStyle-Width="90" DataFormatString="{0:C0}" />
+            <asp:BoundField DataField="discount_amount" HeaderText="تخفیف نمایشگاه" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <%--<asp:BoundField DataField="down_payment" HeaderText="پیش پرداخت" ItemStyle-Width="90" DataFormatString="{0:C0}" />--%>
             <%--<asp:BoundField DataField="final_sale" HeaderText="نمایشگاه" ItemStyle-Width="90" DataFormatString="{0:C0}" />--%>
             <asp:BoundField DataField="manager_discount" HeaderText="تخفیف مدیریتی" ItemStyle-Width="90" DataFormatString="{0:C0}" />
-            <asp:BoundField DataField="final_discount" HeaderText="تخفیف کلی" ItemStyle-Width="90" DataFormatString="{0:C0}" />
+            <asp:BoundField DataField="final_discount" HeaderText="مجموع تخفیف" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <%--<asp:BoundField DataField="final_price" HeaderText="قیمت ن" ItemStyle-Width="90" DataFormatString="{0:C0}" />--%>
-            <asp:BoundField DataField="margin_profit" HeaderText="حاشیه سود" ItemStyle-Width="90" DataFormatString="{0:C0}" />
+            <asp:BoundField DataField="margin_profit" HeaderText="قابل پرداخت" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="final_profit2" HeaderText="سود نهایی" ItemStyle-Width="90" DataFormatString="{0:C0}" />
             <asp:BoundField DataField="bank_name" HeaderText="بانک" ItemStyle-Width="80" ReadOnly="True" />
         </Columns>

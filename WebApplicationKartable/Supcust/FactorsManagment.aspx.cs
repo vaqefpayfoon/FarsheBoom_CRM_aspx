@@ -168,7 +168,7 @@ namespace WebApplicationKartable
             try
             {
                 DataTable dt = new DataTable(); Search obj = new Search(strConnString);
-                dt = obj.Get_Data("SELECT srl,igd_srl FROM dbo.acc_factor where factor_no='" + txtContactsSearch.Text + "'");
+                dt = obj.Get_Data("SELECT srl,igd_srl,bassc_srl FROM dbo.acc_factor where factor_no='" + txtContactsSearch.Text + "'");
                 if (dt.Rows.Count > 0)
                 {
                     //SqlParameter[] param = new SqlParameter[1];
@@ -183,7 +183,7 @@ namespace WebApplicationKartable
                         con.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "update inv_goods set sold=@sold,build_state=@build_state where srl=@srl;";
-                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(dt.Rows[0]["igd_srl"]); ;
+                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(dt.Rows[0]["igd_srl"]);
                     cmd.Parameters.Add("@sold", SqlDbType.Bit).Value = true;
                     cmd.Parameters.Add("@build_state", SqlDbType.VarChar).Value = "4";
                     cmd.ExecuteNonQuery();
@@ -198,6 +198,19 @@ namespace WebApplicationKartable
                     cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(dt.Rows[0]["srl"]); ;
                     cmd.Parameters.Add("@reject", SqlDbType.Bit).Value = false;
                     cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "update bas_supcust set age=@age where srl=@srl;";
+                    cmd.Parameters.Add("@srl", SqlDbType.Int).Value = Convert.ToInt32(dt.Rows[0]["bassc_srl"]);
+                    cmd.Parameters.Add("@age", SqlDbType.Bit).Value = false;
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+
                     con.Close();
                     lblError.Text = "عملیات موفق";
                 }                

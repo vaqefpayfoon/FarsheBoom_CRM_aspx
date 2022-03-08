@@ -26,7 +26,7 @@ namespace WebApplicationKartable
         public string u_date_time { get; set; }
         public string provider_code { get; set; }
         public string margin_profit { get; set; }
-        public string percent_profit { get; set; }
+        public int percent_profit { get; set; }
         public string price_home { get; set; }
         public string title_igd { get; set; }
         public List<PricingClass> GetPricingClass(int state , string provider)
@@ -116,8 +116,7 @@ WHERE        (dbo.inv_goods.sold = 'False' OR
                     catch { pc.margin_profit = "0"; }
                     if (!Convert.IsDBNull(Woak["buy_price"]) && !Convert.IsDBNull(Woak["final_sale"]))
                     {
-                        cur.str = Convert.ToInt64(Math.Round((((Convert.ToDouble(Woak["final_sale"]) - Convert.ToDouble(Woak["buy_price"])) / Convert.ToDouble(Woak["final_sale"])) * 100), 0)).ToString();
-                        pc.percent_profit = cur.str;
+                        pc.percent_profit = Convert.ToInt32(Math.Round((((Convert.ToDouble(Woak["final_sale"]) - Convert.ToDouble(Woak["buy_price"])) / Convert.ToDouble(Woak["final_sale"])) * 100), 0));
                     }
                     lstPricingClass.Add(pc);
                 }
@@ -168,8 +167,7 @@ WHERE        (dbo.inv_goods.sold = 'False' OR
                     catch { pc.margin_profit = "0"; }
                     if (!Convert.IsDBNull(Woak["buy_price"]) && !Convert.IsDBNull(Woak["final_sale"]))
                     {
-                        cur.str = Convert.ToInt64(Math.Round((((Convert.ToDouble(Woak["final_sale"]) - Convert.ToDouble(Woak["buy_price"])) / Convert.ToDouble(Woak["final_sale"])) * 100), 0)).ToString();
-                        pc.percent_profit = cur.str;
+                        pc.percent_profit = Convert.ToInt32(Math.Round((((Convert.ToDouble(Woak["final_sale"]) - Convert.ToDouble(Woak["buy_price"])) / Convert.ToDouble(Woak["final_sale"])) * 100), 0));
                     }
                     lstPricingClass.Add(pc);
                 }

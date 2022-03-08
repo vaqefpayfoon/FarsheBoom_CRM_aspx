@@ -554,6 +554,17 @@ namespace WebApplicationKartable
             cmd.Parameters.Add("@sold", SqlDbType.Bit).Value = true;
             cmd.Parameters.Add("@build_state", SqlDbType.VarChar).Value = "4";
             cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update bas_supcust set age=@age where srl=@srl;";
+            cmd.Parameters.Add("@srl", SqlDbType.Int).Value = bassc_srl;
+            cmd.Parameters.Add("@age", SqlDbType.Bit).Value = true;
+            cmd.ExecuteNonQuery();
+
             con.Close();
 
             lblError.Text = "فاکتور جدید ایجاد شد";
@@ -603,6 +614,17 @@ namespace WebApplicationKartable
             cmd.Parameters.Add("@sold", SqlDbType.Bit).Value = true;
             cmd.Parameters.Add("@build_state", SqlDbType.VarChar).Value = "4";
             cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update bas_supcust set age=@age where srl=@srl;";
+            cmd.Parameters.Add("@srl", SqlDbType.Int).Value = bassc_srl;
+            cmd.Parameters.Add("@age", SqlDbType.Bit).Value = true;
+            cmd.ExecuteNonQuery();
+
             con.Close();
         }
         private int max_srl()

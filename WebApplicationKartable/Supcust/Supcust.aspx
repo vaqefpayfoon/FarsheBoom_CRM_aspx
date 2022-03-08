@@ -54,7 +54,7 @@
             </td>
             <td>خریدار :</td>
             <td>
-                <asp:CheckBox ID="chk_age" runat="server" Width="180px" Checked="false"></asp:CheckBox>
+                <asp:CheckBox ID="chk_age" runat="server" Width="180px" Enabled="false" Checked="false"></asp:CheckBox>
             </td>
         </tr>
         <tr>

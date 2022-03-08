@@ -346,43 +346,47 @@ namespace WebApplicationKartable
                     obj.str = payment.ToString();
                     txt_payment.Text = obj.str;
                 }
+
+                object manager_discount;
+                manager_discount = dt.Compute("SUM(manager_discount)", "");
+                if (!Convert.IsDBNull(manager_discount))
+                {
+                    obj.str = Convert.ToInt64(manager_discount).ToString();
+                    txt_admin_discount.Text = obj.str;
+                }
+
                 object discount_amount;
                 discount_amount = dt.Compute("SUM(discount_amount)", "");
+                if (!Convert.IsDBNull(discount_amount))
+                {
+                    obj.str = Convert.ToInt64(discount_amount).ToString();
+                    txt_event_discount.Text = obj.str;
+                }
                 object final_discount;
                 final_discount = dt.Compute("SUM(final_discount)", "");
                 if (!Convert.IsDBNull(discount_amount) && !Convert.IsDBNull(final_discount))
                 {
-                    obj.str = (Convert.ToInt64(discount_amount) + Convert.ToInt64(final_discount)).ToString();
+                    obj.str = Convert.ToInt64(final_discount).ToString();
                     txt_total_discount.Text = obj.str;
                 }
-                object margin;
-                margin = dt.Compute("SUM(margin_profit)", "");
-                if (!Convert.IsDBNull(margin))
+                double margin_profit = 0;
+                double final_profit2 = 0;
+                foreach (DataRow row in dt.Rows)
                 {
-                    obj.str = margin.ToString();
-                    txt_margin.Text = obj.str;
+                    if(!Convert.IsDBNull(row["margin_profit"]))
+                    {
+                        margin_profit += Convert.ToDouble(row["margin_profit"]);
+                    }
+                    if (!Convert.IsDBNull(row["final_profit2"]))
+                    {
+                        final_profit2 += Convert.ToDouble(row["final_profit2"]);
+                    }
                 }
-                object profit;
-                profit = dt.Compute("SUM(final_profit2)", "");
-                if (!Convert.IsDBNull(profit))
-                {
-                    obj.str = profit.ToString();
-                    txt_profit.Text = obj.str;
-                }
+                obj.str = margin_profit.ToString();
+                txt_margin.Text = obj.str;
 
-                //object downPayment;
-                //downPayment = dt.Compute("SUM(down_payment)", "");
-                //if (!Convert.IsDBNull(downPayment))
-                //{
-                //    obj.str = downPayment.ToString();
-                //    txt_down_payment.Text = obj.str;
-                //}
-
-                //if (!Convert.IsDBNull(payment) && !Convert.IsDBNull(downPayment))
-                //{
-                //    obj.str = (Convert.ToDouble(payment) - Convert.ToDouble(downPayment)).ToString();
-                //    txt_remain.Text = obj.str;
-                //}
+                obj.str = final_profit2.ToString();
+                txt_profit.Text = obj.str;
             }
             else
             {

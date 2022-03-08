@@ -746,7 +746,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable();
             Search obj = new Search(strConnString);
-            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets where full_name='{0}' order by u_date_tome desc", txtContactsSearch2.Text));
+            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets where full_name='{0}' order by u_date_tome desc", txtContactsSearch2.Text));
             if (dt.Rows.Count > 0)
             {
                 gridview.DataSource = dt;
@@ -758,7 +758,7 @@ namespace WebApplicationKartable
         {
             DataTable dt = new DataTable();
             Search obj = new Search(strConnString);
-            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price FROM dbo.SoldCarpets Where cell_phone='{0}' order by u_date_tome desc", txt_cell_phone.Text));
+            dt = obj.Get_Data(string.Format("SELECT srl_f, srl, code_igd, brand_name, size_title, provider_name, color_name, project_name, area, factor_no, u_date_tome,discount, discount_amount, down_payment, final_price, sale_price, cell_phone, full_name FROM dbo.SoldCarpets Where cell_phone='{0}' order by u_date_tome desc", txt_cell_phone.Text));
             if (dt.Rows.Count > 0)
             {
                 gridview.DataSource = dt;
