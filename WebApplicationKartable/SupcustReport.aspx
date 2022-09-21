@@ -16,8 +16,11 @@
                 <asp:Button ID="btn_report" runat="server" CssClass="btn-facebook" OnClick="btn_report_Click" Text="گزارش مشتریان"/>
             </td>
             <td>
-                <asp:Button ID="btn_excel" runat="server" CssClass="btn-facebook" OnClick="btn_excel_Click" Text="خروجی اکسل"/>
+                <asp:Button ID="btn_excel" runat="server" CssClass="btn-facebook" OnClick="btn_excel_Click" Text="خروجی اکسل مشتریان"/>
             </td>
+<%--            <td>
+                <asp:Button ID="btn_excel_buyers" runat="server" CssClass="btn-facebook" OnClick="btn_excel_buyers_Click" Text="خروجی اکسل خریداران"/>
+            </td>--%>
         </tr>
     </table>
     <div class="row">
