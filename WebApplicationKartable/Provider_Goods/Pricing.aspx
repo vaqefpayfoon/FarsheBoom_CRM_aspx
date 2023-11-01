@@ -537,10 +537,10 @@
             </td>
         </tr>
     </table>
-    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_sell" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
-    <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="txt_buy" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txt_sell" Mask="9,999,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="txt_buy" Mask="9,999,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
     <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" TargetControlID="txt_discount" Mask="99" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
-    <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" TargetControlID="txt_price_home" Mask="9,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
+    <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" TargetControlID="txt_price_home" Mask="9,999,999,999,999" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" OnInvalidCssClass="MaskedEditError" MaskType="Number" InputDirection="RightToLeft" AcceptNegative="None" DisplayMoney="None" ErrorTooltipEnabled="True" />
     <script type="text/javascript">
         function OnClientPopulating(sender, e) {
             sender._element.className = "loading";

@@ -177,10 +177,10 @@ namespace WebApplicationKartable
             }
             Common obj = new Common();
             int srl = max_srl_goods();
-            if(srl > 25100)
-            {
-                return;
-            }
+            //if(srl > 25100)
+            //{
+            //    return;
+            //}
             int remain = (srl / 100) + 1;
             string path = Server.MapPath("/product_images");
             string save_image = "../product_images/" + remain;
